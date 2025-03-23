@@ -1,0 +1,30 @@
+@layer base {
+	* {
+		@apply border-border;
+	}
+	html {
+		@apply scroll-smooth;
+	}
+	body {
+		@apply flex min-h-dvh w-dvw flex-col overflow-x-clip bg-background text-foreground;
+		& > div:first-of-type {
+			@apply contents;
+		}
+		& main {
+			@apply mb-24;
+		}
+	}
+
+	figure {
+		&:has(+ .block-wrapper) {
+			@apply mb-4;
+		}
+	}
+	section figure {
+		@apply rounded;
+	}
+
+	section.layout-full:not([data-template='inherit-main']) > figure {
+		@apply rounded-none;
+	}
+}

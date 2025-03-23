@@ -1,0 +1,99 @@
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 20 15% 4%;
+		--card: 0 0% 100%;
+		--card-foreground: 20 15% 4%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 20 15% 4%;
+		--primary: 25 95% 53%;
+		--primary-foreground: 60 9% 97%;
+		--secondary: 60 5% 87%;
+		--secondary-foreground: 24 10% 10%;
+		--muted: 60 0% 93%;
+		--muted-foreground: 25 5% 48%;
+		--accent: 60 5% 87%;
+		--accent-foreground: 24 10% 10%;
+		--destructive: 0 75% 50%;
+		--destructive-foreground: 60 9% 97%;
+		--border: 20 6% 90%;
+		--input: 20 6% 90%;
+		--ring: 25 95% 53%;
+		--radius: 0.5rem;
+	}
+	.dark {
+		--background: 20 0% 13%;
+		--foreground: 60 9% 97%;
+		--card: 20 15% 4%;
+		--card-foreground: 60 9% 97%;
+		--popover: 20 15% 4%;
+		--popover-foreground: 60 9% 97%;
+		--primary: 12 94% 62%;
+		--primary-foreground: 0 0% 13%;
+		--secondary: 0 0% 27%;
+		--secondary-foreground: 60 9% 97%;
+		--muted: 13 0% 18%;
+		--muted-foreground: 24 6% 64%;
+		--accent: 12 65% 32%;
+		--accent-foreground: 60 9% 97%;
+		--destructive: 0 73% 50%;
+		--destructive-foreground: 60 9% 97%;
+		--border: 13 7% 18%;
+		--input: 13 7% 18%;
+		--ring: 12 94% 62%;
+	}
+
+	/* Cookie-consent theme */
+	#cc-main {
+		--cc-bg: hsl(var(--muted));
+		--cc-primary-color: hsl(var(--foreground));
+		--cc-secondary-color: hsl(var(--foreground));
+
+		--cc-btn-primary-bg: hsl(var(--background));
+		--cc-btn-primary-color: hsl(var(--foreground));
+		--cc-btn-primary-border-color: var(--cc-btn-primary-bg);
+		--cc-btn-primary-hover-bg: hsl(var(--secondary));
+		--cc-btn-primary-hover-color: hsl(var(--accent-foreground));
+		--cc-btn-primary-hover-border-color: var(--cc-btn-primary-hover-bg);
+
+		--cc-btn-secondary-bg: hsl(var(--muted));
+		--cc-btn-secondary-color: var(--cc-primary-color);
+		--cc-btn-secondary-border-color: hsl(var(--secondary));
+		--cc-btn-secondary-hover-bg: hsl(var(--secondary));
+		--cc-btn-secondary-hover-color: hsl(var(--foreground));
+		--cc-btn-secondary-hover-border-color: var(--cc-btn-secondary-hover-bg);
+
+		--cc-separator-border-color: hsl(var(--background));
+
+		--cc-toggle-on-bg: hsl(var(--primary));
+		--cc-toggle-off-bg: hsl(var(--secondary));
+		--cc-toggle-on-knob-bg: var(--cc-btn-primary-color);
+		--cc-toggle-off-knob-bg: var(--cc-btn-primary-color);
+
+		--cc-toggle-enabled-icon-color: var(--cc-btn-primary-color);
+		/*  yes (v tick) */
+		--cc-toggle-disabled-icon-color: var(--cc-btn-primary-color);
+		/*  no (x tick) */
+
+		--cc-toggle-readonly-bg: hsl(var(--background));
+		--cc-toggle-readonly-knob-bg: hsl(var(--secondary));
+		--cc-toggle-readonly-knob-icon-color: var(--cc-toggle-readonly-bg);
+
+		--cc-section-category-border: hsl(var(--background));
+
+		--cc-cookie-category-block-bg: hsl(var(--background));
+		--cc-cookie-category-block-border: hsl(var(--muted));
+		--cc-cookie-category-block-hover-bg: hsl(var(--background));
+		--cc-cookie-category-block-hover-border: transparent;
+		--cc-cookie-category-expanded-block-bg: hsl(var(--background));
+		--cc-cookie-category-expanded-block-hover-bg: var(--cc-toggle-readonly-bg);
+
+		--cc-overlay-bg: rgba(0, 0, 0, 0.65);
+		--cc-webkit-scrollbar-bg: var(--cc-section-category-border);
+		--cc-webkit-scrollbar-hover-bg: var(--cc-btn-primary-hover-bg);
+
+		--cc-footer-bg: hsl(var(--background));
+		--cc-footer-color: var(--cc-secondary-color);
+		--cc-footer-border-color: hsl(var(--background));
+	}
+}

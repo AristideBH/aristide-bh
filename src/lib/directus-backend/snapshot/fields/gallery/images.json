@@ -1,0 +1,31 @@
+{
+  "collection": "gallery",
+  "field": "images",
+  "type": "alias",
+  "meta": {
+    "collection": "gallery",
+    "conditions": null,
+    "display": "related-values",
+    "display_options": {
+      "template": "{{directus_files_id.title}}"
+    },
+    "field": "images",
+    "group": null,
+    "hidden": false,
+    "interface": "files",
+    "note": "Please only select image files (jpg, png, etc.)",
+    "options": {
+      "template": "{{directus_files_id.$thumbnail}} {{directus_files_id.title}}"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 4,
+    "special": [
+      "files"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}
