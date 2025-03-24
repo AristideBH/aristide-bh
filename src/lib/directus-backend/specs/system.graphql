@@ -14,21 +14,24 @@ type Query {
   relations_by_name(collection: String!, field: String!): directus_relations
   extensions: [directus_extensions!]!
   users_me: directus_users
+  permissions_me: permissions_me_type
+  roles_me: [directus_roles]
+  policies_me_globals: policy_me_globals_type
   activity(filter: directus_activity_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_activity!]!
   activity_by_id(id: ID!, version: String): directus_activity
   activity_aggregated(groupBy: [String], filter: directus_activity_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_activity_aggregated!]!
-  roles(filter: directus_roles_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_roles!]!
-  roles_by_id(id: ID!, version: String): directus_roles
-  roles_aggregated(groupBy: [String], filter: directus_roles_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_roles_aggregated!]!
-  files(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_files!]!
-  files_by_id(id: ID!, version: String): directus_files
-  files_aggregated(groupBy: [String], filter: directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_files_aggregated!]!
-  folders(filter: directus_folders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_folders!]!
-  folders_by_id(id: ID!, version: String): directus_folders
-  folders_aggregated(groupBy: [String], filter: directus_folders_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_folders_aggregated!]!
   permissions(filter: directus_permissions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_permissions!]!
   permissions_by_id(id: ID!, version: String): directus_permissions
   permissions_aggregated(groupBy: [String], filter: directus_permissions_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_permissions_aggregated!]!
+  roles(filter: directus_roles_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_roles!]!
+  roles_by_id(id: ID!, version: String): directus_roles
+  roles_aggregated(groupBy: [String], filter: directus_roles_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_roles_aggregated!]!
+  folders(filter: directus_folders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_folders!]!
+  folders_by_id(id: ID!, version: String): directus_folders
+  folders_aggregated(groupBy: [String], filter: directus_folders_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_folders_aggregated!]!
+  files(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_files!]!
+  files_by_id(id: ID!, version: String): directus_files
+  files_aggregated(groupBy: [String], filter: directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_files_aggregated!]!
   presets(filter: directus_presets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_presets!]!
   presets_by_id(id: ID!, version: String): directus_presets
   presets_aggregated(groupBy: [String], filter: directus_presets_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_presets_aggregated!]!
@@ -51,9 +54,6 @@ type Query {
   shares(filter: directus_shares_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_shares!]!
   shares_by_id(id: ID!, version: String): directus_shares
   shares_aggregated(groupBy: [String], filter: directus_shares_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_shares_aggregated!]!
-  flows(filter: directus_flows_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_flows!]!
-  flows_by_id(id: ID!, version: String): directus_flows
-  flows_aggregated(groupBy: [String], filter: directus_flows_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_flows_aggregated!]!
   operations(filter: directus_operations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_operations!]!
   operations_by_id(id: ID!, version: String): directus_operations
   operations_aggregated(groupBy: [String], filter: directus_operations_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_operations_aggregated!]!
@@ -66,6 +66,18 @@ type Query {
   versions(filter: directus_versions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_versions!]!
   versions_by_id(id: ID!, version: String): directus_versions
   versions_aggregated(groupBy: [String], filter: directus_versions_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_versions_aggregated!]!
+  flows(filter: directus_flows_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_flows!]!
+  flows_by_id(id: ID!, version: String): directus_flows
+  flows_aggregated(groupBy: [String], filter: directus_flows_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_flows_aggregated!]!
+  policies(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_policies!]!
+  policies_by_id(id: ID!, version: String): directus_policies
+  policies_aggregated(groupBy: [String], filter: directus_policies_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_policies_aggregated!]!
+  access(filter: directus_access_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_access!]!
+  access_by_id(id: ID!, version: String): directus_access
+  access_aggregated(groupBy: [String], filter: directus_access_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_access_aggregated!]!
+  comments(filter: directus_comments_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_comments!]!
+  comments_by_id(id: ID!, version: String): directus_comments
+  comments_aggregated(groupBy: [String], filter: directus_comments_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_comments_aggregated!]!
 }
 
 type Mutation {
@@ -97,19 +109,16 @@ type Mutation {
   delete_relations_item(collection: String!, field: String!): delete_relation
   update_extensions_item(id: ID, data: update_directus_extensions_inputInput): directus_extensions
   update_users_me(data: update_directus_users_input): directus_users
-  create_comment(collection: String!, item: ID!, comment: String!): directus_activity
-  update_comment(id: ID!, comment: String!): directus_activity
-  delete_comment(id: ID!): delete_one
   import_file(url: String!, data: create_directus_files_input): directus_files
   users_invite(email: String!, role: String!, invite_url: String): Boolean
-  create_roles_items(filter: directus_roles_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_roles_input!]): [directus_roles!]!
-  create_roles_item(data: create_directus_roles_input!): directus_roles
-  create_files_items(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_files_input!]): [directus_files!]!
-  create_files_item(data: create_directus_files_input!): directus_files
-  create_folders_items(filter: directus_folders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_folders_input!]): [directus_folders!]!
-  create_folders_item(data: create_directus_folders_input!): directus_folders
   create_permissions_items(filter: directus_permissions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_permissions_input!]): [directus_permissions!]!
   create_permissions_item(data: create_directus_permissions_input!): directus_permissions
+  create_roles_items(filter: directus_roles_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_roles_input!]): [directus_roles!]!
+  create_roles_item(data: create_directus_roles_input!): directus_roles
+  create_folders_items(filter: directus_folders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_folders_input!]): [directus_folders!]!
+  create_folders_item(data: create_directus_folders_input!): directus_folders
+  create_files_items(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_files_input!]): [directus_files!]!
+  create_files_item(data: create_directus_files_input!): directus_files
   create_presets_items(filter: directus_presets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_presets_input!]): [directus_presets!]!
   create_presets_item(data: create_directus_presets_input!): directus_presets
   create_users_items(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_users_input!]): [directus_users!]!
@@ -122,8 +131,6 @@ type Mutation {
   create_notifications_item(data: create_directus_notifications_input!): directus_notifications
   create_shares_items(filter: directus_shares_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_shares_input!]): [directus_shares!]!
   create_shares_item(data: create_directus_shares_input!): directus_shares
-  create_flows_items(filter: directus_flows_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_flows_input!]): [directus_flows!]!
-  create_flows_item(data: create_directus_flows_input!): directus_flows
   create_operations_items(filter: directus_operations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_operations_input!]): [directus_operations!]!
   create_operations_item(data: create_directus_operations_input!): directus_operations
   create_dashboards_items(filter: directus_dashboards_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_dashboards_input!]): [directus_dashboards!]!
@@ -132,18 +139,26 @@ type Mutation {
   create_translations_item(data: create_directus_translations_input!): directus_translations
   create_versions_items(filter: directus_versions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_versions_input!]): [directus_versions!]!
   create_versions_item(data: create_directus_versions_input!): directus_versions
-  update_roles_items(filter: directus_roles_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_roles_input!): [directus_roles!]!
-  update_roles_batch(filter: directus_roles_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_roles_input!]): [directus_roles!]!
-  update_roles_item(id: ID!, data: update_directus_roles_input!): directus_roles
-  update_files_items(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_files_input!): [directus_files!]!
-  update_files_batch(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_files_input!]): [directus_files!]!
-  update_files_item(id: ID!, data: update_directus_files_input!): directus_files
-  update_folders_items(filter: directus_folders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_folders_input!): [directus_folders!]!
-  update_folders_batch(filter: directus_folders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_folders_input!]): [directus_folders!]!
-  update_folders_item(id: ID!, data: update_directus_folders_input!): directus_folders
+  create_flows_items(filter: directus_flows_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_flows_input!]): [directus_flows!]!
+  create_flows_item(data: create_directus_flows_input!): directus_flows
+  create_policies_items(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_policies_input!]): [directus_policies!]!
+  create_policies_item(data: create_directus_policies_input!): directus_policies
+  create_access_items(filter: directus_access_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_access_input!]): [directus_access!]!
+  create_access_item(data: create_directus_access_input!): directus_access
+  create_comments_items(filter: directus_comments_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_comments_input!]): [directus_comments!]!
+  create_comments_item(data: create_directus_comments_input!): directus_comments
   update_permissions_items(filter: directus_permissions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_permissions_input!): [directus_permissions!]!
   update_permissions_batch(filter: directus_permissions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_permissions_input!]): [directus_permissions!]!
   update_permissions_item(id: ID!, data: update_directus_permissions_input!): directus_permissions
+  update_roles_items(filter: directus_roles_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_roles_input!): [directus_roles!]!
+  update_roles_batch(filter: directus_roles_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_roles_input!]): [directus_roles!]!
+  update_roles_item(id: ID!, data: update_directus_roles_input!): directus_roles
+  update_folders_items(filter: directus_folders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_folders_input!): [directus_folders!]!
+  update_folders_batch(filter: directus_folders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_folders_input!]): [directus_folders!]!
+  update_folders_item(id: ID!, data: update_directus_folders_input!): directus_folders
+  update_files_items(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_files_input!): [directus_files!]!
+  update_files_batch(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_files_input!]): [directus_files!]!
+  update_files_item(id: ID!, data: update_directus_files_input!): directus_files
   update_presets_items(filter: directus_presets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_presets_input!): [directus_presets!]!
   update_presets_batch(filter: directus_presets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_presets_input!]): [directus_presets!]!
   update_presets_item(id: ID!, data: update_directus_presets_input!): directus_presets
@@ -163,9 +178,6 @@ type Mutation {
   update_shares_items(filter: directus_shares_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_shares_input!): [directus_shares!]!
   update_shares_batch(filter: directus_shares_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_shares_input!]): [directus_shares!]!
   update_shares_item(id: ID!, data: update_directus_shares_input!): directus_shares
-  update_flows_items(filter: directus_flows_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_flows_input!): [directus_flows!]!
-  update_flows_batch(filter: directus_flows_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_flows_input!]): [directus_flows!]!
-  update_flows_item(id: ID!, data: update_directus_flows_input!): directus_flows
   update_operations_items(filter: directus_operations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_operations_input!): [directus_operations!]!
   update_operations_batch(filter: directus_operations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_operations_input!]): [directus_operations!]!
   update_operations_item(id: ID!, data: update_directus_operations_input!): directus_operations
@@ -178,14 +190,26 @@ type Mutation {
   update_versions_items(filter: directus_versions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_versions_input!): [directus_versions!]!
   update_versions_batch(filter: directus_versions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_versions_input!]): [directus_versions!]!
   update_versions_item(id: ID!, data: update_directus_versions_input!): directus_versions
-  delete_roles_items(ids: [ID]!): delete_many
-  delete_roles_item(id: ID!): delete_one
-  delete_files_items(ids: [ID]!): delete_many
-  delete_files_item(id: ID!): delete_one
-  delete_folders_items(ids: [ID]!): delete_many
-  delete_folders_item(id: ID!): delete_one
+  update_flows_items(filter: directus_flows_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_flows_input!): [directus_flows!]!
+  update_flows_batch(filter: directus_flows_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_flows_input!]): [directus_flows!]!
+  update_flows_item(id: ID!, data: update_directus_flows_input!): directus_flows
+  update_policies_items(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_policies_input!): [directus_policies!]!
+  update_policies_batch(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_policies_input!]): [directus_policies!]!
+  update_policies_item(id: ID!, data: update_directus_policies_input!): directus_policies
+  update_access_items(filter: directus_access_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_access_input!): [directus_access!]!
+  update_access_batch(filter: directus_access_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_access_input!]): [directus_access!]!
+  update_access_item(id: ID!, data: update_directus_access_input!): directus_access
+  update_comments_items(filter: directus_comments_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_comments_input!): [directus_comments!]!
+  update_comments_batch(filter: directus_comments_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_comments_input!]): [directus_comments!]!
+  update_comments_item(id: ID!, data: update_directus_comments_input!): directus_comments
   delete_permissions_items(ids: [ID]!): delete_many
   delete_permissions_item(id: ID!): delete_one
+  delete_roles_items(ids: [ID]!): delete_many
+  delete_roles_item(id: ID!): delete_one
+  delete_folders_items(ids: [ID]!): delete_many
+  delete_folders_item(id: ID!): delete_one
+  delete_files_items(ids: [ID]!): delete_many
+  delete_files_item(id: ID!): delete_one
   delete_presets_items(ids: [ID]!): delete_many
   delete_presets_item(id: ID!): delete_one
   delete_users_items(ids: [ID]!): delete_many
@@ -198,8 +222,6 @@ type Mutation {
   delete_notifications_item(id: ID!): delete_one
   delete_shares_items(ids: [ID]!): delete_many
   delete_shares_item(id: ID!): delete_one
-  delete_flows_items(ids: [ID]!): delete_many
-  delete_flows_item(id: ID!): delete_one
   delete_operations_items(ids: [ID]!): delete_many
   delete_operations_item(id: ID!): delete_one
   delete_dashboards_items(ids: [ID]!): delete_many
@@ -208,14 +230,22 @@ type Mutation {
   delete_translations_item(id: ID!): delete_one
   delete_versions_items(ids: [ID]!): delete_many
   delete_versions_item(id: ID!): delete_one
+  delete_flows_items(ids: [ID]!): delete_many
+  delete_flows_item(id: ID!): delete_one
+  delete_policies_items(ids: [ID]!): delete_many
+  delete_policies_item(id: ID!): delete_one
+  delete_access_items(ids: [ID]!): delete_many
+  delete_access_item(id: ID!): delete_one
+  delete_comments_items(ids: [ID]!): delete_many
+  delete_comments_item(id: ID!): delete_one
 }
 
 type Subscription {
   directus_activity_mutated(event: EventEnum): directus_activity_mutated
-  directus_roles_mutated(event: EventEnum): directus_roles_mutated
-  directus_files_mutated(event: EventEnum): directus_files_mutated
-  directus_folders_mutated(event: EventEnum): directus_folders_mutated
   directus_permissions_mutated(event: EventEnum): directus_permissions_mutated
+  directus_roles_mutated(event: EventEnum): directus_roles_mutated
+  directus_folders_mutated(event: EventEnum): directus_folders_mutated
+  directus_files_mutated(event: EventEnum): directus_files_mutated
   directus_presets_mutated(event: EventEnum): directus_presets_mutated
   directus_users_mutated(event: EventEnum): directus_users_mutated
   directus_revisions_mutated(event: EventEnum): directus_revisions_mutated
@@ -224,32 +254,35 @@ type Subscription {
   directus_panels_mutated(event: EventEnum): directus_panels_mutated
   directus_notifications_mutated(event: EventEnum): directus_notifications_mutated
   directus_shares_mutated(event: EventEnum): directus_shares_mutated
-  directus_flows_mutated(event: EventEnum): directus_flows_mutated
   directus_operations_mutated(event: EventEnum): directus_operations_mutated
   directus_dashboards_mutated(event: EventEnum): directus_dashboards_mutated
   directus_translations_mutated(event: EventEnum): directus_translations_mutated
-  directus_versions_mutated(event: EventEnum): directus_versions_mutated
   directus_sync_id_map_mutated(event: EventEnum): directus_sync_id_map_mutated
-  pages_mutated(event: EventEnum): pages_mutated
-  homepage_mutated(event: EventEnum): homepage_mutated
-  section_editor_nodes_mutated(event: EventEnum): section_editor_nodes_mutated
-  pages_editor_nodes_mutated(event: EventEnum): pages_editor_nodes_mutated
+  contact_forms_mutated(event: EventEnum): contact_forms_mutated
+  directus_versions_mutated(event: EventEnum): directus_versions_mutated
   quote_mutated(event: EventEnum): quote_mutated
-  section_mutated(event: EventEnum): section_mutated
+  video_mutated(event: EventEnum): video_mutated
+  seo_setting_mutated(event: EventEnum): seo_setting_mutated
+  seo_advanced_setting_mutated(event: EventEnum): seo_advanced_setting_mutated
+  seo_redirection_mutated(event: EventEnum): seo_redirection_mutated
+  directus_flows_mutated(event: EventEnum): directus_flows_mutated
+  pages_mutated(event: EventEnum): pages_mutated
+  button_mutated(event: EventEnum): button_mutated
   gallery_files_mutated(event: EventEnum): gallery_files_mutated
   gallery_mutated(event: EventEnum): gallery_mutated
-  seo_setting_mutated(event: EventEnum): seo_setting_mutated
-  seo_redirection_mutated(event: EventEnum): seo_redirection_mutated
-  seo_advanced_setting_mutated(event: EventEnum): seo_advanced_setting_mutated
+  homepage_mutated(event: EventEnum): homepage_mutated
   seo_detail_mutated(event: EventEnum): seo_detail_mutated
   image_mutated(event: EventEnum): image_mutated
   menus_mutated(event: EventEnum): menus_mutated
   menu_items_mutated(event: EventEnum): menu_items_mutated
-  contact_forms_mutated(event: EventEnum): contact_forms_mutated
-  button_mutated(event: EventEnum): button_mutated
+  pages_editor_nodes_mutated(event: EventEnum): pages_editor_nodes_mutated
+  section_mutated(event: EventEnum): section_mutated
+  section_editor_nodes_mutated(event: EventEnum): section_editor_nodes_mutated
   stack_mutated(event: EventEnum): stack_mutated
   stack_editor_nodes_mutated(event: EventEnum): stack_editor_nodes_mutated
-  video_mutated(event: EventEnum): video_mutated
+  directus_policies_mutated(event: EventEnum): directus_policies_mutated
+  directus_access_mutated(event: EventEnum): directus_access_mutated
+  directus_comments_mutated(event: EventEnum): directus_comments_mutated
 }
 
 """The `Boolean` scalar type represents `true` or `false`."""
@@ -287,6 +320,8 @@ The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://
 """
 scalar JSON
 
+scalar permissions_me_type
+
 """
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 """
@@ -314,9 +349,9 @@ enum graphql_sdl_scope {
 
 union pages_editor_nodes_item_union = section
 
-union section_editor_nodes_item_union = image | gallery | quote | button | stack | video
+union section_editor_nodes_item_union = button | gallery | image | quote | stack | video
 
-union stack_editor_nodes_item_union = button | image | gallery | quote | stack | video
+union stack_editor_nodes_item_union = button | gallery | image | quote | stack | video
 
 type auth_tokens {
   access_token: String
@@ -327,13 +362,13 @@ type auth_tokens {
 type button {
   id: ID!
   label: String!
-  size: String
-  variant: String
-  url: String
-  page(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pages
-  new_tab: Boolean
   link: String
+  new_tab: Boolean
+  page(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pages
+  size: String
   type: String
+  url: String
+  variant: String
 }
 
 type button_mutated {
@@ -343,13 +378,13 @@ type button_mutated {
 }
 
 type contact_forms {
-  id: ID!
-  sort: Int
   date_created: Date
   date_created_func: datetime_functions
-  name: String
   email: String
+  id: ID!
   message: String
+  name: String
+  sort: Int
 }
 
 type contact_forms_mutated {
@@ -395,6 +430,45 @@ type delete_relation {
   field: String
 }
 
+type directus_access {
+  id: ID!
+  role(filter: directus_roles_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_roles
+  user(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
+  policy(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_policies
+  sort: Int
+}
+
+type directus_access_aggregated {
+  group: JSON
+  countAll: Int
+  count: directus_access_aggregated_count
+  countDistinct: directus_access_aggregated_count
+  avg: directus_access_aggregated_fields
+  sum: directus_access_aggregated_fields
+  avgDistinct: directus_access_aggregated_fields
+  sumDistinct: directus_access_aggregated_fields
+  min: directus_access_aggregated_fields
+  max: directus_access_aggregated_fields
+}
+
+type directus_access_aggregated_count {
+  id: Int
+  role: Int
+  user: Int
+  policy: Int
+  sort: Int
+}
+
+type directus_access_aggregated_fields {
+  sort: Float
+}
+
+type directus_access_mutated {
+  key: ID!
+  event: EventEnum
+  data: directus_access
+}
+
 type directus_activity {
   id: ID!
   action: String!
@@ -405,7 +479,6 @@ type directus_activity {
   user_agent: String
   collection: String!
   item: String!
-  comment: String
   origin: String
   revisions(filter: directus_revisions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_revisions]
   revisions_func: count_functions
@@ -433,7 +506,6 @@ type directus_activity_aggregated_count {
   user_agent: Int
   collection: Int
   item: Int
-  comment: Int
   origin: Int
   revisions: Int
 }
@@ -480,6 +552,43 @@ type directus_collections_meta {
 type directus_collections_schema {
   name: String
   comment: String
+}
+
+type directus_comments {
+  id: ID!
+  collection: String!
+  item: String!
+  comment: String!
+  date_created: Date
+  date_created_func: datetime_functions
+  date_updated: Date
+  date_updated_func: datetime_functions
+  user_created(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
+  user_updated(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
+}
+
+type directus_comments_aggregated {
+  group: JSON
+  countAll: Int
+  count: directus_comments_aggregated_count
+  countDistinct: directus_comments_aggregated_count
+}
+
+type directus_comments_aggregated_count {
+  id: Int
+  collection: Int
+  item: Int
+  comment: Int
+  date_created: Int
+  date_updated: Int
+  user_created: Int
+  user_updated: Int
+}
+
+type directus_comments_mutated {
+  key: ID!
+  event: EventEnum
+  data: directus_comments
 }
 
 type directus_dashboards {
@@ -573,6 +682,9 @@ type directus_fields_schema {
   max_length: Int
   numeric_precision: Int
   numeric_scale: Int
+  is_generated: Boolean
+  generation_expression: String
+  is_indexed: Boolean
   is_nullable: Boolean
   is_unique: Boolean
   is_primary_key: Boolean
@@ -591,8 +703,8 @@ type directus_files {
   type: String
   folder(filter: directus_folders_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_folders
   uploaded_by(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
-  uploaded_on: Date
-  uploaded_on_func: datetime_functions
+  created_on: Date
+  created_on_func: datetime_functions
   modified_by(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
   modified_on: Date
   modified_on_func: datetime_functions
@@ -614,6 +726,8 @@ type directus_files {
   tus_data: JSON
   tus_data_func: count_functions
   thumbhash: String
+  uploaded_on: Date
+  uploaded_on_func: datetime_functions
 }
 
 type directus_files_aggregated {
@@ -638,7 +752,7 @@ type directus_files_aggregated_count {
   type: Int
   folder: Int
   uploaded_by: Int
-  uploaded_on: Int
+  created_on: Int
   modified_by: Int
   modified_on: Int
   charset: Int
@@ -656,6 +770,7 @@ type directus_files_aggregated_count {
   tus_id: Int
   tus_data: Int
   thumbhash: Int
+  uploaded_on: Int
 }
 
 type directus_files_aggregated_fields {
@@ -689,9 +804,9 @@ type directus_flows {
   date_created_func: datetime_functions
   user_created(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
   flow_manager_category: String
-  flow_manager_order: Int
   flow_manager_last_run_at: Date
   flow_manager_last_run_at_func: datetime_functions
+  flow_manager_order: Int
   flow_manager_run_counter: Int
   operations(filter: directus_operations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_operations]
   operations_func: count_functions
@@ -724,8 +839,8 @@ type directus_flows_aggregated_count {
   date_created: Int
   user_created: Int
   flow_manager_category: Int
-  flow_manager_order: Int
   flow_manager_last_run_at: Int
+  flow_manager_order: Int
   flow_manager_run_counter: Int
   operations: Int
 }
@@ -936,7 +1051,6 @@ type directus_panels_mutated {
 
 type directus_permissions {
   id: ID
-  role(filter: directus_roles_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_roles
   collection: String!
   action: String!
   permissions: JSON
@@ -946,6 +1060,7 @@ type directus_permissions {
   presets: JSON
   presets_func: count_functions
   fields: [String]
+  policy(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_policies
 }
 
 type directus_permissions_aggregated {
@@ -963,13 +1078,13 @@ type directus_permissions_aggregated {
 
 type directus_permissions_aggregated_count {
   id: Int
-  role: Int
   collection: Int
   action: Int
   permissions: Int
   validation: Int
   presets: Int
   fields: Int
+  policy: Int
 }
 
 type directus_permissions_aggregated_fields {
@@ -980,6 +1095,54 @@ type directus_permissions_mutated {
   key: ID!
   event: EventEnum
   data: directus_permissions
+}
+
+type directus_policies {
+  id: ID!
+  name: String!
+  icon: String
+  description: String
+  ip_access: [String]
+
+  """$t:field_options.directus_policies.enforce_tfa"""
+  enforce_tfa: Boolean!
+  admin_access: Boolean!
+  app_access: Boolean!
+  permissions(filter: directus_permissions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_permissions]
+  permissions_func: count_functions
+  users(filter: directus_access_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_access]
+  users_func: count_functions
+  roles(filter: directus_access_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_access]
+  roles_func: count_functions
+}
+
+type directus_policies_aggregated {
+  group: JSON
+  countAll: Int
+  count: directus_policies_aggregated_count
+  countDistinct: directus_policies_aggregated_count
+}
+
+type directus_policies_aggregated_count {
+  id: Int
+  name: Int
+  icon: Int
+  description: Int
+  ip_access: Int
+
+  """$t:field_options.directus_policies.enforce_tfa"""
+  enforce_tfa: Int
+  admin_access: Int
+  app_access: Int
+  permissions: Int
+  users: Int
+  roles: Int
+}
+
+type directus_policies_mutated {
+  key: ID!
+  event: EventEnum
+  data: directus_policies
 }
 
 type directus_presets {
@@ -1126,10 +1289,11 @@ type directus_roles {
   name: String!
   icon: String
   description: String
-  ip_access: [String]
-  enforce_tfa: Boolean!
-  admin_access: Boolean!
-  app_access: Boolean
+  parent(filter: directus_roles_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_roles
+  children(filter: directus_roles_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_roles]
+  children_func: count_functions
+  policies(filter: directus_access_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_access]
+  policies_func: count_functions
   users(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_users]
   users_func: count_functions
 }
@@ -1146,10 +1310,13 @@ type directus_roles_aggregated_count {
   name: Int
   icon: Int
   description: Int
-  ip_access: Int
-  enforce_tfa: Int
-  admin_access: Int
-  app_access: Int
+
+  """$t:field_options.directus_roles.parent_note"""
+  parent: Int
+
+  """$t:field_options.directus_roles.children_note"""
+  children: Int
+  policies: Int
   users: Int
 }
 
@@ -1210,8 +1377,8 @@ type directus_settings {
   public_registration_email_filter_func: count_functions
   flow_manager_categories: JSON
   flow_manager_categories_func: count_functions
-  maintenance_state: Boolean
   maintenance_description: String
+  maintenance_state: Boolean
   maintenance_title: String
 }
 
@@ -1370,6 +1537,8 @@ type directus_users {
   theme_light_overrides_func: count_functions
   theme_dark_overrides: JSON
   theme_dark_overrides_func: count_functions
+  policies(filter: directus_access_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_access]
+  policies_func: count_functions
 }
 
 type directus_users_aggregated {
@@ -1406,6 +1575,7 @@ type directus_users_aggregated_count {
   theme_light: Int
   theme_light_overrides: Int
   theme_dark_overrides: Int
+  policies: Int
 }
 
 type directus_users_mutated {
@@ -1427,6 +1597,8 @@ type directus_versions {
   date_updated_func: datetime_functions
   user_created(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
   user_updated(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
+  delta: JSON
+  delta_func: count_functions
 }
 
 type directus_versions_aggregated {
@@ -1447,6 +1619,7 @@ type directus_versions_aggregated_count {
   date_updated: Int
   user_created: Int
   user_updated: Int
+  delta: Int
 }
 
 type directus_versions_mutated {
@@ -1515,9 +1688,9 @@ type gallery {
 }
 
 type gallery_files {
-  id: ID!
-  gallery_id(filter: gallery_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): gallery
   directus_files_id(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
+  gallery_id(filter: gallery_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): gallery
+  id: ID!
 }
 
 type gallery_files_mutated {
@@ -1533,15 +1706,15 @@ type gallery_mutated {
 }
 
 type homepage {
-  id: ID!
-  user_created(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
   date_created: Date
   date_created_func: datetime_functions
-  user_updated(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
   date_updated: Date
   date_updated_func: datetime_functions
+  id: ID!
   img(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
   seo_detail(filter: seo_detail_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): seo_detail
+  user_created(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
+  user_updated(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
 }
 
 type homepage_mutated {
@@ -1552,9 +1725,9 @@ type homepage_mutated {
 
 type image {
   id: ID!
-  sort: Int
   image(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
   show_caption: Boolean
+  sort: Int
   type: String
 }
 
@@ -1566,14 +1739,14 @@ type image_mutated {
 
 type menu_items {
   id: ID!
-  menu(filter: menus_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): menus
-  sort: Int
   label: String
-  type: String
-  url: String
+  menu(filter: menus_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): menus
   open_in_new_tab: Boolean
   page(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pages
   parent(filter: menu_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): menu_items
+  sort: Int
+  type: String
+  url: String
   children(filter: menu_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [menu_items]
   children_func: count_functions
 }
@@ -1585,8 +1758,8 @@ type menu_items_mutated {
 }
 
 type menus {
-  title: ID!
   sort: Int
+  title: ID!
   items(filter: menu_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [menu_items]
   items_func: count_functions
 }
@@ -1598,30 +1771,30 @@ type menus_mutated {
 }
 
 type pages {
-  id: ID!
-  status: String
-  sort: Int
-  user_created(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
   date_created: Date
   date_created_func: datetime_functions
-  user_updated(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
   date_updated: Date
   date_updated_func: datetime_functions
-  title: String!
-  parent(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pages
-  permalink: String
   editor: JSON
   editor_func: count_functions
+  id: ID!
+  parent(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pages
+  permalink: String
   seo_detail(filter: seo_detail_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): seo_detail
+  sort: Int
+  status: String
+  title: String!
+  user_created(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
+  user_updated(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
   editor_nodes(filter: pages_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [pages_editor_nodes]
   editor_nodes_func: count_functions
 }
 
 type pages_editor_nodes {
-  id: ID!
-  pages_id(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pages
-  item: pages_editor_nodes_item_union
   collection: String
+  id: ID!
+  item: pages_editor_nodes_item_union
+  pages_id(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pages
 }
 
 type pages_editor_nodes_mutated {
@@ -1636,10 +1809,16 @@ type pages_mutated {
   data: pages
 }
 
+type policy_me_globals_type {
+  enforce_tfa: Boolean
+  app_access: Boolean
+  admin_access: Boolean
+}
+
 type quote {
+  author: String
   id: ID!
   text: String
-  author: String
   type: String
 }
 
@@ -1650,24 +1829,24 @@ type quote_mutated {
 }
 
 type section {
-  id: ID!
+  align: String
+  border: String
+  color: String
   editor: JSON
   editor_func: count_functions
-  width: String
-  color: String
+  id: ID!
   template: String
-  align: String
   type: String
-  border: String
+  width: String
   editor_nodes(filter: section_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [section_editor_nodes]
   editor_nodes_func: count_functions
 }
 
 type section_editor_nodes {
-  id: ID!
-  section_id(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): section
-  item: section_editor_nodes_item_union
   collection: String
+  id: ID!
+  item: section_editor_nodes_item_union
+  section_id(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): section
 }
 
 type section_editor_nodes_mutated {
@@ -1697,17 +1876,17 @@ type seo_advanced_setting_mutated {
 }
 
 type seo_detail {
+  facebook_image(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
   id: ID!
-  meta_title: String
+  image_share: String
   meta_description: String
   meta_keywords: String
-  schema_type: String
   meta_robots: JSON
   meta_robots_func: count_functions
   meta_social: String
-  image_share: String
-  facebook_image: String
-  twitter_image: String
+  meta_title: String
+  schema_type: String
+  twitter_image(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
 }
 
 type seo_detail_mutated {
@@ -1717,14 +1896,14 @@ type seo_detail_mutated {
 }
 
 type seo_redirection {
-  id: ID!
   date_created: Date
   date_created_func: datetime_functions
   date_updated: Date
   date_updated_func: datetime_functions
-  status: String
-  old_url: String
+  id: ID!
   new_url: String
+  old_url: String
+  status: String
 }
 
 type seo_redirection_mutated {
@@ -1773,23 +1952,23 @@ type server_info_query_limit {
 }
 
 type stack {
-  id: ID!
-  type: String
-  direction: String
-  gap: String
   color: String
-  fit_height: Boolean
+  direction: String
   editor: JSON
   editor_func: count_functions
+  fit_height: Boolean
+  gap: String
+  id: ID!
+  type: String
   editor_nodes(filter: stack_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [stack_editor_nodes]
   editor_nodes_func: count_functions
 }
 
 type stack_editor_nodes {
-  id: ID!
-  stack_id(filter: stack_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): stack
-  item: stack_editor_nodes_item_union
   collection: String
+  id: ID!
+  item: stack_editor_nodes_item_union
+  stack_id(filter: stack_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): stack
 }
 
 type stack_editor_nodes_mutated {
@@ -1810,11 +1989,11 @@ type users_me_tfa_generate_data {
 }
 
 type video {
+  autoplay: Boolean!
   id: ID!
+  type: String
   video_link: JSON
   video_link_func: count_functions
-  type: String
-  autoplay: Boolean!
 }
 
 type video_mutated {
@@ -1848,19 +2027,27 @@ input boolean_filter_operators {
 input button_filter {
   id: string_filter_operators
   label: string_filter_operators
-  size: string_filter_operators
-  variant: string_filter_operators
-  url: string_filter_operators
-  page: pages_filter
-  new_tab: boolean_filter_operators
   link: string_filter_operators
+  new_tab: boolean_filter_operators
+  page: pages_filter
+  size: string_filter_operators
   type: string_filter_operators
+  url: string_filter_operators
+  variant: string_filter_operators
   _and: [button_filter]
   _or: [button_filter]
 }
 
 input count_function_filter_operators {
   count: number_filter_operators
+}
+
+input create_directus_access_input {
+  id: ID
+  role: create_directus_roles_input
+  user: create_directus_users_input
+  policy: create_directus_policies_input
+  sort: Int
 }
 
 input create_directus_collections_fields_input {
@@ -1876,6 +2063,17 @@ input create_directus_collections_input {
   meta: directus_collections_meta_input
   schema: directus_collections_schema_input
   fields: [create_directus_collections_fields_input!]
+}
+
+input create_directus_comments_input {
+  id: ID
+  collection: String!
+  item: String!
+  comment: String!
+  date_created: Date
+  date_updated: Date
+  user_created: create_directus_users_input
+  user_updated: create_directus_users_input
 }
 
 input create_directus_dashboards_input {
@@ -1906,7 +2104,7 @@ input create_directus_files_input {
   type: String
   folder: create_directus_folders_input
   uploaded_by: create_directus_users_input
-  uploaded_on: Date
+  created_on: Date
   modified_by: create_directus_users_input
   modified_on: Date
   charset: String
@@ -1924,6 +2122,7 @@ input create_directus_files_input {
   tus_id: String
   tus_data: JSON
   thumbhash: String
+  uploaded_on: Date
 }
 
 input create_directus_flows_input {
@@ -1940,8 +2139,8 @@ input create_directus_flows_input {
   date_created: Date
   user_created: create_directus_users_input
   flow_manager_category: String
-  flow_manager_order: Int
   flow_manager_last_run_at: Date
+  flow_manager_order: Int
   flow_manager_run_counter: Int
   operations: [create_directus_operations_input]
 }
@@ -1999,13 +2198,29 @@ input create_directus_panels_input {
 
 input create_directus_permissions_input {
   id: ID
-  role: create_directus_roles_input
   collection: String!
   action: String!
   permissions: JSON
   validation: JSON
   presets: JSON
   fields: [String]
+  policy: create_directus_policies_input
+}
+
+input create_directus_policies_input {
+  id: ID
+  name: String!
+  icon: String
+  description: String
+  ip_access: [String]
+
+  """$t:field_options.directus_policies.enforce_tfa"""
+  enforce_tfa: Boolean!
+  admin_access: Boolean!
+  app_access: Boolean!
+  permissions: [create_directus_permissions_input]
+  users: [create_directus_access_input]
+  roles: [create_directus_access_input]
 }
 
 input create_directus_presets_input {
@@ -2037,10 +2252,9 @@ input create_directus_roles_input {
   name: String!
   icon: String
   description: String
-  ip_access: [String]
-  enforce_tfa: Boolean!
-  admin_access: Boolean!
-  app_access: Boolean
+  parent: create_directus_roles_input
+  children: [create_directus_roles_input]
+  policies: [create_directus_access_input]
   users: [create_directus_users_input]
 }
 
@@ -2101,6 +2315,7 @@ input create_directus_users_input {
   theme_light: String
   theme_light_overrides: JSON
   theme_dark_overrides: JSON
+  policies: [create_directus_access_input]
 }
 
 input create_directus_versions_input {
@@ -2114,6 +2329,7 @@ input create_directus_versions_input {
   date_updated: Date
   user_created: create_directus_users_input
   user_updated: create_directus_users_input
+  delta: JSON
 }
 
 input create_directus_webhooks_input {
@@ -2156,6 +2372,16 @@ input datetime_function_filter_operators {
   second: number_filter_operators
 }
 
+input directus_access_filter {
+  id: string_filter_operators
+  role: directus_roles_filter
+  user: directus_users_filter
+  policy: directus_policies_filter
+  sort: number_filter_operators
+  _and: [directus_access_filter]
+  _or: [directus_access_filter]
+}
+
 input directus_activity_filter {
   id: number_filter_operators
   action: string_filter_operators
@@ -2166,7 +2392,6 @@ input directus_activity_filter {
   user_agent: string_filter_operators
   collection: string_filter_operators
   item: string_filter_operators
-  comment: string_filter_operators
   origin: string_filter_operators
   revisions: directus_revisions_filter
   revisions_func: count_function_filter_operators
@@ -2200,6 +2425,21 @@ input directus_collections_meta_input {
 input directus_collections_schema_input {
   name: String
   comment: String
+}
+
+input directus_comments_filter {
+  id: string_filter_operators
+  collection: string_filter_operators
+  item: string_filter_operators
+  comment: string_filter_operators
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  user_created: directus_users_filter
+  user_updated: directus_users_filter
+  _and: [directus_comments_filter]
+  _or: [directus_comments_filter]
 }
 
 input directus_dashboards_filter {
@@ -2247,6 +2487,9 @@ input directus_fields_schema_input {
   max_length: Int
   numeric_precision: Int
   numeric_scale: Int
+  is_generated: Boolean
+  generation_expression: String
+  is_indexed: Boolean
   is_nullable: Boolean
   is_unique: Boolean
   is_primary_key: Boolean
@@ -2265,8 +2508,8 @@ input directus_files_filter {
   type: string_filter_operators
   folder: directus_folders_filter
   uploaded_by: directus_users_filter
-  uploaded_on: date_filter_operators
-  uploaded_on_func: datetime_function_filter_operators
+  created_on: date_filter_operators
+  created_on_func: datetime_function_filter_operators
   modified_by: directus_users_filter
   modified_on: date_filter_operators
   modified_on_func: datetime_function_filter_operators
@@ -2288,6 +2531,8 @@ input directus_files_filter {
   tus_data: string_filter_operators
   tus_data_func: count_function_filter_operators
   thumbhash: string_filter_operators
+  uploaded_on: date_filter_operators
+  uploaded_on_func: datetime_function_filter_operators
   _and: [directus_files_filter]
   _or: [directus_files_filter]
 }
@@ -2308,9 +2553,9 @@ input directus_flows_filter {
   date_created_func: datetime_function_filter_operators
   user_created: directus_users_filter
   flow_manager_category: string_filter_operators
-  flow_manager_order: number_filter_operators
   flow_manager_last_run_at: date_filter_operators
   flow_manager_last_run_at_func: datetime_function_filter_operators
+  flow_manager_order: number_filter_operators
   flow_manager_run_counter: number_filter_operators
   operations: directus_operations_filter
   operations_func: count_function_filter_operators
@@ -2384,7 +2629,6 @@ input directus_panels_filter {
 
 input directus_permissions_filter {
   id: number_filter_operators
-  role: directus_roles_filter
   collection: string_filter_operators
   action: string_filter_operators
   permissions: string_filter_operators
@@ -2394,8 +2638,28 @@ input directus_permissions_filter {
   presets: string_filter_operators
   presets_func: count_function_filter_operators
   fields: string_filter_operators
+  policy: directus_policies_filter
   _and: [directus_permissions_filter]
   _or: [directus_permissions_filter]
+}
+
+input directus_policies_filter {
+  id: string_filter_operators
+  name: string_filter_operators
+  icon: string_filter_operators
+  description: string_filter_operators
+  ip_access: string_filter_operators
+  enforce_tfa: boolean_filter_operators
+  admin_access: boolean_filter_operators
+  app_access: boolean_filter_operators
+  permissions: directus_permissions_filter
+  permissions_func: count_function_filter_operators
+  users: directus_access_filter
+  users_func: count_function_filter_operators
+  roles: directus_access_filter
+  roles_func: count_function_filter_operators
+  _and: [directus_policies_filter]
+  _or: [directus_policies_filter]
 }
 
 input directus_presets_filter {
@@ -2462,10 +2726,11 @@ input directus_roles_filter {
   name: string_filter_operators
   icon: string_filter_operators
   description: string_filter_operators
-  ip_access: string_filter_operators
-  enforce_tfa: boolean_filter_operators
-  admin_access: boolean_filter_operators
-  app_access: boolean_filter_operators
+  parent: directus_roles_filter
+  children: directus_roles_filter
+  children_func: count_function_filter_operators
+  policies: directus_access_filter
+  policies_func: count_function_filter_operators
   users: directus_users_filter
   users_func: count_function_filter_operators
   _and: [directus_roles_filter]
@@ -2533,6 +2798,8 @@ input directus_users_filter {
   theme_light_overrides_func: count_function_filter_operators
   theme_dark_overrides: string_filter_operators
   theme_dark_overrides_func: count_function_filter_operators
+  policies: directus_access_filter
+  policies_func: count_function_filter_operators
   _and: [directus_users_filter]
   _or: [directus_users_filter]
 }
@@ -2550,6 +2817,8 @@ input directus_versions_filter {
   date_updated_func: datetime_function_filter_operators
   user_created: directus_users_filter
   user_updated: directus_users_filter
+  delta: string_filter_operators
+  delta_func: count_function_filter_operators
   _and: [directus_versions_filter]
   _or: [directus_versions_filter]
 }
@@ -2572,9 +2841,9 @@ input directus_webhooks_filter {
 }
 
 input gallery_files_filter {
-  id: number_filter_operators
-  gallery_id: gallery_filter
   directus_files_id: directus_files_filter
+  gallery_id: gallery_filter
+  id: number_filter_operators
   _and: [gallery_files_filter]
   _or: [gallery_files_filter]
 }
@@ -2597,9 +2866,9 @@ input hash_filter_operators {
 
 input image_filter {
   id: string_filter_operators
-  sort: number_filter_operators
   image: directus_files_filter
   show_caption: boolean_filter_operators
+  sort: number_filter_operators
   type: string_filter_operators
   _and: [image_filter]
   _or: [image_filter]
@@ -2607,14 +2876,14 @@ input image_filter {
 
 input menu_items_filter {
   id: string_filter_operators
-  menu: menus_filter
-  sort: number_filter_operators
   label: string_filter_operators
-  type: string_filter_operators
-  url: string_filter_operators
+  menu: menus_filter
   open_in_new_tab: boolean_filter_operators
   page: pages_filter
   parent: menu_items_filter
+  sort: number_filter_operators
+  type: string_filter_operators
+  url: string_filter_operators
   children: menu_items_filter
   children_func: count_function_filter_operators
   _and: [menu_items_filter]
@@ -2622,8 +2891,8 @@ input menu_items_filter {
 }
 
 input menus_filter {
-  title: string_filter_operators
   sort: number_filter_operators
+  title: string_filter_operators
   items: menu_items_filter
   items_func: count_function_filter_operators
   _and: [menus_filter]
@@ -2646,30 +2915,30 @@ input number_filter_operators {
 }
 
 input pages_editor_nodes_filter {
+  collection: string_filter_operators
   id: string_filter_operators
   pages_id: pages_filter
-  collection: string_filter_operators
   _and: [pages_editor_nodes_filter]
   _or: [pages_editor_nodes_filter]
   item__section: section_filter
 }
 
 input pages_filter {
-  id: string_filter_operators
-  status: string_filter_operators
-  sort: number_filter_operators
-  user_created: directus_users_filter
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
-  user_updated: directus_users_filter
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
-  title: string_filter_operators
-  parent: pages_filter
-  permalink: string_filter_operators
   editor: string_filter_operators
   editor_func: count_function_filter_operators
+  id: string_filter_operators
+  parent: pages_filter
+  permalink: string_filter_operators
   seo_detail: seo_detail_filter
+  sort: number_filter_operators
+  status: string_filter_operators
+  title: string_filter_operators
+  user_created: directus_users_filter
+  user_updated: directus_users_filter
   editor_nodes: pages_editor_nodes_filter
   editor_nodes_func: count_function_filter_operators
   _and: [pages_filter]
@@ -2677,38 +2946,38 @@ input pages_filter {
 }
 
 input quote_filter {
+  author: string_filter_operators
   id: string_filter_operators
   text: string_filter_operators
-  author: string_filter_operators
   type: string_filter_operators
   _and: [quote_filter]
   _or: [quote_filter]
 }
 
 input section_editor_nodes_filter {
+  collection: string_filter_operators
   id: string_filter_operators
   section_id: section_filter
-  collection: string_filter_operators
   _and: [section_editor_nodes_filter]
   _or: [section_editor_nodes_filter]
-  item__image: image_filter
-  item__gallery: gallery_filter
-  item__quote: quote_filter
   item__button: button_filter
+  item__gallery: gallery_filter
+  item__image: image_filter
+  item__quote: quote_filter
   item__stack: stack_filter
   item__video: video_filter
 }
 
 input section_filter {
-  id: string_filter_operators
+  align: string_filter_operators
+  border: string_filter_operators
+  color: string_filter_operators
   editor: string_filter_operators
   editor_func: count_function_filter_operators
-  width: string_filter_operators
-  color: string_filter_operators
+  id: string_filter_operators
   template: string_filter_operators
-  align: string_filter_operators
   type: string_filter_operators
-  border: string_filter_operators
+  width: string_filter_operators
   editor_nodes: section_editor_nodes_filter
   editor_nodes_func: count_function_filter_operators
   _and: [section_filter]
@@ -2716,44 +2985,44 @@ input section_filter {
 }
 
 input seo_detail_filter {
+  facebook_image: directus_files_filter
   id: number_filter_operators
-  meta_title: string_filter_operators
+  image_share: string_filter_operators
   meta_description: string_filter_operators
   meta_keywords: string_filter_operators
-  schema_type: string_filter_operators
   meta_robots: string_filter_operators
   meta_robots_func: count_function_filter_operators
   meta_social: string_filter_operators
-  image_share: string_filter_operators
-  facebook_image: string_filter_operators
-  twitter_image: string_filter_operators
+  meta_title: string_filter_operators
+  schema_type: string_filter_operators
+  twitter_image: directus_files_filter
   _and: [seo_detail_filter]
   _or: [seo_detail_filter]
 }
 
 input stack_editor_nodes_filter {
+  collection: string_filter_operators
   id: string_filter_operators
   stack_id: stack_filter
-  collection: string_filter_operators
   _and: [stack_editor_nodes_filter]
   _or: [stack_editor_nodes_filter]
   item__button: button_filter
-  item__image: image_filter
   item__gallery: gallery_filter
+  item__image: image_filter
   item__quote: quote_filter
   item__stack: stack_filter
   item__video: video_filter
 }
 
 input stack_filter {
-  id: string_filter_operators
-  type: string_filter_operators
-  direction: string_filter_operators
-  gap: string_filter_operators
   color: string_filter_operators
-  fit_height: boolean_filter_operators
+  direction: string_filter_operators
   editor: string_filter_operators
   editor_func: count_function_filter_operators
+  fit_height: boolean_filter_operators
+  gap: string_filter_operators
+  id: string_filter_operators
+  type: string_filter_operators
   editor_nodes: stack_editor_nodes_filter
   editor_nodes_func: count_function_filter_operators
   _and: [stack_filter]
@@ -2782,8 +3051,27 @@ input string_filter_operators {
   _nempty: Boolean
 }
 
+input update_directus_access_input {
+  id: ID
+  role: update_directus_roles_input
+  user: update_directus_users_input
+  policy: update_directus_policies_input
+  sort: Int
+}
+
 input update_directus_collections_input {
   meta: directus_collections_meta_input
+}
+
+input update_directus_comments_input {
+  id: ID
+  collection: String
+  item: String
+  comment: String
+  date_created: Date
+  date_updated: Date
+  user_created: update_directus_users_input
+  user_updated: update_directus_users_input
 }
 
 input update_directus_dashboards_input {
@@ -2822,7 +3110,7 @@ input update_directus_files_input {
   type: String
   folder: update_directus_folders_input
   uploaded_by: update_directus_users_input
-  uploaded_on: Date
+  created_on: Date
   modified_by: update_directus_users_input
   modified_on: Date
   charset: String
@@ -2840,6 +3128,7 @@ input update_directus_files_input {
   tus_id: String
   tus_data: JSON
   thumbhash: String
+  uploaded_on: Date
 }
 
 input update_directus_flows_input {
@@ -2856,8 +3145,8 @@ input update_directus_flows_input {
   date_created: Date
   user_created: update_directus_users_input
   flow_manager_category: String
-  flow_manager_order: Int
   flow_manager_last_run_at: Date
+  flow_manager_order: Int
   flow_manager_run_counter: Int
   operations: [update_directus_operations_input]
 }
@@ -2915,13 +3204,29 @@ input update_directus_panels_input {
 
 input update_directus_permissions_input {
   id: ID
-  role: update_directus_roles_input
   collection: String
   action: String
   permissions: JSON
   validation: JSON
   presets: JSON
   fields: [String]
+  policy: update_directus_policies_input
+}
+
+input update_directus_policies_input {
+  id: ID
+  name: String
+  icon: String
+  description: String
+  ip_access: [String]
+
+  """$t:field_options.directus_policies.enforce_tfa"""
+  enforce_tfa: Boolean
+  admin_access: Boolean
+  app_access: Boolean
+  permissions: [update_directus_permissions_input]
+  users: [update_directus_access_input]
+  roles: [update_directus_access_input]
 }
 
 input update_directus_presets_input {
@@ -2953,10 +3258,9 @@ input update_directus_roles_input {
   name: String
   icon: String
   description: String
-  ip_access: [String]
-  enforce_tfa: Boolean
-  admin_access: Boolean
-  app_access: Boolean
+  parent: update_directus_roles_input
+  children: [update_directus_roles_input]
+  policies: [update_directus_access_input]
   users: [update_directus_users_input]
 }
 
@@ -3003,8 +3307,8 @@ input update_directus_settings_input {
   """$t:fields.directus_settings.public_registration_email_filter_note"""
   public_registration_email_filter: JSON
   flow_manager_categories: JSON
-  maintenance_state: Boolean
   maintenance_description: String
+  maintenance_state: Boolean
   maintenance_title: String
 }
 
@@ -3065,6 +3369,7 @@ input update_directus_users_input {
   theme_light: String
   theme_light_overrides: JSON
   theme_dark_overrides: JSON
+  policies: [update_directus_access_input]
 }
 
 input update_directus_versions_input {
@@ -3078,6 +3383,7 @@ input update_directus_versions_input {
   date_updated: Date
   user_created: update_directus_users_input
   user_updated: update_directus_users_input
+  delta: JSON
 }
 
 input update_directus_webhooks_input {
@@ -3095,11 +3401,11 @@ input update_directus_webhooks_input {
 }
 
 input video_filter {
+  autoplay: boolean_filter_operators
   id: string_filter_operators
+  type: string_filter_operators
   video_link: string_filter_operators
   video_link_func: count_function_filter_operators
-  type: string_filter_operators
-  autoplay: boolean_filter_operators
   _and: [video_filter]
   _or: [video_filter]
 }

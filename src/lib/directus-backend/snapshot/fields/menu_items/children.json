@@ -6,7 +6,12 @@
     "collection": "menu_items",
     "conditions": [
       {
+        "hidden": false,
         "name": "if type = list",
+        "options": {
+          "enableCreate": true,
+          "enableSelect": true
+        },
         "rule": {
           "_and": [
             {
@@ -15,12 +20,7 @@
               }
             }
           ]
-        },
-        "options": {
-          "enableCreate": true,
-          "enableSelect": true
-        },
-        "hidden": false
+        }
       }
     ],
     "display": null,

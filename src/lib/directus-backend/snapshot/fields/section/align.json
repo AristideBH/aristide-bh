@@ -6,7 +6,12 @@
     "collection": "section",
     "conditions": [
       {
+        "hidden": true,
         "name": "If no template is selected",
+        "options": {
+          "allowNone": false,
+          "allowOther": false
+        },
         "rule": {
           "_and": [
             {
@@ -15,11 +20,6 @@
               }
             }
           ]
-        },
-        "hidden": true,
-        "options": {
-          "allowOther": false,
-          "allowNone": false
         }
       }
     ],
@@ -65,6 +65,7 @@
     "numeric_scale": null,
     "is_nullable": true,
     "is_unique": false,
+    "is_indexed": false,
     "is_primary_key": false,
     "is_generated": false,
     "generation_expression": null,

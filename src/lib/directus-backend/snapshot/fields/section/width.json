@@ -17,14 +17,14 @@
     "options": {
       "choices": [
         {
+          "icon": "fit_width",
           "text": "Default",
-          "value": "default",
-          "icon": "fit_width"
+          "value": "default"
         },
         {
+          "icon": "width",
           "text": "Full-width",
-          "value": "full-width",
-          "icon": "width"
+          "value": "full-width"
         }
       ]
     },
@@ -47,6 +47,7 @@
     "numeric_scale": null,
     "is_nullable": true,
     "is_unique": false,
+    "is_indexed": false,
     "is_primary_key": false,
     "is_generated": false,
     "generation_expression": null,

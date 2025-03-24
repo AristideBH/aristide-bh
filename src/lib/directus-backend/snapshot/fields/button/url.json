@@ -6,7 +6,16 @@
     "collection": "button",
     "conditions": [
       {
+        "hidden": false,
         "name": "if selected",
+        "options": {
+          "clear": false,
+          "font": "sans-serif",
+          "masked": false,
+          "slug": false,
+          "trim": false
+        },
+        "required": true,
         "rule": {
           "_and": [
             {
@@ -15,15 +24,6 @@
               }
             }
           ]
-        },
-        "hidden": false,
-        "required": true,
-        "options": {
-          "font": "sans-serif",
-          "trim": false,
-          "masked": false,
-          "clear": false,
-          "slug": false
         }
       }
     ],
@@ -60,6 +60,7 @@
     "numeric_scale": null,
     "is_nullable": true,
     "is_unique": false,
+    "is_indexed": false,
     "is_primary_key": false,
     "is_generated": false,
     "generation_expression": null,

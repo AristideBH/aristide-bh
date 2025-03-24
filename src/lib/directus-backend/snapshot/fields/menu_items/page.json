@@ -6,7 +6,13 @@
     "collection": "menu_items",
     "conditions": [
       {
+        "hidden": false,
         "name": "if type = page",
+        "options": {
+          "enableCreate": true,
+          "enableSelect": true
+        },
+        "required": true,
         "rule": {
           "_and": [
             {
@@ -15,13 +21,7 @@
               }
             }
           ]
-        },
-        "required": true,
-        "options": {
-          "enableCreate": true,
-          "enableSelect": true
-        },
-        "hidden": false
+        }
       }
     ],
     "display": null,
@@ -65,6 +65,7 @@
     "numeric_scale": null,
     "is_nullable": true,
     "is_unique": false,
+    "is_indexed": false,
     "is_primary_key": false,
     "is_generated": false,
     "generation_expression": null,

@@ -1,7 +1,7 @@
 [
   {
-    "project_name": "Kitus Starter",
-    "project_color": "#F96743",
+    "project_name": "Aristide BH",
+    "project_color": "#6644FF",
     "public_note": null,
     "auth_login_attempts": 50,
     "auth_password_policy": null,
@@ -116,7 +116,7 @@
         "enabled": true
       }
     ],
-    "project_descriptor": "Directus & Sveltekit",
+    "project_descriptor": "Porfolio",
     "default_language": "en-US",
     "custom_aspect_ratios": null,
     "default_appearance": "auto",
@@ -142,8 +142,8 @@
         "flow_manager_order": 1
       }
     ],
-    "maintenance_state": false,
     "maintenance_description": null,
+    "maintenance_state": false,
     "maintenance_title": null,
     "_syncId": "8d243d1f-ad87-412c-b254-7b217df33d65"
   }
