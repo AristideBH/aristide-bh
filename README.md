@@ -1,7 +1,5 @@
 # Aristide BH Portoflio
 
-![](https://i.imgur.com/6iLbGIO.png)
-
 > _A starter template to build a Sveltekit project connected to a Directus CMS, auto-deploying to a Caprover instance via GitHub Webhook._
 
 ## Features :
