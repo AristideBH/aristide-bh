@@ -61,7 +61,7 @@ const config: Config = {
 			},
 			fontFamily: {
 				sans: [...fontFamily.sans],
-				heading: ['WorkSans-Variable', ...fontFamily.sans],
+				heading: ['Changa Variable', ...fontFamily.sans],
 			},
 			keyframes: {
 				'accordion-down': {
