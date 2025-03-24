@@ -46,7 +46,7 @@ export function client(fetch: Fetch, token?: string | null) {
         .with(authentication('cookie', { credentials: 'include' }))
         .with(rest());
 
-    if (token) directus.setToken(token);
+    // if (token) directus.setToken(token);
     return directus;
 }
 

@@ -66,8 +66,8 @@ export const handle: Handle = async ({ event, resolve }) => {
 
     // this is needed so that the response headers from SvelteKit do include the correct header to allow the browser to parse json requests
     return await resolve(event, {
-        filterSerializedResponseHeaders: (key) => {
-            return key.toLowerCase() === 'content-type'
-        }
+        filterSerializedResponseHeaders: (key, value) => {
+            return key.toLowerCase() === 'content-type';
+        },
     });
 };

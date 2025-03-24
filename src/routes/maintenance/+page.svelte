@@ -8,10 +8,11 @@
 </script>
 
 <svelte:head>
-	<title>Kitus Starter | Maintenance</title>
+	<title>{data.global.project_name} | Maintenance</title>
 </svelte:head>
+
 <Section>
-	<h1>Kitus starter</h1>
+	<h1>{data.global.project_name}</h1>
 </Section>
 
 <Section content={{ template: 'inherit-main' }}>
@@ -21,11 +22,15 @@
 			<Card.Description>{data.maintenance.description}</Card.Description>
 		</Card.Header>
 		<Card.Content>
-			<h3>Hit me up on here :</h3>
-			<ul>
+			<p>
+				En attendant, vous pouvez me contacter
+				<a class="underline" href="mailto:aristide.bruneau@gmail.com"> par mail </a>
+			</p>
+			<!-- <ul>
+				<li></li>
+				<li><a target="_blank" href="https://x.com/Tydilicious">Par Twitter</a></li>
 				<li><a target="_blank" href="https://x.com/Tydilicious">Twitter</a></li>
-				<li><a target="_blank" href="https://github.com/AristideBH">Github</a></li>
-			</ul>
+			</ul> -->
 		</Card.Content>
 	</Card.Root>
 </Section>
