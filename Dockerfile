@@ -10,14 +10,14 @@
         make \
         g++
     
-    # Copy package.json and pnpm-lock.yaml (if exists)
-    COPY package.json pnpm-lock.yaml* ./
-    
     # Install pnpm globally
     RUN npm install -g pnpm
     
+    # Copy package.json 
+    COPY package.json ./
+    
     # Install project dependencies using pnpm
-    RUN pnpm install --frozen-lockfile --ignore-scripts
+    RUN pnpm install --prod --no-frozen-lockfile --ignore-scripts
     
     # Copy the rest of the application code
     COPY . .
@@ -33,7 +33,7 @@
     # Remove build dependencies
     RUN apk --purge --no-cache del build-deps
     
-# --- Production Stage ---
+    # --- Production Stage ---
     FROM node:21-alpine AS runner
     
     WORKDIR /app
@@ -43,13 +43,15 @@
     RUN apk --no-cache add tzdata
     RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
     
+    # Install pnpm globally
+    RUN npm install -g pnpm
+    
     # Copy built application from the builder stage
     COPY --from=builder /app/build ./build
     COPY --from=builder /app/package.json ./package.json
     
     # Install production dependencies
-    RUN npm install -g pnpm
-    RUN pnpm install --prod --frozen-lockfile --ignore-scripts
+    RUN pnpm install --prod --no-frozen-lockfile --ignore-scripts
     
     # Expose the port
     EXPOSE 80
