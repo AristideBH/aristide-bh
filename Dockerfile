@@ -25,6 +25,10 @@
     
     # Copy the rest of the application code
     COPY . .
+
+    ARG PUBLIC_DIRECTUS_URL
+    ARG PUBLIC_COOKIE_DOMAIN
+    ARG PUBLIC_SITE_URL
     
     # Build the SvelteKit application using pnpm
     RUN pnpm run build
@@ -49,11 +53,8 @@
 
     # Set environment variables (making ARG available as ENV)
     ARG PUBLIC_DIRECTUS_URL
-    ENV PUBLIC_DIRECTUS_URL=${PUBLIC_DIRECTUS_URL}
     ARG PUBLIC_COOKIE_DOMAIN
-    ENV PUBLIC_COOKIE_DOMAIN=${PUBLIC_COOKIE_DOMAIN}
     ARG PUBLIC_SITE_URL
-    ENV PUBLIC_SITE_URL=${PUBLIC_SITE_URL}
     
     # Install production dependencies (only if needed)
     RUN pnpm install --prod --frozen-lockfile --ignore-scripts
