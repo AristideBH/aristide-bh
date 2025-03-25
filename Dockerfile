@@ -2,7 +2,6 @@
 
 # --- Build Stage ---
     FROM node:21-alpine AS builder
-
     WORKDIR /app
     
     # Install build dependencies
@@ -11,14 +10,11 @@
         make \
         g++
     
-    # Copy pnpm lockfile first for better caching
-    COPY pnpm-lock.yaml ./
+    # Copy package.json and pnpm-lock.yaml (if exists)
+    COPY package.json pnpm-lock.yaml* ./
     
     # Install pnpm globally
     RUN npm install -g pnpm
-    
-    # Copy package.json next
-    COPY package.json ./
     
     # Install project dependencies using pnpm
     RUN pnpm install --frozen-lockfile --ignore-scripts
@@ -26,25 +22,23 @@
     # Copy the rest of the application code
     COPY . .
     
+    # Build arguments
     ARG PUBLIC_DIRECTUS_URL
     ARG PUBLIC_COOKIE_DOMAIN
     ARG PUBLIC_SITE_URL
     
-    # List files in /app to check for pnpm-lock.yaml
-    RUN ls -la /app
-    
-    # Build the SvelteKit application using pnpm
+    # Build the SvelteKit application
     RUN pnpm run build
     
     # Remove build dependencies
     RUN apk --purge --no-cache del build-deps
     
-    # --- Production Stage ---
+# --- Production Stage ---
     FROM node:21-alpine AS runner
     
     WORKDIR /app
     
-    # Set timezone (using ARG as in the original)
+    # Set timezone
     ARG TZ=Europe/Paris
     RUN apk --no-cache add tzdata
     RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -52,17 +46,17 @@
     # Copy built application from the builder stage
     COPY --from=builder /app/build ./build
     COPY --from=builder /app/package.json ./package.json
-    COPY --from=builder /app/pnpm-lock.yaml ./pnpm-lock.yaml # Copy pnpm lockfile
     
-    
-    # Install production dependencies (only if needed)
+    # Install production dependencies
+    RUN npm install -g pnpm
     RUN pnpm install --prod --frozen-lockfile --ignore-scripts
     
-    # Expose the original port (80)
+    # Expose the port
     EXPOSE 80
     
     # Create a non-root user
-    RUN addgroup --gid 1001 appuser && adduser --uid 1001 --gid appuser --disabled-password --gecos "" appuser
+    RUN addgroup --gid 1001 appuser && \
+        adduser --uid 1001 --gid appuser --disabled-password --gecos "" appuser
     USER appuser
     
     # Start the application
