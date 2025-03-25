@@ -30,6 +30,9 @@
     ARG PUBLIC_COOKIE_DOMAIN
     ARG PUBLIC_SITE_URL
     
+    # List files in /app to check for pnpm-lock.yaml
+    RUN ls -la /app
+    
     # Build the SvelteKit application using pnpm
     RUN pnpm run build
     
