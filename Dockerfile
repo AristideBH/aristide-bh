@@ -1,65 +1,34 @@
-# Dockerfile for building and running a SvelteKit application using pnpm.
+# Dockerfile for building and running a Node.js application.
 
-# --- Build Stage ---
-    FROM node:21-alpine AS builder
-    WORKDIR /app
-    
-    # Install build dependencies
-    RUN apk --no-cache add --virtual build-deps \
-        python3 \
-        make \
-        g++
-    
-    # Install pnpm globally
-    RUN npm install -g pnpm
-    
-    # Copy package.json 
-    COPY package.json ./
-    
-    # Install project dependencies using pnpm
-    RUN pnpm install --prod --no-frozen-lockfile --ignore-scripts
-    
-    # Copy the rest of the application code
-    COPY . .
-    
-    # Build arguments
-    ARG PUBLIC_DIRECTUS_URL
-    ARG PUBLIC_COOKIE_DOMAIN
-    ARG PUBLIC_SITE_URL
-    
-    # Build the SvelteKit application
-    RUN pnpm run build
-    
-    # Remove build dependencies
-    RUN apk --purge --no-cache del build-deps
-    
-    # --- Production Stage ---
-    FROM node:21-alpine AS runner
-    
-    WORKDIR /app
-    
-    # Set timezone
-    ARG TZ=Europe/Paris
-    RUN apk --no-cache add tzdata
-    RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-    
-    # Install pnpm globally
-    RUN npm install -g pnpm
-    
-    # Copy built application from the builder stage
-    COPY --from=builder /app/build ./build
-    COPY --from=builder /app/package.json ./package.json
-    
-    # Install production dependencies
-    RUN pnpm install --prod --no-frozen-lockfile --ignore-scripts
-    
-    # Expose the port
-    EXPOSE 80
-    
-    # Create a non-root user
-    RUN addgroup --gid 1001 appuser && \
-        adduser --uid 1001 --gid appuser --disabled-password --gecos "" appuser
-    USER appuser
-    
-    # Start the application
-    CMD ["node", "build/index.js"]
+# This Dockerfile sets up a multi-stage build process:
+
+# 1. The first stage (`sk-build`) installs dependencies, copies the application code, and builds the application.
+# 2. The second stage (`node:21-alpine`) copies the built application from the first stage and runs it.
+
+FROM node:21-alpine AS sk-build
+WORKDIR /app
+
+ARG TZ=Europe/Paris
+ARG PUBLIC_DIRECTUS_URL
+ARG PUBLIC_COOKIE_DOMAIN
+ARG PUBLIC_SITE_URL
+
+COPY . /app
+RUN apk --no-cache add curl tzdata
+RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN npm install --force
+RUN npm run build
+
+FROM node:21-alpine
+WORKDIR /app
+
+ARG TZ=Europe/Paris
+RUN apk --no-cache add curl tzdata
+RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+COPY --from=sk-build /app/package.json /app/package.json
+COPY --from=sk-build /app/package-lock.json /app/package-lock.json
+COPY --from=sk-build /app/build /app/build
+
+EXPOSE 80
+CMD ["node", "build/index.js"]
