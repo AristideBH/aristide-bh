@@ -20,8 +20,8 @@
 </Section>
 
 <Section>
-	<AnimatedHeading class="mb-0 ~text-6xl/9xl">Kitus Starter</AnimatedHeading>
-	<p class="lead mb-10 italic text-primary">A custom starter template for Sveltekit & Directus</p>
+	<AnimatedHeading class="mb-0 ~text-6xl/9xl">{data.global.project_name}</AnimatedHeading>
+	<p class="lead mb-10 italic text-primary">{data.global.project_descriptor}</p>
 
 	<Accordion.Root type="single" class="rounded-sm bg-muted" value={'item-1'}>
 		<Accordion.Item value="item-1" class="mx-6 rounded-sm">

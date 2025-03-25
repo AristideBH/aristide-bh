@@ -5,6 +5,7 @@
 
 	import * as Card from '$lib/components/ui/card';
 	import Section from '$lib/components/layout/Section.svelte';
+	import AnimatedHeading from '$lib/components/editor/components/AnimatedHeading.svelte';
 </script>
 
 <svelte:head>
@@ -12,7 +13,8 @@
 </svelte:head>
 
 <Section>
-	<h1>{data.global.project_name}</h1>
+	<AnimatedHeading class="mb-0 ~text-6xl/9xl">{data.global.project_name}</AnimatedHeading>
+	<p class="lead mb-10 italic text-primary">{data.global.project_descriptor}</p>
 </Section>
 
 <Section content={{ template: 'inherit-main' }}>
@@ -24,7 +26,9 @@
 		<Card.Content>
 			<p>
 				En attendant, vous pouvez me contacter
-				<a class="underline" href="mailto:aristide.bruneau@gmail.com"> par mail </a>
+				<a class="underline hover:decoration-primary" href="mailto:aristide.bruneau@gmail.com">
+					par mail
+				</a>.
 			</p>
 			<!-- <ul>
 				<li></li>
