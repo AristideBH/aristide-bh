@@ -38,7 +38,7 @@ The component uses the `getFileInfos`, `getImgSrcSet`, `getImgUrl`, `getThumbhas
 		class: className,
 		showCaption = false,
 		loading = 'lazy',
-		aspectOverwrite = false
+		aspectOverwrite = true
 	}: ImageProps = $props();
 
 	// * COMPONENTS STATE

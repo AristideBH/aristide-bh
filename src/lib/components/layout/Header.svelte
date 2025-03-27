@@ -11,15 +11,9 @@
 		<LoadingBar />
 	{/if}
 	<div class="flex items-center justify-between">
-		<div class="flex items-center gap-3">
+		<div class="flex items-center gap-4">
 			<a href="/">
-				<img
-					class="size-11"
-					height="44"
-					width="44"
-					src="/icons/favicon.svg"
-					alt="Logo {project_name}"
-				/>
+				<img height="38" width="60" src="/icons/favicon.svg" alt="Logo {project_name}" />
 			</a>
 			<p class="leading-5">
 				<span class="font-extrabold">{project_name}</span>

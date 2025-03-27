@@ -24,7 +24,7 @@
 	<p class="lead mb-10 italic text-primary">{data.global.project_descriptor}</p>
 
 	<Accordion.Root type="single" class="rounded-sm bg-muted" value={'item-1'}>
-		<Accordion.Item value="item-1" class="mx-6 rounded-sm">
+		<Accordion.Item value="item-1" class="mx-6 rounded-sm border-b-0">
 			<Accordion.Trigger class="!no-underline">Details</Accordion.Trigger>
 			<Accordion.Content>
 				<ul class="ms-0 border-t border-secondary pt-4 text-base">

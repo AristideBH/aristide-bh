@@ -14,7 +14,10 @@
 
 <Section>
 	<AnimatedHeading class="mb-0 ~text-6xl/9xl">{data.global.project_name}</AnimatedHeading>
-	<p class="lead mb-10 italic text-primary">{data.global.project_descriptor}</p>
+	<div class="flex items-baseline gap-4">
+		<img height="18" width="30" src="/icons/favicon.svg" alt="Logo" />
+		<p class="lead mb-10 italic text-primary">{data.global.project_descriptor}</p>
+	</div>
 </Section>
 
 <Section content={{ template: 'inherit-main' }}>
