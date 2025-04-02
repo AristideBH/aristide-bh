@@ -9,8 +9,8 @@ export const load = (async ({ fetch, locals, url }) => {
     const user = locals.user;
     const token = locals.token ?? null;
     const directus = client(fetch, token);
-    const environment = env.NODE_ENV || 'development';
-    console.log('🩺: load -> environment', environment)
+    const env = process.env.NODE_ENV;
+    console.log('environment:', env)
 
     //@ts-expect-error TS screams when using dot notation for Directus fields
     const headerNav = await directus.request(readMenus("Header", { fields: ["*.*.*.*.*.*"] }));
@@ -18,13 +18,11 @@ export const load = (async ({ fetch, locals, url }) => {
     const footerNav = await directus.request(readMenus("Footer", { fields: ["*.*.*"] }));
     const global = await directus.request(readSettings());
 
-
-    if (global.maintenance_state && url.pathname !== "/maintenance" && environment === "production") {
+    if (global.maintenance_state && url.pathname !== "/maintenance" && env === "production") {
         redirect(307, "/maintenance");
     } else if (url.pathname === "/maintenance" && !global.maintenance_state) {
         redirect(307, "/");
     }
-
 
     return {
         // Transition
