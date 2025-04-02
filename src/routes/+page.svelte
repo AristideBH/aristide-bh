@@ -141,7 +141,7 @@
 	}
 
 	span {
-		@apply select-none font-heading text-5xl;
+		@apply select-none font-heading ~text-3xl/5xl;
 	}
 
 	li {
