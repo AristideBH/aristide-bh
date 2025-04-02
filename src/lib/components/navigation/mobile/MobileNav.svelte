@@ -19,7 +19,7 @@
 
 <Drawer.Root bind:open={$isDrawerOpen}>
 	<Drawer.Trigger>
-		<Button variant="border" size="icon" aria-label="Open menu">
+		<Button variant="white" size="icon" aria-label="Open menu">
 			<Menu class="s-4" />
 		</Button>
 	</Drawer.Trigger>
@@ -49,10 +49,10 @@
 				{/if}
 			{/each}
 		</nav>
-		<Drawer.Footer>
+		<!-- <Drawer.Footer>
 			<Drawer.Close>
-				<Button variant="outline" class="w-full hover:bg-muted">Close</Button>
+				<Button variant="outline" class="!ms-auto w-fit hover:bg-muted">Fermer</Button>
 			</Drawer.Close>
-		</Drawer.Footer>
+		</Drawer.Footer> -->
 	</Drawer.Content>
 </Drawer.Root>

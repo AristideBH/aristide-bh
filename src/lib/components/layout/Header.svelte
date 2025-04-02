@@ -6,7 +6,7 @@
 	let { project_name, project_descriptor } = page.data.global;
 </script>
 
-<header class="sticky bottom-0 z-50 bg-muted py-4">
+<header class="sticky bottom-0 z-50 bg-background py-4">
 	{#if $loading}
 		<LoadingBar />
 	{/if}
@@ -15,11 +15,11 @@
 			<a href="/">
 				<img height="38" width="60" src="/icons/favicon.svg" alt="Logo {project_name}" />
 			</a>
-			<p class="leading-5">
+			<!-- <p class="leading-5">
 				<span class="font-extrabold">{project_name}</span>
 				<br />
 				<span class="small">{project_descriptor}</span>
-			</p>
+			</p> -->
 		</div>
 		<Navigation />
 	</div>

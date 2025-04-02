@@ -5,7 +5,7 @@
 	const { footerNav: menu } = page.data;
 </script>
 
-<footer class="mt-auto bg-muted pt-4">
+<footer class="mt-auto bg-background pt-4">
 	<div class="small flex flex-wrap items-center justify-between border-b border-secondary pb-4">
 		<nav class="flex flex-wrap gap-2">
 			{#each menu.items as item}

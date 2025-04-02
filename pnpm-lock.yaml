@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@arisbh/marqueeck':
+        specifier: ^0.5.1
+        version: 0.5.1(svelte@5.25.6)
     devDependencies:
       '@directus/sdk':
         specifier: ^19.1.0
@@ -144,6 +148,11 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@arisbh/marqueeck@0.5.1':
+    resolution: {integrity: sha512-7sjBwIRvm+UdQgb8fOK44ssy+oMC5A/33/CC+E62OzMtW2i5OotE3xw0YY+tjqOI7y9LV1d44rHixhni0IEGOw==}
+    peerDependencies:
+      svelte: ^5.0.0
 
   '@ark/schema@0.45.1':
     resolution: {integrity: sha512-I9UnaTRDAL1nc7xi1PmHSEVu5x32S9JUlxk0W7teq9EFM7LPalq45TYvuFZMRFBBJdScHYwdF0rtnHrJfnszWw==}
@@ -2011,6 +2020,10 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
+
+  '@arisbh/marqueeck@0.5.1(svelte@5.25.6)':
+    dependencies:
+      svelte: 5.25.6
 
   '@ark/schema@0.45.1':
     dependencies:

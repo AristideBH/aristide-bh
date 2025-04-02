@@ -68,5 +68,8 @@
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
+	},
+	"dependencies": {
+		"@arisbh/marqueeck": "^0.5.1"
 	}
 }

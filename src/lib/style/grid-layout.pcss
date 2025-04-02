@@ -1,11 +1,11 @@
 :root {
-	--content-max-width: 114ch;
+	--content-max-width: 140ch;
 	--content-width: min(
 		calc(100% - var(--sidebar-width) - calc(2 * var(--side-padding)) - var(--x-gap)),
 		calc(var(--content-max-width) - var(--sidebar-width))
 	);
 	--sidebar-width: min(350px, 35ch);
-	--side-padding: 1.5rem;
+	--side-padding: 2rem;
 	--x-gap: 2rem;
 	--y-gap: 5rem;
 
@@ -53,8 +53,11 @@ footer,
 		[full-end];
 
 	[data-template='none'] {
-		& > * {
+		& > *:not(.layout-full) {
 			grid-column: main;
+		}
+		.layout-full {
+			grid-column: full;
 		}
 	}
 
