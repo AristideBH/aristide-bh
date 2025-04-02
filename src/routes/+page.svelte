@@ -24,8 +24,8 @@
 	class="sticky top-0 z-50 bg-gradient-to-b from-background from-0% pt-10 "
 	content={{ width: 'full-width' }}
 >
-	<AnimatedHeading class="mb-0 flex  items-center gap-[0.4ch] ~text-6xl/9xl">
-		<Logo class="h-[0.5em] fill-primary" />
+	<AnimatedHeading class="mb-0 flex  items-baseline gap-[0.35ch] ~text-6xl/9xl">
+		<Logo class="h-[0.635em] fill-primary" />
 		{data.global.project_name}
 	</AnimatedHeading>
 	<p class="lead italic text-primary">{data.global.project_descriptor}</p>
