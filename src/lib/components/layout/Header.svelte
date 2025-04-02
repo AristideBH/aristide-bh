@@ -6,7 +6,7 @@
 	let { project_name, project_descriptor } = page.data.global;
 </script>
 
-<header class="sticky bottom-0 z-50 border-t border-foreground/10 bg-background py-4">
+<header class="sticky bottom-0 z-50 border-b border-foreground/10 bg-background px-4 py-4">
 	{#if $loading}
 		<LoadingBar />
 	{/if}

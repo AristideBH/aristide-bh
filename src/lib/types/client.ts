@@ -361,7 +361,10 @@ export namespace Collections {
     sort: Types.Optional<Types.Integer>;
     date_created: Types.Optional<Types.DateTime>;
     date_updated: Types.Optional<Types.DateTime>;
+    title: Types.Optional<Types.String>;
+    slug: Types.Optional<Types.String>;
     subtitle: Types.Optional<Types.String>;
+    thumbnail: Types.Optional<Types.UUID | Collections.DirectusFile>;
   }
 
   /**

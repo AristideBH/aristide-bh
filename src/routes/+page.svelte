@@ -13,16 +13,23 @@
 	// import Seo from '@archangelgca/sk-seo';
 
 	let { data } = $props();
-	let { home } = data;
+	let { home, projects } = data;
 </script>
 
 <!-- <Seo title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} /> -->
+<!-- <pre>{JSON.stringify(projects, null, 2)}</pre> -->
 
 <Section
 	class="sticky top-0 z-50 bg-gradient-to-b from-background from-0% pt-10 "
 	content={{ width: 'full-width' }}
 >
-	<AnimatedHeading class="mb-0 ~text-6xl/9xl">{data.global.project_name}</AnimatedHeading>
+	<div class="flex flex-wrap items-center gap-8">
+		<img width="120" src="/icons/favicon.svg" alt="Logo" />
+
+		<AnimatedHeading class="mb-0 ~text-6xl/9xl  ">
+			{data.global.project_name}</AnimatedHeading
+		>
+	</div>
 	<p class="lead italic text-primary">{data.global.project_descriptor}</p>
 </Section>
 
@@ -93,14 +100,13 @@
 	</p> -->
 
 	<ul class="m-0 mt-4 grid gap-4 p-0 lg:grid-cols-2">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+		{#each projects as project}
+			<li>
+				<a href="/projets/{project.slug}">
+					{project.title}
+				</a>
+			</li>
+		{/each}
 	</ul>
 </Section>
 
@@ -145,6 +151,6 @@
 	}
 
 	li {
-		@apply list-none rounded border bg-muted p-4 pb-32 text-2xl text-secondary;
+		@apply list-none rounded border bg-muted p-4 pb-32 text-2xl text-muted-foreground;
 	}
 </style>
