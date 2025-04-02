@@ -595,32 +595,20 @@
   {
     "collection": "pages_editor_nodes",
     "action": "read",
-    "permissions": {},
-    "validation": {},
+    "permissions": null,
+    "validation": null,
     "presets": null,
     "fields": [
       "*"
     ],
     "policy": "abf8a154-5b1c-4a46-ac9c-7300570f4f17",
-    "_syncId": "6ec5cb32-aea0-49c8-b418-063580b65f62"
-  },
-  {
-    "collection": "pages_editor_nodes",
-    "action": "read",
-    "permissions": {},
-    "validation": {},
-    "presets": null,
-    "fields": [
-      "*"
-    ],
-    "policy": "378e13ed-eade-4be2-8f42-c5c5ce9fc890",
-    "_syncId": "b5ad188a-55be-43cd-80b6-93cc85b601c8"
+    "_syncId": "5e3c1b8d-bc67-4de6-9af2-77ceee3c15d7"
   },
   {
     "collection": "pages",
     "action": "read",
-    "permissions": {},
-    "validation": {},
+    "permissions": null,
+    "validation": null,
     "presets": null,
     "fields": [
       "*"
@@ -667,50 +655,26 @@
   {
     "collection": "section_editor_nodes",
     "action": "read",
-    "permissions": {},
-    "validation": {},
+    "permissions": null,
+    "validation": null,
     "presets": null,
     "fields": [
       "*"
     ],
     "policy": "abf8a154-5b1c-4a46-ac9c-7300570f4f17",
-    "_syncId": "f96e79df-ea10-4f5b-82ba-b46719af79b6"
-  },
-  {
-    "collection": "section_editor_nodes",
-    "action": "read",
-    "permissions": {},
-    "validation": {},
-    "presets": null,
-    "fields": [
-      "*"
-    ],
-    "policy": "378e13ed-eade-4be2-8f42-c5c5ce9fc890",
-    "_syncId": "4b5c59d3-e007-4409-be27-ccd3a2ca6472"
+    "_syncId": "99a3d056-c33d-4686-a640-aed3f71cc150"
   },
   {
     "collection": "section",
     "action": "read",
-    "permissions": {},
-    "validation": {},
+    "permissions": null,
+    "validation": null,
     "presets": null,
     "fields": [
       "*"
     ],
     "policy": "abf8a154-5b1c-4a46-ac9c-7300570f4f17",
-    "_syncId": "600912ba-79b1-4487-b487-ce2435bac745"
-  },
-  {
-    "collection": "section",
-    "action": "read",
-    "permissions": {},
-    "validation": {},
-    "presets": null,
-    "fields": [
-      "*"
-    ],
-    "policy": "378e13ed-eade-4be2-8f42-c5c5ce9fc890",
-    "_syncId": "0849f47c-60b1-4439-9fa7-31b0619debc3"
+    "_syncId": "05fa851c-cad7-4fac-9134-9901d794c37e"
   },
   {
     "collection": "seo_advanced_setting",

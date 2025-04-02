@@ -61,18 +61,6 @@ type Query {
   menu_items_by_id(id: ID!, version: String): menu_items
   menu_items_aggregated(groupBy: [String], filter: menu_items_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [menu_items_aggregated!]!
   menu_items_by_version(version: String!, id: ID!): version_menu_items
-  pages_editor_nodes(filter: pages_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [pages_editor_nodes!]!
-  pages_editor_nodes_by_id(id: ID!, version: String): pages_editor_nodes
-  pages_editor_nodes_aggregated(groupBy: [String], filter: pages_editor_nodes_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [pages_editor_nodes_aggregated!]!
-  pages_editor_nodes_by_version(version: String!, id: ID!): version_pages_editor_nodes
-  section(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [section!]!
-  section_by_id(id: ID!, version: String): section
-  section_aggregated(groupBy: [String], filter: section_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [section_aggregated!]!
-  section_by_version(version: String!, id: ID!): version_section
-  section_editor_nodes(filter: section_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [section_editor_nodes!]!
-  section_editor_nodes_by_id(id: ID!, version: String): section_editor_nodes
-  section_editor_nodes_aggregated(groupBy: [String], filter: section_editor_nodes_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [section_editor_nodes_aggregated!]!
-  section_editor_nodes_by_version(version: String!, id: ID!): version_section_editor_nodes
   stack(filter: stack_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [stack!]!
   stack_by_id(id: ID!, version: String): stack
   stack_aggregated(groupBy: [String], filter: stack_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [stack_aggregated!]!
@@ -81,6 +69,22 @@ type Query {
   stack_editor_nodes_by_id(id: ID!, version: String): stack_editor_nodes
   stack_editor_nodes_aggregated(groupBy: [String], filter: stack_editor_nodes_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [stack_editor_nodes_aggregated!]!
   stack_editor_nodes_by_version(version: String!, id: ID!): version_stack_editor_nodes
+  section_editor_nodes(filter: section_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [section_editor_nodes!]!
+  section_editor_nodes_by_id(id: ID!, version: String): section_editor_nodes
+  section_editor_nodes_aggregated(groupBy: [String], filter: section_editor_nodes_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [section_editor_nodes_aggregated!]!
+  section_editor_nodes_by_version(version: String!, id: ID!): version_section_editor_nodes
+  pages_editor_nodes(filter: pages_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [pages_editor_nodes!]!
+  pages_editor_nodes_by_id(id: ID!, version: String): pages_editor_nodes
+  pages_editor_nodes_aggregated(groupBy: [String], filter: pages_editor_nodes_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [pages_editor_nodes_aggregated!]!
+  pages_editor_nodes_by_version(version: String!, id: ID!): version_pages_editor_nodes
+  section(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [section!]!
+  section_by_id(id: ID!, version: String): section
+  section_aggregated(groupBy: [String], filter: section_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [section_aggregated!]!
+  section_by_version(version: String!, id: ID!): version_section
+  projets(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets!]!
+  projets_by_id(id: ID!, version: String): projets
+  projets_aggregated(groupBy: [String], filter: projets_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [projets_aggregated!]!
+  projets_by_version(version: String!, id: ID!): version_projets
 }
 
 type Mutation {
@@ -114,16 +118,18 @@ type Mutation {
   create_menus_item(data: create_menus_input!): menus
   create_menu_items_items(filter: menu_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_menu_items_input!]): [menu_items!]!
   create_menu_items_item(data: create_menu_items_input!): menu_items
-  create_pages_editor_nodes_items(filter: pages_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_pages_editor_nodes_input!]): [pages_editor_nodes!]!
-  create_pages_editor_nodes_item(data: create_pages_editor_nodes_input!): pages_editor_nodes
-  create_section_items(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_section_input!]): [section!]!
-  create_section_item(data: create_section_input!): section
-  create_section_editor_nodes_items(filter: section_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_section_editor_nodes_input!]): [section_editor_nodes!]!
-  create_section_editor_nodes_item(data: create_section_editor_nodes_input!): section_editor_nodes
   create_stack_items(filter: stack_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_stack_input!]): [stack!]!
   create_stack_item(data: create_stack_input!): stack
   create_stack_editor_nodes_items(filter: stack_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_stack_editor_nodes_input!]): [stack_editor_nodes!]!
   create_stack_editor_nodes_item(data: create_stack_editor_nodes_input!): stack_editor_nodes
+  create_section_editor_nodes_items(filter: section_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_section_editor_nodes_input!]): [section_editor_nodes!]!
+  create_section_editor_nodes_item(data: create_section_editor_nodes_input!): section_editor_nodes
+  create_pages_editor_nodes_items(filter: pages_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_pages_editor_nodes_input!]): [pages_editor_nodes!]!
+  create_pages_editor_nodes_item(data: create_pages_editor_nodes_input!): pages_editor_nodes
+  create_section_items(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_section_input!]): [section!]!
+  create_section_item(data: create_section_input!): section
+  create_projets_items(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_projets_input!]): [projets!]!
+  create_projets_item(data: create_projets_input!): projets
   update_directus_sync_id_map_items(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_sync_id_map_input!): [directus_sync_id_map!]!
   update_directus_sync_id_map_batch(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_sync_id_map_input!]): [directus_sync_id_map!]!
   update_directus_sync_id_map_item(id: ID!, data: update_directus_sync_id_map_input!): directus_sync_id_map
@@ -170,21 +176,24 @@ type Mutation {
   update_menu_items_items(filter: menu_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_menu_items_input!): [menu_items!]!
   update_menu_items_batch(filter: menu_items_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_menu_items_input!]): [menu_items!]!
   update_menu_items_item(id: ID!, data: update_menu_items_input!): menu_items
-  update_pages_editor_nodes_items(filter: pages_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_pages_editor_nodes_input!): [pages_editor_nodes!]!
-  update_pages_editor_nodes_batch(filter: pages_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_pages_editor_nodes_input!]): [pages_editor_nodes!]!
-  update_pages_editor_nodes_item(id: ID!, data: update_pages_editor_nodes_input!): pages_editor_nodes
-  update_section_items(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_section_input!): [section!]!
-  update_section_batch(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_section_input!]): [section!]!
-  update_section_item(id: ID!, data: update_section_input!): section
-  update_section_editor_nodes_items(filter: section_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_section_editor_nodes_input!): [section_editor_nodes!]!
-  update_section_editor_nodes_batch(filter: section_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_section_editor_nodes_input!]): [section_editor_nodes!]!
-  update_section_editor_nodes_item(id: ID!, data: update_section_editor_nodes_input!): section_editor_nodes
   update_stack_items(filter: stack_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_stack_input!): [stack!]!
   update_stack_batch(filter: stack_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_stack_input!]): [stack!]!
   update_stack_item(id: ID!, data: update_stack_input!): stack
   update_stack_editor_nodes_items(filter: stack_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_stack_editor_nodes_input!): [stack_editor_nodes!]!
   update_stack_editor_nodes_batch(filter: stack_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_stack_editor_nodes_input!]): [stack_editor_nodes!]!
   update_stack_editor_nodes_item(id: ID!, data: update_stack_editor_nodes_input!): stack_editor_nodes
+  update_section_editor_nodes_items(filter: section_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_section_editor_nodes_input!): [section_editor_nodes!]!
+  update_section_editor_nodes_batch(filter: section_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_section_editor_nodes_input!]): [section_editor_nodes!]!
+  update_section_editor_nodes_item(id: ID!, data: update_section_editor_nodes_input!): section_editor_nodes
+  update_pages_editor_nodes_items(filter: pages_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_pages_editor_nodes_input!): [pages_editor_nodes!]!
+  update_pages_editor_nodes_batch(filter: pages_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_pages_editor_nodes_input!]): [pages_editor_nodes!]!
+  update_pages_editor_nodes_item(id: ID!, data: update_pages_editor_nodes_input!): pages_editor_nodes
+  update_section_items(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_section_input!): [section!]!
+  update_section_batch(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_section_input!]): [section!]!
+  update_section_item(id: ID!, data: update_section_input!): section
+  update_projets_items(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_projets_input!): [projets!]!
+  update_projets_batch(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_projets_input!]): [projets!]!
+  update_projets_item(id: ID!, data: update_projets_input!): projets
   delete_directus_sync_id_map_items(ids: [ID]!): delete_many
   delete_directus_sync_id_map_item(id: ID!): delete_one
   delete_contact_forms_items(ids: [ID]!): delete_many
@@ -215,16 +224,18 @@ type Mutation {
   delete_menus_item(id: ID!): delete_one
   delete_menu_items_items(ids: [ID]!): delete_many
   delete_menu_items_item(id: ID!): delete_one
-  delete_pages_editor_nodes_items(ids: [ID]!): delete_many
-  delete_pages_editor_nodes_item(id: ID!): delete_one
-  delete_section_items(ids: [ID]!): delete_many
-  delete_section_item(id: ID!): delete_one
-  delete_section_editor_nodes_items(ids: [ID]!): delete_many
-  delete_section_editor_nodes_item(id: ID!): delete_one
   delete_stack_items(ids: [ID]!): delete_many
   delete_stack_item(id: ID!): delete_one
   delete_stack_editor_nodes_items(ids: [ID]!): delete_many
   delete_stack_editor_nodes_item(id: ID!): delete_one
+  delete_section_editor_nodes_items(ids: [ID]!): delete_many
+  delete_section_editor_nodes_item(id: ID!): delete_one
+  delete_pages_editor_nodes_items(ids: [ID]!): delete_many
+  delete_pages_editor_nodes_item(id: ID!): delete_one
+  delete_section_items(ids: [ID]!): delete_many
+  delete_section_item(id: ID!): delete_one
+  delete_projets_items(ids: [ID]!): delete_many
+  delete_projets_item(id: ID!): delete_one
 }
 
 type Subscription {
@@ -262,14 +273,15 @@ type Subscription {
   image_mutated(event: EventEnum): image_mutated
   menus_mutated(event: EventEnum): menus_mutated
   menu_items_mutated(event: EventEnum): menu_items_mutated
-  pages_editor_nodes_mutated(event: EventEnum): pages_editor_nodes_mutated
-  section_mutated(event: EventEnum): section_mutated
-  section_editor_nodes_mutated(event: EventEnum): section_editor_nodes_mutated
   stack_mutated(event: EventEnum): stack_mutated
   stack_editor_nodes_mutated(event: EventEnum): stack_editor_nodes_mutated
+  section_editor_nodes_mutated(event: EventEnum): section_editor_nodes_mutated
   directus_policies_mutated(event: EventEnum): directus_policies_mutated
   directus_access_mutated(event: EventEnum): directus_access_mutated
   directus_comments_mutated(event: EventEnum): directus_comments_mutated
+  pages_editor_nodes_mutated(event: EventEnum): pages_editor_nodes_mutated
+  section_mutated(event: EventEnum): section_mutated
+  projets_mutated(event: EventEnum): projets_mutated
 }
 
 """The `Boolean` scalar type represents `true` or `false`."""
@@ -320,7 +332,7 @@ enum EventEnum {
 
 union pages_editor_nodes_item_union = section
 
-union section_editor_nodes_item_union = button | gallery | image | quote | stack | video
+union section_editor_nodes_item_union = image | gallery | quote | button | stack | video
 
 union stack_editor_nodes_item_union = button | gallery | image | quote | stack | video
 
@@ -1255,10 +1267,10 @@ type pages_aggregated_fields {
 }
 
 type pages_editor_nodes {
-  collection: String
   id: ID!
-  item: pages_editor_nodes_item_union
   pages_id(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pages
+  item: pages_editor_nodes_item_union
+  collection: String
 }
 
 type pages_editor_nodes_aggregated {
@@ -1269,10 +1281,10 @@ type pages_editor_nodes_aggregated {
 }
 
 type pages_editor_nodes_aggregated_count {
-  collection: Int
   id: Int
-  item: Int
   pages_id: Int
+  item: Int
+  collection: Int
 }
 
 type pages_editor_nodes_mutated {
@@ -1285,6 +1297,49 @@ type pages_mutated {
   key: ID!
   event: EventEnum
   data: pages
+}
+
+type projets {
+  id: ID!
+  status: String
+  sort: Int
+  date_created: Date
+  date_created_func: datetime_functions
+  date_updated: Date
+  date_updated_func: datetime_functions
+  subtitle: String
+}
+
+type projets_aggregated {
+  group: JSON
+  countAll: Int
+  count: projets_aggregated_count
+  countDistinct: projets_aggregated_count
+  avg: projets_aggregated_fields
+  sum: projets_aggregated_fields
+  avgDistinct: projets_aggregated_fields
+  sumDistinct: projets_aggregated_fields
+  min: projets_aggregated_fields
+  max: projets_aggregated_fields
+}
+
+type projets_aggregated_count {
+  id: Int
+  status: Int
+  sort: Int
+  date_created: Int
+  date_updated: Int
+  subtitle: Int
+}
+
+type projets_aggregated_fields {
+  sort: Float
+}
+
+type projets_mutated {
+  key: ID!
+  event: EventEnum
+  data: projets
 }
 
 type quote {
@@ -1315,15 +1370,15 @@ type quote_mutated {
 }
 
 type section {
-  align: String
-  border: String
+  id: ID!
+  width: String
   color: String
+  border: String
+  template: String
+  align: String
+  type: String
   editor: JSON
   editor_func: count_functions
-  id: ID!
-  template: String
-  type: String
-  width: String
   editor_nodes(filter: section_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [section_editor_nodes]
   editor_nodes_func: count_functions
 }
@@ -1333,25 +1388,35 @@ type section_aggregated {
   countAll: Int
   count: section_aggregated_count
   countDistinct: section_aggregated_count
+  avg: section_aggregated_fields
+  sum: section_aggregated_fields
+  avgDistinct: section_aggregated_fields
+  sumDistinct: section_aggregated_fields
+  min: section_aggregated_fields
+  max: section_aggregated_fields
 }
 
 type section_aggregated_count {
-  align: Int
-  border: Int
-  color: Int
-  editor: Int
   id: Int
-  template: Int
-  type: Int
   width: Int
+  color: Int
+  border: Int
+  template: Int
+  align: Int
+  type: Int
+  editor: Int
   editor_nodes: Int
 }
 
+type section_aggregated_fields {
+  id: Float
+}
+
 type section_editor_nodes {
-  collection: String
   id: ID!
-  item: section_editor_nodes_item_union
   section_id(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): section
+  item: section_editor_nodes_item_union
+  collection: String
 }
 
 type section_editor_nodes_aggregated {
@@ -1359,13 +1424,23 @@ type section_editor_nodes_aggregated {
   countAll: Int
   count: section_editor_nodes_aggregated_count
   countDistinct: section_editor_nodes_aggregated_count
+  avg: section_editor_nodes_aggregated_fields
+  sum: section_editor_nodes_aggregated_fields
+  avgDistinct: section_editor_nodes_aggregated_fields
+  sumDistinct: section_editor_nodes_aggregated_fields
+  min: section_editor_nodes_aggregated_fields
+  max: section_editor_nodes_aggregated_fields
 }
 
 type section_editor_nodes_aggregated_count {
-  collection: Int
   id: Int
-  item: Int
   section_id: Int
+  item: Int
+  collection: Int
+}
+
+type section_editor_nodes_aggregated_fields {
+  section_id: Float
 }
 
 type section_editor_nodes_mutated {
@@ -1695,10 +1770,20 @@ type version_pages {
 
 """"""
 type version_pages_editor_nodes {
-  collection: String
   id: ID
-  item: String
   pages_id: JSON
+  item: String
+  collection: String
+}
+
+""""""
+type version_projets {
+  id: ID
+  status: String
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  subtitle: String
 }
 
 """"""
@@ -1711,23 +1796,23 @@ type version_quote {
 
 """"""
 type version_section {
-  align: String
-  border: String
-  color: String
-  editor: JSON
   id: ID
-  template: String
-  type: String
   width: String
+  color: String
+  border: String
+  template: String
+  align: String
+  type: String
+  editor: JSON
   editor_nodes: JSON
 }
 
 """"""
 type version_section_editor_nodes {
-  collection: String
   id: ID
-  item: String
   section_id: JSON
+  item: String
+  collection: String
 }
 
 """"""
@@ -2057,10 +2142,10 @@ input create_menus_input {
 }
 
 input create_pages_editor_nodes_input {
-  collection: String
   id: ID
-  item: String
   pages_id: create_pages_input
+  item: String
+  collection: String
 }
 
 input create_pages_input {
@@ -2079,6 +2164,15 @@ input create_pages_input {
   editor_nodes: [create_pages_editor_nodes_input]
 }
 
+input create_projets_input {
+  id: ID
+  status: String
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  subtitle: String
+}
+
 input create_quote_input {
   author: String
   id: ID
@@ -2087,21 +2181,21 @@ input create_quote_input {
 }
 
 input create_section_editor_nodes_input {
-  collection: String
   id: ID
-  item: String
   section_id: create_section_input
+  item: String
+  collection: String
 }
 
 input create_section_input {
-  align: String
-  border: String
-  color: String
-  editor: JSON
   id: ID
-  template: String
-  type: String
   width: String
+  color: String
+  border: String
+  template: String
+  align: String
+  type: String
+  editor: JSON
   editor_nodes: [create_section_editor_nodes_input]
 }
 
@@ -2554,9 +2648,9 @@ input number_filter_operators {
 }
 
 input pages_editor_nodes_filter {
-  collection: string_filter_operators
   id: string_filter_operators
   pages_id: pages_filter
+  collection: string_filter_operators
   _and: [pages_editor_nodes_filter]
   _or: [pages_editor_nodes_filter]
   item__section: section_filter
@@ -2584,6 +2678,19 @@ input pages_filter {
   _or: [pages_filter]
 }
 
+input projets_filter {
+  id: string_filter_operators
+  status: string_filter_operators
+  sort: number_filter_operators
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  subtitle: string_filter_operators
+  _and: [projets_filter]
+  _or: [projets_filter]
+}
+
 input quote_filter {
   author: string_filter_operators
   id: string_filter_operators
@@ -2594,29 +2701,29 @@ input quote_filter {
 }
 
 input section_editor_nodes_filter {
-  collection: string_filter_operators
   id: string_filter_operators
   section_id: section_filter
+  collection: string_filter_operators
   _and: [section_editor_nodes_filter]
   _or: [section_editor_nodes_filter]
-  item__button: button_filter
-  item__gallery: gallery_filter
   item__image: image_filter
+  item__gallery: gallery_filter
   item__quote: quote_filter
+  item__button: button_filter
   item__stack: stack_filter
   item__video: video_filter
 }
 
 input section_filter {
-  align: string_filter_operators
-  border: string_filter_operators
+  id: number_filter_operators
+  width: string_filter_operators
   color: string_filter_operators
+  border: string_filter_operators
+  template: string_filter_operators
+  align: string_filter_operators
+  type: string_filter_operators
   editor: string_filter_operators
   editor_func: count_function_filter_operators
-  id: string_filter_operators
-  template: string_filter_operators
-  type: string_filter_operators
-  width: string_filter_operators
   editor_nodes: section_editor_nodes_filter
   editor_nodes_func: count_function_filter_operators
   _and: [section_filter]
@@ -2912,10 +3019,10 @@ input update_menus_input {
 }
 
 input update_pages_editor_nodes_input {
-  collection: String
   id: ID
-  item: String
   pages_id: update_pages_input
+  item: String
+  collection: String
 }
 
 input update_pages_input {
@@ -2934,6 +3041,15 @@ input update_pages_input {
   editor_nodes: [update_pages_editor_nodes_input]
 }
 
+input update_projets_input {
+  id: ID
+  status: String
+  sort: Int
+  date_created: Date
+  date_updated: Date
+  subtitle: String
+}
+
 input update_quote_input {
   author: String
   id: ID
@@ -2942,21 +3058,21 @@ input update_quote_input {
 }
 
 input update_section_editor_nodes_input {
-  collection: String
   id: ID
-  item: String
   section_id: update_section_input
+  item: String
+  collection: String
 }
 
 input update_section_input {
-  align: String
-  border: String
-  color: String
-  editor: JSON
   id: ID
-  template: String
-  type: String
   width: String
+  color: String
+  border: String
+  template: String
+  align: String
+  type: String
+  editor: JSON
   editor_nodes: [update_section_editor_nodes_input]
 }
 

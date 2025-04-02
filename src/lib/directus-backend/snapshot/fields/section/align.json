@@ -4,26 +4,8 @@
   "type": "string",
   "meta": {
     "collection": "section",
-    "conditions": [
-      {
-        "hidden": true,
-        "name": "If no template is selected",
-        "options": {
-          "allowNone": false,
-          "allowOther": false
-        },
-        "rule": {
-          "_and": [
-            {
-              "template": {
-                "_null": true
-              }
-            }
-          ]
-        }
-      }
-    ],
-    "display": null,
+    "conditions": null,
+    "display": "labels",
     "display_options": null,
     "field": "align",
     "group": null,

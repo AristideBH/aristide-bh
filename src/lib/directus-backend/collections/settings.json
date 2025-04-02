@@ -1,7 +1,7 @@
 [
   {
     "project_name": "Aristide BH",
-    "project_color": "#6644FF",
+    "project_color": "#7153F9",
     "public_note": null,
     "auth_login_attempts": 50,
     "auth_password_policy": null,
@@ -116,13 +116,13 @@
         "enabled": true
       }
     ],
-    "project_descriptor": "Porfolio",
+    "project_descriptor": "Artisan graphique & développeur créatif",
     "default_language": "en-US",
     "custom_aspect_ratios": null,
     "default_appearance": "auto",
-    "default_theme_light": "Directus Minimal",
+    "default_theme_light": "Directus Default",
     "theme_light_overrides": null,
-    "default_theme_dark": null,
+    "default_theme_dark": "Directus Default",
     "theme_dark_overrides": null,
     "report_error_url": null,
     "report_bug_url": null,
@@ -142,9 +142,9 @@
         "flow_manager_order": 1
       }
     ],
-    "maintenance_description": null,
+    "maintenance_description": "Je fais au mieux pour le mettre à jour ! Revenez bientôt !",
     "maintenance_state": false,
-    "maintenance_title": null,
+    "maintenance_title": "Mon site est en plein refonte !",
     "_syncId": "8d243d1f-ad87-412c-b254-7b217df33d65"
   }
 ]

@@ -1,42 +1,37 @@
 {
-  "collection": "pages",
-  "field": "permalink",
-  "type": "string",
+  "collection": "projets",
+  "field": "date_updated",
+  "type": "timestamp",
   "meta": {
-    "collection": "pages",
+    "collection": "projets",
     "conditions": null,
-    "display": "extension-display-link",
+    "display": "datetime",
     "display_options": {
-      "font": "monospace",
-      "prefix": "https://test-frontend.aristide-bh.com/",
-      "showClipboard": false
+      "relative": true
     },
-    "field": "permalink",
+    "field": "date_updated",
     "group": null,
-    "hidden": false,
-    "interface": "input",
+    "hidden": true,
+    "interface": "datetime",
     "note": null,
-    "options": {
-      "font": "monospace",
-      "iconLeft": "link",
-      "slug": true,
-      "trim": true
-    },
+    "options": null,
     "readonly": true,
     "required": false,
-    "sort": 13,
-    "special": null,
+    "sort": 5,
+    "special": [
+      "date-updated"
+    ],
     "translations": null,
     "validation": null,
     "validation_message": null,
     "width": "half"
   },
   "schema": {
-    "name": "permalink",
-    "table": "pages",
-    "data_type": "character varying",
+    "name": "date_updated",
+    "table": "projets",
+    "data_type": "timestamp with time zone",
     "default_value": null,
-    "max_length": 255,
+    "max_length": null,
     "numeric_precision": null,
     "numeric_scale": null,
     "is_nullable": true,

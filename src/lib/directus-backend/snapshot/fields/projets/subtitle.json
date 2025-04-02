@@ -1,36 +1,21 @@
 {
-  "collection": "section",
-  "field": "width",
+  "collection": "projets",
+  "field": "subtitle",
   "type": "string",
   "meta": {
-    "collection": "section",
+    "collection": "projets",
     "conditions": null,
-    "display": "labels",
-    "display_options": {
-      "choices": null
-    },
-    "field": "width",
+    "display": null,
+    "display_options": null,
+    "field": "subtitle",
     "group": null,
     "hidden": false,
-    "interface": "select-radio",
+    "interface": "input",
     "note": null,
-    "options": {
-      "choices": [
-        {
-          "icon": "fit_width",
-          "text": "Default",
-          "value": "default"
-        },
-        {
-          "icon": "width",
-          "text": "Full-width",
-          "value": "full-width"
-        }
-      ]
-    },
+    "options": null,
     "readonly": false,
     "required": false,
-    "sort": 2,
+    "sort": 6,
     "special": null,
     "translations": null,
     "validation": null,
@@ -38,10 +23,10 @@
     "width": "full"
   },
   "schema": {
-    "name": "width",
-    "table": "section",
+    "name": "subtitle",
+    "table": "projets",
     "data_type": "character varying",
-    "default_value": "default",
+    "default_value": null,
     "max_length": 255,
     "numeric_precision": null,
     "numeric_scale": null,

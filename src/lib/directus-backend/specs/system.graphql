@@ -275,14 +275,15 @@ type Subscription {
   image_mutated(event: EventEnum): image_mutated
   menus_mutated(event: EventEnum): menus_mutated
   menu_items_mutated(event: EventEnum): menu_items_mutated
-  pages_editor_nodes_mutated(event: EventEnum): pages_editor_nodes_mutated
-  section_mutated(event: EventEnum): section_mutated
-  section_editor_nodes_mutated(event: EventEnum): section_editor_nodes_mutated
   stack_mutated(event: EventEnum): stack_mutated
   stack_editor_nodes_mutated(event: EventEnum): stack_editor_nodes_mutated
+  section_editor_nodes_mutated(event: EventEnum): section_editor_nodes_mutated
   directus_policies_mutated(event: EventEnum): directus_policies_mutated
   directus_access_mutated(event: EventEnum): directus_access_mutated
   directus_comments_mutated(event: EventEnum): directus_comments_mutated
+  pages_editor_nodes_mutated(event: EventEnum): pages_editor_nodes_mutated
+  section_mutated(event: EventEnum): section_mutated
+  projets_mutated(event: EventEnum): projets_mutated
 }
 
 """The `Boolean` scalar type represents `true` or `false`."""
@@ -349,7 +350,7 @@ enum graphql_sdl_scope {
 
 union pages_editor_nodes_item_union = section
 
-union section_editor_nodes_item_union = button | gallery | image | quote | stack | video
+union section_editor_nodes_item_union = image | gallery | quote | button | stack | video
 
 union stack_editor_nodes_item_union = button | gallery | image | quote | stack | video
 
@@ -1791,10 +1792,10 @@ type pages {
 }
 
 type pages_editor_nodes {
-  collection: String
   id: ID!
-  item: pages_editor_nodes_item_union
   pages_id(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pages
+  item: pages_editor_nodes_item_union
+  collection: String
 }
 
 type pages_editor_nodes_mutated {
@@ -1815,6 +1816,23 @@ type policy_me_globals_type {
   admin_access: Boolean
 }
 
+type projets {
+  id: ID!
+  status: String
+  sort: Int
+  date_created: Date
+  date_created_func: datetime_functions
+  date_updated: Date
+  date_updated_func: datetime_functions
+  subtitle: String
+}
+
+type projets_mutated {
+  key: ID!
+  event: EventEnum
+  data: projets
+}
+
 type quote {
   author: String
   id: ID!
@@ -1829,24 +1847,24 @@ type quote_mutated {
 }
 
 type section {
-  align: String
-  border: String
+  id: ID!
+  width: String
   color: String
+  border: String
+  template: String
+  align: String
+  type: String
   editor: JSON
   editor_func: count_functions
-  id: ID!
-  template: String
-  type: String
-  width: String
   editor_nodes(filter: section_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [section_editor_nodes]
   editor_nodes_func: count_functions
 }
 
 type section_editor_nodes {
-  collection: String
   id: ID!
-  item: section_editor_nodes_item_union
   section_id(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): section
+  item: section_editor_nodes_item_union
+  collection: String
 }
 
 type section_editor_nodes_mutated {
@@ -2915,9 +2933,9 @@ input number_filter_operators {
 }
 
 input pages_editor_nodes_filter {
-  collection: string_filter_operators
   id: string_filter_operators
   pages_id: pages_filter
+  collection: string_filter_operators
   _and: [pages_editor_nodes_filter]
   _or: [pages_editor_nodes_filter]
   item__section: section_filter
@@ -2955,29 +2973,29 @@ input quote_filter {
 }
 
 input section_editor_nodes_filter {
-  collection: string_filter_operators
   id: string_filter_operators
   section_id: section_filter
+  collection: string_filter_operators
   _and: [section_editor_nodes_filter]
   _or: [section_editor_nodes_filter]
-  item__button: button_filter
-  item__gallery: gallery_filter
   item__image: image_filter
+  item__gallery: gallery_filter
   item__quote: quote_filter
+  item__button: button_filter
   item__stack: stack_filter
   item__video: video_filter
 }
 
 input section_filter {
-  align: string_filter_operators
-  border: string_filter_operators
+  id: number_filter_operators
+  width: string_filter_operators
   color: string_filter_operators
+  border: string_filter_operators
+  template: string_filter_operators
+  align: string_filter_operators
+  type: string_filter_operators
   editor: string_filter_operators
   editor_func: count_function_filter_operators
-  id: string_filter_operators
-  template: string_filter_operators
-  type: string_filter_operators
-  width: string_filter_operators
   editor_nodes: section_editor_nodes_filter
   editor_nodes_func: count_function_filter_operators
   _and: [section_filter]

@@ -5,7 +5,7 @@
   "meta": {
     "collection": "section",
     "conditions": null,
-    "display": null,
+    "display": "labels",
     "display_options": null,
     "field": "border",
     "group": null,

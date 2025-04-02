@@ -7,10 +7,10 @@
     "many_collection": "section_editor_nodes",
     "many_field": "item",
     "one_allowed_collections": [
-      "button",
-      "gallery",
       "image",
+      "gallery",
       "quote",
+      "button",
       "stack",
       "video"
     ],

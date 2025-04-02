@@ -1,28 +1,28 @@
 {
-  "collection": "seo_setting",
+  "collection": "projets",
   "meta": {
     "accountability": "all",
     "archive_app_filter": true,
-    "archive_field": null,
-    "archive_value": null,
-    "collapse": "closed",
-    "collection": "seo_setting",
+    "archive_field": "status",
+    "archive_value": "archived",
+    "collapse": "open",
+    "collection": "projets",
     "color": null,
     "display_template": null,
     "group": null,
-    "hidden": true,
+    "hidden": false,
     "icon": null,
     "item_duplication_fields": null,
     "note": null,
     "preview_url": null,
     "singleton": false,
-    "sort": 5,
-    "sort_field": null,
+    "sort": null,
+    "sort_field": "sort",
     "translations": null,
-    "unarchive_value": null,
+    "unarchive_value": "draft",
     "versioning": false
   },
   "schema": {
-    "name": "seo_setting"
+    "name": "projets"
   }
 }
