@@ -4,6 +4,7 @@
 	import Section from '$lib/components/layout/Section.svelte';
 	import Marqueeck, { type MarqueeckOptions } from '@arisbh/marqueeck';
 	import { ChevronsDown } from 'lucide-svelte';
+	import Logo from '$lib/components/layout/Logo.svelte';
 
 	const options: MarqueeckOptions = {
 		gap: 46,
@@ -23,13 +24,10 @@
 	class="sticky top-0 z-50 bg-gradient-to-b from-background from-0% pt-10 "
 	content={{ width: 'full-width' }}
 >
-	<div class="flex flex-wrap items-center gap-8">
-		<img width="120" src="/icons/favicon.svg" alt="Logo" />
-
-		<AnimatedHeading class="mb-0 ~text-6xl/9xl  ">
-			{data.global.project_name}</AnimatedHeading
-		>
-	</div>
+	<AnimatedHeading class="mb-0 flex  items-center gap-[0.4ch] ~text-6xl/9xl">
+		<Logo class="h-[0.5em] fill-primary" />
+		{data.global.project_name}
+	</AnimatedHeading>
 	<p class="lead italic text-primary">{data.global.project_descriptor}</p>
 </Section>
 

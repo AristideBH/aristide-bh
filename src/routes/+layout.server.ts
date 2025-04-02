@@ -18,7 +18,7 @@ export const load = (async ({ fetch, locals, url }) => {
     const footerNav = await directus.request(readMenus("Footer", { fields: ["*.*.*"] }));
     const global = await directus.request(readSettings());
 
-    if (global.maintenance_state && url.pathname !== "/maintenance" && env === "production") {
+    if (global.maintenance_state && url.pathname !== "/maintenance" && env !== "development") {
         redirect(307, "/maintenance");
     } else if (url.pathname === "/maintenance" && !global.maintenance_state) {
         redirect(307, "/");
