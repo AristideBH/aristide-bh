@@ -6,7 +6,8 @@
 	import { ChevronsDown } from 'lucide-svelte';
 
 	const options: MarqueeckOptions = {
-		gap: 46
+		gap: 46,
+		hoverSpeed: 15
 	};
 
 	// import Seo from '@archangelgca/sk-seo';
@@ -17,12 +18,15 @@
 
 <!-- <Seo title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} /> -->
 
-<Section>
+<Section
+	class="sticky top-0 z-50 bg-gradient-to-b from-background from-0% pt-10 "
+	content={{ width: 'full-width' }}
+>
 	<AnimatedHeading class="mb-0 ~text-6xl/9xl">{data.global.project_name}</AnimatedHeading>
 	<p class="lead italic text-primary">{data.global.project_descriptor}</p>
 </Section>
 
-<Section content={{ width: 'full-width', color: 'none' }} class="pt-0">
+<Section content={{ width: 'full-width', color: 'none' }} class=" pt-0">
 	<Marqueeck options={{ ...options, speed: 50 }} class="layout-full -rotate-3">
 		<span>Direction artistique</span>
 		<span>Conception de logos</span>
@@ -55,32 +59,74 @@
 
 <Section content={{ color: 'none', template: 'inherit-main' }} class="!p-0">
 	<div class="block-wrapper flex flex-col gap-4">
-		<p class="text-balance leading-relaxed">
-			Fort d'un Master en Communication Visuelle décerné par ECV Paris, et par la variété des
-			secteurs que j'ai pu approcher (culture, agro-alimentaire, banque, santé...), j'ai acquis avec
-			le temps et la pratique, l'expérience nécessaire pour répondre à toutes types de demandes.
+		<p class="lead text-balance leading-relaxed">
+			Après 7 ans en agence pluri-disciplinaire, je fais preuve d'une solide expérience dans la
+			création et la gestion de projets dans de nombreux secteurs d'activités (culturel, bancaire,
+			santé, agro-alimentaire...) et sous toutes ses coutures&NonBreakingSpace;: conseil,
+			conception, création, développement, déploiement et suivi.
 		</p>
-		<p class="text-balance leading-relaxed">
-			Concencieux, rigoureux et à l'écoute, je veille à toujours proposer les solutions les plus
-			pertinentes pour répondre à vos besoins.
-		</p>
-		<p class="items-cente inline-flex gap-1 pt-6 text-sm italic text-primary">
-			<span class="">
-				<ChevronsDown class="size-5" />
-			</span>
-			Retrouvez quelques uns de mes projets ci-dessous !
+		<p class="lead text-balance leading-relaxed">
+			Concencieux, rigoureux et à l'écoute, je veille à toujours cerner les solutions les plus
+			pertinentes pour répondre à vos besoins, et vous propose mes services en tant que freelance
+			indépendant.
 		</p>
 	</div>
 
-	<Image item={home?.img!} class="block-wrapper col-start-3 -col-end-1" loading="lazy" />
+	<Image
+		item={home?.img!}
+		class="block-wrapper col-start-3 -col-end-1 mx-auto max-w-96"
+		loading="lazy"
+	/>
 </Section>
 
-<Section>
-	<p
-		class="text-balance rounded border-2 border-dashed border-muted p-6 text-center text-xl text-secondary"
+<Section content={{}}>
+	<p class="items-cente inline-flex gap-1 text-sm italic text-primary">
+		<span class="">
+			<ChevronsDown class="size-5" />
+		</span>
+		Retrouvez quelques uns de mes projets ci-dessous !
+	</p>
+	<!-- <p
+		class="text-balance rounded border-2 border-dashed border-muted-foreground p-6 text-center text-xl text-muted-foreground"
 	>
 		En cours de construction, revenez plus tard !
+	</p> -->
+
+	<ul class="m-0 mt-4 grid grid-cols-2 gap-4 p-0">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</Section>
+
+<Section content={{ width: 'full-width' }} class="pb-24">
+	<p class="lead leading-relaxed">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, doloribus magnam? Recusandae,
+		soluta quo eaque sunt delectus aspernatur unde velit et ullam laborum magnam deserunt distinctio
+		corrupti eius eligendi quis?
 	</p>
+	<p class="items-cente mt-0 inline-flex gap-1 py-6 text-sm italic text-primary">
+		<span class="">
+			<ChevronsDown class="size-5" />
+		</span>
+		Un projet en tête ? Contactez-moi !
+	</p>
+	<Marqueeck
+		options={{ ...options, speed: 43, direction: 'left', gap: 56 }}
+		class="layout-full -rotate-3"
+		--marqueeck-padding-y="1.5rem"
+		--marqueeck-bg-color="hsl(var(--primary))"
+	>
+		<a
+			class="font-heading text-6xl font-semibold text-background"
+			href="mailto:aristide.bruneau@gmail.com">aristide.bruneau@gmail.com</a
+		>
+	</Marqueeck>
 </Section>
 
 <style lang="postcss">
@@ -95,6 +141,10 @@
 	}
 
 	span {
-		@apply font-heading text-4xl;
+		@apply font-heading text-5xl;
+	}
+
+	li {
+		@apply list-none rounded border bg-muted p-4 pb-32 text-2xl text-secondary;
 	}
 </style>

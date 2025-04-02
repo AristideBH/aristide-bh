@@ -6,7 +6,7 @@
 </script>
 
 <footer class="mt-auto bg-background pt-4">
-	<div class="small flex flex-wrap items-center justify-between border-b border-secondary pb-4">
+	<div class="small flex flex-wrap items-center justify-between border-t border-foreground/10 py-4">
 		<nav class="flex flex-wrap gap-2">
 			{#each menu.items as item}
 				<NavItemFragment {item} class="w-fit grow-0 !text-muted-foreground" />

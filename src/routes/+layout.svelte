@@ -27,6 +27,6 @@
 
 {#if !data.global.maintenance_state}
 	<CookieConsent />
-	<Footer />
-	<Header />
+	<!-- <Footer />
+	<Header /> -->
 {/if}
