@@ -24,7 +24,7 @@
 	class="sticky top-0 z-50 bg-gradient-to-b from-background from-0% pt-10 "
 	content={{ width: 'full-width' }}
 >
-	<AnimatedHeading class="mb-0 flex  items-baseline gap-[0.35ch] ~text-6xl/9xl">
+	<AnimatedHeading class="mb-0 flex items-baseline gap-[0.35ch] ~text-6xl/9xl">
 		<Logo class="h-[0.635em] fill-primary" />
 		{data.global.project_name}
 	</AnimatedHeading>
@@ -86,9 +86,7 @@
 
 <Section content={{}}>
 	<p class="inline-flex items-center gap-1 text-sm italic text-primary">
-		<span class="">
-			<ChevronsDown class="size-5" />
-		</span>
+		<ChevronsDown class="size-5" />
 		Retrouvez quelques uns de mes projets ci-dessous !
 	</p>
 	<!-- <p

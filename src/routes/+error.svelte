@@ -3,12 +3,39 @@
 	import * as Card from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button';
 	import { ArrowLeftFromLine } from 'lucide-svelte';
+	import Marqueeck from '@arisbh/marqueeck';
+	import Section from '$lib/components/layout/Section.svelte';
 
 	const status = structuredClone(page.status);
 	const error = structuredClone(page.error);
+
+	const message = [
+		{ text: `${status}`, gap: 65, class: 'text-8xl pt-6 pb-4 mb-6' },
+		{ text: 'Une erreur', gap: 20, class: 'text-lg pt-4' },
+		{ text: "s'est", gap: 20, class: 'text-lg' },
+		{ text: 'produite', gap: 20, class: 'text-lg pb-4' },
+		{ text: `${status}`, gap: 65, class: 'text-8xl pt-6 pb-4 mt-6' }
+	];
 </script>
 
+<Section content={{ width: 'full-width' }} class="full-width flex flex-col">
+	{#each message as _, i}
+		<Marqueeck
+			class="{_.class} layout-full -rotate-3 bg-muted font-heading text-foreground"
+			options={{ speed: 5 * (i + 10), gap: _.gap }}
+		>
+			{_.text}
+		</Marqueeck>
+	{/each}
+</Section>
+
 <section>
+	<p class="lead text-balance">
+		Cette page n'existe pas !<br /> Reprenez depuis la <a href="/"> page d'accueil</a>.
+	</p>
+</section>
+
+<!-- <section>
 	<Card.Root class="bg-muted">
 		<Card.Header>
 			<h1>Oops !</h1>
@@ -32,4 +59,4 @@
 			<Button variant="default" href="/">Go back home</Button>
 		</Card.Footer>
 	</Card.Root>
-</section>
+</section> -->
