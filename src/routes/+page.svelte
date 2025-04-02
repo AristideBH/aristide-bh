@@ -80,7 +80,7 @@
 </Section>
 
 <Section content={{}}>
-	<p class="items-cente inline-flex gap-1 text-sm italic text-primary">
+	<p class="inline-flex items-center gap-1 text-sm italic text-primary">
 		<span class="">
 			<ChevronsDown class="size-5" />
 		</span>
@@ -92,7 +92,7 @@
 		En cours de construction, revenez plus tard !
 	</p> -->
 
-	<ul class="m-0 mt-4 grid grid-cols-2 gap-4 p-0">
+	<ul class="m-0 mt-4 grid gap-4 p-0 lg:grid-cols-2">
 		<li></li>
 		<li></li>
 		<li></li>
@@ -110,7 +110,7 @@
 		soluta quo eaque sunt delectus aspernatur unde velit et ullam laborum magnam deserunt distinctio
 		corrupti eius eligendi quis?
 	</p>
-	<p class="items-cente mt-0 inline-flex gap-1 py-6 text-sm italic text-primary">
+	<p class="mt-0 inline-flex items-center gap-1 py-6 text-sm italic text-primary">
 		<span class="">
 			<ChevronsDown class="size-5" />
 		</span>
