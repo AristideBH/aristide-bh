@@ -365,6 +365,7 @@ export namespace Collections {
     slug: Types.Optional<Types.String>;
     subtitle: Types.Optional<Types.String>;
     thumbnail: Types.Optional<Types.UUID | Collections.DirectusFile>;
+    seo_details: Types.Optional<Types.Integer | Collections.SeoDetail>;
   }
 
   /**
@@ -419,59 +420,18 @@ export namespace Collections {
     collection: Types.PrimaryKey<Types.String>;
     enabled: Types.Optional<Types.Boolean>;
     is_static: Types.Optional<Types.Boolean>;
-    translations: Types.UnknownType<{
-      schema: {
-        raw: {
-          collection: "seo_advanced_setting";
-          field: "translations";
-          type: "alias";
-          schema: null;
-          meta: {
-            id: 103;
-            collection: "seo_advanced_setting";
-            field: "translations";
-            special: ["translations"];
-            interface: "translations";
-            options: null;
-            display: null;
-            display_options: null;
-            readonly: false;
-            hidden: false;
-            sort: 4;
-            width: "full";
-            translations: null;
-            note: null;
-            conditions: null;
-            required: false;
-            group: null;
-            validation: null;
-            validation_message: null;
-          };
-        };
-        raw_relation: null;
-      };
-      meta: {
-        id: 103;
-        collection: "seo_advanced_setting";
-        field: "translations";
-        special: ["translations"];
-        interface: "translations";
-        options: null;
-        display: null;
-        display_options: null;
-        readonly: false;
-        hidden: false;
-        sort: 4;
-        width: "full";
-        translations: null;
-        note: null;
-        conditions: null;
-        required: false;
-        group: null;
-        validation: null;
-        validation_message: null;
-      };
-    }>;
+    translations: SeoAdvancedSettingTranslations[];
+  }
+
+  /**
+   * The seo advanced setting translations collection.
+   */
+  export interface SeoAdvancedSettingTranslations {
+    id: Types.PrimaryKey<Types.Integer>;
+    seo_advanced_setting_collection: Types.Optional<
+      Types.String | Collections.SeoAdvancedSetting
+    >;
+    seo_detail: Types.Optional<Types.Integer | Collections.SeoDetail>;
   }
 
   /**
@@ -808,6 +768,11 @@ export interface Schema extends System {
    * The seo advanced setting collection.
    */
   seo_advanced_setting: Collections.SeoAdvancedSetting[];
+
+  /**
+   * The seo advanced setting translations collection.
+   */
+  seo_advanced_setting_translations: Collections.SeoAdvancedSettingTranslations[];
 
   /**
    * The seo detail collection.
@@ -4966,6 +4931,366 @@ export class SeoAdvancedSettingItem
 }
 
 /**
+ * Create many seo advanced setting translations items.
+ */
+export function createSeoAdvancedSettingTranslationsItems<
+  const Query extends Directus.Query<
+    Schema,
+    Collections.SeoAdvancedSettingTranslations[]
+  >,
+>(items: Partial<Collections.SeoAdvancedSettingTranslations>[], query?: Query) {
+  return DirectusSDK.createItems<
+    Schema,
+    "seo_advanced_setting_translations",
+    Query
+  >("seo_advanced_setting_translations", items, query);
+}
+
+/**
+ * Create a single seo advanced setting translations item.
+ */
+export function createSeoAdvancedSettingTranslationsItem<
+  const Query extends DirectusSDK.Query<
+    Schema,
+    Collections.SeoAdvancedSettingTranslations[]
+  >, // Is this a mistake? Why []?
+>(item: Partial<Collections.SeoAdvancedSettingTranslations>, query?: Query) {
+  return DirectusSDK.createItem<
+    Schema,
+    "seo_advanced_setting_translations",
+    Query
+  >("seo_advanced_setting_translations", item, query);
+}
+
+/**
+ * Read many seo advanced setting translations items.
+ */
+export function readSeoAdvancedSettingTranslationsItems<
+  const Query extends Directus.Query<
+    Schema,
+    Collections.SeoAdvancedSettingTranslations
+  >,
+>(query?: Query) {
+  return DirectusSDK.readItems<
+    Schema,
+    "seo_advanced_setting_translations",
+    Query
+  >("seo_advanced_setting_translations", query);
+}
+
+/**
+ * Read many seo advanced setting translations items.
+ */
+export const listSeoAdvancedSettingTranslations =
+  readSeoAdvancedSettingTranslationsItems;
+
+/**
+ * Gets a single known seo advanced setting translations item by id.
+ */
+export function readSeoAdvancedSettingTranslationsItem<
+  const Query extends Directus.Query<
+    Schema,
+    Collections.SeoAdvancedSettingTranslations
+  >,
+>(key: string | number, query?: Query) {
+  return DirectusSDK.readItem<
+    Schema,
+    "seo_advanced_setting_translations",
+    Query
+  >("seo_advanced_setting_translations", key, query);
+}
+
+/**
+ * Gets a single known seo advanced setting translations item by id.
+ */
+export const readSeoAdvancedSettingTranslations =
+  readSeoAdvancedSettingTranslationsItem;
+
+/**
+ * Read many seo advanced setting translations items.
+ */
+export function updateSeoAdvancedSettingTranslationsItems<
+  const Query extends Directus.Query<
+    Schema,
+    Collections.SeoAdvancedSettingTranslations[]
+  >,
+>(
+  keys: string[] | number[],
+  patch: Partial<Collections.SeoAdvancedSettingTranslations>,
+  query?: Query,
+) {
+  return DirectusSDK.updateItems<
+    Schema,
+    "seo_advanced_setting_translations",
+    Query
+  >("seo_advanced_setting_translations", keys, patch, query);
+}
+
+/**
+ * Gets a single known seo advanced setting translations item by id.
+ */
+export function updateSeoAdvancedSettingTranslationsItem<
+  const Query extends Directus.Query<
+    Schema,
+    Collections.SeoAdvancedSettingTranslations[]
+  >,
+>(
+  key: string | number,
+  patch: Partial<Collections.SeoAdvancedSettingTranslations>,
+  query?: Query,
+) {
+  return DirectusSDK.updateItem<
+    Schema,
+    "seo_advanced_setting_translations",
+    Query
+  >("seo_advanced_setting_translations", key, patch, query);
+}
+
+/**
+ * Deletes many seo advanced setting translations items.
+ */
+export function deleteSeoAdvancedSettingTranslationsItems<
+  const Query extends Directus.Query<
+    Schema,
+    Collections.SeoAdvancedSettingTranslations[]
+  >,
+>(keys: string[] | number[]) {
+  return DirectusSDK.deleteItems<
+    Schema,
+    "seo_advanced_setting_translations",
+    Query
+  >("seo_advanced_setting_translations", keys);
+}
+
+/**
+ * Deletes a single known seo advanced setting translations item by id.
+ */
+export function deleteSeoAdvancedSettingTranslationsItem(key: string | number) {
+  return DirectusSDK.deleteItem<Schema, "seo_advanced_setting_translations">(
+    "seo_advanced_setting_translations",
+    key,
+  );
+}
+
+export class SeoAdvancedSettingTranslationsItems
+  implements
+    TypedCollectionItemsWrapper<Collections.SeoAdvancedSettingTranslations>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Creates many items in the collection.
+   */
+  async create<
+    const Query extends DirectusSDK.Query<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations
+    >,
+  >(
+    items: Partial<Collections.SeoAdvancedSettingTranslations>[],
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations,
+      Query["fields"]
+    >[]
+  > {
+    return (await this.client.request(
+      createSeoAdvancedSettingTranslationsItems(items, query as any),
+    )) as any; // Seems like a bug in the SDK.
+  }
+
+  /**
+   * Read many items from the collection.
+   */
+  async query<
+    const Query extends Directus.Query<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations
+    >,
+  >(
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations,
+      Query["fields"]
+    >[]
+  > {
+    return await this.client.request(
+      readSeoAdvancedSettingTranslationsItems(query),
+    );
+  }
+
+  /**
+   * Read the first item from the collection matching the query.
+   */
+  async find<
+    const Query extends Directus.Query<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations
+    >,
+  >(
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.SeoAdvancedSettingTranslations,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    const items = await this.client.request(
+      readSeoAdvancedSettingTranslationsItems({
+        ...query,
+        limit: 1,
+      }),
+    );
+    return items?.[0] as any; // TODO: fix
+  }
+
+  /**
+   * Update many items in the collection.
+   */
+  async update<
+    const Query extends Directus.Query<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations[]
+    >,
+  >(
+    keys: string[] | number[],
+    patch: Partial<Collections.SeoAdvancedSettingTranslations>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations,
+      Query["fields"]
+    >[]
+  > {
+    return await this.client.request(
+      updateSeoAdvancedSettingTranslationsItems(keys, patch, query),
+    );
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<
+    const Query extends Directus.Query<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations
+    >,
+  >(keys: string[] | number[]): Promise<void> {}
+}
+
+export class SeoAdvancedSettingTranslationsItem
+  implements
+    TypedCollectionItemWrapper<Collections.SeoAdvancedSettingTranslations>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Create a single item in the collection.
+   */
+  async create<
+    const Query extends Directus.Query<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations
+    >,
+  >(
+    item: Partial<Collections.SeoAdvancedSettingTranslations>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations,
+      Query["fields"]
+    >
+  > {
+    return (await this.client.request(
+      createSeoAdvancedSettingTranslationsItem(item, query as any),
+    )) as any;
+  }
+
+  /**
+   * Read a single item from the collection.
+   */
+  async get<
+    const Query extends Directus.Query<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations
+    >,
+  >(
+    key: string | number,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.SeoAdvancedSettingTranslations,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    return await this.client.request(
+      readSeoAdvancedSettingTranslationsItem(key, query),
+    );
+  }
+
+  /**
+   * Update a single item from the collection.
+   */
+  async update<
+    const Query extends Directus.Query<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations
+    >,
+  >(
+    key: string | number,
+    patch: Partial<Collections.SeoAdvancedSettingTranslations>,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.SeoAdvancedSettingTranslations,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    return (await this.client.request(
+      updateSeoAdvancedSettingTranslationsItem(key, patch, query as any),
+    )) as any;
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<
+    const Query extends Directus.Query<
+      Schema,
+      Collections.SeoAdvancedSettingTranslations
+    >,
+  >(key: string | number): Promise<void> {
+    return await this.client.request(
+      deleteSeoAdvancedSettingTranslationsItem(key),
+    );
+  }
+}
+
+/**
  * Create many seo detail items.
  */
 export function createSeoDetailItems<
@@ -6782,6 +7107,16 @@ export type TypedClient = {
   seo_advanced_setting: TypedCollectionItemWrapper<Collections.SeoAdvancedSetting>;
 
   /**
+   * Manages multiple items from the SeoAdvancedSettingTranslations collection.
+   */
+  seo_advanced_setting_translations: TypedCollectionItemsWrapper<Collections.SeoAdvancedSettingTranslations>;
+
+  /**
+   * Manages individual items from the SeoAdvancedSettingTranslations collection.
+   */
+  seo_advanced_setting_translation: TypedCollectionItemWrapper<Collections.SeoAdvancedSettingTranslations>;
+
+  /**
    * Manages multiple items from the SeoDetail collection.
    */
   seo_details: TypedCollectionItemsWrapper<Collections.SeoDetail>;
@@ -7038,6 +7373,15 @@ export const schema = () => {
 
       ["seo_advanced_settings", new SeoAdvancedSettingItems(client as any)],
       ["seo_advanced_setting", new SeoAdvancedSettingItem(client as any)],
+
+      [
+        "seo_advanced_setting_translations",
+        new SeoAdvancedSettingTranslationsItems(client as any),
+      ],
+      [
+        "seo_advanced_setting_translation",
+        new SeoAdvancedSettingTranslationsItem(client as any),
+      ],
 
       ["seo_details", new SeoDetailItems(client as any)],
       ["seo_detail", new SeoDetailItem(client as any)],

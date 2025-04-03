@@ -10,7 +10,9 @@
 	import { Button } from '$components/ui/button';
 </script>
 
-<header class="sticky top-0 z-50 border-b border-foreground/10 py-6 backdrop-blur">
+<header
+	class="sticky bottom-0 z-50 mt-auto border-t border-foreground/10 bg-muted/70 py-6 backdrop-blur"
+>
 	{#if $loading}
 		<LoadingBar />
 	{/if}

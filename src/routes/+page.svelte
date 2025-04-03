@@ -12,6 +12,7 @@
 	import Project from './projets/[slug]/+page.svelte';
 	import { page } from '$app/state';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
+	import { Button } from '$lib/components/ui/button/index.js';
 
 	const mail = 'aristide.bruneau@gmail.com';
 	let modalState = $state(false);
@@ -36,29 +37,16 @@
 			goto(href);
 		}
 	}
+
 	const closeModal = () => {
 		history.back();
 		modalState = false;
 	};
 </script>
 
-<!-- <pre class="fixed bottom-0 top-0 z-50 overflow-auto">{JSON.stringify(page.state, null, 2)}</pre> -->
-
-<Dialog.Root open={modalState} onOpenChange={closeModal}>
-	<Dialog.Content
-		preventScroll={true}
-		class="mx-auto my-8 flex max-h-[calc(100dvh-8rem)] flex-col overflow-auto"
-		style="max-width: min(var(--content-max-width), calc(100vw - 4rem));"
-	>
-		{#if page.state.selected}
-			<Project data={page.state.selected} />
-		{/if}
-	</Dialog.Content>
-</Dialog.Root>
-
 <MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} />
 
-<Section class="z-50  from-0% pt-10 " content={{ width: 'full-width' }}>
+<Section class="z-50 scroll-mt-96 from-0% pt-10" content={{ width: 'full-width' }} id="home_header">
 	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline gap-[0.35ch] ~text-6xl/9xl">
 		<Logo class="h-[0.635em] fill-primary" />
 		{data.global.project_name}
@@ -66,7 +54,7 @@
 	<p class="lead italic text-primary">{data.global.project_descriptor}</p>
 </Section>
 
-<Section content={{ width: 'full-width', color: 'none' }} class=" pt-0">
+<Section content={{ width: 'full-width' }} class=" scroll-mt-96 pt-0" id="services">
 	<Marqueeck options={{ ...options, speed: 50 }} class="layout-full -rotate-3">
 		<span>Direction artistique</span>
 		<span>Conception de logos</span>
@@ -76,6 +64,7 @@
 		<span>Motion Design</span>
 		<span>Édition papier</span>
 		<span>Conseil éditorial</span>
+		<span>UI/UX</span>
 	</Marqueeck>
 	<Marqueeck options={{ ...options, speed: 57 }} class="layout-full -rotate-3">
 		<span>Intégration Frontend</span>
@@ -97,7 +86,7 @@
 	</Marqueeck>
 </Section>
 
-<Section content={{ color: 'none', template: 'inherit-main' }} class="!p-0">
+<Section content={{ template: 'inherit-main' }} class="scroll-mt-96 !p-0" id="about">
 	<div class="block-wrapper flex flex-col gap-4">
 		<p class="lead text-pretty leading-relaxed">
 			Après 7 ans en agence pluri-disciplinaire, je fais preuve d'une solide expérience dans la
@@ -119,7 +108,7 @@
 	/>
 </Section>
 
-<Section content={{}}>
+<Section id="projects" class="scroll-mt-96">
 	<p class="mb-4 inline-flex items-center gap-1 text-sm italic text-primary">
 		<ChevronsDown class="size-5" />
 		Retrouvez quelques uns de mes projets ci-dessous !
@@ -132,9 +121,23 @@
 			{/each}
 		</div>
 	{/if}
+
+	<Button variant="outline" class="mx-auto mt-6 w-fit" href="/projets">Voir plus</Button>
 </Section>
 
-<Section content={{ width: 'full-width' }} class="pb-24">
+<Dialog.Root open={modalState} onOpenChange={closeModal}>
+	<Dialog.Content
+		preventScroll={true}
+		class="mx-auto my-8 flex max-h-[calc(100dvh-8rem)] flex-col overflow-auto rounded p-4 pt-6"
+		style="max-width: min(var(--content-max-width), calc(100vw - 4rem));"
+	>
+		{#if page.state.selected}
+			<Project data={page.state.selected} />
+		{/if}
+	</Dialog.Content>
+</Dialog.Root>
+
+<Section content={{ width: 'full-width' }} class="pb-24" id="contact">
 	<p class="lead leading-relaxed">
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, doloribus magnam? Recusandae,
 		soluta quo eaque sunt delectus aspernatur unde velit et ullam laborum magnam deserunt distinctio

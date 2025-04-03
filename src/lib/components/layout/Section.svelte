@@ -12,7 +12,8 @@
 		rootMargin = '-50px',
 		class: className,
 		children,
-		content
+		content,
+		id
 	}: SectionProps = $props();
 
 	let template = $derived(content?.template),
@@ -46,6 +47,7 @@
 		use:setStyles
 		class={className ?? ''}
 		data-template="none"
+		{id}
 	>
 		{@render children()}
 	</svelte:element>

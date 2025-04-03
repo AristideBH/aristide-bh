@@ -16,6 +16,7 @@ export type SectionProps = {
     class?: string;
     children: Snippet;
     content?: Partial<Collections.Section>
+    id?: string;
 };
 
 // ViewTimeline
