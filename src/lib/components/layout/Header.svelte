@@ -10,7 +10,7 @@
 	import { Button } from '$components/ui/button';
 </script>
 
-<header class="sticky top-0 z-50 border-b border-foreground/10 bg-background py-4">
+<header class="sticky top-0 z-50 border-b border-foreground/10 py-6 backdrop-blur">
 	{#if $loading}
 		<LoadingBar />
 	{/if}
@@ -21,10 +21,10 @@
 					<Logo class="!size-10" />
 				</Button>
 			</MenuButton>
-			<p class="leading-5">
-				<span class="font-heading font-extrabold">{project_name}</span>
+			<p class="leading-4">
+				<span class="font-heading text-2xl font-extrabold">{project_name}</span>
 				<br />
-				<span class="small text-primary">{project_descriptor}</span>
+				<span class="small italic text-primary">{project_descriptor}</span>
 			</p>
 		</div>
 		<Navigation />

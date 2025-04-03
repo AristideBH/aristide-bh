@@ -22,11 +22,8 @@
 
 <MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} />
 
-<Section
-	class="sticky top-0 z-50 bg-gradient-to-b from-background from-0% pt-10 "
-	content={{ width: 'full-width' }}
->
-	<AnimatedHeading class="mb-0 flex items-baseline gap-[0.35ch] ~text-6xl/9xl">
+<Section class="z-50  from-0% pt-10 " content={{ width: 'full-width' }}>
+	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline gap-[0.35ch] ~text-6xl/9xl">
 		<Logo class="h-[0.635em] fill-primary" />
 		{data.global.project_name}
 	</AnimatedHeading>
@@ -66,13 +63,13 @@
 
 <Section content={{ color: 'none', template: 'inherit-main' }} class="!p-0">
 	<div class="block-wrapper flex flex-col gap-4">
-		<p class="lead text-balance leading-relaxed">
+		<p class="lead text-pretty leading-relaxed">
 			Après 7 ans en agence pluri-disciplinaire, je fais preuve d'une solide expérience dans la
 			création et la gestion de projets dans de nombreux secteurs d'activités (culturel, bancaire,
 			santé, agro-alimentaire...) et sous toutes ses coutures&NonBreakingSpace;: conseil,
 			conception, création, développement, déploiement et suivi.
 		</p>
-		<p class="lead text-balance leading-relaxed">
+		<p class="lead text-pretty leading-relaxed">
 			Concencieux, rigoureux et à l'écoute, je veille à toujours cerner les solutions les plus
 			pertinentes pour répondre à vos besoins, et vous propose mes services en tant que freelance
 			indépendant.
@@ -93,7 +90,7 @@
 	</p>
 
 	{#if projects}
-		<div class=" grid grid-cols-1 gap-4 xl:grid-cols-2">
+		<div class=" grid grid-cols-1 gap-4">
 			{#each projects as project}
 				<ProjectCard {project} />
 			{/each}
