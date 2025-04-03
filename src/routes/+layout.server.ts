@@ -3,7 +3,6 @@ import { client } from '$logic/directus';
 import { readMenus } from '$lib/types/client';
 import { readSettings } from '@directus/sdk';
 import { redirect } from '@sveltejs/kit';
-import { env } from '$env/dynamic/private';
 
 export const load = (async ({ fetch, locals, url }) => {
     const user = locals.user;
