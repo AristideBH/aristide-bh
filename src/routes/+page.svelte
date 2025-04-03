@@ -8,6 +8,7 @@
 	import { MetaTags } from 'svelte-meta-tags';
 	import ProjectCard from '$lib/components/layout/ProjectCard.svelte';
 	import { handleContact } from '$lib/logic/email';
+	import * as Dialog from '$lib/components/ui/dialog/index.js';
 
 	const mail = 'aristide.bruneau@gmail.com';
 
@@ -21,6 +22,19 @@
 </script>
 
 <MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} />
+
+<Dialog.Root>
+	<Dialog.Trigger>Open</Dialog.Trigger>
+	<Dialog.Content>
+		<Dialog.Header>
+			<Dialog.Title>Are you sure absolutely sure?</Dialog.Title>
+			<Dialog.Description>
+				This action cannot be undone. This will permanently delete your account and remove your data
+				from our servers.
+			</Dialog.Description>
+		</Dialog.Header>
+	</Dialog.Content>
+</Dialog.Root>
 
 <Section class="z-50  from-0% pt-10 " content={{ width: 'full-width' }}>
 	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline gap-[0.35ch] ~text-6xl/9xl">
