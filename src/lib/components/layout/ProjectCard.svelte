@@ -2,35 +2,35 @@
 	import type { Collections } from '$types/client';
 
 	import { onMount } from 'svelte';
-	import { tweened } from 'svelte/motion';
+	import { Tween } from 'svelte/motion';
 	import { cubicOut, quartOut } from 'svelte/easing';
 	import { Eye } from 'lucide-svelte';
-	import { slide, fly } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 	import Image from '../image/Image.svelte';
 
 	export let project: Partial<Collections.Projets> | any;
 	let linkWidth: number;
 	let linkHeight: number;
-	let duration = 1500;
+	let duration = 1000;
 
-	const x = tweened(0, { duration: duration, easing: cubicOut });
-	const y = tweened(0, { duration: duration, easing: cubicOut });
+	const x = new Tween(650, { duration: duration, easing: cubicOut });
+	const y = new Tween(650, { duration: duration, easing: cubicOut });
 
 	onMount(() => resetGlow());
 
 	const resetGlow = () => {
-		$x = linkWidth;
-		$y = linkHeight;
+		if (typeof linkWidth !== 'number' || typeof linkHeight !== 'number') return;
+		x.set(linkWidth);
+		y.set(linkHeight);
 	};
 
 	const cardEffect = (node: HTMLElement) => {
 		const glow = node.querySelector('[data-glow]') as HTMLElement;
 		if (!glow) return;
 
-		node.onpointermove = (event) => {
-			const { offsetX, offsetY } = event;
-			$x = offsetX;
-			$y = offsetY;
+		node.onpointermove = ({ offsetX, offsetY }) => {
+			x.set(offsetX);
+			y.set(offsetY);
 		};
 		node.onpointerleave = (event) => {
 			resetGlow();
@@ -44,22 +44,22 @@
 	bind:offsetHeight={linkHeight}
 	transition:slide={{ axis: 'y', duration: 500, easing: quartOut }}
 	href="/projets/{project.slug}"
-	class="group relative aspect-auto w-full overflow-hidden rounded-lg border bg-card p-6 text-card-foreground no-underline shadow-sm
+	class="group relative aspect-project h-full w-full overflow-hidden rounded border bg-card text-card-foreground no-underline shadow-sm
 	{$$props.class ?? ''} "
 >
-	{#if project.thumbnail && typeof project.thumbnail != 'string'}
+	{#if project.thumbnail}
 		<Image
-			item={project.thumbnail.id}
-			class="pointer-events-none absolute inset-0 h-full w-full object-cover"
+			item={project.thumbnail}
+			class="object-covert pointer-events-none absolute inset-0 w-full"
 		/>
 	{/if}
 
 	<span
-		style:--x={`${$x}px`}
-		style:--y={`${$y}px`}
+		style:--x={`${x.current}px`}
+		style:--y={`${y.current}px`}
 		data-glow
 		class="pointer-events-none absolute inset-0 h-full w-full bg-black/10"
-	/>
+	></span>
 
 	<div class="pointer-events-none absolute bottom-6 right-6">
 		<Eye
@@ -67,7 +67,9 @@
 		/>
 	</div>
 
-	<div class="pointer-events-none isolate flex h-full grow flex-col justify-start space-y-1">
+	<div
+		class="pointer-events-none absolute left-6 top-6 isolate flex h-full grow flex-col justify-start space-y-1"
+	>
 		<h3 class="mt-0 text-3xl font-semibold leading-none tracking-wide">
 			{project.title}
 		</h3>

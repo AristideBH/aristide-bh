@@ -20,6 +20,7 @@ export const load = (async ({ params, fetch }) => {
 
                         ]
                     },
+                    fields: ["*", { thumbnail: ["id"] },]
                 }
             )
         )

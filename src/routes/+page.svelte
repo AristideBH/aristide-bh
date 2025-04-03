@@ -6,6 +6,7 @@
 	import { ChevronsDown } from 'lucide-svelte';
 	import Logo from '$lib/components/layout/Logo.svelte';
 	import { MetaTags } from 'svelte-meta-tags';
+	import ProjectCard from '$lib/components/layout/ProjectCard.svelte';
 
 	const options: MarqueeckOptions = {
 		gap: 46,
@@ -83,7 +84,7 @@
 </Section>
 
 <Section content={{}}>
-	<p class="inline-flex items-center gap-1 text-sm italic text-primary">
+	<p class="mb-4 inline-flex items-center gap-1 text-sm italic text-primary">
 		<ChevronsDown class="size-5" />
 		Retrouvez quelques uns de mes projets ci-dessous !
 	</p>
@@ -94,15 +95,11 @@
 	</p> -->
 
 	{#if projects}
-		<ul class="m-0 mt-4 grid gap-4 p-0 lg:grid-cols-2">
+		<div class=" grid grid-cols-1 gap-4 lg:grid-cols-2">
 			{#each projects as project}
-				<li>
-					<a href="/projets/{project.slug}">
-						{project.title}
-					</a>
-				</li>
+				<ProjectCard {project} />
 			{/each}
-		</ul>
+		</div>
 	{/if}
 </Section>
 
@@ -147,6 +144,6 @@
 	}
 
 	li {
-		@apply list-none rounded border bg-muted p-4 pb-32 text-2xl text-muted-foreground;
+		@apply w-full list-none;
 	}
 </style>
