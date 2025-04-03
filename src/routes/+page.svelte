@@ -122,7 +122,8 @@
 		</div>
 	{/if}
 
-	<Button variant="outline" class="mx-auto mt-6 w-fit" href="/projets">Voir plus</Button>
+	<Button variant="secondary" size="lg" class="mx-auto mt-6 w-fit" href="/projets">Voir plus</Button
+	>
 </Section>
 
 <Dialog.Root open={modalState} onOpenChange={closeModal}>
@@ -156,11 +157,10 @@
 		class="layout-full -rotate-3"
 		--marqueeck-padding-y="1.5rem"
 		--marqueeck-bg-color="hsl(var(--primary))"
+		--marqueeck-text-color="hsl(var(--foreground))"
 		onClick={() => handleContact(mail)}
 	>
-		<span class="font-heading font-semibold text-background ~text-4xl/6xl">
-			aristide.bruneau@gmail.com
-		</span>
+		<span class="font-heading font-semibold ~text-4xl/6xl"> aristide.bruneau@gmail.com </span>
 	</Marqueeck>
 </Section>
 
