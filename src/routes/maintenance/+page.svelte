@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ArrowDown, ChevronsDown } from 'lucide-svelte';
+	import { ChevronsDown } from 'lucide-svelte';
 	import Marqueeck from '@arisbh/marqueeck';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';

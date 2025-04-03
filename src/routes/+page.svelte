@@ -8,9 +8,13 @@
 	import { MetaTags } from 'svelte-meta-tags';
 	import ProjectCard from '$lib/components/layout/ProjectCard.svelte';
 	import { handleContact } from '$lib/logic/email';
+	import { goto, preloadData, pushState } from '$app/navigation';
+	import Project from './projets/[slug]/+page.svelte';
+	import { page } from '$app/state';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
 
 	const mail = 'aristide.bruneau@gmail.com';
+	let modalState = $state(false);
 
 	const options: MarqueeckOptions = {
 		gap: 46,
@@ -19,22 +23,40 @@
 
 	let { data } = $props();
 	let { home, projects } = data;
+
+	async function showModal(e: MouseEvent): Promise<void> {
+		e.preventDefault();
+		const { href } = e.currentTarget as HTMLAnchorElement;
+		const result = await preloadData(href);
+
+		if (result.type === 'loaded' && result.status === 200) {
+			pushState(href, { selected: result.data, shallow: true });
+			modalState = true;
+		} else {
+			goto(href);
+		}
+	}
+	const closeModal = () => {
+		history.back();
+		modalState = false;
+	};
 </script>
 
-<MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} />
+<!-- <pre class="fixed bottom-0 top-0 z-50 overflow-auto">{JSON.stringify(page.state, null, 2)}</pre> -->
 
-<Dialog.Root>
-	<Dialog.Trigger>Open</Dialog.Trigger>
-	<Dialog.Content>
-		<Dialog.Header>
-			<Dialog.Title>Are you sure absolutely sure?</Dialog.Title>
-			<Dialog.Description>
-				This action cannot be undone. This will permanently delete your account and remove your data
-				from our servers.
-			</Dialog.Description>
-		</Dialog.Header>
+<Dialog.Root open={modalState} onOpenChange={closeModal}>
+	<Dialog.Content
+		preventScroll={true}
+		class="mx-auto my-8 flex max-h-[calc(100dvh-8rem)] flex-col overflow-auto"
+		style="max-width: min(var(--content-max-width), calc(100vw - 4rem));"
+	>
+		{#if page.state.selected}
+			<Project data={page.state.selected} />
+		{/if}
 	</Dialog.Content>
 </Dialog.Root>
+
+<MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} />
 
 <Section class="z-50  from-0% pt-10 " content={{ width: 'full-width' }}>
 	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline gap-[0.35ch] ~text-6xl/9xl">
@@ -106,7 +128,7 @@
 	{#if projects}
 		<div class=" grid grid-cols-1 gap-4">
 			{#each projects as project}
-				<ProjectCard {project} />
+				<ProjectCard {project} onclick={showModal} />
 			{/each}
 		</div>
 	{/if}

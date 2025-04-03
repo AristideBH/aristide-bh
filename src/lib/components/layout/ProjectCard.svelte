@@ -11,6 +11,7 @@
 	interface Props {
 		project: Partial<Collections.Projets> | any;
 		[key: string]: any;
+		onclick?: (event: MouseEvent) => void;
 	}
 
 	let { ...props }: Props = $props();
@@ -51,6 +52,7 @@
 	href="/projets/{props.project.slug}"
 	class="group relative aspect-project h-full w-full overflow-hidden rounded border bg-card text-card-foreground no-underline shadow-sm
 	{props.class ?? ''} "
+	{...props}
 >
 	{#if props.project.thumbnail}
 		<Image
