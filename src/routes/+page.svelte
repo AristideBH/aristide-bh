@@ -7,6 +7,9 @@
 	import Logo from '$lib/components/layout/Logo.svelte';
 	import { MetaTags } from 'svelte-meta-tags';
 	import ProjectCard from '$lib/components/layout/ProjectCard.svelte';
+	import { handleContact } from '$lib/logic/email';
+
+	const mail = 'aristide.bruneau@gmail.com';
 
 	const options: MarqueeckOptions = {
 		gap: 46,
@@ -88,14 +91,9 @@
 		<ChevronsDown class="size-5" />
 		Retrouvez quelques uns de mes projets ci-dessous !
 	</p>
-	<!-- <p
-		class="text-balance rounded border-2 border-dashed border-muted-foreground p-6 text-center text-xl text-muted-foreground"
-	>
-		En cours de construction, revenez plus tard !
-	</p> -->
 
 	{#if projects}
-		<div class=" grid grid-cols-1 gap-4 lg:grid-cols-2">
+		<div class=" grid grid-cols-1 gap-4 xl:grid-cols-2">
 			{#each projects as project}
 				<ProjectCard {project} />
 			{/each}
@@ -120,11 +118,11 @@
 		class="layout-full -rotate-3"
 		--marqueeck-padding-y="1.5rem"
 		--marqueeck-bg-color="hsl(var(--primary))"
+		onClick={() => handleContact(mail)}
 	>
-		<a
-			class="font-heading text-6xl font-semibold text-background"
-			href="mailto:aristide.bruneau@gmail.com">aristide.bruneau@gmail.com</a
-		>
+		<span class="font-heading font-semibold text-background ~text-4xl/6xl">
+			aristide.bruneau@gmail.com
+		</span>
 	</Marqueeck>
 </Section>
 
@@ -141,9 +139,5 @@
 
 	span {
 		@apply select-none font-heading ~text-3xl/5xl;
-	}
-
-	li {
-		@apply w-full list-none;
 	}
 </style>
