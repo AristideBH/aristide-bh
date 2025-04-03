@@ -8,9 +8,14 @@
 	import { slide } from 'svelte/transition';
 	import Image from '../image/Image.svelte';
 
-	export let project: Partial<Collections.Projets> | any;
-	let linkWidth: number;
-	let linkHeight: number;
+	interface Props {
+		project: Partial<Collections.Projets> | any;
+		[key: string]: any;
+	}
+
+	let { ...props }: Props = $props();
+	let linkWidth: number | undefined = $state();
+	let linkHeight: number | undefined = $state();
 	let duration = 1000;
 
 	const x = new Tween(650, { duration: duration, easing: cubicOut });
@@ -43,13 +48,13 @@
 	bind:offsetWidth={linkWidth}
 	bind:offsetHeight={linkHeight}
 	transition:slide={{ axis: 'y', duration: 500, easing: quartOut }}
-	href="/projets/{project.slug}"
+	href="/projets/{props.project.slug}"
 	class="group relative aspect-project h-full w-full overflow-hidden rounded border bg-card text-card-foreground no-underline shadow-sm
-	{$$props.class ?? ''} "
+	{props.class ?? ''} "
 >
-	{#if project.thumbnail}
+	{#if props.project.thumbnail}
 		<Image
-			item={project.thumbnail}
+			item={props.project.thumbnail}
 			class="object-covert pointer-events-none absolute inset-0 w-full"
 		/>
 	{/if}
@@ -71,13 +76,13 @@
 		class="pointer-events-none absolute left-6 top-6 isolate flex h-full grow flex-col justify-start space-y-1"
 	>
 		<h3 class="mt-0 text-3xl font-semibold leading-none tracking-wide">
-			{project.title}
+			{props.project.title}
 		</h3>
-		{#if project.subtitle}
+		{#if props.project.subtitle}
 			<p
 				class="text-balance text-sm text-muted-foreground mix-blend-multiply transition-opacity duration-500 group-hover:opacity-0"
 			>
-				{project.subtitle}
+				{props.project.subtitle}
 			</p>
 		{/if}
 	</div>
