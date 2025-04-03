@@ -5,20 +5,18 @@
 	import Marqueeck, { type MarqueeckOptions } from '@arisbh/marqueeck';
 	import { ChevronsDown } from 'lucide-svelte';
 	import Logo from '$lib/components/layout/Logo.svelte';
+	import { MetaTags } from 'svelte-meta-tags';
 
 	const options: MarqueeckOptions = {
 		gap: 46,
 		hoverSpeed: 15
 	};
 
-	// import Seo from '@archangelgca/sk-seo';
-
 	let { data } = $props();
 	let { home, projects } = data;
 </script>
 
-<!-- <Seo title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} /> -->
-<!-- <pre>{JSON.stringify(projects, null, 2)}</pre> -->
+<MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} />
 
 <Section
 	class="sticky top-0 z-50 bg-gradient-to-b from-background from-0% pt-10 "
@@ -95,15 +93,17 @@
 		En cours de construction, revenez plus tard !
 	</p> -->
 
-	<ul class="m-0 mt-4 grid gap-4 p-0 lg:grid-cols-2">
-		{#each projects as project}
-			<li>
-				<a href="/projets/{project.slug}">
-					{project.title}
-				</a>
-			</li>
-		{/each}
-	</ul>
+	{#if projects}
+		<ul class="m-0 mt-4 grid gap-4 p-0 lg:grid-cols-2">
+			{#each projects as project}
+				<li>
+					<a href="/projets/{project.slug}">
+						{project.title}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	{/if}
 </Section>
 
 <Section content={{ width: 'full-width' }} class="pb-24">

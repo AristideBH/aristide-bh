@@ -11,6 +11,9 @@ importers:
       '@arisbh/marqueeck':
         specifier: ^0.5.1
         version: 0.5.1(svelte@5.25.6)
+      svelte-meta-tags:
+        specifier: ^4.2.0
+        version: 4.2.0(svelte@5.25.6)
     devDependencies:
       '@directus/sdk':
         specifier: ^19.1.0
@@ -1663,6 +1666,9 @@ packages:
   safe-buffer@5.2.1:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
 
+  schema-dts@1.1.5:
+    resolution: {integrity: sha512-RJr9EaCmsLzBX2NDiO5Z3ux2BVosNZN5jo0gWgsyKvxKIUL5R3swNvoorulAeL9kLB0iTSX7V6aokhla2m7xbg==}
+
   semver@7.7.1:
     resolution: {integrity: sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==}
     engines: {node: '>=10'}
@@ -1757,6 +1763,11 @@ packages:
 
   svelte-intersection-observer@1.0.0:
     resolution: {integrity: sha512-AoxSog8fSt9sSN8ajMYM1I48ndq+rmPlaZSkJFCRbZ7I3KO8IPX6pl5mewWxdYL1JDI06hHu/7epn3h5tlJV9w==}
+
+  svelte-meta-tags@4.2.0:
+    resolution: {integrity: sha512-VFnbdN4CNLeGaiRK++mhHKm/otgId3qM0hY6fu6vhh+e+jGE9Xr3kSUjgKAEnquktskEjUEo7W0ek7EANsyTHw==}
+    peerDependencies:
+      svelte: ^5.0.0
 
   svelte-sonner@0.3.28:
     resolution: {integrity: sha512-K3AmlySeFifF/cKgsYNv5uXqMVNln0NBAacOYgmkQStLa/UoU0LhfAACU6Gr+YYC8bOCHdVmFNoKuDbMEsppJg==}
@@ -3424,6 +3435,8 @@ snapshots:
 
   safe-buffer@5.2.1: {}
 
+  schema-dts@1.1.5: {}
+
   semver@7.7.1: {}
 
   set-cookie-parser@2.7.1: {}
@@ -3522,6 +3535,11 @@ snapshots:
       svelte: 5.25.6
 
   svelte-intersection-observer@1.0.0: {}
+
+  svelte-meta-tags@4.2.0(svelte@5.25.6):
+    dependencies:
+      schema-dts: 1.1.5
+      svelte: 5.25.6
 
   svelte-sonner@0.3.28(svelte@5.25.6):
     dependencies:
