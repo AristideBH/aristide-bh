@@ -94,7 +94,7 @@
 			santé, agro-alimentaire...) et sous toutes ses coutures&NonBreakingSpace;: conseil,
 			conception, création, développement, déploiement et suivi.
 		</p>
-		<p class="lead text-pretty leading-relaxed">
+		<p class="lead text-pretty border-s-2 border-primary ps-6 leading-relaxed">
 			Concencieux, rigoureux et à l'écoute, je veille à toujours cerner les solutions les plus
 			pertinentes pour répondre à vos besoins, et vous propose mes services en tant que freelance
 			indépendant.
@@ -103,7 +103,7 @@
 
 	<Image
 		item={home?.img!}
-		class="block-wrapper col-start-3 -col-end-1 mx-auto max-w-96"
+		class="block-wrapper col-start-3 -col-end-1 mx-auto h-full max-w-96"
 		loading="lazy"
 	/>
 </Section>
