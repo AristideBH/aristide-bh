@@ -13,7 +13,7 @@
 
 	const options: MarqueeckOptions = {
 		gap: 46,
-		hoverSpeed: 15
+		hoverSpeed: 200
 	};
 
 	let { data } = $props();
@@ -107,12 +107,14 @@
 		soluta quo eaque sunt delectus aspernatur unde velit et ullam laborum magnam deserunt distinctio
 		corrupti eius eligendi quis?
 	</p>
+
 	<p class="mt-0 inline-flex items-center gap-1 py-6 text-sm italic text-primary">
 		<span class="">
 			<ChevronsDown class="size-5" />
 		</span>
 		Un projet en tête ? Contactez-moi !
 	</p>
+
 	<Marqueeck
 		options={{ ...options, speed: 43, direction: 'left', gap: 56 }}
 		class="layout-full -rotate-3"
