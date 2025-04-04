@@ -66,7 +66,7 @@
 	{#if serviceSectionToggle}
 		<div
 			class="layout-full flex flex-col items-center gap-4 overflow-x-visible py-16"
-			transition:clipPath={{ direction: 'LEFT', duration: 300, easing: quartOut }}
+			transition:clipPath={{ direction: 'LEFT', duration: 400, easing: quartOut }}
 		>
 			<Marqueeck options={{ ...options, speed: 50 }} class=" -rotate-3">
 				<span>Direction artistique</span>
