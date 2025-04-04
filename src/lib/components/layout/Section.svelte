@@ -2,7 +2,6 @@
 	import IntersectionObserver from 'svelte-intersection-observer';
 	import { type SectionProps, inView } from '$lib/logic/section';
 	import { flyAndScale } from '$lib/logic/utils';
-	import { clipPath } from '$lib/logic/transition';
 
 	// Variables
 	let element = $state<HTMLElement>();

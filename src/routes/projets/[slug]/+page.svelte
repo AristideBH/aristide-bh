@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import Image from '$lib/components/image/Image.svelte';
 	import Section from '$lib/components/layout/Section.svelte';
 	import { MetaTags } from 'svelte-meta-tags';
@@ -16,12 +15,12 @@
 	titleTemplate="%s | Aristide BH"
 />
 
-<Section>
-	<Image item={project?.thumbnail!} />
+<Section content={{ width: 'full-width' }}>
+	<Image item={project?.thumbnail!} loading="eager" />
 </Section>
 
 <Section content={{ template: 'inherit-main' }}>
 	<h1>{project?.title}</h1>
 	<h4>{project?.subtitle}</h4>
-	<pre>{JSON.stringify(project, null, 2)}</pre>
+	<!-- <pre>{JSON.stringify(project, null, 2)}</pre> -->
 </Section>

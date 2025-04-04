@@ -8,8 +8,8 @@
 	import Section from '$lib/components/layout/Section.svelte';
 	import { MetaTags } from 'svelte-meta-tags';
 	import { handleContact } from '$lib/logic/email';
-
-	const mail = 'aristide.bruneau@gmail.com';
+	import SectionNudge from '$lib/components/layout/SectionNudge.svelte';
+	import ContactMarquee from '$lib/components/layout/ContactMarquee.svelte';
 
 	onMount(() => {
 		if (!browser) return;
@@ -55,21 +55,8 @@
 
 <Section
 	content={{ width: 'full-width' }}
-	class="layout-full content-grid mt-18 !mb-32 gap-y-4  !p-0"
+	class="layout-full content-grid mt-18 !mb-32 gap-y-4 !p-0"
 >
-	<p class="small mt-4 inline-flex items-center gap-1 font-mono italic text-primary">
-		<ChevronsDown class="size-5" />
-		En attendant, laissez moi un mail :
-	</p>
-	<Marqueeck
-		options={{ speed: 43, direction: 'left', gap: 56 }}
-		class="layout-full -rotate-3 "
-		--marqueeck-padding-y="1.5rem"
-		--marqueeck-bg-color="hsl(var(--primary))"
-		onClick={() => handleContact(mail)}
-	>
-		<span class="font-heading font-semibold text-background ~text-4xl/6xl">
-			{mail}
-		</span>
-	</Marqueeck>
+	<SectionNudge>En attendant, laissez moi un mail :</SectionNudge>
+	<ContactMarquee />
 </Section>

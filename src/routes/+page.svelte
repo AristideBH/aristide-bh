@@ -12,13 +12,13 @@
 	import { clipPath } from '$lib/logic/transition';
 	import { quartOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
+	import SectionNudge from '$lib/components/layout/SectionNudge.svelte';
+	import ContactMarquee from '$lib/components/layout/ContactMarquee.svelte';
 
 	const mail = 'aristide.bruneau@gmail.com';
 	let serviceSectionToggle = $state(false);
 
-	onMount(() => {
-		serviceSectionToggle = true;
-	});
+	onMount(() => (serviceSectionToggle = true));
 
 	const options: MarqueeckOptions = {
 		gap: 46,
@@ -80,13 +80,13 @@
 
 <Section content={{ template: 'inherit-main' }} class="scroll-mt-96 !p-0" id="about">
 	<div class="block-wrapper flex flex-col gap-4">
-		<p class="lead text-pretty leading-relaxed">
+		<p class="lead">
 			Après 7 ans en agence pluri-disciplinaire, je fais preuve d'une solide expérience dans la
 			création et la gestion de projets dans de nombreux secteurs d'activités (culturel, bancaire,
 			santé, agro-alimentaire...) et sous toutes ses coutures&NonBreakingSpace;: conseil,
 			conception, création, développement, déploiement et suivi.
 		</p>
-		<p class="lead mb-8 text-pretty border-s-2 border-primary ps-5 leading-relaxed">
+		<p class="lead mb-8 border-s-2 border-primary ps-5">
 			Concencieux, rigoureux et à l'écoute, je veille à toujours cerner les solutions les plus
 			pertinentes pour répondre à vos besoins, et vous propose mes services en tant que freelance
 			indépendant.
@@ -101,10 +101,7 @@
 </Section>
 
 <Section id="projects" class="scroll-mt-96">
-	<p class="mb-4 inline-flex items-center gap-1 font-mono text-sm italic text-primary">
-		<ChevronsDown class="size-5" />
-		Retrouvez quelques uns de mes projets ci-dessous !
-	</p>
+	<SectionNudge>Retrouvez quelques uns de mes projets ci-dessous !</SectionNudge>
 
 	{#if projects}
 		<div class=" grid grid-cols-1 gap-4">
@@ -119,29 +116,15 @@
 </Section>
 
 <Section content={{ width: 'full-width' }} class="pb-24" id="contact">
-	<p class="lead leading-relaxed">
+	<p class="lead pb-8">
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, doloribus magnam? Recusandae,
 		soluta quo eaque sunt delectus aspernatur unde velit et ullam laborum magnam deserunt distinctio
 		corrupti eius eligendi quis?
 	</p>
 
-	<p class="mt-0 inline-flex items-center gap-1 pt-6 font-mono text-sm italic text-primary">
-		<span class="">
-			<ChevronsDown class="size-5" />
-		</span>
-		Un projet en tête ? Contactez-moi !
-	</p>
+	<SectionNudge>Un projet en tête ? Contactez-moi !</SectionNudge>
 
-	<Marqueeck
-		options={{ ...options, speed: 43, direction: 'left', gap: 56 }}
-		class="layout-full -rotate-3"
-		--marqueeck-padding-y="1.5rem"
-		--marqueeck-bg-color="hsl(var(--primary))"
-		--marqueeck-text-color="hsl(var(--foreground))"
-		onClick={() => handleContact(mail)}
-	>
-		<span class="font-heading font-semibold ~text-4xl/6xl"> aristide.bruneau@gmail.com </span>
-	</Marqueeck>
+	<ContactMarquee />
 </Section>
 
 <style lang="postcss">

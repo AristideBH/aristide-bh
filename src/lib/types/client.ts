@@ -366,6 +366,16 @@ export namespace Collections {
     subtitle: Types.Optional<Types.String>;
     thumbnail: Types.Optional<Types.UUID | Collections.DirectusFile>;
     seo_details: Types.Optional<Types.Integer | Collections.SeoDetail>;
+    gallery: Collections.ProjetsFiles[];
+  }
+
+  /**
+   * The projets files collection.
+   */
+  export interface ProjetsFiles {
+    id: Types.PrimaryKey<Types.Integer>;
+    projets_id: Types.Optional<Types.UUID | Collections.Projets>;
+    directus_files_id: Types.Optional<Types.UUID | Collections.DirectusFile>;
   }
 
   /**
@@ -748,6 +758,11 @@ export interface Schema extends System {
    * The projets collection.
    */
   projets: Collections.Projets[];
+
+  /**
+   * The projets files collection.
+   */
+  projets_files: Collections.ProjetsFiles[];
 
   /**
    * The quote collection.
@@ -3829,6 +3844,305 @@ export class ProjetsItem
     key: string | number,
   ): Promise<void> {
     return await this.client.request(deleteProjetsItem(key));
+  }
+}
+
+/**
+ * Create many projets files items.
+ */
+export function createProjetsFilesItems<
+  const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>,
+>(items: Partial<Collections.ProjetsFiles>[], query?: Query) {
+  return DirectusSDK.createItems<Schema, "projets_files", Query>(
+    "projets_files",
+    items,
+    query,
+  );
+}
+
+/**
+ * Create a single projets files item.
+ */
+export function createProjetsFilesItem<
+  const Query extends DirectusSDK.Query<Schema, Collections.ProjetsFiles[]>, // Is this a mistake? Why []?
+>(item: Partial<Collections.ProjetsFiles>, query?: Query) {
+  return DirectusSDK.createItem<Schema, "projets_files", Query>(
+    "projets_files",
+    item,
+    query,
+  );
+}
+
+/**
+ * Read many projets files items.
+ */
+export function readProjetsFilesItems<
+  const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
+>(query?: Query) {
+  return DirectusSDK.readItems<Schema, "projets_files", Query>(
+    "projets_files",
+    query,
+  );
+}
+
+/**
+ * Read many projets files items.
+ */
+export const listProjetsFiles = readProjetsFilesItems;
+
+/**
+ * Gets a single known projets files item by id.
+ */
+export function readProjetsFilesItem<
+  const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
+>(key: string | number, query?: Query) {
+  return DirectusSDK.readItem<Schema, "projets_files", Query>(
+    "projets_files",
+    key,
+    query,
+  );
+}
+
+/**
+ * Gets a single known projets files item by id.
+ */
+export const readProjetsFiles = readProjetsFilesItem;
+
+/**
+ * Read many projets files items.
+ */
+export function updateProjetsFilesItems<
+  const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>,
+>(
+  keys: string[] | number[],
+  patch: Partial<Collections.ProjetsFiles>,
+  query?: Query,
+) {
+  return DirectusSDK.updateItems<Schema, "projets_files", Query>(
+    "projets_files",
+    keys,
+    patch,
+    query,
+  );
+}
+
+/**
+ * Gets a single known projets files item by id.
+ */
+export function updateProjetsFilesItem<
+  const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>,
+>(
+  key: string | number,
+  patch: Partial<Collections.ProjetsFiles>,
+  query?: Query,
+) {
+  return DirectusSDK.updateItem<Schema, "projets_files", Query>(
+    "projets_files",
+    key,
+    patch,
+    query,
+  );
+}
+
+/**
+ * Deletes many projets files items.
+ */
+export function deleteProjetsFilesItems<
+  const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>,
+>(keys: string[] | number[]) {
+  return DirectusSDK.deleteItems<Schema, "projets_files", Query>(
+    "projets_files",
+    keys,
+  );
+}
+
+/**
+ * Deletes a single known projets files item by id.
+ */
+export function deleteProjetsFilesItem(key: string | number) {
+  return DirectusSDK.deleteItem<Schema, "projets_files">("projets_files", key);
+}
+
+export class ProjetsFilesItems
+  implements TypedCollectionItemsWrapper<Collections.ProjetsFiles>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Creates many items in the collection.
+   */
+  async create<
+    const Query extends DirectusSDK.Query<Schema, Collections.ProjetsFiles>,
+  >(
+    items: Partial<Collections.ProjetsFiles>[],
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.ProjetsFiles,
+      Query["fields"]
+    >[]
+  > {
+    return (await this.client.request(
+      createProjetsFilesItems(items, query as any),
+    )) as any; // Seems like a bug in the SDK.
+  }
+
+  /**
+   * Read many items from the collection.
+   */
+  async query<
+    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
+  >(
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.ProjetsFiles,
+      Query["fields"]
+    >[]
+  > {
+    return await this.client.request(readProjetsFilesItems(query));
+  }
+
+  /**
+   * Read the first item from the collection matching the query.
+   */
+  async find<
+    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
+  >(
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.ProjetsFiles,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    const items = await this.client.request(
+      readProjetsFilesItems({
+        ...query,
+        limit: 1,
+      }),
+    );
+    return items?.[0] as any; // TODO: fix
+  }
+
+  /**
+   * Update many items in the collection.
+   */
+  async update<
+    const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>,
+  >(
+    keys: string[] | number[],
+    patch: Partial<Collections.ProjetsFiles>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.ProjetsFiles,
+      Query["fields"]
+    >[]
+  > {
+    return await this.client.request(
+      updateProjetsFilesItems(keys, patch, query),
+    );
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<
+    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
+  >(keys: string[] | number[]): Promise<void> {}
+}
+
+export class ProjetsFilesItem
+  implements TypedCollectionItemWrapper<Collections.ProjetsFiles>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Create a single item in the collection.
+   */
+  async create<
+    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
+  >(
+    item: Partial<Collections.ProjetsFiles>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.ProjetsFiles,
+      Query["fields"]
+    >
+  > {
+    return (await this.client.request(
+      createProjetsFilesItem(item, query as any),
+    )) as any;
+  }
+
+  /**
+   * Read a single item from the collection.
+   */
+  async get<
+    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
+  >(
+    key: string | number,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.ProjetsFiles,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    return await this.client.request(readProjetsFilesItem(key, query));
+  }
+
+  /**
+   * Update a single item from the collection.
+   */
+  async update<
+    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
+  >(
+    key: string | number,
+    patch: Partial<Collections.ProjetsFiles>,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.ProjetsFiles,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    return (await this.client.request(
+      updateProjetsFilesItem(key, patch, query as any),
+    )) as any;
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<
+    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
+  >(key: string | number): Promise<void> {
+    return await this.client.request(deleteProjetsFilesItem(key));
   }
 }
 
@@ -7067,6 +7381,16 @@ export type TypedClient = {
   projet: TypedCollectionItemWrapper<Collections.Projets>;
 
   /**
+   * Manages multiple items from the ProjetsFiles collection.
+   */
+  projets_files: TypedCollectionItemsWrapper<Collections.ProjetsFiles>;
+
+  /**
+   * Manages individual items from the ProjetsFiles collection.
+   */
+  projets_file: TypedCollectionItemWrapper<Collections.ProjetsFiles>;
+
+  /**
    * Manages multiple items from the Quote collection.
    */
   quotes: TypedCollectionItemsWrapper<Collections.Quote>;
@@ -7361,6 +7685,9 @@ export const schema = () => {
 
       ["projets", new ProjetsItems(client as any)],
       ["projet", new ProjetsItem(client as any)],
+
+      ["projets_files", new ProjetsFilesItems(client as any)],
+      ["projets_file", new ProjetsFilesItem(client as any)],
 
       ["quotes", new QuoteItems(client as any)],
       ["quote", new QuoteItem(client as any)],
