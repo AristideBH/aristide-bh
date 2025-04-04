@@ -51,16 +51,16 @@
 	<div class="mt-8 max-w-[37ch] text-2xl leading-10 text-foreground/75 md:text-3xl">
 		<div class="leading-10">{global.maintenance_description}</div>
 	</div>
-	<p class="small mt-4 inline-flex items-center gap-1 italic text-primary">
-		<ChevronsDown class="size-5" />
-		En attendant, laissez moi un email :
-	</p>
 </Section>
 
 <Section
 	content={{ width: 'full-width' }}
 	class="layout-full content-grid mt-18 !mb-32 gap-y-4  !p-0"
 >
+	<p class="small mt-4 inline-flex items-center gap-1 font-mono italic text-primary">
+		<ChevronsDown class="size-5" />
+		En attendant, laissez moi un mail :
+	</p>
 	<Marqueeck
 		options={{ speed: 43, direction: 'left', gap: 56 }}
 		class="layout-full -rotate-3 "

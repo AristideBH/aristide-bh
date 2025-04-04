@@ -31,7 +31,7 @@
 	{@render children?.()}
 </Main>
 
-{#if percent > 20 || page.data.pathName !== '/'}
+{#if percent > 20 || (page.data.pathName !== '/' && page.data.pathName !== '/maintenance')}
 	<Header />
 {/if}
 
