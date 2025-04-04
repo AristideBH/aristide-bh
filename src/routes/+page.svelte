@@ -124,7 +124,7 @@
 </Section>
 
 <Section id="projects" class="scroll-mt-96">
-	<p class="mb-4 inline-flex items-center gap-1 text-sm italic text-primary">
+	<p class="mb-4 inline-flex items-center gap-1 font-mono text-sm italic text-primary">
 		<ChevronsDown class="size-5" />
 		Retrouvez quelques uns de mes projets ci-dessous !
 	</p>
@@ -163,7 +163,7 @@
 		corrupti eius eligendi quis?
 	</p>
 
-	<p class="mt-0 inline-flex items-center gap-1 py-6 text-sm italic text-primary">
+	<p class="mt-0 inline-flex items-center gap-1 pt-6 font-mono text-sm italic text-primary">
 		<span class="">
 			<ChevronsDown class="size-5" />
 		</span>

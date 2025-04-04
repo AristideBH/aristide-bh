@@ -17,13 +17,12 @@
 	titleTemplate="%s | Aristide BH"
 />
 
-<Section>
+<Section class={!isShallow ? '!mt-36' : ''}>
 	<Image item={project?.thumbnail!} />
 </Section>
 
-<Section class={isShallow ? 'px-8 pt-4' : ''} content={{ template: 'inherit-main' }}>
+<Section class={isShallow ? 'px-8 pt-4' : '-mt-28'} content={{ template: 'inherit-main' }}>
 	<h1>{project?.title}</h1>
-	<h2>{project?.subtitle}</h2>
+	<h4>{project?.subtitle}</h4>
+	<pre>{JSON.stringify(project, null, 2)}</pre>
 </Section>
-
-<pre>{JSON.stringify(project, null, 2)}</pre>
