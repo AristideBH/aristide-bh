@@ -8,6 +8,7 @@
 	import NavItemFragment from '../NavItemFragment.svelte';
 	import NavItemSub from '../mobile/NavItemSub.svelte';
 	import { closeDrawer, isDrawerOpen } from './index.svelte';
+	import MenuButton from '$lib/components/layout/MenuButton.svelte';
 
 	type Props = {
 		menu: Collections.Menus;
@@ -18,10 +19,12 @@
 </script>
 
 <Drawer.Root bind:open={$isDrawerOpen}>
-	<Drawer.Trigger>
-		<Button variant="white" size="icon" aria-label="Open menu">
-			<Menu class="s-4" />
-		</Button>
+	<Drawer.Trigger class="h-full w-12 bg-red-400">
+		<MenuButton class="h-full w-full shadow-xl">
+			<Button variant="white" aria-label="Open menu" class="h-full !w-full">
+				<Menu class="size-8" />
+			</Button>
+		</MenuButton>
 	</Drawer.Trigger>
 	<Drawer.Content class="max-h-full min-h-[33vh] ">
 		<Drawer.Header class="flex items-start gap-3 px-8 pt-8 text-left">

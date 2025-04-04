@@ -9,11 +9,18 @@
 	import CookieConsent from '$lib/components/layout/CookieConsent.svelte';
 	import Main from '$lib/components/layout/Main.svelte';
 	import Header from '$lib/components/layout/Header.svelte';
+	import { page } from '$app/state';
 
 	let { children, data } = $props();
 	const directus = client(fetch, data.token);
 	setContext<DirectusClient>('directus', directus);
+
+	let scrollY = $state(0);
+	let heightY = $state(0);
+	let percent = $derived((scrollY / heightY) * 100);
 </script>
+
+<svelte:window bind:scrollY bind:outerHeight={heightY} />
 
 <!-- UTILITIES -->
 <ModeWatcher darkClassNames={['dark', 'cc--darkmode']} />
@@ -23,7 +30,11 @@
 <Main transitionKey={data.pathName} options={{ duration: 100, y: 20, delta: 0 }}>
 	{@render children?.()}
 </Main>
+
+{#if percent > 20 || page.data.pathName !== '/'}
+	<Header />
+{/if}
+
 {#if !data.global.maintenance_state}
 	<CookieConsent />
-	<Header></Header>
 {/if}

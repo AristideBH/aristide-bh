@@ -13,9 +13,18 @@
 	import { page } from '$app/state';
 	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
+	import { clipPath } from '$lib/logic/transition';
+	import { quartOut } from 'svelte/easing';
+	import { onMount } from 'svelte';
+	import { loading } from '$lib/logic/pageLoading.svelte.js';
 
 	const mail = 'aristide.bruneau@gmail.com';
 	let modalState = $state(false);
+	let serviceSectionToggle = $state(false);
+
+	onMount(() => {
+		serviceSectionToggle = true;
+	});
 
 	const options: MarqueeckOptions = {
 		gap: 46,
@@ -54,36 +63,43 @@
 	<p class="lead italic text-primary">{data.global.project_descriptor}</p>
 </Section>
 
-<Section content={{ width: 'full-width' }} class=" scroll-mt-96 pt-0" id="services">
-	<Marqueeck options={{ ...options, speed: 50 }} class="layout-full -rotate-3">
-		<span>Direction artistique</span>
-		<span>Conception de logos</span>
-		<span>Web design</span>
-		<span>Charte graphique</span>
-		<span>Illustrations</span>
-		<span>Motion Design</span>
-		<span>Édition papier</span>
-		<span>Conseil éditorial</span>
-		<span>UI/UX</span>
-	</Marqueeck>
-	<Marqueeck options={{ ...options, speed: 57 }} class="layout-full -rotate-3">
-		<span>Intégration Frontend</span>
-		<span>Dévelopement Backend</span>
-		<span>Wordpress</span>
-		<span>Javascript/Typescript</span>
-		<span>SvelteKit</span>
-		<span>CSS/Tailwind</span>
-		<span>SEO</span>
-		<span>Web application</span>
-	</Marqueeck>
-	<Marqueeck options={{ ...options, speed: 43 }} class="layout-full -rotate-3">
-		<span>Modélisation</span>
-		<span>Impression 3D</span>
-		<span>PLV/Merchandising</span>
-		<span>Conception produits</span>
-		<span>Plans/rendus 3D</span>
-		<span>Menuiserie</span>
-	</Marqueeck>
+<Section content={{ width: 'full-width' }} class=" -my-16 min-h-[430px] scroll-mt-96" id="services">
+	{#if serviceSectionToggle}
+		<div
+			class="layout-full flex flex-col items-center gap-4 overflow-x-visible py-16"
+			transition:clipPath={{ direction: 'LEFT', duration: 300, easing: quartOut }}
+		>
+			<Marqueeck options={{ ...options, speed: 50 }} class=" -rotate-3">
+				<span>Direction artistique</span>
+				<span>Conception de logos</span>
+				<span>Web design</span>
+				<span>Charte graphique</span>
+				<span>Illustrations</span>
+				<span>Motion Design</span>
+				<span>Édition papier</span>
+				<span>Conseil éditorial</span>
+				<span>UI/UX</span>
+			</Marqueeck>
+			<Marqueeck options={{ ...options, speed: 57 }} class=" -rotate-3">
+				<span>Intégration Frontend</span>
+				<span>Dévelopement Backend</span>
+				<span>Wordpress</span>
+				<span>Javascript/Typescript</span>
+				<span>SvelteKit</span>
+				<span>CSS/Tailwind</span>
+				<span>SEO</span>
+				<span>Web application</span>
+			</Marqueeck>
+			<Marqueeck options={{ ...options, speed: 43 }} class=" -rotate-3">
+				<span>Modélisation</span>
+				<span>Impression 3D</span>
+				<span>PLV/Merchandising</span>
+				<span>Conception produits</span>
+				<span>Plans/rendus 3D</span>
+				<span>Menuiserie</span>
+			</Marqueeck>
+		</div>
+	{/if}
 </Section>
 
 <Section content={{ template: 'inherit-main' }} class="scroll-mt-96 !p-0" id="about">
@@ -94,7 +110,7 @@
 			santé, agro-alimentaire...) et sous toutes ses coutures&NonBreakingSpace;: conseil,
 			conception, création, développement, déploiement et suivi.
 		</p>
-		<p class="lead text-pretty border-s-2 border-primary ps-6 leading-relaxed">
+		<p class="lead mb-8 text-pretty border-s-2 border-primary ps-5 leading-relaxed">
 			Concencieux, rigoureux et à l'écoute, je veille à toujours cerner les solutions les plus
 			pertinentes pour répondre à vos besoins, et vous propose mes services en tant que freelance
 			indépendant.
@@ -103,7 +119,7 @@
 
 	<Image
 		item={home?.img!}
-		class="block-wrapper col-start-3 -col-end-1 mx-auto h-full max-w-96"
+		class="block-wrapper col-start-3 -col-end-1 me-auto h-fit max-w-80"
 		loading="lazy"
 	/>
 </Section>
@@ -129,8 +145,11 @@
 <Dialog.Root open={modalState} onOpenChange={closeModal}>
 	<Dialog.Content
 		preventScroll={true}
-		class="mx-auto my-8 flex max-h-[calc(100dvh-8rem)] flex-col overflow-auto rounded p-4 pt-6"
-		style="max-width: min(var(--content-max-width), calc(100vw - 4rem));"
+		onOpenAutoFocus={(e) => {
+			e.preventDefault();
+		}}
+		class="mx-auto my-8 flex h-full max-h-[calc(100dvh-4rem)] flex-col overflow-auto p-0"
+		style="max-width: min(calc(var(--content-max-width) + 3rem), calc(100vw - 4rem));"
 	>
 		{#if page.state.selected}
 			<Project data={page.state.selected} />

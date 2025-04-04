@@ -1,6 +1,7 @@
 import type { Collections } from "$lib/types/client";
 import type { Snippet } from "svelte";
 
+
 type UnitValue = `${number}px` | `${number}em` | `${number}rem` | `${number}%`;
 
 type InViewParams = {
@@ -17,6 +18,7 @@ export type SectionProps = {
     children: Snippet;
     content?: Partial<Collections.Section>
     id?: string;
+
 };
 
 // ViewTimeline

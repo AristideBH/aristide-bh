@@ -22,12 +22,11 @@
 {/if}
 
 <!-- <pre>{JSON.stringify(project, null, 2)}</pre> -->
+<Section>
+	<Image item={project?.thumbnail!} class="aspect-project" />
+</Section>
 
 <Section>
 	<h1>{project?.title}</h1>
 	<h2>{project?.subtitle}</h2>
-</Section>
-
-<Section>
-	<Image item={project?.thumbnail!} />
 </Section>

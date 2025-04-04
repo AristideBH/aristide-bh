@@ -8,10 +8,13 @@
 	import Logo from '$lib/components/layout/Logo.svelte';
 	import MenuButton from '$lib/components/layout/MenuButton.svelte';
 	import { Button } from '$components/ui/button';
+	import { clipPath } from '$lib/logic/transition';
+	import { quartOut } from 'svelte/easing';
 </script>
 
 <header
-	class="sticky bottom-0 z-50 mt-auto border-t border-foreground/10 bg-muted/70 py-6 backdrop-blur"
+	class="sticky bottom-0 z-50 mt-auto border-t border-foreground/10 bg-background/70 py-6 backdrop-blur"
+	transition:clipPath={{ direction: 'DOWN', duration: 300, easing: quartOut }}
 >
 	{#if $loading}
 		<LoadingBar />
@@ -19,7 +22,7 @@
 	<div class="flex items-center justify-between">
 		<div class="flex items-center gap-4">
 			<MenuButton class="shadow-xl">
-				<Button href="/" title="Page d'accueil" variant="white" class="h-full w-full ">
+				<Button href="/" title="Page d'accueil" variant="white" class="h-full w-full">
 					<Logo class="!size-10" />
 				</Button>
 			</MenuButton>

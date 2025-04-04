@@ -8,7 +8,7 @@
 	const { headerNav: menu } = page.data;
 </script>
 
-<nav class="pointer-events-auto flex flex-row items-center gap-6 xl:gap-10">
+<nav class="pointer-events-auto flex h-full flex-row items-center gap-6 xl:gap-10">
 	{#if large.current}
 		<DesktopNav {menu} />
 	{:else}
