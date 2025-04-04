@@ -10,11 +10,7 @@ declare global {
 			token?: string;
 		}
 		// interface PageData {}
-		interface PageState {
-			selected: Record<string, any>;
-			shallow: boolean;
-		}
-
+		// interface PageState {}
 		// interface Platform {}
 
 	}

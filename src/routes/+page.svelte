@@ -8,17 +8,12 @@
 	import { MetaTags } from 'svelte-meta-tags';
 	import ProjectCard from '$lib/components/layout/ProjectCard.svelte';
 	import { handleContact } from '$lib/logic/email';
-	import { goto, preloadData, pushState } from '$app/navigation';
-	import Project from './projets/[slug]/+page.svelte';
-	import { page } from '$app/state';
-	import * as Dialog from '$lib/components/ui/dialog/index.js';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { clipPath } from '$lib/logic/transition';
 	import { quartOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
 
 	const mail = 'aristide.bruneau@gmail.com';
-	let modalState = $state(false);
 	let serviceSectionToggle = $state(false);
 
 	onMount(() => {
@@ -32,24 +27,6 @@
 
 	let { data } = $props();
 	let { home, projects } = data;
-
-	async function showModal(e: MouseEvent): Promise<void> {
-		e.preventDefault();
-		const { href } = e.currentTarget as HTMLAnchorElement;
-		const result = await preloadData(href);
-
-		if (result.type === 'loaded' && result.status === 200) {
-			pushState(href, { selected: result.data, shallow: true });
-			modalState = true;
-		} else {
-			goto(href);
-		}
-	}
-
-	const closeModal = () => {
-		history.back();
-		modalState = false;
-	};
 </script>
 
 <MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} />
@@ -132,7 +109,7 @@
 	{#if projects}
 		<div class=" grid grid-cols-1 gap-4">
 			{#each projects as project}
-				<ProjectCard {project} onclick={showModal} />
+				<ProjectCard {project} />
 			{/each}
 		</div>
 	{/if}
@@ -140,21 +117,6 @@
 	<Button variant="secondary" size="lg" class="mx-auto mt-6 w-fit" href="/projets">Voir plus</Button
 	>
 </Section>
-
-<Dialog.Root open={modalState} onOpenChange={closeModal}>
-	<Dialog.Content
-		preventScroll={true}
-		onOpenAutoFocus={(e) => {
-			e.preventDefault();
-		}}
-		class="mx-auto my-8  h-full max-h-[calc(100dvh-4rem)]  overflow-auto p-0"
-		style="max-width: min(calc(var(--content-max-width) + 3rem), calc(100vw - 4rem));"
-	>
-		{#if page.state.selected}
-			<Project data={page.state.selected} />
-		{/if}
-	</Dialog.Content>
-</Dialog.Root>
 
 <Section content={{ width: 'full-width' }} class="pb-24" id="contact">
 	<p class="lead leading-relaxed">
