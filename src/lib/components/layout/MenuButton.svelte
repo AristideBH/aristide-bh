@@ -32,7 +32,6 @@
 	}
 
 	// * FUNCTIONS
-
 	const getCSSVariable = (target: HTMLElement, variable: string) =>
 		parseFloat(getComputedStyle(target).getPropertyValue(variable));
 

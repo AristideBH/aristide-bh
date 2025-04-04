@@ -19,8 +19,8 @@
 </script>
 
 <Drawer.Root bind:open={$isDrawerOpen}>
-	<Drawer.Trigger class="h-full w-12 bg-red-400">
-		<MenuButton class="h-full w-full shadow-xl">
+	<Drawer.Trigger class="h-full w-12 ">
+		<MenuButton class="h-full !w-full shadow-xl">
 			<Button variant="white" aria-label="Open menu" class="h-full !w-full">
 				<Menu class="size-8" />
 			</Button>

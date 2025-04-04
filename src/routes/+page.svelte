@@ -16,7 +16,6 @@
 	import { clipPath } from '$lib/logic/transition';
 	import { quartOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
-	import { loading } from '$lib/logic/pageLoading.svelte.js';
 
 	const mail = 'aristide.bruneau@gmail.com';
 	let modalState = $state(false);
@@ -148,7 +147,7 @@
 		onOpenAutoFocus={(e) => {
 			e.preventDefault();
 		}}
-		class="mx-auto my-8 flex h-full max-h-[calc(100dvh-4rem)] flex-col overflow-auto p-0"
+		class="mx-auto my-8  h-full max-h-[calc(100dvh-4rem)]  overflow-auto p-0"
 		style="max-width: min(calc(var(--content-max-width) + 3rem), calc(100vw - 4rem));"
 	>
 		{#if page.state.selected}
