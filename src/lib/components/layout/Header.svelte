@@ -1,16 +1,16 @@
 <script lang="ts">
-	import Navigation from '$lib/components/navigation/Navigation.svelte';
+	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import { loading } from '$lib/logic/pageLoading.svelte';
-	import LoadingBar from './LoadingBar.svelte';
-	let { project_name, project_descriptor } = page.data.global;
-
+	import { Button } from '$components/ui/button';
 	import Logo from '$lib/components/layout/Logo.svelte';
 	import MenuButton from '$lib/components/layout/MenuButton.svelte';
-	import { Button } from '$components/ui/button';
+	import Navigation from '$lib/components/navigation/Navigation.svelte';
+	import { loading } from '$lib/logic/pageLoading.svelte';
 	import { clipPath } from '$lib/logic/transition';
 	import { quartOut } from 'svelte/easing';
-	import { goto } from '$app/navigation';
+	import LoadingBar from './LoadingBar.svelte';
+
+	let { project_name, project_descriptor } = page.data.global;
 
 	const handleClick = (e: MouseEvent) => {
 		e.preventDefault();
@@ -42,16 +42,16 @@
 					href="/"
 					title="Page d'accueil"
 					variant="white"
-					class="h-full w-full"
+					class="group h-full w-full"
 					onclick={handleClick}
 				>
-					<Logo class="!size-10" />
+					<Logo class="!size-10 transition-all group-hover:fill-white" />
 				</Button>
 			</MenuButton>
 			<p class="leading-4">
 				<span class="font-heading text-2xl font-extrabold">{project_name}</span>
 				<br />
-				<span class="small italic text-primary">{project_descriptor}</span>
+				<span class="small font-mono italic text-primary">{project_descriptor}</span>
 			</p>
 		</div>
 		<Navigation />

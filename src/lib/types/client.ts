@@ -365,8 +365,9 @@ export namespace Collections {
     slug: Types.Optional<Types.String>;
     subtitle: Types.Optional<Types.String>;
     thumbnail: Types.Optional<Types.UUID | Collections.DirectusFile>;
-    seo_details: Types.Optional<Types.Integer | Collections.SeoDetail>;
     gallery: Collections.ProjetsFiles[];
+    seo_details: Types.Optional<Types.Integer | Collections.SeoDetail>;
+    description: Types.Optional<Types.String>;
   }
 
   /**

@@ -195,6 +195,7 @@
 
 	:global([data-dirhover='slotted']) {
 		position: relative;
+		overflow: hidden;
 		--x-pos: 0%;
 		--y-pos: 100%;
 	}

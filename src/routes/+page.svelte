@@ -1,29 +1,26 @@
 <script lang="ts">
 	import AnimatedHeading from '$lib/components/editor/components/AnimatedHeading.svelte';
 	import Image from '$lib/components/image/Image.svelte';
-	import Section from '$lib/components/layout/Section.svelte';
-	import Marqueeck, { type MarqueeckOptions } from '@arisbh/marqueeck';
-	import { ChevronsDown } from 'lucide-svelte';
+	import ContactMarquee from '$lib/components/layout/ContactMarquee.svelte';
 	import Logo from '$lib/components/layout/Logo.svelte';
-	import { MetaTags } from 'svelte-meta-tags';
+	import MenuButton from '$lib/components/layout/MenuButton.svelte';
 	import ProjectCard from '$lib/components/layout/ProjectCard.svelte';
-	import { handleContact } from '$lib/logic/email';
+	import Section from '$lib/components/layout/Section.svelte';
+	import SectionNudge from '$lib/components/layout/SectionNudge.svelte';
 	import { Button } from '$lib/components/ui/button/index.js';
 	import { clipPath } from '$lib/logic/transition';
-	import { quartOut } from 'svelte/easing';
+	import Marqueeck, { type MarqueeckOptions } from '@arisbh/marqueeck';
 	import { onMount } from 'svelte';
-	import SectionNudge from '$lib/components/layout/SectionNudge.svelte';
-	import ContactMarquee from '$lib/components/layout/ContactMarquee.svelte';
+	import { MetaTags } from 'svelte-meta-tags';
+	import { quartOut } from 'svelte/easing';
 
-	const mail = 'aristide.bruneau@gmail.com';
 	let serviceSectionToggle = $state(false);
-
-	onMount(() => (serviceSectionToggle = true));
-
 	const options: MarqueeckOptions = {
 		gap: 46,
 		hoverSpeed: 200
 	};
+
+	onMount(() => (serviceSectionToggle = true));
 
 	let { data } = $props();
 	let { home, projects } = data;
@@ -32,11 +29,17 @@
 <MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} />
 
 <Section class="z-50 scroll-mt-96 from-0% pt-10" content={{ width: 'full-width' }} id="home_header">
-	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline gap-[0.35ch] ~text-6xl/9xl">
-		<Logo class="h-[0.635em] fill-primary" />
+	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline ~text-6xl/9xl ~gap-4/8">
+		<MenuButton class="grid aspect-logo -translate-y-[0.025em] ~text-6xl/9xl">
+			<Button role="status" variant="white" class="group aspect-logo h-full w-full cursor-default">
+				<Logo class="transition-colors !~size-10/20 group-hover:fill-white" />
+			</Button>
+		</MenuButton>
+
 		{data.global.project_name}
 	</AnimatedHeading>
-	<p class="lead italic text-primary">{data.global.project_descriptor}</p>
+
+	<p class="lead font-mono italic text-primary">{data.global.project_descriptor}</p>
 </Section>
 
 <Section content={{ width: 'full-width' }} class=" -my-16 min-h-[430px] scroll-mt-96" id="services">
@@ -116,13 +119,12 @@
 </Section>
 
 <Section content={{ width: 'full-width' }} class="pb-24" id="contact">
-	<p class="lead pb-8">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, doloribus magnam? Recusandae,
-		soluta quo eaque sunt delectus aspernatur unde velit et ullam laborum magnam deserunt distinctio
-		corrupti eius eligendi quis?
+	<p class="lead text-balance pb-8">
+		Si vous aimez ce que vous voyez, que ma démarche vous parle et que vous avez un projet en tête,
+		n'hésitez pas à me contacter !
 	</p>
 
-	<SectionNudge>Un projet en tête ? Contactez-moi !</SectionNudge>
+	<SectionNudge>Laissez moi un message !</SectionNudge>
 
 	<ContactMarquee />
 </Section>

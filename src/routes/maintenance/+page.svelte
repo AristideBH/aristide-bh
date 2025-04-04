@@ -57,6 +57,6 @@
 	content={{ width: 'full-width' }}
 	class="layout-full content-grid mt-18 !mb-32 gap-y-4 !p-0"
 >
-	<SectionNudge>En attendant, laissez moi un mail :</SectionNudge>
+	<SectionNudge>En attendant, laissez moi un message :</SectionNudge>
 	<ContactMarquee />
 </Section>

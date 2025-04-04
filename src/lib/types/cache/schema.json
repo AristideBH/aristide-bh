@@ -20351,7 +20351,65 @@
         "display_options": null,
         "readonly": false,
         "hidden": false,
-        "sort": 10,
+        "sort": 11,
+        "width": "full",
+        "translations": null,
+        "note": null,
+        "conditions": null,
+        "required": false,
+        "group": null,
+        "validation": null,
+        "validation_message": null
+      }
+    },
+    {
+      "collection": "projets",
+      "field": "description",
+      "type": "text",
+      "schema": {
+        "name": "description",
+        "table": "projets",
+        "data_type": "text",
+        "default_value": null,
+        "generation_expression": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_generated": false,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "has_auto_increment": false,
+        "foreign_key_schema": null,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "comment": null
+      },
+      "meta": {
+        "id": 170,
+        "collection": "projets",
+        "field": "description",
+        "special": null,
+        "interface": "input-rich-text-html",
+        "options": {
+          "toolbar": [
+            "bold",
+            "italic",
+            "underline",
+            "numlist",
+            "bullist",
+            "removeformat",
+            "customLink",
+            "unlink",
+            "visualaid"
+          ]
+        },
+        "display": null,
+        "display_options": null,
+        "readonly": false,
+        "hidden": false,
+        "sort": 12,
         "width": "full",
         "translations": null,
         "note": null,
@@ -23673,7 +23731,7 @@
         "display_options": null,
         "readonly": false,
         "hidden": false,
-        "sort": 11,
+        "sort": 10,
         "width": "full",
         "translations": null,
         "note": null,
@@ -26474,6 +26532,60 @@
       }
     },
     {
+      "collection": "projets",
+      "field": "seo_details",
+      "related_collection": "seo_detail",
+      "schema": {
+        "constraint_name": "projets_seo_details_foreign",
+        "table": "projets",
+        "column": "seo_details",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "seo_detail",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "SET NULL"
+      },
+      "meta": {
+        "id": 32,
+        "many_collection": "projets",
+        "many_field": "seo_details",
+        "one_collection": "seo_detail",
+        "one_field": null,
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": null,
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
+      "collection": "projets",
+      "field": "thumbnail",
+      "related_collection": "directus_files",
+      "schema": {
+        "constraint_name": "projets_thumbnail_foreign",
+        "table": "projets",
+        "column": "thumbnail",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "SET NULL"
+      },
+      "meta": {
+        "id": 28,
+        "many_collection": "projets",
+        "many_field": "thumbnail",
+        "one_collection": "directus_files",
+        "one_field": null,
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": null,
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
       "collection": "pages_editor_nodes",
       "field": "pages_id",
       "related_collection": "pages",
@@ -26550,60 +26662,6 @@
         "one_collection_field": null,
         "one_allowed_collections": null,
         "junction_field": "languages_code",
-        "sort_field": null,
-        "one_deselect_action": "nullify"
-      }
-    },
-    {
-      "collection": "projets",
-      "field": "seo_details",
-      "related_collection": "seo_detail",
-      "schema": {
-        "constraint_name": "projets_seo_details_foreign",
-        "table": "projets",
-        "column": "seo_details",
-        "foreign_key_schema": "public",
-        "foreign_key_table": "seo_detail",
-        "foreign_key_column": "id",
-        "on_update": "NO ACTION",
-        "on_delete": "SET NULL"
-      },
-      "meta": {
-        "id": 32,
-        "many_collection": "projets",
-        "many_field": "seo_details",
-        "one_collection": "seo_detail",
-        "one_field": null,
-        "one_collection_field": null,
-        "one_allowed_collections": null,
-        "junction_field": null,
-        "sort_field": null,
-        "one_deselect_action": "nullify"
-      }
-    },
-    {
-      "collection": "projets",
-      "field": "thumbnail",
-      "related_collection": "directus_files",
-      "schema": {
-        "constraint_name": "projets_thumbnail_foreign",
-        "table": "projets",
-        "column": "thumbnail",
-        "foreign_key_schema": "public",
-        "foreign_key_table": "directus_files",
-        "foreign_key_column": "id",
-        "on_update": "NO ACTION",
-        "on_delete": "SET NULL"
-      },
-      "meta": {
-        "id": 28,
-        "many_collection": "projets",
-        "many_field": "thumbnail",
-        "one_collection": "directus_files",
-        "one_field": null,
-        "one_collection_field": null,
-        "one_allowed_collections": null,
-        "junction_field": null,
         "sort_field": null,
         "one_deselect_action": "nullify"
       }
