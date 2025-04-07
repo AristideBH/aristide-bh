@@ -160,11 +160,11 @@ packages:
     peerDependencies:
       svelte: ^5.0.0
 
-  '@ark/schema@0.45.6':
-    resolution: {integrity: sha512-uI/z6kAabOKeFxbJK2w26dD0FZLutL0LTw0o3EZsX+UC4exc34YUVkm7/wuUMvc5Z27IVDjoaZp9o7X4jOFAbg==}
+  '@ark/schema@0.45.8':
+    resolution: {integrity: sha512-YsX/OmTv11XvfNOVDGplIlRwPpDs51Bjiis3VLDVDuJgL0z4grDLHx+FZQpQTkYB6R43WfcV0wHLR5jRdUoy0A==}
 
-  '@ark/util@0.45.6':
-    resolution: {integrity: sha512-eI8Y1X0+271Q1p8qU39tkyrzIVMZIuymzixzVD0UL7k+HJaPhbbrjuKW/1CZzQ64tc+ugl7z2kP01YlAMA5h7A==}
+  '@ark/util@0.45.8':
+    resolution: {integrity: sha512-X6+LSxAuUe0+BUzP7KGyFQn/zqWGvk71eOchz51+auRpHbIMEgocoSsvyvPFxmm6l4RrFWXJnRZWDtXHThsf8g==}
 
   '@babel/runtime@7.27.0':
     resolution: {integrity: sha512-VtPOkrdPHZsKc/clNqyi9WUA8TINkZ4cGk63UUE3u4pmB2k+ZMQRDuIOagv8UVd6j7k0T3+RRIb7beKTebNbcw==}
@@ -798,8 +798,8 @@ packages:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
     engines: {node: '>= 0.4'}
 
-  arktype@2.1.16:
-    resolution: {integrity: sha512-KEuoEtpmbNVAIZqyLE+ox4Ga/6ED7Oe3Ra90sxGe4ZnufLz8AH49Xqis0i6oNEq23KmpduRLZRfS+iTAkjnfDw==}
+  arktype@2.1.18:
+    resolution: {integrity: sha512-b2Xf1IP+tua4LY+YFM+x0JGmq/RyvXpwvk52jxYQjuB8mVwMJUkTfMU8dlWkm/wEqZACAQxNyV6hIGyFQ8j3BA==}
 
   autoprefixer@10.4.21:
     resolution: {integrity: sha512-O+A6LWV5LDHSJD3LjHYoNi4VLsj/Whi7k6zG12xTYaU4cQ8oxQGckXNX8cRHK5yOZ/ppVHe0ZBXGzSV9jXdVbQ==}
@@ -858,8 +858,8 @@ packages:
     resolution: {integrity: sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA==}
     engines: {node: '>=16'}
 
-  caniuse-lite@1.0.30001709:
-    resolution: {integrity: sha512-NgL3vUTnDrPCZ3zTahp4fsugQ4dc7EKTSzwQDPEel6DMoMnfH2jhry9n2Zm8onbSR+f/QtKHFOA+iAQu4kbtWA==}
+  caniuse-lite@1.0.30001712:
+    resolution: {integrity: sha512-MBqPpGYYdQ7/hfKiet9SCI+nmN5/hp4ZzveOJubl5DTAMa5oggjAuoi0Z4onBpKPFI2ePGnQuQIzF3VxDjDJig==}
 
   chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
@@ -948,11 +948,11 @@ packages:
   ecdsa-sig-formatter@1.0.11:
     resolution: {integrity: sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==}
 
-  effect@3.14.5:
-    resolution: {integrity: sha512-X3/365UyPLyXGgS+kcqh7OTDJJVmjC6n2dDPBSppjwOpS7PV5d/UdBStwvCfkuz7kFajwLkd5KFhjDUtTl5SRA==}
+  effect@3.14.6:
+    resolution: {integrity: sha512-/QMsBfMw2Gt10x3y2jVqDanLpKFrhc4L/3vqjrD36GWeuOcjN+1mvsvw9+RseAq9hmmkc3MFvLznfiEopqcPuw==}
 
-  electron-to-chromium@1.5.130:
-    resolution: {integrity: sha512-Ou2u7L9j2XLZbhqzyX0jWDj6gA8D3jIfVzt4rikLf3cGBa0VdReuFimBKS9tQJA4+XpeCxj1NoWlfBXzbMa9IA==}
+  electron-to-chromium@1.5.132:
+    resolution: {integrity: sha512-QgX9EBvWGmvSRa74zqfnG7+Eno0Ak0vftBll0Pt2/z5b3bEGYL6OUXLgKPtvx73dn3dvwrlyVkjPKRRlhLYTEg==}
 
   embla-carousel-reactive-utils@8.6.0:
     resolution: {integrity: sha512-fMVUDUEx0/uIEDM0Mz3dHznDhfX+znCCDCeIophYb1QGVM7YThSWX+wz11zlYwWFOr74b4QLGg0hrGPJeG2s4A==}
@@ -1755,8 +1755,8 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
 
-  svelte-eslint-parser@1.1.1:
-    resolution: {integrity: sha512-QLVGPIMDettl30qRHXU2VrPvVJKG8GsGstye7n8rFbEiu3gEARksuQg9Xu4GzubNxhGNM8stfBZkhyMbBQmjFA==}
+  svelte-eslint-parser@1.1.2:
+    resolution: {integrity: sha512-vqFBRamDKo1l70KMfxxXj1/0Cco5TfMDnqaAjgz6D8PyoMhfMcDOLRkAwPg8WkMyZjMtQL3wW66TZ0x59iqO2w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       svelte: ^3.37.0 || ^4.0.0 || ^5.0.0
@@ -2039,12 +2039,12 @@ snapshots:
     dependencies:
       svelte: 5.25.7
 
-  '@ark/schema@0.45.6':
+  '@ark/schema@0.45.8':
     dependencies:
-      '@ark/util': 0.45.6
+      '@ark/util': 0.45.8
     optional: true
 
-  '@ark/util@0.45.6':
+  '@ark/util@0.45.8':
     optional: true
 
   '@babel/runtime@7.27.0':
@@ -2620,16 +2620,16 @@ snapshots:
 
   aria-query@5.3.2: {}
 
-  arktype@2.1.16:
+  arktype@2.1.18:
     dependencies:
-      '@ark/schema': 0.45.6
-      '@ark/util': 0.45.6
+      '@ark/schema': 0.45.8
+      '@ark/util': 0.45.8
     optional: true
 
   autoprefixer@10.4.21(postcss@8.5.3):
     dependencies:
       browserslist: 4.24.4
-      caniuse-lite: 1.0.30001709
+      caniuse-lite: 1.0.30001712
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -2668,8 +2668,8 @@ snapshots:
 
   browserslist@4.24.4:
     dependencies:
-      caniuse-lite: 1.0.30001709
-      electron-to-chromium: 1.5.130
+      caniuse-lite: 1.0.30001712
+      electron-to-chromium: 1.5.132
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.24.4)
 
@@ -2685,7 +2685,7 @@ snapshots:
   camelcase@8.0.0:
     optional: true
 
-  caniuse-lite@1.0.30001709: {}
+  caniuse-lite@1.0.30001712: {}
 
   chalk@4.1.2:
     dependencies:
@@ -2764,13 +2764,13 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  effect@3.14.5:
+  effect@3.14.6:
     dependencies:
       '@standard-schema/spec': 1.0.0
       fast-check: 3.23.2
     optional: true
 
-  electron-to-chromium@1.5.130: {}
+  electron-to-chromium@1.5.132: {}
 
   embla-carousel-reactive-utils@8.6.0(embla-carousel@8.6.0):
     dependencies:
@@ -2842,7 +2842,7 @@ snapshots:
       postcss-load-config: 3.1.4(postcss@8.5.3)
       postcss-safe-parser: 7.0.1(postcss@8.5.3)
       semver: 7.7.1
-      svelte-eslint-parser: 1.1.1(svelte@5.25.7)
+      svelte-eslint-parser: 1.1.2(svelte@5.25.7)
     optionalDependencies:
       svelte: 5.25.7
     transitivePeerDependencies:
@@ -3526,7 +3526,7 @@ snapshots:
     transitivePeerDependencies:
       - picomatch
 
-  svelte-eslint-parser@1.1.1(svelte@5.25.7):
+  svelte-eslint-parser@1.1.2(svelte@5.25.7):
     dependencies:
       eslint-scope: 8.3.0
       eslint-visitor-keys: 4.2.0
@@ -3595,9 +3595,9 @@ snapshots:
       '@sinclair/typebox': 0.34.33
       '@typeschema/class-validator': 0.3.0(@types/json-schema@7.0.15)(class-validator@0.14.1)
       '@vinejs/vine': 3.0.1
-      arktype: 2.1.16
+      arktype: 2.1.18
       class-validator: 0.14.1
-      effect: 3.14.5
+      effect: 3.14.6
       joi: 17.13.3
       json-schema-to-ts: 3.1.1
       superstruct: 2.0.2
