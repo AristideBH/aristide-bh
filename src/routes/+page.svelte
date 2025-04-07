@@ -120,7 +120,7 @@
 
 <Section content={{ width: 'full-width' }} class="pb-24" id="contact">
 	<p class="lead text-balance pb-8">
-		Si vous aimez ce que vous voyez, que ma démarche vous parle et que vous avez un projet en tête,
+		Si vous aimez ce que vous voyez, que ma démarche vous parle ou que vous avez un projet en tête,
 		n'hésitez pas à me contacter !
 	</p>
 

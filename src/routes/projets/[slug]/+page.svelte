@@ -52,7 +52,7 @@
 				{@const topGap = (id + 1) * 2}
 				<Image
 					item={image.directus_files_id}
-					class="!sticky h-full min-h-[70dvh] border border-muted/50 shadow"
+					class="!sticky h-full min-h-[70dvh] border border-muted/20 "
 					style={`top: ${topGap}rem;`}
 				/>
 			{/each}
@@ -60,7 +60,7 @@
 	</Section>
 {/if}
 
-<Section content={{ width: 'full-width' }}>
+<Section content={{ width: 'full-width' }} class="pb-24">
 	<p class="lead pb-8">
 		Ce projet vous à plu ?
 		<br /> Vous avez un projet similaire (ou pas) en tête ?
