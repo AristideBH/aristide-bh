@@ -31,7 +31,7 @@
 
 <section>
 	<p class="lead text-balance">
-		Cette page n'existe pas !<br /> Reprenez depuis la <a href="/"> page d'accueil</a>.
+		Cette page semble ne pas exister !<br /> Reprenez depuis la <a href="/"> page d'accueil</a>.
 	</p>
 </section>
 

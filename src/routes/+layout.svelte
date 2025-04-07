@@ -1,15 +1,13 @@
 <script lang="ts">
-	import '../app.pcss';
-	import { client, type DirectusClient } from '$lib/logic/directus';
-	import { setContext } from 'svelte';
-
-	import { ModeWatcher } from 'mode-watcher';
-	import { Toaster } from '$lib/components/ui/sonner';
-
-	import CookieConsent from '$lib/components/layout/CookieConsent.svelte';
-	import Main from '$lib/components/layout/Main.svelte';
-	import Header from '$lib/components/layout/Header.svelte';
 	import { page } from '$app/state';
+	import CookieConsent from '$lib/components/layout/CookieConsent.svelte';
+	import Header from '$lib/components/layout/Header.svelte';
+	import Main from '$lib/components/layout/Main.svelte';
+	import { Toaster } from '$lib/components/ui/sonner';
+	import { client, type DirectusClient } from '$lib/logic/directus';
+	import { ModeWatcher } from 'mode-watcher';
+	import { setContext } from 'svelte';
+	import '../app.pcss';
 
 	let { children, data } = $props();
 	const directus = client(fetch, data.token);

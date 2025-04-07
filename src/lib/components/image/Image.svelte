@@ -38,7 +38,8 @@ The component uses the `getFileInfos`, `getImgSrcSet`, `getImgUrl`, `getThumbhas
 		class: className,
 		showCaption = false,
 		loading = 'lazy',
-		aspectOverwrite = true
+		aspectOverwrite = true,
+		style
 	}: ImageProps = $props();
 
 	// * COMPONENTS STATE
@@ -93,7 +94,7 @@ The component uses the `getFileInfos`, `getImgSrcSet`, `getImgUrl`, `getThumbhas
 	});
 </script>
 
-<figure class={`${className ?? ''}`} bind:this={imgContainer} bind:offsetWidth={elWidth}>
+<figure class={`${className ?? ''}`} bind:this={imgContainer} bind:offsetWidth={elWidth} {style}>
 	<img
 		{src}
 		{srcset}
@@ -128,7 +129,7 @@ The component uses the `getFileInfos`, `getImgSrcSet`, `getImgUrl`, `getThumbhas
 	img {
 		display: block;
 		width: 100%;
-		height: auto;
+		height: 100%;
 		background-size: 100%;
 		transition: all ease-in-out 0.3s;
 		object-fit: cover;

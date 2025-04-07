@@ -11,16 +11,17 @@ export const load = (async ({ params, fetch }) => {
                 {
                     filter: {
                         "_and": [
-                            {
-                                "status": { "_nin": ['archived', 'draft'] }
-                            },
-                            {
-                                "slug": { "_eq": params.slug }
-                            }
-
+                            { "status": { "_in": ['published'] } },
+                            { "slug": { "_eq": params.slug } }
                         ]
                     },
-                    fields: ["*", { thumbnail: ["id"] }, { seo_details: ["*"] }]
+                    fields: [
+                        "*",
+                        { thumbnail: ["id"] },
+                        { seo_details: ["*"] },
+                        { tags: ["title"] },
+                        { gallery: ["directus_files_id"] }
+                    ]
                 }
             )
         )
@@ -34,8 +35,6 @@ export const load = (async ({ params, fetch }) => {
     } catch (error) {
         directusError(error);
     }
-
-
 
     return {};
 }) satisfies PageServerLoad;

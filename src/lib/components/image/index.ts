@@ -14,7 +14,8 @@ type ImageProps = {
     class?: string;
     showCaption?: boolean;
     loading?: 'lazy' | 'eager';
-    aspectOverwrite?: boolean
+    aspectOverwrite?: boolean;
+    style?: string;
 };
 
 

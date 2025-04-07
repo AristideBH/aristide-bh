@@ -364,10 +364,12 @@ export namespace Collections {
     title: Types.Optional<Types.String>;
     slug: Types.Optional<Types.String>;
     subtitle: Types.Optional<Types.String>;
+    tags: Collections.Tags[];
+    description: Types.Optional<Types.String>;
+    site_url: Types.Optional<Types.String>;
     thumbnail: Types.Optional<Types.UUID | Collections.DirectusFile>;
     gallery: Collections.ProjetsFiles[];
     seo_details: Types.Optional<Types.Integer | Collections.SeoDetail>;
-    description: Types.Optional<Types.String>;
   }
 
   /**
@@ -377,6 +379,7 @@ export namespace Collections {
     id: Types.PrimaryKey<Types.Integer>;
     projets_id: Types.Optional<Types.UUID | Collections.Projets>;
     directus_files_id: Types.Optional<Types.UUID | Collections.DirectusFile>;
+    sort: Types.Optional<Types.Integer>;
   }
 
   /**
@@ -527,6 +530,17 @@ export namespace Collections {
       | Collections.Video
     >;
     collection: Types.Optional<Types.String>;
+  }
+
+  /**
+   * The tags collection.
+   */
+  export interface Tags {
+    id: Types.PrimaryKey<Types.UUID>;
+    status: "archived" | "draft" | "published" | Types.String;
+    sort: Types.Optional<Types.Integer>;
+    projects: Types.Optional<Types.UUID | Collections.Projets>;
+    title: Types.Optional<Types.String>;
   }
 
   /**
@@ -814,6 +828,11 @@ export interface Schema extends System {
    * The stack editor nodes collection.
    */
   stack_editor_nodes: Collections.StackEditorNodes[];
+
+  /**
+   * The tags collection.
+   */
+  tags: Collections.Tags[];
 
   /**
    * The video collection.
@@ -7017,6 +7036,233 @@ export class StackEditorNodesItem
 }
 
 /**
+ * Create many tags items.
+ */
+export function createTagsItems<
+  const Query extends Directus.Query<Schema, Collections.Tags[]>,
+>(items: Partial<Collections.Tags>[], query?: Query) {
+  return DirectusSDK.createItems<Schema, "tags", Query>("tags", items, query);
+}
+
+/**
+ * Create a single tags item.
+ */
+export function createTagsItem<
+  const Query extends DirectusSDK.Query<Schema, Collections.Tags[]>, // Is this a mistake? Why []?
+>(item: Partial<Collections.Tags>, query?: Query) {
+  return DirectusSDK.createItem<Schema, "tags", Query>("tags", item, query);
+}
+
+/**
+ * Read many tags items.
+ */
+export function readTagsItems<
+  const Query extends Directus.Query<Schema, Collections.Tags>,
+>(query?: Query) {
+  return DirectusSDK.readItems<Schema, "tags", Query>("tags", query);
+}
+
+/**
+ * Read many tags items.
+ */
+export const listTags = readTagsItems;
+
+/**
+ * Gets a single known tags item by id.
+ */
+export function readTagsItem<
+  const Query extends Directus.Query<Schema, Collections.Tags>,
+>(key: string | number, query?: Query) {
+  return DirectusSDK.readItem<Schema, "tags", Query>("tags", key, query);
+}
+
+/**
+ * Gets a single known tags item by id.
+ */
+export const readTags = readTagsItem;
+
+/**
+ * Read many tags items.
+ */
+export function updateTagsItems<
+  const Query extends Directus.Query<Schema, Collections.Tags[]>,
+>(keys: string[] | number[], patch: Partial<Collections.Tags>, query?: Query) {
+  return DirectusSDK.updateItems<Schema, "tags", Query>(
+    "tags",
+    keys,
+    patch,
+    query,
+  );
+}
+
+/**
+ * Gets a single known tags item by id.
+ */
+export function updateTagsItem<
+  const Query extends Directus.Query<Schema, Collections.Tags[]>,
+>(key: string | number, patch: Partial<Collections.Tags>, query?: Query) {
+  return DirectusSDK.updateItem<Schema, "tags", Query>(
+    "tags",
+    key,
+    patch,
+    query,
+  );
+}
+
+/**
+ * Deletes many tags items.
+ */
+export function deleteTagsItems<
+  const Query extends Directus.Query<Schema, Collections.Tags[]>,
+>(keys: string[] | number[]) {
+  return DirectusSDK.deleteItems<Schema, "tags", Query>("tags", keys);
+}
+
+/**
+ * Deletes a single known tags item by id.
+ */
+export function deleteTagsItem(key: string | number) {
+  return DirectusSDK.deleteItem<Schema, "tags">("tags", key);
+}
+
+export class TagsItems
+  implements TypedCollectionItemsWrapper<Collections.Tags>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Creates many items in the collection.
+   */
+  async create<const Query extends DirectusSDK.Query<Schema, Collections.Tags>>(
+    items: Partial<Collections.Tags>[],
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>[]
+  > {
+    return (await this.client.request(
+      createTagsItems(items, query as any),
+    )) as any; // Seems like a bug in the SDK.
+  }
+
+  /**
+   * Read many items from the collection.
+   */
+  async query<const Query extends Directus.Query<Schema, Collections.Tags>>(
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>[]
+  > {
+    return await this.client.request(readTagsItems(query));
+  }
+
+  /**
+   * Read the first item from the collection matching the query.
+   */
+  async find<const Query extends Directus.Query<Schema, Collections.Tags>>(
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>
+    | undefined
+  > {
+    const items = await this.client.request(
+      readTagsItems({
+        ...query,
+        limit: 1,
+      }),
+    );
+    return items?.[0] as any; // TODO: fix
+  }
+
+  /**
+   * Update many items in the collection.
+   */
+  async update<const Query extends Directus.Query<Schema, Collections.Tags[]>>(
+    keys: string[] | number[],
+    patch: Partial<Collections.Tags>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>[]
+  > {
+    return await this.client.request(updateTagsItems(keys, patch, query));
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<const Query extends Directus.Query<Schema, Collections.Tags>>(
+    keys: string[] | number[],
+  ): Promise<void> {}
+}
+
+export class TagsItem implements TypedCollectionItemWrapper<Collections.Tags> {
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Create a single item in the collection.
+   */
+  async create<const Query extends Directus.Query<Schema, Collections.Tags>>(
+    item: Partial<Collections.Tags>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>
+  > {
+    return (await this.client.request(
+      createTagsItem(item, query as any),
+    )) as any;
+  }
+
+  /**
+   * Read a single item from the collection.
+   */
+  async get<const Query extends Directus.Query<Schema, Collections.Tags>>(
+    key: string | number,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>
+    | undefined
+  > {
+    return await this.client.request(readTagsItem(key, query));
+  }
+
+  /**
+   * Update a single item from the collection.
+   */
+  async update<const Query extends Directus.Query<Schema, Collections.Tags>>(
+    key: string | number,
+    patch: Partial<Collections.Tags>,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>
+    | undefined
+  > {
+    return (await this.client.request(
+      updateTagsItem(key, patch, query as any),
+    )) as any;
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<const Query extends Directus.Query<Schema, Collections.Tags>>(
+    key: string | number,
+  ): Promise<void> {
+    return await this.client.request(deleteTagsItem(key));
+  }
+}
+
+/**
  * Create many video items.
  */
 export function createVideoItems<
@@ -7492,6 +7738,16 @@ export type TypedClient = {
   stack_editor_node: TypedCollectionItemWrapper<Collections.StackEditorNodes>;
 
   /**
+   * Manages multiple items from the Tags collection.
+   */
+  tags: TypedCollectionItemsWrapper<Collections.Tags>;
+
+  /**
+   * Manages individual items from the Tags collection.
+   */
+  tag: TypedCollectionItemWrapper<Collections.Tags>;
+
+  /**
    * Manages multiple items from the Video collection.
    */
   videos: TypedCollectionItemsWrapper<Collections.Video>;
@@ -7725,6 +7981,9 @@ export const schema = () => {
 
       ["stack_editor_nodes", new StackEditorNodesItems(client as any)],
       ["stack_editor_node", new StackEditorNodesItem(client as any)],
+
+      ["tags", new TagsItems(client as any)],
+      ["tag", new TagsItem(client as any)],
 
       ["videos", new VideoItems(client as any)],
       ["video", new VideoItem(client as any)],
