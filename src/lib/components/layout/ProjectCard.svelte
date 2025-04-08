@@ -17,7 +17,7 @@
 	let { ...props }: Props = $props();
 	let linkWidth: number | undefined = $state();
 	let linkHeight: number | undefined = $state();
-	let duration = 1000;
+	let duration = 350;
 
 	const x = new Tween(650, { duration: duration, easing: cubicOut });
 	const y = new Tween(650, { duration: duration, easing: cubicOut });

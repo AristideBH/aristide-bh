@@ -296,6 +296,10 @@ export namespace Collections {
     date_updated: Types.Optional<Types.DateTime>;
     presentation: Types.Optional<Types.String>;
     img: Types.Optional<Types.UUID | Collections.DirectusFile>;
+    nudge_project: Types.Optional<Types.String>;
+    pinned_projects: Collections.Projets[];
+    contact_text: Types.Optional<Types.String>;
+    contact_nudge: Types.Optional<Types.String>;
     seo_detail: Types.Optional<Types.Integer | Collections.SeoDetail>;
   }
 
@@ -382,6 +386,7 @@ export namespace Collections {
     thumbnail: Types.Optional<Types.UUID | Collections.DirectusFile>;
     gallery: Collections.ProjetsFiles[];
     seo_details: Types.Optional<Types.Integer | Collections.SeoDetail>;
+    pinned: Types.Optional<Types.UUID | Collections.Homepage>;
   }
 
   /**

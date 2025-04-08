@@ -18249,7 +18249,7 @@
         "display_options": null,
         "readonly": false,
         "hidden": false,
-        "sort": 8,
+        "sort": 12,
         "width": "full",
         "translations": null,
         "note": null,
@@ -18396,7 +18396,145 @@
         "readonly": false,
         "hidden": false,
         "sort": 6,
-        "width": "half",
+        "width": "full",
+        "translations": null,
+        "note": null,
+        "conditions": null,
+        "required": true,
+        "group": null,
+        "validation": null,
+        "validation_message": null
+      }
+    },
+    {
+      "collection": "homepage",
+      "field": "nudge_project",
+      "type": "string",
+      "schema": {
+        "name": "nudge_project",
+        "table": "homepage",
+        "data_type": "character varying",
+        "default_value": null,
+        "generation_expression": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_generated": false,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "has_auto_increment": false,
+        "foreign_key_schema": null,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "comment": null
+      },
+      "meta": {
+        "id": 186,
+        "collection": "homepage",
+        "field": "nudge_project",
+        "special": null,
+        "interface": "input",
+        "options": null,
+        "display": null,
+        "display_options": null,
+        "readonly": false,
+        "hidden": false,
+        "sort": 8,
+        "width": "full",
+        "translations": null,
+        "note": null,
+        "conditions": null,
+        "required": true,
+        "group": null,
+        "validation": null,
+        "validation_message": null
+      }
+    },
+    {
+      "collection": "homepage",
+      "field": "contact_text",
+      "type": "text",
+      "schema": {
+        "name": "contact_text",
+        "table": "homepage",
+        "data_type": "text",
+        "default_value": null,
+        "generation_expression": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_generated": false,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "has_auto_increment": false,
+        "foreign_key_schema": null,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "comment": null
+      },
+      "meta": {
+        "id": 191,
+        "collection": "homepage",
+        "field": "contact_text",
+        "special": null,
+        "interface": "input-rich-text-html",
+        "options": null,
+        "display": null,
+        "display_options": null,
+        "readonly": false,
+        "hidden": false,
+        "sort": 10,
+        "width": "full",
+        "translations": null,
+        "note": null,
+        "conditions": null,
+        "required": true,
+        "group": null,
+        "validation": null,
+        "validation_message": null
+      }
+    },
+    {
+      "collection": "homepage",
+      "field": "contact_nudge",
+      "type": "string",
+      "schema": {
+        "name": "contact_nudge",
+        "table": "homepage",
+        "data_type": "character varying",
+        "default_value": null,
+        "generation_expression": null,
+        "max_length": 255,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_generated": false,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "has_auto_increment": false,
+        "foreign_key_schema": null,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "comment": null
+      },
+      "meta": {
+        "id": 192,
+        "collection": "homepage",
+        "field": "contact_nudge",
+        "special": null,
+        "interface": "input",
+        "options": null,
+        "display": null,
+        "display_options": null,
+        "readonly": false,
+        "hidden": false,
+        "sort": 11,
+        "width": "full",
         "translations": null,
         "note": null,
         "conditions": null,
@@ -20748,6 +20886,52 @@
         "readonly": false,
         "hidden": false,
         "sort": 11,
+        "width": "full",
+        "translations": null,
+        "note": null,
+        "conditions": null,
+        "required": false,
+        "group": null,
+        "validation": null,
+        "validation_message": null
+      }
+    },
+    {
+      "collection": "projets",
+      "field": "pinned",
+      "type": "uuid",
+      "schema": {
+        "name": "pinned",
+        "table": "projets",
+        "data_type": "uuid",
+        "default_value": null,
+        "generation_expression": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_generated": false,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "has_auto_increment": false,
+        "foreign_key_schema": "public",
+        "foreign_key_table": "homepage",
+        "foreign_key_column": "id",
+        "comment": null
+      },
+      "meta": {
+        "id": 190,
+        "collection": "projets",
+        "field": "pinned",
+        "special": null,
+        "interface": "select-dropdown-m2o",
+        "options": null,
+        "display": null,
+        "display_options": null,
+        "readonly": false,
+        "hidden": true,
+        "sort": 15,
         "width": "full",
         "translations": null,
         "note": null,
@@ -24514,6 +24698,40 @@
       }
     },
     {
+      "collection": "homepage",
+      "field": "pinned_projects",
+      "type": "alias",
+      "schema": null,
+      "meta": {
+        "id": 189,
+        "collection": "homepage",
+        "field": "pinned_projects",
+        "special": [
+          "o2m"
+        ],
+        "interface": "list-o2m",
+        "options": {
+          "template": "{{title}}",
+          "enableCreate": false,
+          "filter": null,
+          "enableLink": true
+        },
+        "display": null,
+        "display_options": null,
+        "readonly": false,
+        "hidden": false,
+        "sort": 9,
+        "width": "full",
+        "translations": null,
+        "note": null,
+        "conditions": null,
+        "required": false,
+        "group": null,
+        "validation": null,
+        "validation_message": null
+      }
+    },
+    {
       "collection": "directus_activity",
       "field": "revisions",
       "type": "alias",
@@ -26628,114 +26846,6 @@
       }
     },
     {
-      "collection": "homepage",
-      "field": "user_updated",
-      "related_collection": "directus_users",
-      "schema": {
-        "constraint_name": "homepage_user_updated_foreign",
-        "table": "homepage",
-        "column": "user_updated",
-        "foreign_key_schema": "public",
-        "foreign_key_table": "directus_users",
-        "foreign_key_column": "id",
-        "on_update": "NO ACTION",
-        "on_delete": "NO ACTION"
-      },
-      "meta": {
-        "id": 7,
-        "many_collection": "homepage",
-        "many_field": "user_updated",
-        "one_collection": "directus_users",
-        "one_field": null,
-        "one_collection_field": null,
-        "one_allowed_collections": null,
-        "junction_field": null,
-        "sort_field": null,
-        "one_deselect_action": "nullify"
-      }
-    },
-    {
-      "collection": "homepage",
-      "field": "user_created",
-      "related_collection": "directus_users",
-      "schema": {
-        "constraint_name": "homepage_user_created_foreign",
-        "table": "homepage",
-        "column": "user_created",
-        "foreign_key_schema": "public",
-        "foreign_key_table": "directus_users",
-        "foreign_key_column": "id",
-        "on_update": "NO ACTION",
-        "on_delete": "NO ACTION"
-      },
-      "meta": {
-        "id": 6,
-        "many_collection": "homepage",
-        "many_field": "user_created",
-        "one_collection": "directus_users",
-        "one_field": null,
-        "one_collection_field": null,
-        "one_allowed_collections": null,
-        "junction_field": null,
-        "sort_field": null,
-        "one_deselect_action": "nullify"
-      }
-    },
-    {
-      "collection": "homepage",
-      "field": "seo_detail",
-      "related_collection": "seo_detail",
-      "schema": {
-        "constraint_name": "homepage_seo_detail_foreign",
-        "table": "homepage",
-        "column": "seo_detail",
-        "foreign_key_schema": "public",
-        "foreign_key_table": "seo_detail",
-        "foreign_key_column": "id",
-        "on_update": "NO ACTION",
-        "on_delete": "SET NULL"
-      },
-      "meta": {
-        "id": 5,
-        "many_collection": "homepage",
-        "many_field": "seo_detail",
-        "one_collection": "seo_detail",
-        "one_field": null,
-        "one_collection_field": null,
-        "one_allowed_collections": null,
-        "junction_field": null,
-        "sort_field": null,
-        "one_deselect_action": "nullify"
-      }
-    },
-    {
-      "collection": "homepage",
-      "field": "img",
-      "related_collection": "directus_files",
-      "schema": {
-        "constraint_name": "homepage_img_foreign",
-        "table": "homepage",
-        "column": "img",
-        "foreign_key_schema": "public",
-        "foreign_key_table": "directus_files",
-        "foreign_key_column": "id",
-        "on_update": "NO ACTION",
-        "on_delete": "SET NULL"
-      },
-      "meta": {
-        "id": 4,
-        "many_collection": "homepage",
-        "many_field": "img",
-        "one_collection": "directus_files",
-        "one_field": null,
-        "one_collection_field": null,
-        "one_allowed_collections": null,
-        "junction_field": null,
-        "sort_field": null,
-        "one_deselect_action": "nullify"
-      }
-    },
-    {
       "collection": "directus_flows",
       "field": "user_created",
       "related_collection": "directus_users",
@@ -27114,6 +27224,114 @@
       }
     },
     {
+      "collection": "homepage",
+      "field": "user_updated",
+      "related_collection": "directus_users",
+      "schema": {
+        "constraint_name": "homepage_user_updated_foreign",
+        "table": "homepage",
+        "column": "user_updated",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      },
+      "meta": {
+        "id": 7,
+        "many_collection": "homepage",
+        "many_field": "user_updated",
+        "one_collection": "directus_users",
+        "one_field": null,
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": null,
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
+      "collection": "homepage",
+      "field": "user_created",
+      "related_collection": "directus_users",
+      "schema": {
+        "constraint_name": "homepage_user_created_foreign",
+        "table": "homepage",
+        "column": "user_created",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      },
+      "meta": {
+        "id": 6,
+        "many_collection": "homepage",
+        "many_field": "user_created",
+        "one_collection": "directus_users",
+        "one_field": null,
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": null,
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
+      "collection": "homepage",
+      "field": "seo_detail",
+      "related_collection": "seo_detail",
+      "schema": {
+        "constraint_name": "homepage_seo_detail_foreign",
+        "table": "homepage",
+        "column": "seo_detail",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "seo_detail",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "SET NULL"
+      },
+      "meta": {
+        "id": 5,
+        "many_collection": "homepage",
+        "many_field": "seo_detail",
+        "one_collection": "seo_detail",
+        "one_field": null,
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": null,
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
+      "collection": "homepage",
+      "field": "img",
+      "related_collection": "directus_files",
+      "schema": {
+        "constraint_name": "homepage_img_foreign",
+        "table": "homepage",
+        "column": "img",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "SET NULL"
+      },
+      "meta": {
+        "id": 4,
+        "many_collection": "homepage",
+        "many_field": "img",
+        "one_collection": "directus_files",
+        "one_field": null,
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": null,
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
       "collection": "stack_editor_nodes",
       "field": "stack_id",
       "related_collection": "stack",
@@ -27438,60 +27656,6 @@
       }
     },
     {
-      "collection": "projets",
-      "field": "seo_details",
-      "related_collection": "seo_detail",
-      "schema": {
-        "constraint_name": "projets_seo_details_foreign",
-        "table": "projets",
-        "column": "seo_details",
-        "foreign_key_schema": "public",
-        "foreign_key_table": "seo_detail",
-        "foreign_key_column": "id",
-        "on_update": "NO ACTION",
-        "on_delete": "SET NULL"
-      },
-      "meta": {
-        "id": 32,
-        "many_collection": "projets",
-        "many_field": "seo_details",
-        "one_collection": "seo_detail",
-        "one_field": null,
-        "one_collection_field": null,
-        "one_allowed_collections": null,
-        "junction_field": null,
-        "sort_field": null,
-        "one_deselect_action": "nullify"
-      }
-    },
-    {
-      "collection": "projets",
-      "field": "thumbnail",
-      "related_collection": "directus_files",
-      "schema": {
-        "constraint_name": "projets_thumbnail_foreign",
-        "table": "projets",
-        "column": "thumbnail",
-        "foreign_key_schema": "public",
-        "foreign_key_table": "directus_files",
-        "foreign_key_column": "id",
-        "on_update": "NO ACTION",
-        "on_delete": "SET NULL"
-      },
-      "meta": {
-        "id": 28,
-        "many_collection": "projets",
-        "many_field": "thumbnail",
-        "one_collection": "directus_files",
-        "one_field": null,
-        "one_collection_field": null,
-        "one_allowed_collections": null,
-        "junction_field": null,
-        "sort_field": null,
-        "one_deselect_action": "nullify"
-      }
-    },
-    {
       "collection": "tags",
       "field": "category",
       "related_collection": "categories",
@@ -27542,6 +27706,87 @@
         "one_allowed_collections": null,
         "junction_field": null,
         "sort_field": "sort",
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
+      "collection": "projets",
+      "field": "pinned",
+      "related_collection": "homepage",
+      "schema": {
+        "constraint_name": "projets_pinned_foreign",
+        "table": "projets",
+        "column": "pinned",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "homepage",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "SET NULL"
+      },
+      "meta": {
+        "id": 38,
+        "many_collection": "projets",
+        "many_field": "pinned",
+        "one_collection": "homepage",
+        "one_field": "pinned_projects",
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": "sort",
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
+      "collection": "projets",
+      "field": "seo_details",
+      "related_collection": "seo_detail",
+      "schema": {
+        "constraint_name": "projets_seo_details_foreign",
+        "table": "projets",
+        "column": "seo_details",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "seo_detail",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "SET NULL"
+      },
+      "meta": {
+        "id": 32,
+        "many_collection": "projets",
+        "many_field": "seo_details",
+        "one_collection": "seo_detail",
+        "one_field": null,
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": null,
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
+      "collection": "projets",
+      "field": "thumbnail",
+      "related_collection": "directus_files",
+      "schema": {
+        "constraint_name": "projets_thumbnail_foreign",
+        "table": "projets",
+        "column": "thumbnail",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "SET NULL"
+      },
+      "meta": {
+        "id": 28,
+        "many_collection": "projets",
+        "many_field": "thumbnail",
+        "one_collection": "directus_files",
+        "one_field": null,
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": null,
         "one_deselect_action": "nullify"
       }
     },

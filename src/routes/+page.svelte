@@ -8,6 +8,7 @@
 	import Section from '$lib/components/layout/Section.svelte';
 	import SectionNudge from '$lib/components/layout/SectionNudge.svelte';
 	import { Button } from '$lib/components/ui/button/index.js';
+	import { addClassesToParagraphs } from '$lib/logic/stringsManipulation.js';
 	import { clipPath } from '$lib/logic/transition';
 	import Marqueeck, { type MarqueeckOptions } from '@arisbh/marqueeck';
 	import { onMount } from 'svelte';
@@ -22,33 +23,11 @@
 
 	onMount(() => (serviceSectionToggle = true));
 
-	function addLeadClassToParagraphs(htmlString: string) {
-		// Regular expression to match <p> tags that don't already have a class attribute
-		const noClassRegex = /<p(?![^>]*class=)/g;
-
-		// Replace <p> tags without class with <p class="lead">
-		let result = htmlString.replace(noClassRegex, '<p class="lead"');
-
-		// Regular expression to match <p> tags that already have a class attribute
-		const hasClassRegex = /<p([^>]*) class="([^"]*)"/g;
-
-		// Add 'lead' class to tags that already have class attributes
-		result = result.replace(hasClassRegex, function (match, attributes, classValue) {
-			// Only add the lead class if it's not already present
-			if (!classValue.split(/\s+/).includes('lead')) {
-				return `<p${attributes} class="${classValue} lead"`;
-			}
-			return match;
-		});
-
-		return result;
-	}
-
 	let { data } = $props();
-	let { home, projects, categories } = data;
+	let { home, categories } = data;
 </script>
 
-<!-- <MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} /> -->
+<MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} />
 
 <Section class="z-50 scroll-mt-96 from-0% pt-10" content={{ width: 'full-width' }} id="home_header">
 	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline ~text-6xl/9xl ~gap-4/8">
@@ -86,7 +65,7 @@
 <Section content={{ template: 'inherit-main' }} class="scroll-mt-96 !p-0" id="about">
 	{#if home?.presentation}
 		<div class="block-wrapper flex flex-col gap-4">
-			{@html addLeadClassToParagraphs(home.presentation)}
+			{@html addClassesToParagraphs(home.presentation, 'lead')}
 		</div>
 	{/if}
 	{#if home?.img}
@@ -99,11 +78,13 @@
 </Section>
 
 <Section id="projects" class="scroll-mt-96">
-	<SectionNudge>Retrouvez quelques uns de mes projets ci-dessous !</SectionNudge>
+	{#if home?.nudge_project}
+		<SectionNudge>{home.nudge_project}!</SectionNudge>
+	{/if}
 
-	{#if projects}
+	{#if home?.pinned_projects}
 		<div class=" grid grid-cols-1 gap-4">
-			{#each projects as project}
+			{#each home?.pinned_projects as project}
 				<ProjectCard {project} />
 			{/each}
 		</div>
@@ -114,12 +95,13 @@
 </Section>
 
 <Section content={{ width: 'full-width' }} class="pb-24" id="contact">
-	<p class="lead text-balance pb-8">
-		Si vous aimez ce que vous voyez, que ma démarche vous parle ou que vous avez un projet en tête,
-		n'hésitez pas à me contacter !
-	</p>
+	{#if home?.contact_text}
+		{@html addClassesToParagraphs(home?.contact_text, 'lead mb-8 text-balance')}
+	{/if}
 
-	<SectionNudge>Laissez moi un message !</SectionNudge>
+	{#if home?.contact_nudge}
+		<SectionNudge>{home.contact_nudge}</SectionNudge>
+	{/if}
 
 	<ContactMarquee />
 </Section>

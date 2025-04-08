@@ -6,14 +6,15 @@ export const load = (async ({ fetch }) => {
         const directus = client(fetch);
         const home = await directus.request(
             readHomepage({
-                fields:
-                    ['img', 'presentation', { seo_detail: ["*"] }],
-
-            })
-        );
-        const projects = await directus.request(
-            readProjetsItems({
-                filter: { status: { _nin: ['archived', 'draft'] } }
+                fields: [
+                    'img',
+                    'presentation',
+                    'nudge_project',
+                    { pinned_projects: ['*'] },
+                    'contact_text',
+                    'contact_nudge',
+                    { seo_detail: ["*"] }
+                ],
             })
         );
         const categories = await directus.request(
@@ -22,7 +23,7 @@ export const load = (async ({ fetch }) => {
             })
         )
         return {
-            home, projects, categories
+            home, categories
         };
 
     } catch (error) {
