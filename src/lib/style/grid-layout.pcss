@@ -101,8 +101,8 @@ footer,
 			grid-column: side;
 		}
 
-		.block-wrapper:has(+ .block-wrapper) {
-			@apply mb-12 md:mb-0;
+		&:has(.block-wrapper + .block-wrapper) {
+			@apply gap-y-12;
 		}
 	}
 
