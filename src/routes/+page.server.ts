@@ -1,6 +1,6 @@
 import type { PageServerLoad } from './$types';
 import { client, directusError } from '$lib/logic/directus';
-import { readHomepage, readProjets, readProjetsItems } from '$lib/types/client';
+import { readCategoriesItems, readHomepage, readProjets, readProjetsItems } from '$lib/types/client';
 export const load = (async ({ fetch }) => {
     try {
         const directus = client(fetch);
@@ -12,8 +12,13 @@ export const load = (async ({ fetch }) => {
                 filter: { status: { _nin: ['archived', 'draft'] } }
             })
         );
+        const categories = await directus.request(
+            readCategoriesItems({
+                fields: [{ tags: ['title'] }, 'speed'],
+            })
+        )
         return {
-            home, projects
+            home, projects, categories
         };
 
     } catch (error) {

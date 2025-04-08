@@ -23,7 +23,7 @@
 	onMount(() => (serviceSectionToggle = true));
 
 	let { data } = $props();
-	let { home, projects } = data;
+	let { home, projects, categories } = data;
 </script>
 
 <MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} />
@@ -43,40 +43,20 @@
 </Section>
 
 <Section content={{ width: 'full-width' }} class=" -my-16 min-h-[430px] scroll-mt-96" id="services">
-	{#if serviceSectionToggle}
+	{#if serviceSectionToggle && categories}
 		<div
 			class="layout-full flex flex-col items-center gap-4 overflow-x-visible py-16"
 			transition:clipPath={{ direction: 'LEFT', duration: 400, easing: quartOut }}
 		>
-			<Marqueeck options={{ ...options, speed: 50 }} class=" -rotate-3">
-				<span>Direction artistique</span>
-				<span>Conception de logos</span>
-				<span>Web design</span>
-				<span>Charte graphique</span>
-				<span>Illustrations</span>
-				<span>Motion Design</span>
-				<span>Édition papier</span>
-				<span>Conseil éditorial</span>
-				<span>UI/UX</span>
-			</Marqueeck>
-			<Marqueeck options={{ ...options, speed: 57 }} class=" -rotate-3">
-				<span>Intégration Frontend</span>
-				<span>Dévelopement Backend</span>
-				<span>Wordpress</span>
-				<span>Javascript/Typescript</span>
-				<span>SvelteKit</span>
-				<span>CSS/Tailwind</span>
-				<span>SEO</span>
-				<span>Web application</span>
-			</Marqueeck>
-			<Marqueeck options={{ ...options, speed: 43 }} class=" -rotate-3">
-				<span>Modélisation</span>
-				<span>Impression 3D</span>
-				<span>PLV/Merchandising</span>
-				<span>Conception produits</span>
-				<span>Plans/rendus 3D</span>
-				<span>Menuiserie</span>
-			</Marqueeck>
+			{#each categories as category}
+				<Marqueeck options={{ ...options, speed: category.speed! }} class=" -rotate-3">
+					{#if category.tags}
+						{#each category.tags as tag}
+							<span>{tag.title}</span>
+						{/each}
+					{/if}
+				</Marqueeck>
+			{/each}
 		</div>
 	{/if}
 </Section>

@@ -52,7 +52,7 @@
 				{@const topGap = (id + 1) * 2}
 				<Image
 					item={image.directus_files_id}
-					class="!sticky h-full min-h-[70dvh] border border-muted/20 "
+					class="!sticky h-full min-h-[70dvh] border border-muted/20"
 					style={`top: ${topGap}rem;`}
 				/>
 			{/each}

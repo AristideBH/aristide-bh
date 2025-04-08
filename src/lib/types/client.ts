@@ -234,6 +234,17 @@ export namespace Collections {
   }
 
   /**
+   * The categories collection.
+   */
+  export interface Categories {
+    id: Types.PrimaryKey<Types.UUID>;
+    sort: Types.Optional<Types.Integer>;
+    name: Types.Optional<Types.String>;
+    tags: Collections.Tags[];
+    speed: Types.Optional<Types.Integer>;
+  }
+
+  /**
    * The contact forms collection.
    */
   export interface ContactForms {
@@ -541,6 +552,7 @@ export namespace Collections {
     sort: Types.Optional<Types.Integer>;
     projects: Types.Optional<Types.UUID | Collections.Projets>;
     title: Types.Optional<Types.String>;
+    category: Types.Optional<Types.UUID | Collections.Categories>;
   }
 
   /**
@@ -718,6 +730,11 @@ export interface Schema extends System {
    * The button collection.
    */
   button: Collections.Button[];
+
+  /**
+   * The categories collection.
+   */
+  categories: Collections.Categories[];
 
   /**
    * The contact forms collection.
@@ -1171,6 +1188,297 @@ export class ButtonItem
     key: string | number,
   ): Promise<void> {
     return await this.client.request(deleteButtonItem(key));
+  }
+}
+
+/**
+ * Create many categories items.
+ */
+export function createCategoriesItems<
+  const Query extends Directus.Query<Schema, Collections.Categories[]>,
+>(items: Partial<Collections.Categories>[], query?: Query) {
+  return DirectusSDK.createItems<Schema, "categories", Query>(
+    "categories",
+    items,
+    query,
+  );
+}
+
+/**
+ * Create a single categories item.
+ */
+export function createCategoriesItem<
+  const Query extends DirectusSDK.Query<Schema, Collections.Categories[]>, // Is this a mistake? Why []?
+>(item: Partial<Collections.Categories>, query?: Query) {
+  return DirectusSDK.createItem<Schema, "categories", Query>(
+    "categories",
+    item,
+    query,
+  );
+}
+
+/**
+ * Read many categories items.
+ */
+export function readCategoriesItems<
+  const Query extends Directus.Query<Schema, Collections.Categories>,
+>(query?: Query) {
+  return DirectusSDK.readItems<Schema, "categories", Query>(
+    "categories",
+    query,
+  );
+}
+
+/**
+ * Read many categories items.
+ */
+export const listCategories = readCategoriesItems;
+
+/**
+ * Gets a single known categories item by id.
+ */
+export function readCategoriesItem<
+  const Query extends Directus.Query<Schema, Collections.Categories>,
+>(key: string | number, query?: Query) {
+  return DirectusSDK.readItem<Schema, "categories", Query>(
+    "categories",
+    key,
+    query,
+  );
+}
+
+/**
+ * Gets a single known categories item by id.
+ */
+export const readCategories = readCategoriesItem;
+
+/**
+ * Read many categories items.
+ */
+export function updateCategoriesItems<
+  const Query extends Directus.Query<Schema, Collections.Categories[]>,
+>(
+  keys: string[] | number[],
+  patch: Partial<Collections.Categories>,
+  query?: Query,
+) {
+  return DirectusSDK.updateItems<Schema, "categories", Query>(
+    "categories",
+    keys,
+    patch,
+    query,
+  );
+}
+
+/**
+ * Gets a single known categories item by id.
+ */
+export function updateCategoriesItem<
+  const Query extends Directus.Query<Schema, Collections.Categories[]>,
+>(key: string | number, patch: Partial<Collections.Categories>, query?: Query) {
+  return DirectusSDK.updateItem<Schema, "categories", Query>(
+    "categories",
+    key,
+    patch,
+    query,
+  );
+}
+
+/**
+ * Deletes many categories items.
+ */
+export function deleteCategoriesItems<
+  const Query extends Directus.Query<Schema, Collections.Categories[]>,
+>(keys: string[] | number[]) {
+  return DirectusSDK.deleteItems<Schema, "categories", Query>(
+    "categories",
+    keys,
+  );
+}
+
+/**
+ * Deletes a single known categories item by id.
+ */
+export function deleteCategoriesItem(key: string | number) {
+  return DirectusSDK.deleteItem<Schema, "categories">("categories", key);
+}
+
+export class CategoriesItems
+  implements TypedCollectionItemsWrapper<Collections.Categories>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Creates many items in the collection.
+   */
+  async create<
+    const Query extends DirectusSDK.Query<Schema, Collections.Categories>,
+  >(
+    items: Partial<Collections.Categories>[],
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.Categories,
+      Query["fields"]
+    >[]
+  > {
+    return (await this.client.request(
+      createCategoriesItems(items, query as any),
+    )) as any; // Seems like a bug in the SDK.
+  }
+
+  /**
+   * Read many items from the collection.
+   */
+  async query<
+    const Query extends Directus.Query<Schema, Collections.Categories>,
+  >(
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.Categories,
+      Query["fields"]
+    >[]
+  > {
+    return await this.client.request(readCategoriesItems(query));
+  }
+
+  /**
+   * Read the first item from the collection matching the query.
+   */
+  async find<
+    const Query extends Directus.Query<Schema, Collections.Categories>,
+  >(
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.Categories,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    const items = await this.client.request(
+      readCategoriesItems({
+        ...query,
+        limit: 1,
+      }),
+    );
+    return items?.[0] as any; // TODO: fix
+  }
+
+  /**
+   * Update many items in the collection.
+   */
+  async update<
+    const Query extends Directus.Query<Schema, Collections.Categories[]>,
+  >(
+    keys: string[] | number[],
+    patch: Partial<Collections.Categories>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.Categories,
+      Query["fields"]
+    >[]
+  > {
+    return await this.client.request(updateCategoriesItems(keys, patch, query));
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<
+    const Query extends Directus.Query<Schema, Collections.Categories>,
+  >(keys: string[] | number[]): Promise<void> {}
+}
+
+export class CategoriesItem
+  implements TypedCollectionItemWrapper<Collections.Categories>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Create a single item in the collection.
+   */
+  async create<
+    const Query extends Directus.Query<Schema, Collections.Categories>,
+  >(
+    item: Partial<Collections.Categories>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.Categories,
+      Query["fields"]
+    >
+  > {
+    return (await this.client.request(
+      createCategoriesItem(item, query as any),
+    )) as any;
+  }
+
+  /**
+   * Read a single item from the collection.
+   */
+  async get<const Query extends Directus.Query<Schema, Collections.Categories>>(
+    key: string | number,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.Categories,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    return await this.client.request(readCategoriesItem(key, query));
+  }
+
+  /**
+   * Update a single item from the collection.
+   */
+  async update<
+    const Query extends Directus.Query<Schema, Collections.Categories>,
+  >(
+    key: string | number,
+    patch: Partial<Collections.Categories>,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.Categories,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    return (await this.client.request(
+      updateCategoriesItem(key, patch, query as any),
+    )) as any;
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<
+    const Query extends Directus.Query<Schema, Collections.Categories>,
+  >(key: string | number): Promise<void> {
+    return await this.client.request(deleteCategoriesItem(key));
   }
 }
 
@@ -7517,6 +7825,16 @@ export type TypedClient = {
   button: TypedCollectionItemWrapper<Collections.Button>;
 
   /**
+   * Manages multiple items from the Categories collection.
+   */
+  categories: TypedCollectionItemsWrapper<Collections.Categories>;
+
+  /**
+   * Manages individual items from the Categories collection.
+   */
+  category: TypedCollectionItemWrapper<Collections.Categories>;
+
+  /**
    * Manages multiple items from the ContactForms collection.
    */
   contact_forms: TypedCollectionItemsWrapper<Collections.ContactForms>;
@@ -7905,6 +8223,9 @@ export const schema = () => {
 
       ["buttons", new ButtonItems(client as any)],
       ["button", new ButtonItem(client as any)],
+
+      ["categories", new CategoriesItems(client as any)],
+      ["category", new CategoriesItem(client as any)],
 
       ["contact_forms", new ContactFormsItems(client as any)],
       ["contact_form", new ContactFormsItem(client as any)],
