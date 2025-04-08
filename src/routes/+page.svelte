@@ -8,7 +8,7 @@
 	import Section from '$lib/components/layout/Section.svelte';
 	import SectionNudge from '$lib/components/layout/SectionNudge.svelte';
 	import { Button } from '$lib/components/ui/button/index.js';
-	import { addClassesToParagraphs } from '$lib/logic/stringsManipulation.js';
+	import { addClassesToParagraphs } from '$lib/logic/strings.js';
 	import { clipPath } from '$lib/logic/transition';
 	import Marqueeck, { type MarqueeckOptions } from '@arisbh/marqueeck';
 	import { onMount } from 'svelte';
@@ -16,6 +16,7 @@
 	import { quartOut } from 'svelte/easing';
 
 	let serviceSectionToggle = $state(false);
+
 	const options: MarqueeckOptions = {
 		gap: 46,
 		hoverSpeed: 200
@@ -65,7 +66,7 @@
 <Section content={{ template: 'inherit-main' }} class="scroll-mt-96 !p-0" id="about">
 	{#if home?.presentation}
 		<div class="block-wrapper flex flex-col gap-4">
-			{@html addClassesToParagraphs(home.presentation, 'lead')}
+			{@html addClassesToParagraphs(home.presentation, 'lead text-balance')}
 		</div>
 	{/if}
 	{#if home?.img}
