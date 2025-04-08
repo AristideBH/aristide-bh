@@ -22,11 +22,33 @@
 
 	onMount(() => (serviceSectionToggle = true));
 
+	function addLeadClassToParagraphs(htmlString: string) {
+		// Regular expression to match <p> tags that don't already have a class attribute
+		const noClassRegex = /<p(?![^>]*class=)/g;
+
+		// Replace <p> tags without class with <p class="lead">
+		let result = htmlString.replace(noClassRegex, '<p class="lead"');
+
+		// Regular expression to match <p> tags that already have a class attribute
+		const hasClassRegex = /<p([^>]*) class="([^"]*)"/g;
+
+		// Add 'lead' class to tags that already have class attributes
+		result = result.replace(hasClassRegex, function (match, attributes, classValue) {
+			// Only add the lead class if it's not already present
+			if (!classValue.split(/\s+/).includes('lead')) {
+				return `<p${attributes} class="${classValue} lead"`;
+			}
+			return match;
+		});
+
+		return result;
+	}
+
 	let { data } = $props();
 	let { home, projects, categories } = data;
 </script>
 
-<MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} />
+<!-- <MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} /> -->
 
 <Section class="z-50 scroll-mt-96 from-0% pt-10" content={{ width: 'full-width' }} id="home_header">
 	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline ~text-6xl/9xl ~gap-4/8">
@@ -42,7 +64,7 @@
 	<p class="lead font-mono italic text-primary">{data.global.project_descriptor}</p>
 </Section>
 
-<Section content={{ width: 'full-width' }} class=" -my-16 min-h-[430px] scroll-mt-96" id="services">
+<Section content={{ width: 'full-width' }} class="-my-16 min-h-[430px] scroll-mt-96" id="services">
 	{#if serviceSectionToggle && categories}
 		<div
 			class="layout-full flex flex-col items-center gap-4 overflow-x-visible py-16"
@@ -62,25 +84,18 @@
 </Section>
 
 <Section content={{ template: 'inherit-main' }} class="scroll-mt-96 !p-0" id="about">
-	<div class="block-wrapper flex flex-col gap-4">
-		<p class="lead">
-			Après 7 ans en agence pluri-disciplinaire, je fais preuve d'une solide expérience dans la
-			création et la gestion de projets dans de nombreux secteurs d'activités (culturel, bancaire,
-			santé, agro-alimentaire...) et sous toutes ses coutures&NonBreakingSpace;: conseil,
-			conception, création, développement, déploiement et suivi.
-		</p>
-		<p class="lead mb-8 border-s-2 border-primary ps-5">
-			Concencieux, rigoureux et à l'écoute, je veille à toujours cerner les solutions les plus
-			pertinentes pour répondre à vos besoins, et vous propose mes services en tant que freelance
-			indépendant.
-		</p>
-	</div>
-
-	<Image
-		item={home?.img!}
-		class="block-wrapper col-start-3 -col-end-1 me-auto h-fit max-w-80"
-		loading="lazy"
-	/>
+	{#if home?.presentation}
+		<div class="block-wrapper flex flex-col gap-4">
+			{@html addLeadClassToParagraphs(home.presentation)}
+		</div>
+	{/if}
+	{#if home?.img}
+		<Image
+			item={home.img}
+			class="block-wrapper col-start-3 -col-end-1 me-auto h-fit max-w-80"
+			loading="lazy"
+		/>
+	{/if}
 </Section>
 
 <Section id="projects" class="scroll-mt-96">

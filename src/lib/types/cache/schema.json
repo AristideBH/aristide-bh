@@ -18053,7 +18053,7 @@
         },
         "readonly": true,
         "hidden": true,
-        "sort": 4,
+        "sort": 3,
         "width": "half",
         "translations": null,
         "note": null,
@@ -18103,7 +18103,7 @@
         },
         "readonly": true,
         "hidden": true,
-        "sort": 6,
+        "sort": 5,
         "width": "half",
         "translations": null,
         "note": null,
@@ -18200,7 +18200,7 @@
         "readonly": false,
         "hidden": false,
         "sort": 7,
-        "width": "full",
+        "width": "half",
         "translations": null,
         "note": null,
         "conditions": null,
@@ -18299,7 +18299,7 @@
         "display_options": null,
         "readonly": true,
         "hidden": true,
-        "sort": 3,
+        "sort": 2,
         "width": "half",
         "translations": null,
         "note": null,
@@ -18349,12 +18349,58 @@
         "display_options": null,
         "readonly": true,
         "hidden": true,
-        "sort": 5,
+        "sort": 4,
         "width": "half",
         "translations": null,
         "note": null,
         "conditions": null,
         "required": false,
+        "group": null,
+        "validation": null,
+        "validation_message": null
+      }
+    },
+    {
+      "collection": "homepage",
+      "field": "presentation",
+      "type": "text",
+      "schema": {
+        "name": "presentation",
+        "table": "homepage",
+        "data_type": "text",
+        "default_value": null,
+        "generation_expression": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_generated": false,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "has_auto_increment": false,
+        "foreign_key_schema": null,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "comment": null
+      },
+      "meta": {
+        "id": 185,
+        "collection": "homepage",
+        "field": "presentation",
+        "special": null,
+        "interface": "input-rich-text-html",
+        "options": null,
+        "display": null,
+        "display_options": null,
+        "readonly": false,
+        "hidden": false,
+        "sort": 6,
+        "width": "half",
+        "translations": null,
+        "note": null,
+        "conditions": null,
+        "required": true,
         "group": null,
         "validation": null,
         "validation_message": null
@@ -26582,6 +26628,114 @@
       }
     },
     {
+      "collection": "homepage",
+      "field": "user_updated",
+      "related_collection": "directus_users",
+      "schema": {
+        "constraint_name": "homepage_user_updated_foreign",
+        "table": "homepage",
+        "column": "user_updated",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      },
+      "meta": {
+        "id": 7,
+        "many_collection": "homepage",
+        "many_field": "user_updated",
+        "one_collection": "directus_users",
+        "one_field": null,
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": null,
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
+      "collection": "homepage",
+      "field": "user_created",
+      "related_collection": "directus_users",
+      "schema": {
+        "constraint_name": "homepage_user_created_foreign",
+        "table": "homepage",
+        "column": "user_created",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "directus_users",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "NO ACTION"
+      },
+      "meta": {
+        "id": 6,
+        "many_collection": "homepage",
+        "many_field": "user_created",
+        "one_collection": "directus_users",
+        "one_field": null,
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": null,
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
+      "collection": "homepage",
+      "field": "seo_detail",
+      "related_collection": "seo_detail",
+      "schema": {
+        "constraint_name": "homepage_seo_detail_foreign",
+        "table": "homepage",
+        "column": "seo_detail",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "seo_detail",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "SET NULL"
+      },
+      "meta": {
+        "id": 5,
+        "many_collection": "homepage",
+        "many_field": "seo_detail",
+        "one_collection": "seo_detail",
+        "one_field": null,
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": null,
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
+      "collection": "homepage",
+      "field": "img",
+      "related_collection": "directus_files",
+      "schema": {
+        "constraint_name": "homepage_img_foreign",
+        "table": "homepage",
+        "column": "img",
+        "foreign_key_schema": "public",
+        "foreign_key_table": "directus_files",
+        "foreign_key_column": "id",
+        "on_update": "NO ACTION",
+        "on_delete": "SET NULL"
+      },
+      "meta": {
+        "id": 4,
+        "many_collection": "homepage",
+        "many_field": "img",
+        "one_collection": "directus_files",
+        "one_field": null,
+        "one_collection_field": null,
+        "one_allowed_collections": null,
+        "junction_field": null,
+        "sort_field": null,
+        "one_deselect_action": "nullify"
+      }
+    },
+    {
       "collection": "directus_flows",
       "field": "user_created",
       "related_collection": "directus_users",
@@ -26793,114 +26947,6 @@
         "one_collection_field": null,
         "one_allowed_collections": null,
         "junction_field": "gallery_id",
-        "sort_field": null,
-        "one_deselect_action": "nullify"
-      }
-    },
-    {
-      "collection": "homepage",
-      "field": "user_updated",
-      "related_collection": "directus_users",
-      "schema": {
-        "constraint_name": "homepage_user_updated_foreign",
-        "table": "homepage",
-        "column": "user_updated",
-        "foreign_key_schema": "public",
-        "foreign_key_table": "directus_users",
-        "foreign_key_column": "id",
-        "on_update": "NO ACTION",
-        "on_delete": "NO ACTION"
-      },
-      "meta": {
-        "id": 7,
-        "many_collection": "homepage",
-        "many_field": "user_updated",
-        "one_collection": "directus_users",
-        "one_field": null,
-        "one_collection_field": null,
-        "one_allowed_collections": null,
-        "junction_field": null,
-        "sort_field": null,
-        "one_deselect_action": "nullify"
-      }
-    },
-    {
-      "collection": "homepage",
-      "field": "user_created",
-      "related_collection": "directus_users",
-      "schema": {
-        "constraint_name": "homepage_user_created_foreign",
-        "table": "homepage",
-        "column": "user_created",
-        "foreign_key_schema": "public",
-        "foreign_key_table": "directus_users",
-        "foreign_key_column": "id",
-        "on_update": "NO ACTION",
-        "on_delete": "NO ACTION"
-      },
-      "meta": {
-        "id": 6,
-        "many_collection": "homepage",
-        "many_field": "user_created",
-        "one_collection": "directus_users",
-        "one_field": null,
-        "one_collection_field": null,
-        "one_allowed_collections": null,
-        "junction_field": null,
-        "sort_field": null,
-        "one_deselect_action": "nullify"
-      }
-    },
-    {
-      "collection": "homepage",
-      "field": "seo_detail",
-      "related_collection": "seo_detail",
-      "schema": {
-        "constraint_name": "homepage_seo_detail_foreign",
-        "table": "homepage",
-        "column": "seo_detail",
-        "foreign_key_schema": "public",
-        "foreign_key_table": "seo_detail",
-        "foreign_key_column": "id",
-        "on_update": "NO ACTION",
-        "on_delete": "SET NULL"
-      },
-      "meta": {
-        "id": 5,
-        "many_collection": "homepage",
-        "many_field": "seo_detail",
-        "one_collection": "seo_detail",
-        "one_field": null,
-        "one_collection_field": null,
-        "one_allowed_collections": null,
-        "junction_field": null,
-        "sort_field": null,
-        "one_deselect_action": "nullify"
-      }
-    },
-    {
-      "collection": "homepage",
-      "field": "img",
-      "related_collection": "directus_files",
-      "schema": {
-        "constraint_name": "homepage_img_foreign",
-        "table": "homepage",
-        "column": "img",
-        "foreign_key_schema": "public",
-        "foreign_key_table": "directus_files",
-        "foreign_key_column": "id",
-        "on_update": "NO ACTION",
-        "on_delete": "SET NULL"
-      },
-      "meta": {
-        "id": 4,
-        "many_collection": "homepage",
-        "many_field": "img",
-        "one_collection": "directus_files",
-        "one_field": null,
-        "one_collection_field": null,
-        "one_allowed_collections": null,
-        "junction_field": null,
         "sort_field": null,
         "one_deselect_action": "nullify"
       }

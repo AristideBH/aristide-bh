@@ -294,6 +294,7 @@ export namespace Collections {
     date_created: Types.Optional<Types.DateTime>;
     user_updated: Types.Optional<Types.UUID | Collections.DirectusUser>;
     date_updated: Types.Optional<Types.DateTime>;
+    presentation: Types.Optional<Types.String>;
     img: Types.Optional<Types.UUID | Collections.DirectusFile>;
     seo_detail: Types.Optional<Types.Integer | Collections.SeoDetail>;
   }

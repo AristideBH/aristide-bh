@@ -5,7 +5,11 @@ export const load = (async ({ fetch }) => {
     try {
         const directus = client(fetch);
         const home = await directus.request(
-            readHomepage({ fields: ['img', { seo_detail: ["*"] }] })
+            readHomepage({
+                fields:
+                    ['img', 'presentation', { seo_detail: ["*"] }],
+
+            })
         );
         const projects = await directus.request(
             readProjetsItems({
