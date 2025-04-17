@@ -1,0 +1,27 @@
+{
+  "collection": "projets",
+  "field": "gallery",
+  "type": "alias",
+  "meta": {
+    "collection": "projets",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "gallery",
+    "group": null,
+    "hidden": false,
+    "interface": "files",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 13,
+    "special": [
+      "files"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

@@ -262,16 +262,12 @@ type Subscription {
   directus_versions_mutated(event: EventEnum): directus_versions_mutated
   quote_mutated(event: EventEnum): quote_mutated
   video_mutated(event: EventEnum): video_mutated
-  seo_setting_mutated(event: EventEnum): seo_setting_mutated
-  seo_advanced_setting_mutated(event: EventEnum): seo_advanced_setting_mutated
-  seo_redirection_mutated(event: EventEnum): seo_redirection_mutated
-  directus_flows_mutated(event: EventEnum): directus_flows_mutated
   pages_mutated(event: EventEnum): pages_mutated
+  homepage_mutated(event: EventEnum): homepage_mutated
+  directus_flows_mutated(event: EventEnum): directus_flows_mutated
   button_mutated(event: EventEnum): button_mutated
   gallery_files_mutated(event: EventEnum): gallery_files_mutated
   gallery_mutated(event: EventEnum): gallery_mutated
-  homepage_mutated(event: EventEnum): homepage_mutated
-  seo_detail_mutated(event: EventEnum): seo_detail_mutated
   image_mutated(event: EventEnum): image_mutated
   menus_mutated(event: EventEnum): menus_mutated
   menu_items_mutated(event: EventEnum): menu_items_mutated
@@ -283,6 +279,9 @@ type Subscription {
   directus_comments_mutated(event: EventEnum): directus_comments_mutated
   pages_editor_nodes_mutated(event: EventEnum): pages_editor_nodes_mutated
   section_mutated(event: EventEnum): section_mutated
+  projets_files_mutated(event: EventEnum): projets_files_mutated
+  categories_mutated(event: EventEnum): categories_mutated
+  tags_mutated(event: EventEnum): tags_mutated
   projets_mutated(event: EventEnum): projets_mutated
 }
 
@@ -376,6 +375,21 @@ type button_mutated {
   key: ID!
   event: EventEnum
   data: button
+}
+
+type categories {
+  id: ID!
+  sort: Int
+  name: String
+  speed: Int
+  tags(filter: tags_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [tags]
+  tags_func: count_functions
+}
+
+type categories_mutated {
+  key: ID!
+  event: EventEnum
+  data: categories
 }
 
 type contact_forms {
@@ -1713,9 +1727,16 @@ type homepage {
   date_updated_func: datetime_functions
   id: ID!
   img(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
-  seo_detail(filter: seo_detail_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): seo_detail
   user_created(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
   user_updated(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
+  presentation: String
+  nudge_project: String
+  contact_text: String
+  contact_nudge: String
+  seo: JSON
+  seo_func: count_functions
+  pinned_projects(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets]
+  pinned_projects_func: count_functions
 }
 
 type homepage_mutated {
@@ -1781,12 +1802,13 @@ type pages {
   id: ID!
   parent(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pages
   permalink: String
-  seo_detail(filter: seo_detail_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): seo_detail
   sort: Int
   status: String
   title: String!
   user_created(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
   user_updated(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
+  seo: JSON
+  seo_func: count_functions
   editor_nodes(filter: pages_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [pages_editor_nodes]
   editor_nodes_func: count_functions
 }
@@ -1825,6 +1847,31 @@ type projets {
   date_updated: Date
   date_updated_func: datetime_functions
   subtitle: String
+  title: String
+  slug: String
+  thumbnail(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
+  description: String
+  site_url: String
+  pinned(filter: homepage_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): homepage
+  seo: JSON
+  seo_func: count_functions
+  gallery(filter: projets_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets_files]
+  gallery_func: count_functions
+  tags(filter: tags_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [tags]
+  tags_func: count_functions
+}
+
+type projets_files {
+  id: ID!
+  projets_id(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): projets
+  directus_files_id(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
+  sort: Int
+}
+
+type projets_files_mutated {
+  key: ID!
+  event: EventEnum
+  data: projets_files
 }
 
 type projets_mutated {
@@ -1877,69 +1924,6 @@ type section_mutated {
   key: ID!
   event: EventEnum
   data: section
-}
-
-type seo_advanced_setting {
-  collection: ID!
-  enabled: Boolean
-  is_static: Boolean
-  translations: String
-  translations_func: count_functions
-}
-
-type seo_advanced_setting_mutated {
-  key: ID!
-  event: EventEnum
-  data: seo_advanced_setting
-}
-
-type seo_detail {
-  facebook_image(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
-  id: ID!
-  image_share: String
-  meta_description: String
-  meta_keywords: String
-  meta_robots: JSON
-  meta_robots_func: count_functions
-  meta_social: String
-  meta_title: String
-  schema_type: String
-  twitter_image(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
-}
-
-type seo_detail_mutated {
-  key: ID!
-  event: EventEnum
-  data: seo_detail
-}
-
-type seo_redirection {
-  date_created: Date
-  date_created_func: datetime_functions
-  date_updated: Date
-  date_updated_func: datetime_functions
-  id: ID!
-  new_url: String
-  old_url: String
-  status: String
-}
-
-type seo_redirection_mutated {
-  key: ID!
-  event: EventEnum
-  data: seo_redirection
-}
-
-type seo_setting {
-  key: ID!
-  value: JSON
-  value_func: count_functions
-}
-
-type seo_setting_mutated {
-  key: ID!
-  event: EventEnum
-  data: seo_setting
 }
 
 type server_info {
@@ -2001,6 +1985,21 @@ type stack_mutated {
   data: stack
 }
 
+type tags {
+  id: ID!
+  status: String
+  sort: Int
+  projects(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): projets
+  title: String
+  category(filter: categories_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): categories
+}
+
+type tags_mutated {
+  key: ID!
+  event: EventEnum
+  data: tags
+}
+
 type users_me_tfa_generate_data {
   secret: String
   otpauth_url: String
@@ -2054,6 +2053,17 @@ input button_filter {
   variant: string_filter_operators
   _and: [button_filter]
   _or: [button_filter]
+}
+
+input categories_filter {
+  id: string_filter_operators
+  sort: number_filter_operators
+  name: string_filter_operators
+  speed: number_filter_operators
+  tags: tags_filter
+  tags_func: count_function_filter_operators
+  _and: [categories_filter]
+  _or: [categories_filter]
 }
 
 input count_function_filter_operators {
@@ -2882,6 +2892,27 @@ input hash_filter_operators {
   _nempty: Boolean
 }
 
+input homepage_filter {
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  id: string_filter_operators
+  img: directus_files_filter
+  user_created: directus_users_filter
+  user_updated: directus_users_filter
+  presentation: string_filter_operators
+  nudge_project: string_filter_operators
+  contact_text: string_filter_operators
+  contact_nudge: string_filter_operators
+  seo: string_filter_operators
+  seo_func: count_function_filter_operators
+  pinned_projects: projets_filter
+  pinned_projects_func: count_function_filter_operators
+  _and: [homepage_filter]
+  _or: [homepage_filter]
+}
+
 input image_filter {
   id: string_filter_operators
   image: directus_files_filter
@@ -2951,16 +2982,51 @@ input pages_filter {
   id: string_filter_operators
   parent: pages_filter
   permalink: string_filter_operators
-  seo_detail: seo_detail_filter
   sort: number_filter_operators
   status: string_filter_operators
   title: string_filter_operators
   user_created: directus_users_filter
   user_updated: directus_users_filter
+  seo: string_filter_operators
+  seo_func: count_function_filter_operators
   editor_nodes: pages_editor_nodes_filter
   editor_nodes_func: count_function_filter_operators
   _and: [pages_filter]
   _or: [pages_filter]
+}
+
+input projets_files_filter {
+  id: number_filter_operators
+  projets_id: projets_filter
+  directus_files_id: directus_files_filter
+  sort: number_filter_operators
+  _and: [projets_files_filter]
+  _or: [projets_files_filter]
+}
+
+input projets_filter {
+  id: string_filter_operators
+  status: string_filter_operators
+  sort: number_filter_operators
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  subtitle: string_filter_operators
+  title: string_filter_operators
+  slug: string_filter_operators
+  thumbnail: directus_files_filter
+  description: string_filter_operators
+  site_url: string_filter_operators
+  pinned: homepage_filter
+  seo: string_filter_operators
+  seo_func: count_function_filter_operators
+  gallery: projets_files_filter
+  gallery_func: count_function_filter_operators
+  tags: tags_filter
+  tags_func: count_function_filter_operators
+  _and: [projets_filter]
+  _or: [projets_filter]
 }
 
 input quote_filter {
@@ -3000,22 +3066,6 @@ input section_filter {
   editor_nodes_func: count_function_filter_operators
   _and: [section_filter]
   _or: [section_filter]
-}
-
-input seo_detail_filter {
-  facebook_image: directus_files_filter
-  id: number_filter_operators
-  image_share: string_filter_operators
-  meta_description: string_filter_operators
-  meta_keywords: string_filter_operators
-  meta_robots: string_filter_operators
-  meta_robots_func: count_function_filter_operators
-  meta_social: string_filter_operators
-  meta_title: string_filter_operators
-  schema_type: string_filter_operators
-  twitter_image: directus_files_filter
-  _and: [seo_detail_filter]
-  _or: [seo_detail_filter]
 }
 
 input stack_editor_nodes_filter {
@@ -3067,6 +3117,17 @@ input string_filter_operators {
   _nnull: Boolean
   _empty: Boolean
   _nempty: Boolean
+}
+
+input tags_filter {
+  id: string_filter_operators
+  status: string_filter_operators
+  sort: number_filter_operators
+  projects: projets_filter
+  title: string_filter_operators
+  category: categories_filter
+  _and: [tags_filter]
+  _or: [tags_filter]
 }
 
 input update_directus_access_input {

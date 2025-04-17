@@ -1,0 +1,29 @@
+{
+  "collection": "categories",
+  "field": "tags",
+  "type": "alias",
+  "meta": {
+    "collection": "categories",
+    "conditions": null,
+    "display": "related-values",
+    "display_options": {
+      "template": "{{title}}"
+    },
+    "field": "tags",
+    "group": null,
+    "hidden": false,
+    "interface": "list-o2m",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 4,
+    "special": [
+      "o2m"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

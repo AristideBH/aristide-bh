@@ -28,7 +28,7 @@
 	let { home, categories } = data;
 </script>
 
-<MetaTags title={home!.seo_detail?.meta_title!} description={home!.seo_detail?.meta_description!} />
+<MetaTags title={home?.seo.title} description={home!.seo.meta_description} />
 
 <Section class="z-50 scroll-mt-96 from-0% pt-10" content={{ width: 'full-width' }} id="home_header">
 	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline ~text-6xl/9xl ~gap-4/8">

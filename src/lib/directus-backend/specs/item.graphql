@@ -15,22 +15,12 @@ type Query {
   video_by_id(id: ID!, version: String): video
   video_aggregated(groupBy: [String], filter: video_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [video_aggregated!]!
   video_by_version(version: String!, id: ID!): version_video
-  seo_setting(filter: seo_setting_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [seo_setting!]!
-  seo_setting_by_id(id: ID!, version: String): seo_setting
-  seo_setting_aggregated(groupBy: [String], filter: seo_setting_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [seo_setting_aggregated!]!
-  seo_setting_by_version(version: String!, id: ID!): version_seo_setting
-  seo_advanced_setting(filter: seo_advanced_setting_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [seo_advanced_setting!]!
-  seo_advanced_setting_by_id(id: ID!, version: String): seo_advanced_setting
-  seo_advanced_setting_aggregated(groupBy: [String], filter: seo_advanced_setting_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [seo_advanced_setting_aggregated!]!
-  seo_advanced_setting_by_version(version: String!, id: ID!): version_seo_advanced_setting
-  seo_redirection(filter: seo_redirection_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [seo_redirection!]!
-  seo_redirection_by_id(id: ID!, version: String): seo_redirection
-  seo_redirection_aggregated(groupBy: [String], filter: seo_redirection_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [seo_redirection_aggregated!]!
-  seo_redirection_by_version(version: String!, id: ID!): version_seo_redirection
   pages(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [pages!]!
   pages_by_id(id: ID!, version: String): pages
   pages_aggregated(groupBy: [String], filter: pages_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [pages_aggregated!]!
   pages_by_version(version: String!, id: ID!): version_pages
+  homepage(version: String): homepage
+  homepage_by_version(version: String!): version_homepage
   button(filter: button_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [button!]!
   button_by_id(id: ID!, version: String): button
   button_aggregated(groupBy: [String], filter: button_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [button_aggregated!]!
@@ -43,12 +33,6 @@ type Query {
   gallery_by_id(id: ID!, version: String): gallery
   gallery_aggregated(groupBy: [String], filter: gallery_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [gallery_aggregated!]!
   gallery_by_version(version: String!, id: ID!): version_gallery
-  homepage(version: String): homepage
-  homepage_by_version(version: String!): version_homepage
-  seo_detail(filter: seo_detail_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [seo_detail!]!
-  seo_detail_by_id(id: ID!, version: String): seo_detail
-  seo_detail_aggregated(groupBy: [String], filter: seo_detail_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [seo_detail_aggregated!]!
-  seo_detail_by_version(version: String!, id: ID!): version_seo_detail
   image(filter: image_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [image!]!
   image_by_id(id: ID!, version: String): image
   image_aggregated(groupBy: [String], filter: image_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [image_aggregated!]!
@@ -81,6 +65,18 @@ type Query {
   section_by_id(id: ID!, version: String): section
   section_aggregated(groupBy: [String], filter: section_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [section_aggregated!]!
   section_by_version(version: String!, id: ID!): version_section
+  projets_files(filter: projets_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets_files!]!
+  projets_files_by_id(id: ID!, version: String): projets_files
+  projets_files_aggregated(groupBy: [String], filter: projets_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [projets_files_aggregated!]!
+  projets_files_by_version(version: String!, id: ID!): version_projets_files
+  categories(filter: categories_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [categories!]!
+  categories_by_id(id: ID!, version: String): categories
+  categories_aggregated(groupBy: [String], filter: categories_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [categories_aggregated!]!
+  categories_by_version(version: String!, id: ID!): version_categories
+  tags(filter: tags_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [tags!]!
+  tags_by_id(id: ID!, version: String): tags
+  tags_aggregated(groupBy: [String], filter: tags_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [tags_aggregated!]!
+  tags_by_version(version: String!, id: ID!): version_tags
   projets(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets!]!
   projets_by_id(id: ID!, version: String): projets
   projets_aggregated(groupBy: [String], filter: projets_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [projets_aggregated!]!
@@ -96,12 +92,6 @@ type Mutation {
   create_quote_item(data: create_quote_input!): quote
   create_video_items(filter: video_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_video_input!]): [video!]!
   create_video_item(data: create_video_input!): video
-  create_seo_setting_items(filter: seo_setting_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_seo_setting_input!]): [seo_setting!]!
-  create_seo_setting_item(data: create_seo_setting_input!): seo_setting
-  create_seo_advanced_setting_items(filter: seo_advanced_setting_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_seo_advanced_setting_input!]): [seo_advanced_setting!]!
-  create_seo_advanced_setting_item(data: create_seo_advanced_setting_input!): seo_advanced_setting
-  create_seo_redirection_items(filter: seo_redirection_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_seo_redirection_input!]): [seo_redirection!]!
-  create_seo_redirection_item(data: create_seo_redirection_input!): seo_redirection
   create_pages_items(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_pages_input!]): [pages!]!
   create_pages_item(data: create_pages_input!): pages
   create_button_items(filter: button_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_button_input!]): [button!]!
@@ -110,8 +100,6 @@ type Mutation {
   create_gallery_files_item(data: create_gallery_files_input!): gallery_files
   create_gallery_items(filter: gallery_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_gallery_input!]): [gallery!]!
   create_gallery_item(data: create_gallery_input!): gallery
-  create_seo_detail_items(filter: seo_detail_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_seo_detail_input!]): [seo_detail!]!
-  create_seo_detail_item(data: create_seo_detail_input!): seo_detail
   create_image_items(filter: image_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_image_input!]): [image!]!
   create_image_item(data: create_image_input!): image
   create_menus_items(filter: menus_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_menus_input!]): [menus!]!
@@ -128,6 +116,12 @@ type Mutation {
   create_pages_editor_nodes_item(data: create_pages_editor_nodes_input!): pages_editor_nodes
   create_section_items(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_section_input!]): [section!]!
   create_section_item(data: create_section_input!): section
+  create_projets_files_items(filter: projets_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_projets_files_input!]): [projets_files!]!
+  create_projets_files_item(data: create_projets_files_input!): projets_files
+  create_categories_items(filter: categories_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_categories_input!]): [categories!]!
+  create_categories_item(data: create_categories_input!): categories
+  create_tags_items(filter: tags_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_tags_input!]): [tags!]!
+  create_tags_item(data: create_tags_input!): tags
   create_projets_items(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_projets_input!]): [projets!]!
   create_projets_item(data: create_projets_input!): projets
   update_directus_sync_id_map_items(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_sync_id_map_input!): [directus_sync_id_map!]!
@@ -142,18 +136,10 @@ type Mutation {
   update_video_items(filter: video_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_video_input!): [video!]!
   update_video_batch(filter: video_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_video_input!]): [video!]!
   update_video_item(id: ID!, data: update_video_input!): video
-  update_seo_setting_items(filter: seo_setting_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_seo_setting_input!): [seo_setting!]!
-  update_seo_setting_batch(filter: seo_setting_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_seo_setting_input!]): [seo_setting!]!
-  update_seo_setting_item(id: ID!, data: update_seo_setting_input!): seo_setting
-  update_seo_advanced_setting_items(filter: seo_advanced_setting_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_seo_advanced_setting_input!): [seo_advanced_setting!]!
-  update_seo_advanced_setting_batch(filter: seo_advanced_setting_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_seo_advanced_setting_input!]): [seo_advanced_setting!]!
-  update_seo_advanced_setting_item(id: ID!, data: update_seo_advanced_setting_input!): seo_advanced_setting
-  update_seo_redirection_items(filter: seo_redirection_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_seo_redirection_input!): [seo_redirection!]!
-  update_seo_redirection_batch(filter: seo_redirection_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_seo_redirection_input!]): [seo_redirection!]!
-  update_seo_redirection_item(id: ID!, data: update_seo_redirection_input!): seo_redirection
   update_pages_items(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_pages_input!): [pages!]!
   update_pages_batch(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_pages_input!]): [pages!]!
   update_pages_item(id: ID!, data: update_pages_input!): pages
+  update_homepage(data: update_homepage_input!): homepage
   update_button_items(filter: button_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_button_input!): [button!]!
   update_button_batch(filter: button_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_button_input!]): [button!]!
   update_button_item(id: ID!, data: update_button_input!): button
@@ -163,10 +149,6 @@ type Mutation {
   update_gallery_items(filter: gallery_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_gallery_input!): [gallery!]!
   update_gallery_batch(filter: gallery_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_gallery_input!]): [gallery!]!
   update_gallery_item(id: ID!, data: update_gallery_input!): gallery
-  update_homepage(data: update_homepage_input!): homepage
-  update_seo_detail_items(filter: seo_detail_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_seo_detail_input!): [seo_detail!]!
-  update_seo_detail_batch(filter: seo_detail_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_seo_detail_input!]): [seo_detail!]!
-  update_seo_detail_item(id: ID!, data: update_seo_detail_input!): seo_detail
   update_image_items(filter: image_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_image_input!): [image!]!
   update_image_batch(filter: image_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_image_input!]): [image!]!
   update_image_item(id: ID!, data: update_image_input!): image
@@ -191,6 +173,15 @@ type Mutation {
   update_section_items(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_section_input!): [section!]!
   update_section_batch(filter: section_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_section_input!]): [section!]!
   update_section_item(id: ID!, data: update_section_input!): section
+  update_projets_files_items(filter: projets_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_projets_files_input!): [projets_files!]!
+  update_projets_files_batch(filter: projets_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_projets_files_input!]): [projets_files!]!
+  update_projets_files_item(id: ID!, data: update_projets_files_input!): projets_files
+  update_categories_items(filter: categories_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_categories_input!): [categories!]!
+  update_categories_batch(filter: categories_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_categories_input!]): [categories!]!
+  update_categories_item(id: ID!, data: update_categories_input!): categories
+  update_tags_items(filter: tags_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_tags_input!): [tags!]!
+  update_tags_batch(filter: tags_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_tags_input!]): [tags!]!
+  update_tags_item(id: ID!, data: update_tags_input!): tags
   update_projets_items(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_projets_input!): [projets!]!
   update_projets_batch(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_projets_input!]): [projets!]!
   update_projets_item(id: ID!, data: update_projets_input!): projets
@@ -202,12 +193,6 @@ type Mutation {
   delete_quote_item(id: ID!): delete_one
   delete_video_items(ids: [ID]!): delete_many
   delete_video_item(id: ID!): delete_one
-  delete_seo_setting_items(ids: [ID]!): delete_many
-  delete_seo_setting_item(id: ID!): delete_one
-  delete_seo_advanced_setting_items(ids: [ID]!): delete_many
-  delete_seo_advanced_setting_item(id: ID!): delete_one
-  delete_seo_redirection_items(ids: [ID]!): delete_many
-  delete_seo_redirection_item(id: ID!): delete_one
   delete_pages_items(ids: [ID]!): delete_many
   delete_pages_item(id: ID!): delete_one
   delete_button_items(ids: [ID]!): delete_many
@@ -216,8 +201,6 @@ type Mutation {
   delete_gallery_files_item(id: ID!): delete_one
   delete_gallery_items(ids: [ID]!): delete_many
   delete_gallery_item(id: ID!): delete_one
-  delete_seo_detail_items(ids: [ID]!): delete_many
-  delete_seo_detail_item(id: ID!): delete_one
   delete_image_items(ids: [ID]!): delete_many
   delete_image_item(id: ID!): delete_one
   delete_menus_items(ids: [ID]!): delete_many
@@ -234,6 +217,12 @@ type Mutation {
   delete_pages_editor_nodes_item(id: ID!): delete_one
   delete_section_items(ids: [ID]!): delete_many
   delete_section_item(id: ID!): delete_one
+  delete_projets_files_items(ids: [ID]!): delete_many
+  delete_projets_files_item(id: ID!): delete_one
+  delete_categories_items(ids: [ID]!): delete_many
+  delete_categories_item(id: ID!): delete_one
+  delete_tags_items(ids: [ID]!): delete_many
+  delete_tags_item(id: ID!): delete_one
   delete_projets_items(ids: [ID]!): delete_many
   delete_projets_item(id: ID!): delete_one
 }
@@ -260,16 +249,12 @@ type Subscription {
   directus_versions_mutated(event: EventEnum): directus_versions_mutated
   quote_mutated(event: EventEnum): quote_mutated
   video_mutated(event: EventEnum): video_mutated
-  seo_setting_mutated(event: EventEnum): seo_setting_mutated
-  seo_advanced_setting_mutated(event: EventEnum): seo_advanced_setting_mutated
-  seo_redirection_mutated(event: EventEnum): seo_redirection_mutated
-  directus_flows_mutated(event: EventEnum): directus_flows_mutated
   pages_mutated(event: EventEnum): pages_mutated
+  homepage_mutated(event: EventEnum): homepage_mutated
+  directus_flows_mutated(event: EventEnum): directus_flows_mutated
   button_mutated(event: EventEnum): button_mutated
   gallery_files_mutated(event: EventEnum): gallery_files_mutated
   gallery_mutated(event: EventEnum): gallery_mutated
-  homepage_mutated(event: EventEnum): homepage_mutated
-  seo_detail_mutated(event: EventEnum): seo_detail_mutated
   image_mutated(event: EventEnum): image_mutated
   menus_mutated(event: EventEnum): menus_mutated
   menu_items_mutated(event: EventEnum): menu_items_mutated
@@ -281,6 +266,9 @@ type Subscription {
   directus_comments_mutated(event: EventEnum): directus_comments_mutated
   pages_editor_nodes_mutated(event: EventEnum): pages_editor_nodes_mutated
   section_mutated(event: EventEnum): section_mutated
+  projets_files_mutated(event: EventEnum): projets_files_mutated
+  categories_mutated(event: EventEnum): categories_mutated
+  tags_mutated(event: EventEnum): tags_mutated
   projets_mutated(event: EventEnum): projets_mutated
 }
 
@@ -371,6 +359,47 @@ type button_mutated {
   key: ID!
   event: EventEnum
   data: button
+}
+
+type categories {
+  id: ID!
+  sort: Int
+  name: String
+  speed: Int
+  tags(filter: tags_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [tags]
+  tags_func: count_functions
+}
+
+type categories_aggregated {
+  group: JSON
+  countAll: Int
+  count: categories_aggregated_count
+  countDistinct: categories_aggregated_count
+  avg: categories_aggregated_fields
+  sum: categories_aggregated_fields
+  avgDistinct: categories_aggregated_fields
+  sumDistinct: categories_aggregated_fields
+  min: categories_aggregated_fields
+  max: categories_aggregated_fields
+}
+
+type categories_aggregated_count {
+  id: Int
+  sort: Int
+  name: Int
+  speed: Int
+  tags: Int
+}
+
+type categories_aggregated_fields {
+  sort: Float
+  speed: Float
+}
+
+type categories_mutated {
+  key: ID!
+  event: EventEnum
+  data: categories
 }
 
 type contact_forms {
@@ -1076,9 +1105,16 @@ type homepage {
   date_updated_func: datetime_functions
   id: ID!
   img(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
-  seo_detail(filter: seo_detail_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): seo_detail
   user_created(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
   user_updated(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
+  presentation: String
+  nudge_project: String
+  contact_text: String
+  contact_nudge: String
+  seo: JSON
+  seo_func: count_functions
+  pinned_projects(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets]
+  pinned_projects_func: count_functions
 }
 
 type homepage_mutated {
@@ -1222,12 +1258,13 @@ type pages {
   id: ID!
   parent(filter: pages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): pages
   permalink: String
-  seo_detail(filter: seo_detail_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): seo_detail
   sort: Int
   status: String
   title: String!
   user_created(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
   user_updated(filter: directus_users_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_users
+  seo: JSON
+  seo_func: count_functions
   editor_nodes(filter: pages_editor_nodes_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [pages_editor_nodes]
   editor_nodes_func: count_functions
 }
@@ -1252,17 +1289,16 @@ type pages_aggregated_count {
   id: Int
   parent: Int
   permalink: Int
-  seo_detail: Int
   sort: Int
   status: Int
   title: Int
   user_created: Int
   user_updated: Int
+  seo: Int
   editor_nodes: Int
 }
 
 type pages_aggregated_fields {
-  seo_detail: Float
   sort: Float
 }
 
@@ -1308,6 +1344,18 @@ type projets {
   date_updated: Date
   date_updated_func: datetime_functions
   subtitle: String
+  title: String
+  slug: String
+  thumbnail(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
+  description: String
+  site_url: String
+  pinned(filter: homepage_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): homepage
+  seo: JSON
+  seo_func: count_functions
+  gallery(filter: projets_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets_files]
+  gallery_func: count_functions
+  tags(filter: tags_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [tags]
+  tags_func: count_functions
 }
 
 type projets_aggregated {
@@ -1330,10 +1378,57 @@ type projets_aggregated_count {
   date_created: Int
   date_updated: Int
   subtitle: Int
+  title: Int
+  slug: Int
+  thumbnail: Int
+  description: Int
+  site_url: Int
+  pinned: Int
+  seo: Int
+  gallery: Int
+  tags: Int
 }
 
 type projets_aggregated_fields {
   sort: Float
+}
+
+type projets_files {
+  id: ID!
+  projets_id(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): projets
+  directus_files_id(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
+  sort: Int
+}
+
+type projets_files_aggregated {
+  group: JSON
+  countAll: Int
+  count: projets_files_aggregated_count
+  countDistinct: projets_files_aggregated_count
+  avg: projets_files_aggregated_fields
+  sum: projets_files_aggregated_fields
+  avgDistinct: projets_files_aggregated_fields
+  sumDistinct: projets_files_aggregated_fields
+  min: projets_files_aggregated_fields
+  max: projets_files_aggregated_fields
+}
+
+type projets_files_aggregated_count {
+  id: Int
+  projets_id: Int
+  directus_files_id: Int
+  sort: Int
+}
+
+type projets_files_aggregated_fields {
+  id: Float
+  sort: Float
+}
+
+type projets_files_mutated {
+  key: ID!
+  event: EventEnum
+  data: projets_files
 }
 
 type projets_mutated {
@@ -1455,151 +1550,6 @@ type section_mutated {
   data: section
 }
 
-type seo_advanced_setting {
-  collection: ID!
-  enabled: Boolean
-  is_static: Boolean
-  translations: String
-  translations_func: count_functions
-}
-
-type seo_advanced_setting_aggregated {
-  group: JSON
-  countAll: Int
-  count: seo_advanced_setting_aggregated_count
-  countDistinct: seo_advanced_setting_aggregated_count
-}
-
-type seo_advanced_setting_aggregated_count {
-  collection: Int
-  enabled: Int
-  is_static: Int
-  translations: Int
-}
-
-type seo_advanced_setting_mutated {
-  key: ID!
-  event: EventEnum
-  data: seo_advanced_setting
-}
-
-type seo_detail {
-  facebook_image(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
-  id: ID!
-  image_share: String
-  meta_description: String
-  meta_keywords: String
-  meta_robots: JSON
-  meta_robots_func: count_functions
-  meta_social: String
-  meta_title: String
-  schema_type: String
-  twitter_image(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
-}
-
-type seo_detail_aggregated {
-  group: JSON
-  countAll: Int
-  count: seo_detail_aggregated_count
-  countDistinct: seo_detail_aggregated_count
-  avg: seo_detail_aggregated_fields
-  sum: seo_detail_aggregated_fields
-  avgDistinct: seo_detail_aggregated_fields
-  sumDistinct: seo_detail_aggregated_fields
-  min: seo_detail_aggregated_fields
-  max: seo_detail_aggregated_fields
-}
-
-type seo_detail_aggregated_count {
-  facebook_image: Int
-  id: Int
-  image_share: Int
-  meta_description: Int
-  meta_keywords: Int
-  meta_robots: Int
-  meta_social: Int
-  meta_title: Int
-  schema_type: Int
-  twitter_image: Int
-}
-
-type seo_detail_aggregated_fields {
-  id: Float
-}
-
-type seo_detail_mutated {
-  key: ID!
-  event: EventEnum
-  data: seo_detail
-}
-
-type seo_redirection {
-  date_created: Date
-  date_created_func: datetime_functions
-  date_updated: Date
-  date_updated_func: datetime_functions
-  id: ID!
-  new_url: String
-  old_url: String
-  status: String
-}
-
-type seo_redirection_aggregated {
-  group: JSON
-  countAll: Int
-  count: seo_redirection_aggregated_count
-  countDistinct: seo_redirection_aggregated_count
-  avg: seo_redirection_aggregated_fields
-  sum: seo_redirection_aggregated_fields
-  avgDistinct: seo_redirection_aggregated_fields
-  sumDistinct: seo_redirection_aggregated_fields
-  min: seo_redirection_aggregated_fields
-  max: seo_redirection_aggregated_fields
-}
-
-type seo_redirection_aggregated_count {
-  date_created: Int
-  date_updated: Int
-  id: Int
-  new_url: Int
-  old_url: Int
-  status: Int
-}
-
-type seo_redirection_aggregated_fields {
-  id: Float
-}
-
-type seo_redirection_mutated {
-  key: ID!
-  event: EventEnum
-  data: seo_redirection
-}
-
-type seo_setting {
-  key: ID!
-  value: JSON
-  value_func: count_functions
-}
-
-type seo_setting_aggregated {
-  group: JSON
-  countAll: Int
-  count: seo_setting_aggregated_count
-  countDistinct: seo_setting_aggregated_count
-}
-
-type seo_setting_aggregated_count {
-  key: Int
-  value: Int
-}
-
-type seo_setting_mutated {
-  key: ID!
-  event: EventEnum
-  data: seo_setting
-}
-
 type stack {
   color: String
   direction: String
@@ -1664,6 +1614,47 @@ type stack_mutated {
   data: stack
 }
 
+type tags {
+  id: ID!
+  status: String
+  sort: Int
+  projects(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): projets
+  title: String
+  category(filter: categories_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): categories
+}
+
+type tags_aggregated {
+  group: JSON
+  countAll: Int
+  count: tags_aggregated_count
+  countDistinct: tags_aggregated_count
+  avg: tags_aggregated_fields
+  sum: tags_aggregated_fields
+  avgDistinct: tags_aggregated_fields
+  sumDistinct: tags_aggregated_fields
+  min: tags_aggregated_fields
+  max: tags_aggregated_fields
+}
+
+type tags_aggregated_count {
+  id: Int
+  status: Int
+  sort: Int
+  projects: Int
+  title: Int
+  category: Int
+}
+
+type tags_aggregated_fields {
+  sort: Float
+}
+
+type tags_mutated {
+  key: ID!
+  event: EventEnum
+  data: tags
+}
+
 """"""
 type version_button {
   id: ID
@@ -1675,6 +1666,15 @@ type version_button {
   type: String
   url: String
   variant: String
+}
+
+""""""
+type version_categories {
+  id: ID
+  sort: Int
+  name: String
+  speed: Int
+  tags: JSON
 }
 
 """"""
@@ -1716,9 +1716,14 @@ type version_homepage {
   date_updated: Date
   id: ID
   img: JSON
-  seo_detail: JSON
   user_created: JSON
   user_updated: JSON
+  presentation: String
+  nudge_project: String
+  contact_text: String
+  contact_nudge: String
+  seo: JSON
+  pinned_projects: JSON
 }
 
 """"""
@@ -1759,12 +1764,12 @@ type version_pages {
   id: ID
   parent: JSON
   permalink: String
-  seo_detail: JSON
   sort: Int
   status: String
   title: String
   user_created: JSON
   user_updated: JSON
+  seo: JSON
   editor_nodes: JSON
 }
 
@@ -1784,6 +1789,23 @@ type version_projets {
   date_created: Date
   date_updated: Date
   subtitle: String
+  title: String
+  slug: String
+  thumbnail: JSON
+  description: String
+  site_url: String
+  pinned: JSON
+  seo: JSON
+  gallery: JSON
+  tags: JSON
+}
+
+""""""
+type version_projets_files {
+  id: ID
+  projets_id: JSON
+  directus_files_id: JSON
+  sort: Int
 }
 
 """"""
@@ -1816,44 +1838,6 @@ type version_section_editor_nodes {
 }
 
 """"""
-type version_seo_advanced_setting {
-  collection: ID
-  enabled: Boolean
-  is_static: Boolean
-  translations: String
-}
-
-""""""
-type version_seo_detail {
-  facebook_image: JSON
-  id: ID
-  image_share: String
-  meta_description: String
-  meta_keywords: String
-  meta_robots: JSON
-  meta_social: String
-  meta_title: String
-  schema_type: String
-  twitter_image: JSON
-}
-
-""""""
-type version_seo_redirection {
-  date_created: Date
-  date_updated: Date
-  id: ID
-  new_url: String
-  old_url: String
-  status: String
-}
-
-""""""
-type version_seo_setting {
-  key: ID
-  value: JSON
-}
-
-""""""
 type version_stack {
   color: String
   direction: String
@@ -1871,6 +1855,16 @@ type version_stack_editor_nodes {
   id: ID
   item: String
   stack_id: JSON
+}
+
+""""""
+type version_tags {
+  id: ID
+  status: String
+  sort: Int
+  projects: JSON
+  title: String
+  category: JSON
 }
 
 """"""
@@ -1945,6 +1939,17 @@ input button_filter {
   _or: [button_filter]
 }
 
+input categories_filter {
+  id: string_filter_operators
+  sort: number_filter_operators
+  name: string_filter_operators
+  speed: number_filter_operators
+  tags: tags_filter
+  tags_func: count_function_filter_operators
+  _and: [categories_filter]
+  _or: [categories_filter]
+}
+
 input contact_forms_filter {
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
@@ -1971,6 +1976,14 @@ input create_button_input {
   type: String
   url: String
   variant: String
+}
+
+input create_categories_input {
+  id: ID
+  sort: Int
+  name: String
+  speed: Int
+  tags: [create_tags_input]
 }
 
 input create_contact_forms_input {
@@ -2114,6 +2127,21 @@ input create_gallery_input {
   images: [create_gallery_files_input]
 }
 
+input create_homepage_input {
+  date_created: Date
+  date_updated: Date
+  id: ID
+  img: create_directus_files_input
+  user_created: create_directus_users_input
+  user_updated: create_directus_users_input
+  presentation: String
+  nudge_project: String
+  contact_text: String
+  contact_nudge: String
+  seo: JSON
+  pinned_projects: [create_projets_input]
+}
+
 input create_image_input {
   id: ID
   image: create_directus_files_input
@@ -2155,13 +2183,20 @@ input create_pages_input {
   id: ID
   parent: create_pages_input
   permalink: String
-  seo_detail: create_seo_detail_input
   sort: Int
   status: String
   title: String!
   user_created: create_directus_users_input
   user_updated: create_directus_users_input
+  seo: JSON
   editor_nodes: [create_pages_editor_nodes_input]
+}
+
+input create_projets_files_input {
+  id: ID
+  projets_id: create_projets_input
+  directus_files_id: create_directus_files_input
+  sort: Int
 }
 
 input create_projets_input {
@@ -2171,6 +2206,15 @@ input create_projets_input {
   date_created: Date
   date_updated: Date
   subtitle: String
+  title: String
+  slug: String
+  thumbnail: create_directus_files_input
+  description: String
+  site_url: String
+  pinned: create_homepage_input
+  seo: JSON
+  gallery: [create_projets_files_input]
+  tags: [create_tags_input]
 }
 
 input create_quote_input {
@@ -2199,40 +2243,6 @@ input create_section_input {
   editor_nodes: [create_section_editor_nodes_input]
 }
 
-input create_seo_advanced_setting_input {
-  collection: ID!
-  enabled: Boolean
-  is_static: Boolean
-  translations: String
-}
-
-input create_seo_detail_input {
-  facebook_image: create_directus_files_input
-  id: ID
-  image_share: String
-  meta_description: String
-  meta_keywords: String
-  meta_robots: JSON
-  meta_social: String
-  meta_title: String
-  schema_type: String
-  twitter_image: create_directus_files_input
-}
-
-input create_seo_redirection_input {
-  date_created: Date
-  date_updated: Date
-  id: ID
-  new_url: String
-  old_url: String
-  status: String
-}
-
-input create_seo_setting_input {
-  key: ID!
-  value: JSON
-}
-
 input create_stack_editor_nodes_input {
   collection: String
   id: ID
@@ -2249,6 +2259,15 @@ input create_stack_input {
   id: ID
   type: String
   editor_nodes: [create_stack_editor_nodes_input]
+}
+
+input create_tags_input {
+  id: ID
+  status: String
+  sort: Int
+  projects: create_projets_input
+  title: String
+  category: create_categories_input
 }
 
 input create_video_input {
@@ -2597,6 +2616,27 @@ input hash_filter_operators {
   _nempty: Boolean
 }
 
+input homepage_filter {
+  date_created: date_filter_operators
+  date_created_func: datetime_function_filter_operators
+  date_updated: date_filter_operators
+  date_updated_func: datetime_function_filter_operators
+  id: string_filter_operators
+  img: directus_files_filter
+  user_created: directus_users_filter
+  user_updated: directus_users_filter
+  presentation: string_filter_operators
+  nudge_project: string_filter_operators
+  contact_text: string_filter_operators
+  contact_nudge: string_filter_operators
+  seo: string_filter_operators
+  seo_func: count_function_filter_operators
+  pinned_projects: projets_filter
+  pinned_projects_func: count_function_filter_operators
+  _and: [homepage_filter]
+  _or: [homepage_filter]
+}
+
 input image_filter {
   id: string_filter_operators
   image: directus_files_filter
@@ -2666,16 +2706,26 @@ input pages_filter {
   id: string_filter_operators
   parent: pages_filter
   permalink: string_filter_operators
-  seo_detail: seo_detail_filter
   sort: number_filter_operators
   status: string_filter_operators
   title: string_filter_operators
   user_created: directus_users_filter
   user_updated: directus_users_filter
+  seo: string_filter_operators
+  seo_func: count_function_filter_operators
   editor_nodes: pages_editor_nodes_filter
   editor_nodes_func: count_function_filter_operators
   _and: [pages_filter]
   _or: [pages_filter]
+}
+
+input projets_files_filter {
+  id: number_filter_operators
+  projets_id: projets_filter
+  directus_files_id: directus_files_filter
+  sort: number_filter_operators
+  _and: [projets_files_filter]
+  _or: [projets_files_filter]
 }
 
 input projets_filter {
@@ -2687,6 +2737,18 @@ input projets_filter {
   date_updated: date_filter_operators
   date_updated_func: datetime_function_filter_operators
   subtitle: string_filter_operators
+  title: string_filter_operators
+  slug: string_filter_operators
+  thumbnail: directus_files_filter
+  description: string_filter_operators
+  site_url: string_filter_operators
+  pinned: homepage_filter
+  seo: string_filter_operators
+  seo_func: count_function_filter_operators
+  gallery: projets_files_filter
+  gallery_func: count_function_filter_operators
+  tags: tags_filter
+  tags_func: count_function_filter_operators
   _and: [projets_filter]
   _or: [projets_filter]
 }
@@ -2728,53 +2790,6 @@ input section_filter {
   editor_nodes_func: count_function_filter_operators
   _and: [section_filter]
   _or: [section_filter]
-}
-
-input seo_advanced_setting_filter {
-  collection: string_filter_operators
-  enabled: boolean_filter_operators
-  is_static: boolean_filter_operators
-  translations: string_filter_operators
-  translations_func: count_function_filter_operators
-  _and: [seo_advanced_setting_filter]
-  _or: [seo_advanced_setting_filter]
-}
-
-input seo_detail_filter {
-  facebook_image: directus_files_filter
-  id: number_filter_operators
-  image_share: string_filter_operators
-  meta_description: string_filter_operators
-  meta_keywords: string_filter_operators
-  meta_robots: string_filter_operators
-  meta_robots_func: count_function_filter_operators
-  meta_social: string_filter_operators
-  meta_title: string_filter_operators
-  schema_type: string_filter_operators
-  twitter_image: directus_files_filter
-  _and: [seo_detail_filter]
-  _or: [seo_detail_filter]
-}
-
-input seo_redirection_filter {
-  date_created: date_filter_operators
-  date_created_func: datetime_function_filter_operators
-  date_updated: date_filter_operators
-  date_updated_func: datetime_function_filter_operators
-  id: number_filter_operators
-  new_url: string_filter_operators
-  old_url: string_filter_operators
-  status: string_filter_operators
-  _and: [seo_redirection_filter]
-  _or: [seo_redirection_filter]
-}
-
-input seo_setting_filter {
-  key: string_filter_operators
-  value: string_filter_operators
-  value_func: count_function_filter_operators
-  _and: [seo_setting_filter]
-  _or: [seo_setting_filter]
 }
 
 input stack_editor_nodes_filter {
@@ -2828,6 +2843,17 @@ input string_filter_operators {
   _nempty: Boolean
 }
 
+input tags_filter {
+  id: string_filter_operators
+  status: string_filter_operators
+  sort: number_filter_operators
+  projects: projets_filter
+  title: string_filter_operators
+  category: categories_filter
+  _and: [tags_filter]
+  _or: [tags_filter]
+}
+
 input update_button_input {
   id: ID
   label: String
@@ -2838,6 +2864,14 @@ input update_button_input {
   type: String
   url: String
   variant: String
+}
+
+input update_categories_input {
+  id: ID
+  sort: Int
+  name: String
+  speed: Int
+  tags: [update_tags_input]
 }
 
 input update_contact_forms_input {
@@ -2986,9 +3020,14 @@ input update_homepage_input {
   date_updated: Date
   id: ID
   img: update_directus_files_input
-  seo_detail: update_seo_detail_input
   user_created: update_directus_users_input
   user_updated: update_directus_users_input
+  presentation: String
+  nudge_project: String
+  contact_text: String
+  contact_nudge: String
+  seo: JSON
+  pinned_projects: [update_projets_input]
 }
 
 input update_image_input {
@@ -3032,13 +3071,20 @@ input update_pages_input {
   id: ID
   parent: update_pages_input
   permalink: String
-  seo_detail: update_seo_detail_input
   sort: Int
   status: String
   title: String
   user_created: update_directus_users_input
   user_updated: update_directus_users_input
+  seo: JSON
   editor_nodes: [update_pages_editor_nodes_input]
+}
+
+input update_projets_files_input {
+  id: ID
+  projets_id: update_projets_input
+  directus_files_id: update_directus_files_input
+  sort: Int
 }
 
 input update_projets_input {
@@ -3048,6 +3094,15 @@ input update_projets_input {
   date_created: Date
   date_updated: Date
   subtitle: String
+  title: String
+  slug: String
+  thumbnail: update_directus_files_input
+  description: String
+  site_url: String
+  pinned: update_homepage_input
+  seo: JSON
+  gallery: [update_projets_files_input]
+  tags: [update_tags_input]
 }
 
 input update_quote_input {
@@ -3076,40 +3131,6 @@ input update_section_input {
   editor_nodes: [update_section_editor_nodes_input]
 }
 
-input update_seo_advanced_setting_input {
-  collection: ID
-  enabled: Boolean
-  is_static: Boolean
-  translations: String
-}
-
-input update_seo_detail_input {
-  facebook_image: update_directus_files_input
-  id: ID
-  image_share: String
-  meta_description: String
-  meta_keywords: String
-  meta_robots: JSON
-  meta_social: String
-  meta_title: String
-  schema_type: String
-  twitter_image: update_directus_files_input
-}
-
-input update_seo_redirection_input {
-  date_created: Date
-  date_updated: Date
-  id: ID
-  new_url: String
-  old_url: String
-  status: String
-}
-
-input update_seo_setting_input {
-  key: ID
-  value: JSON
-}
-
 input update_stack_editor_nodes_input {
   collection: String
   id: ID
@@ -3126,6 +3147,15 @@ input update_stack_input {
   id: ID
   type: String
   editor_nodes: [update_stack_editor_nodes_input]
+}
+
+input update_tags_input {
+  id: ID
+  status: String
+  sort: Int
+  projects: update_projets_input
+  title: String
+  category: update_categories_input
 }
 
 input update_video_input {

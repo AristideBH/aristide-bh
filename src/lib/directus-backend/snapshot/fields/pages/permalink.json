@@ -13,7 +13,7 @@
     },
     "field": "permalink",
     "group": null,
-    "hidden": false,
+    "hidden": true,
     "interface": "input",
     "note": null,
     "options": {
@@ -24,7 +24,7 @@
     },
     "readonly": true,
     "required": false,
-    "sort": 13,
+    "sort": 14,
     "special": null,
     "translations": null,
     "validation": null,

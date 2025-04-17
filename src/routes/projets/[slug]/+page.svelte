@@ -13,8 +13,8 @@
 </script>
 
 <MetaTags
-	title={project?.seo_details?.meta_title}
-	description={project?.seo_details?.meta_description}
+	title={project?.seo.title}
+	description={project?.seo.meta_description}
 	titleTemplate="%s | Aristide BH"
 />
 

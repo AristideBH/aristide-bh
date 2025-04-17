@@ -79,7 +79,7 @@
         "transforms": []
       }
     ],
-    "custom_css": null,
+    "custom_css": ".v-tabs.horizontal.analyzer[data-v-5081a1b5] {\n\tbackground-color: transparent !important;\n    padding : 0 !important;\n}",
     "storage_default_folder": null,
     "basemaps": null,
     "mapbox_key": null,
@@ -113,7 +113,7 @@
       {
         "type": "module",
         "id": "seo-settings",
-        "enabled": true
+        "enabled": false
       }
     ],
     "project_descriptor": "Artisan graphique & développeur créatif",
@@ -142,9 +142,9 @@
         "flow_manager_order": 1
       }
     ],
-    "maintenance_description": "Je fais au mieux pour le mettre à jour ! Revenez bientôt !",
-    "maintenance_state": false,
-    "maintenance_title": "Mon site est en plein refonte !",
+    "maintenance_description": "Je fais au mieux pour le mettre à jour, revenez bientôt !",
+    "maintenance_state": true,
+    "maintenance_title": "Mon site est en plein refonte",
     "_syncId": "8d243d1f-ad87-412c-b254-7b217df33d65"
   }
 ]

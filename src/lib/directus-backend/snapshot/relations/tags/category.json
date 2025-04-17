@@ -1,0 +1,25 @@
+{
+  "collection": "tags",
+  "field": "category",
+  "related_collection": "categories",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "tags",
+    "many_field": "category",
+    "one_allowed_collections": null,
+    "one_collection": "categories",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "tags",
+    "sort_field": null
+  },
+  "schema": {
+    "table": "tags",
+    "column": "category",
+    "foreign_key_table": "categories",
+    "foreign_key_column": "id",
+    "constraint_name": "tags_category_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "SET NULL"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collection": "projets",
+  "field": "pinned",
+  "related_collection": "homepage",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "projets",
+    "many_field": "pinned",
+    "one_allowed_collections": null,
+    "one_collection": "homepage",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "pinned_projects",
+    "sort_field": "sort"
+  },
+  "schema": {
+    "table": "projets",
+    "column": "pinned",
+    "foreign_key_table": "homepage",
+    "foreign_key_column": "id",
+    "constraint_name": "projets_pinned_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "SET NULL"
+  }
+}
