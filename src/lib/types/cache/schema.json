@@ -37,7 +37,7 @@
       "collection": "categories",
       "meta": {
         "collection": "categories",
-        "icon": null,
+        "icon": "category",
         "note": null,
         "display_template": "{{name}}",
         "hidden": false,
@@ -51,7 +51,7 @@
         "accountability": "all",
         "color": null,
         "item_duplication_fields": null,
-        "sort": 6,
+        "sort": 5,
         "group": null,
         "collapse": "open",
         "preview_url": null,
@@ -81,7 +81,7 @@
         "accountability": "all",
         "color": null,
         "item_duplication_fields": null,
-        "sort": 9,
+        "sort": 8,
         "group": null,
         "collapse": "open",
         "preview_url": null,
@@ -111,7 +111,7 @@
         "accountability": "all",
         "color": null,
         "item_duplication_fields": null,
-        "sort": 10,
+        "sort": 9,
         "group": null,
         "collapse": "open",
         "preview_url": null,
@@ -141,7 +141,7 @@
         "accountability": "all",
         "color": null,
         "item_duplication_fields": null,
-        "sort": 7,
+        "sort": 6,
         "group": null,
         "collapse": "open",
         "preview_url": null,
@@ -686,7 +686,7 @@
         "accountability": "all",
         "color": null,
         "item_duplication_fields": null,
-        "sort": 8,
+        "sort": 7,
         "group": null,
         "collapse": "closed",
         "preview_url": null,
@@ -784,8 +784,8 @@
         "accountability": "all",
         "color": null,
         "item_duplication_fields": null,
-        "sort": 5,
-        "group": null,
+        "sort": 1,
+        "group": "categories",
         "collapse": "open",
         "preview_url": null,
         "versioning": false
@@ -20780,8 +20780,8 @@
         "display": null,
         "display_options": null,
         "readonly": false,
-        "hidden": false,
-        "sort": 14,
+        "hidden": true,
+        "sort": 16,
         "width": "full",
         "translations": null,
         "note": null,
@@ -20932,6 +20932,59 @@
         "readonly": false,
         "hidden": true,
         "sort": 15,
+        "width": "full",
+        "translations": null,
+        "note": null,
+        "conditions": null,
+        "required": false,
+        "group": null,
+        "validation": null,
+        "validation_message": null
+      }
+    },
+    {
+      "collection": "projets",
+      "field": "seo",
+      "type": "json",
+      "schema": {
+        "name": "seo",
+        "table": "projets",
+        "data_type": "json",
+        "default_value": null,
+        "generation_expression": null,
+        "max_length": null,
+        "numeric_precision": null,
+        "numeric_scale": null,
+        "is_generated": false,
+        "is_nullable": true,
+        "is_unique": false,
+        "is_indexed": false,
+        "is_primary_key": false,
+        "has_auto_increment": false,
+        "foreign_key_schema": null,
+        "foreign_key_table": null,
+        "foreign_key_column": null,
+        "comment": null
+      },
+      "meta": {
+        "id": 193,
+        "collection": "projets",
+        "field": "seo",
+        "special": [
+          "cast-json"
+        ],
+        "interface": "seo-interface",
+        "options": {
+          "titleTemplate": "{{title}}",
+          "descriptionTemplate": "{{description}}"
+        },
+        "display": "seo-display",
+        "display_options": {
+          "showSearchPreview": true
+        },
+        "readonly": false,
+        "hidden": false,
+        "sort": 14,
         "width": "full",
         "translations": null,
         "note": null,
@@ -24607,37 +24660,6 @@
       }
     },
     {
-      "collection": "projets",
-      "field": "tags",
-      "type": "alias",
-      "schema": null,
-      "meta": {
-        "id": 175,
-        "collection": "projets",
-        "field": "tags",
-        "special": [
-          "o2m"
-        ],
-        "interface": "list-o2m",
-        "options": {
-          "template": "{{title}}"
-        },
-        "display": null,
-        "display_options": null,
-        "readonly": false,
-        "hidden": false,
-        "sort": 9,
-        "width": "full",
-        "translations": null,
-        "note": null,
-        "conditions": null,
-        "required": false,
-        "group": null,
-        "validation": null,
-        "validation_message": null
-      }
-    },
-    {
       "collection": "categories",
       "field": "tags",
       "type": "alias",
@@ -24687,6 +24709,37 @@
         "readonly": false,
         "hidden": false,
         "sort": 13,
+        "width": "full",
+        "translations": null,
+        "note": null,
+        "conditions": null,
+        "required": false,
+        "group": null,
+        "validation": null,
+        "validation_message": null
+      }
+    },
+    {
+      "collection": "projets",
+      "field": "tags",
+      "type": "alias",
+      "schema": null,
+      "meta": {
+        "id": 175,
+        "collection": "projets",
+        "field": "tags",
+        "special": [
+          "o2m"
+        ],
+        "interface": "list-o2m",
+        "options": {
+          "template": "{{title}}"
+        },
+        "display": null,
+        "display_options": null,
+        "readonly": false,
+        "hidden": false,
+        "sort": 9,
         "width": "full",
         "translations": null,
         "note": null,

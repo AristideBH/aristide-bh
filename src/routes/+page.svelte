@@ -34,7 +34,7 @@
 	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline ~text-6xl/9xl ~gap-4/8">
 		<MenuButton class="grid aspect-logo -translate-y-[0.025em] ~text-6xl/9xl">
 			<Button role="status" variant="white" class="group aspect-logo h-full w-full cursor-default">
-				<Logo class="transition-colors !~size-10/20 group-hover:fill-white" />
+				<Logo class="transition-colors !~size-12/20 group-hover:fill-white" />
 			</Button>
 		</MenuButton>
 
@@ -73,7 +73,7 @@
 		<Image
 			item={home.img}
 			class="block-wrapper col-start-3 -col-end-1 me-auto h-fit max-w-80"
-			loading="lazy"
+			loading="eager"
 		/>
 	{/if}
 </Section>

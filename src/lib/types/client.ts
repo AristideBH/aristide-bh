@@ -385,8 +385,9 @@ export namespace Collections {
     site_url: Types.Optional<Types.String>;
     thumbnail: Types.Optional<Types.UUID | Collections.DirectusFile>;
     gallery: Collections.ProjetsFiles[];
-    seo_details: Types.Optional<Types.Integer | Collections.SeoDetail>;
+    seo: Types.Optional<Types.JSON | Types.JSON>;
     pinned: Types.Optional<Types.UUID | Collections.Homepage>;
+    seo_details: Types.Optional<Types.Integer | Collections.SeoDetail>;
   }
 
   /**
