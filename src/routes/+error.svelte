@@ -29,7 +29,8 @@
 	{/each}
 </Section>
 
-<section>
+<section class="flex flex-col">
+	<pre>{JSON.stringify(error, null, 2)}</pre>
 	<p class="lead text-balance">
 		Cette page semble ne pas exister !<br /> Reprenez depuis la <a href="/"> page d'accueil</a>.
 	</p>

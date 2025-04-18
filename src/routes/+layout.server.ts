@@ -13,7 +13,6 @@ export const load = (async ({ fetch, locals, url }) => {
 
     //@ts-expect-error TS screams when using dot notation for Directus fields
     const headerNav = await directus.request(readMenus("Header", { fields: ["*.*.*.*.*.*"] }));
-    //@ts-expect-error TS screams when using dot notation for Directus fields
     // const footerNav = await directus.request(readMenus("Footer", { fields: ["*.*.*"] }));
     const global = await directus.request(readSettings());
 
