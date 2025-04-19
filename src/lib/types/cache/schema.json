@@ -18376,7 +18376,10 @@
           "cast-json"
         ],
         "interface": "seo-interface",
-        "options": null,
+        "options": {
+          "showSearchControls": true,
+          "showSitemap": true
+        },
         "display": "seo-display",
         "display_options": null,
         "readonly": false,
@@ -20793,7 +20796,9 @@
         "interface": "seo-interface",
         "options": {
           "titleTemplate": "{{title}}",
-          "descriptionTemplate": "{{description}}"
+          "descriptionTemplate": "{{description}}",
+          "showSearchControls": true,
+          "showSitemap": true
         },
         "display": "seo-display",
         "display_options": {

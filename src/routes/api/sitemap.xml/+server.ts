@@ -1,6 +1,6 @@
 import { PUBLIC_SITE_URL } from "$env/static/public";
 import { client } from "$lib/logic/directus";
-import { listPages, listProjets, type Collections } from "$lib/types/client";
+import { getHomepage, listPages, listProjets, type Collections } from "$lib/types/client";
 import { promisify } from "util";
 import { gzip } from "zlib";
 import type { RequestHandler } from "./$types";
@@ -32,7 +32,8 @@ interface SitemapEntry {
 
 type Page = Partial<Collections.Pages>;
 type Project = Partial<Collections.Projets>;
-type PageOrProject = Page | Project;
+type Homepage = Partial<Collections.Homepage>;
+type ContentToIndex = Page | Project | Homepage;
 
 const compress = promisify(gzip);
 const defaultFrequency = Frequency.WEEKLY;
@@ -43,15 +44,6 @@ const filter = {
         { seo: { _nnull: true } },
     ],
 };
-
-const manualEntries: SitemapEntry[] = [
-    {
-        path: "",
-        lastmod: new Date().toISOString(),
-        frequency: defaultFrequency,
-        priority: Priority.HIGH,
-    },
-];
 
 const createSitemapEntry = (
     path: string,
@@ -64,6 +56,8 @@ const createSitemapEntry = (
     frequency,
     priority,
 });
+
+const manualEntries: SitemapEntry[] = [];
 
 export const GET: RequestHandler = async ({ fetch }) => {
     const directus = client(fetch);
@@ -83,22 +77,28 @@ export const GET: RequestHandler = async ({ fetch }) => {
             })
         );
 
+        const homepage = await directus.request(
+            getHomepage({ fields: ["seo", "date_updated"] })
+        );
+
         const convertToSitemapEntries = (
-            items: PageOrProject[],
-            pathPrefix: string = "/"
+            items: ContentToIndex[],
+            pathPrefix: string = ""
         ): SitemapEntry[] => {
             return items
                 .filter(item => !item?.seo?.no_index)
                 .map(item => {
                     let path: string | null = null;
 
-                    if ("permalink" in item && item.permalink) {
-                        path = `${pathPrefix}/${item.permalink}`;
-                    } else if ("slug" in item && item.slug) {
-                        path = `${pathPrefix}/${item.slug}`;
+                    if (
+                        (item as Page).permalink !== undefined &&
+                        (item as Page).permalink
+                    ) {
+                        path = `${pathPrefix}/${(item as Page).permalink}`;
+                    } else if ((item as Project).slug !== undefined && (item as Project).slug) {
+                        path = `${pathPrefix}/${(item as Project).slug}`;
                     } else {
-                        console.warn("Item missing permalink and slug:", item);
-                        return null;
+                        path = "/";
                     }
 
                     if (!path) return null;
@@ -114,8 +114,9 @@ export const GET: RequestHandler = async ({ fetch }) => {
         };
 
         const sitemapEntries = [
+            ...convertToSitemapEntries([homepage], "/"),
             ...manualEntries,
-            ...convertToSitemapEntries(pages, "/"),
+            ...convertToSitemapEntries(pages, ""),
             ...convertToSitemapEntries(projects, "/projets"),
         ];
 
@@ -124,6 +125,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
         };
 
         const xml = `<?xml version="1.0" encoding="UTF-8"?>
+        <?xml-stylesheet type="text/xsl" href="/sitemap-theme.xsl"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             ${sitemapEntries
                 .map(
