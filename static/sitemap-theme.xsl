@@ -5,7 +5,7 @@
 <xsl:template match="/">
   <html>
     <head>
-      <title>Sitemap : aristide-bh.com</title>
+      <title>Sitemap</title>
       <style type="text/css">
         body {
           font-family: Arial, sans-serif;
@@ -39,7 +39,7 @@
       </style>
     </head>
     <body>
-      <h1>Sitemap</h1>
+      <h1>Sitemap : aristide-bh.com</h1>
       <table>
         <thead>
           <tr>
