@@ -88,8 +88,8 @@ The component uses the `getFileInfos`, `getImgSrcSet`, `getImgUrl`, `getThumbhas
 		if (fetchedFile?.type !== 'image/png') {
 			imgEl.style.backgroundImage = `url(${thumbhashUrl})`;
 		}
-		if (fetchedFile?.focal_point_x && fetchedFile?.focal_point_y) {
-			imgEl.style.objectPosition = `${fetchedFile?.focal_point_x}% ${fetchedFile?.focal_point_y}%`;
+		if (fetchedFile?.focal_point_x || fetchedFile?.focal_point_y) {
+			imgEl.style.objectPosition = `${fetchedFile?.focal_point_x ?? 50}% ${fetchedFile?.focal_point_y ?? 50}%`;
 		}
 	});
 </script>

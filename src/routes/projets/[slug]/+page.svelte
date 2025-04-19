@@ -23,7 +23,7 @@
 </Section>
 
 <Section content={{ template: 'inherit-main' }}>
-	<div class="block-wrapper flex flex-col gap-8">
+	<div class="block-wrapper col-span-full flex flex-col gap-8">
 		<hgroup class=" flex flex-col gap-2">
 			<h1 style="--wght: 500;">{project?.title}</h1>
 			<p class="">{project?.subtitle}</p>
@@ -35,14 +35,18 @@
 				{/each}
 			</div>
 		{/if}
-		<div class="[&>p]:lead [&>p]:text-balance">{@html project.description}</div>
-		{#if project.site_url}
-			<Button href={project.site_url} size={'lg'} target="_blank" class=" w-fit">
-				Voir le site
-				<ExternalLink class="mr-1 size-4" />
-			</Button>
-		{/if}
 	</div>
+	<div class="block-wrapper !col-auto">
+		<div class="[&>p]:lead [&>p]:text-balance">{@html project.description}</div>
+	</div>
+	{#if project.site_url}
+		<div class="block-wrapper col-start-3">
+			<Button href={project.site_url} size={'lg'} target="_blank" class=" w-full">
+				Voir le site
+				<ExternalLink class="ml-1 size-4" />
+			</Button>
+		</div>
+	{/if}
 </Section>
 
 {#if project.gallery?.length}
@@ -52,7 +56,7 @@
 				{@const topGap = (id + 1) * 2}
 				<Image
 					item={image.directus_files_id}
-					class="!sticky h-full max-h-[70dvh] border border-muted/20"
+					class="!sticky h-full max-h-[70dvh] border border-muted/20 shadow-lg"
 					style={`top: ${topGap}rem;`}
 				/>
 			{/each}

@@ -72,7 +72,7 @@
 	{#if home?.img}
 		<Image
 			item={home.img}
-			class="block-wrapper col-start-3 -col-end-1 me-auto h-fit max-w-80"
+			class="block-wrapper col-start-3 -col-end-1 me-auto h-fit max-w-80 shadow-lg"
 			loading="eager"
 		/>
 	{/if}

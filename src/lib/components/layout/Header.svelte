@@ -51,7 +51,8 @@
 			<p class="leading-4">
 				<span class="font-heading text-2xl font-extrabold">{project_name}</span>
 				<br />
-				<span class="small font-mono italic text-primary">{project_descriptor}</span>
+				<span class="small hidden font-mono italic text-primary sm:block">{project_descriptor}</span
+				>
 			</p>
 		</div>
 		<Navigation />

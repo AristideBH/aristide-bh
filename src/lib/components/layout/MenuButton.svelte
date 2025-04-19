@@ -63,8 +63,11 @@
 			}
 		};
 
+		console.clear();
 		const x = calcValue(layerX, node.width, 'left', 'center', 'right');
+		console.log('🩺: x', x);
 		const y = calcValue(layerY, node.height, 'top', 'center', 'bottom');
+		console.log('🩺: y', y);
 
 		if (x === 'center' && y !== 'center') {
 			return y;
@@ -92,6 +95,8 @@
 	const handleMouseAction = (e: CustomMouseEvent) => {
 		const target = e.target as HTMLElement;
 		const [x, y] = trackerPositionsFor(e);
+
+		// console.log('🩺: handleMouseAction -> ', mouseDirection(e));
 		const isEnter = e.type === 'mouseenter' ? true : false;
 
 		if (isEnter) {
