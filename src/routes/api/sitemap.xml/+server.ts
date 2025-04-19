@@ -1,89 +1,94 @@
-import type { RequestHandler } from './$types';
-import { client } from '$lib/logic/directus';
-import { listPages } from '$lib/types/client';
-import { PUBLIC_SITE_URL } from '$env/static/public';
-import { gzip } from 'zlib';
-import { promisify } from 'util';
-
-enum Frequency {
-    ALWAYS = 'always',
-    HOURLY = 'hourly',
-    DAILY = 'daily',
-    WEEKLY = 'weekly',
-    MONTHLY = 'monthly',
-    YEARLY = 'yearly',
-    NEVER = 'never'
-}
-interface SitemapEntry {
-    path: string;
-    lastmod: string;
-    frequency: Frequency;
-    priority: string;
-}
+import { PUBLIC_SITE_URL } from "$env/static/public";
+import { client } from "$lib/logic/directus";
+import { listPages, listProjets } from "$lib/types/client";
+import { promisify } from "util";
+import { gzip } from "zlib";
+import type { RequestHandler } from "./$types";
+import { Frequency, Priority, type PageOrProject, type SitemapEntry } from "./types";
 
 const compress = promisify(gzip);
+const defaultFrequency = Frequency.WEEKLY;
+const defaultPriority = Priority.NORMAL as Priority;
+const filter = {
+    _and: [
+        { status: { _nin: ["archived", "draft"] } },
+        { seo: { _nnull: true } },
+    ],
+};
+
+const manualEntries: SitemapEntry[] = [
+    {
+        path: "",
+        lastmod: new Date().toISOString(),
+        frequency: defaultFrequency,
+        priority: defaultPriority,
+    },
+];
+
+const createSitemapEntry = (
+    path: string,
+    lastmod: string,
+    frequency: Frequency,
+    priority: Priority
+): SitemapEntry => ({
+    path,
+    lastmod,
+    frequency,
+    priority,
+});
 
 export const GET: RequestHandler = async ({ fetch }) => {
     const directus = client(fetch);
-    const frequency = Frequency.WEEKLY;
-    const priority = "0.8";
-
-    const conditions = {
-        "_and": [
-            { "status": { "_nin": ['archived', 'draft'] } },
-            { "seo_detail": { "_nnull": true } }
-        ]
-    };
-
-    const manualEntries: SitemapEntry[] = [
-        {
-            path: "",
-            lastmod: new Date().toISOString(),
-            frequency,
-            priority,
-        },
-        {
-            path: "/kitchen",
-            lastmod: new Date().toISOString(),
-            frequency,
-            priority,
-        },
-        {
-            path: "/layout",
-            lastmod: new Date().toISOString(),
-            frequency,
-            priority,
-        },
-        {
-            path: "/contact",
-            lastmod: new Date().toISOString(),
-            frequency,
-            priority,
-        }
-    ];
 
     try {
-        const pages = await directus.request(listPages({
-            filter: conditions,
-            fields: ["permalink", "date_updated", { seo_detail: ["meta_robots"] }]
-        }));
+        const pages = await directus.request(
+            listPages({
+                filter: filter,
+                fields: ["permalink", "date_updated", "seo"],
+            })
+        );
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const convertToSitemapEntries = (items: any[]): SitemapEntry[] => {
+        const projects = await directus.request(
+            listProjets({
+                filter: filter,
+                fields: ["slug", "date_updated", "seo"],
+            })
+        );
+
+        const convertToSitemapEntries = (
+            items: PageOrProject[],
+            pathPrefix: string = "/"
+        ): SitemapEntry[] => {
             return items
-                .filter(item => !item.seo_detail?.meta_robots?.includes("noindex"))
-                .map((item) => ({
-                    path: `/${item.permalink}`,
-                    lastmod: item?.date_updated,
-                    frequency,
-                    priority
-                }));
+                .filter(item => !item?.seo?.no_index)
+                .map(item => {
+                    let path: string | null = null;
+
+                    if ("permalink" in item && item.permalink) {
+                        path = `${pathPrefix}/${item.permalink}`;
+                    } else if ("slug" in item && item.slug) {
+                        path = `${pathPrefix}/${item.slug}`;
+                    } else {
+                        console.warn("Item missing permalink and slug:", item);
+                        return null;
+                    }
+
+                    if (!path) return null;
+
+                    const { date_updated, seo } = item;
+
+                    const frequency = seo?.sitemap?.change_frequency || defaultFrequency;
+                    const priority = (seo?.sitemap?.priority as Priority) || defaultPriority;
+
+                    return createSitemapEntry(path, date_updated as string, frequency, priority);
+                })
+                .filter((entry): entry is SitemapEntry => entry !== null);
         };
 
-        const pagesAndPosts = [
+        const sitemapEntries = [
             ...manualEntries,
-            ...convertToSitemapEntries(pages),
-            // add posts and other collections here
+            ...convertToSitemapEntries(pages, "/"),
+            ...convertToSitemapEntries(projects, "/projets"),
         ];
 
         const getLastModified = (entries: SitemapEntry[]) => {
@@ -92,16 +97,18 @@ export const GET: RequestHandler = async ({ fetch }) => {
 
         const xml = `<?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-            ${pagesAndPosts
-                .map((entry) => `
-                    <url>
-                        <loc>${PUBLIC_SITE_URL}${entry.path}</loc>
-                        <lastmod>${entry.lastmod}</lastmod>
-                        <changefreq>${entry.frequency}</changefreq>
-                        <priority>${entry.priority}</priority>
-                    </url>`
-                ).join("")}
-        </urlset>`.replace(/>\s+</g, '><').trim();
+            ${sitemapEntries
+                .map(
+                    ({ path, lastmod, frequency, priority }) => `
+                <url>
+                    <loc>${PUBLIC_SITE_URL}${path}</loc>
+                    <lastmod>${lastmod}</lastmod>
+                    <changefreq>${frequency}</changefreq>
+                    <priority>${priority}</priority>
+                </url>`
+                )
+                .join("")}
+        </urlset>`.replace(/>\s+</g, "><").trim();
 
         const compressed = await compress(xml);
 
@@ -110,11 +117,11 @@ export const GET: RequestHandler = async ({ fetch }) => {
                 "Cache-Control": "max-age=0, s-maxage=3600",
                 "Content-Type": "application/xml",
                 "Content-Encoding": "gzip",
-                "Last-Modified": getLastModified(pagesAndPosts)
+                "Last-Modified": getLastModified(sitemapEntries),
             },
         });
     } catch (error) {
-        console.error('Failed to fetch pages:', error);
-        return new Response('Error generating sitemap', { status: 500 });
+        console.error("Failed to fetch pages:", error);
+        return new Response("Error generating sitemap", { status: 500 });
     }
 };

@@ -1,20 +1,20 @@
 <script lang="ts">
 	import Image from '$lib/components/image/Image.svelte';
+	import ContactMarquee from '$lib/components/layout/ContactMarquee.svelte';
 	import Section from '$lib/components/layout/Section.svelte';
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { Button } from '$lib/components/ui/button';
 	import ExternalLink from 'lucide-svelte/icons/external-link';
 	import { MetaTags } from 'svelte-meta-tags';
 	import type { PageData } from './$types';
-	import ContactMarquee from '$lib/components/layout/ContactMarquee.svelte';
 
 	let { data }: { data: PageData | Record<string, any> } = $props();
 	let { project } = data;
 </script>
 
 <MetaTags
-	title={project?.seo.title}
-	description={project?.seo.meta_description}
+	title={project?.seo.title ?? project.title}
+	description={project?.seo.meta_description ?? 'Découvrez ce projet! '}
 	titleTemplate="%s | Aristide BH"
 />
 
@@ -52,7 +52,7 @@
 				{@const topGap = (id + 1) * 2}
 				<Image
 					item={image.directus_files_id}
-					class="!sticky h-full min-h-[70dvh] border border-muted/20"
+					class="!sticky h-full max-h-[70dvh] border border-muted/20"
 					style={`top: ${topGap}rem;`}
 				/>
 			{/each}

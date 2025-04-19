@@ -1,19 +1,17 @@
 <script lang="ts">
 	import { directusError, type DirectusClient } from '$lib/logic/directus';
-
-	import { updateMe } from '@directus/sdk';
+	import { updateMe, withToken } from '@directus/sdk';
 	import { getContext } from 'svelte';
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';
 	import * as Card from '$lib/components/ui/card';
-
 	import { toast } from 'svelte-sonner';
 	import { page } from '$app/state';
-	import Footer from '../layout/Footer.svelte';
 
 	const directus = getContext<DirectusClient>('directus');
 	let user = $state(page.data.user);
+	let token = $state(page.data.token);
 
 	type Props = {
 		class?: string;
@@ -23,11 +21,14 @@
 	async function updateProfile() {
 		try {
 			await directus.request(
-				updateMe({
-					first_name: user.first_name,
-					last_name: user.last_name,
-					title: user.title
-				})
+				withToken(
+					token,
+					updateMe({
+						first_name: user.first_name,
+						last_name: user.last_name,
+						title: user.title
+					})
+				)
 			);
 			toast.success('Profile updated successfully');
 		} catch (e) {
@@ -36,17 +37,9 @@
 	}
 </script>
 
-<!-- <pre>{JSON.stringify($page.data.user, null, 2)}</pre> -->
+<!-- <pre>{JSON.stringify(token, null, 2)}</pre> -->
 
-<!-- {#if user.avatar}
-	<img
-		src={getImageURL(user.avatar)}
-		alt=""
-		class="layout-side-left mb-6 size-52 rounded-full border-2 ring-2 ring-primary"
-	/>
-{/if} -->
-
-<Card.Root class="mx-auto w-full max-w-xl bg-muted">
+<Card.Root class="w-full max-w-xl bg-muted">
 	<Card.Header>
 		<Card.Title class="mt-0 text-3xl">Profile</Card.Title>
 	</Card.Header>

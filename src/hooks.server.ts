@@ -4,7 +4,7 @@ import type { JwtPayload } from 'jsonwebtoken';
 import jwt from "jsonwebtoken";
 import { redirect } from '@sveltejs/kit';
 import { PUBLIC_DIRECTUS_URL } from '$env/static/public';
-import { constructCookieOpts } from '$logic/directus';
+import { client, constructCookieOpts } from '$logic/directus';
 
 const TOKEN_EXPIRATION_BUFFER = 300;
 
@@ -41,7 +41,10 @@ function shouldProtectRoute(url: string) {
 }
 
 export const handle: Handle = async ({ event, resolve }) => {
-    const { cookies, url } = event
+    const { cookies, url, fetch, locals } = event
+
+    const token = locals.token ?? null;
+    const directus = client(fetch, token);
 
     if (cookies.get('access_token') || cookies.get('refresh_token')) {
         let jwtPayload = cookies.get('access_token') ? jwt.decode(cookies.get('access_token') || '') as jwt.JwtPayload | null : null;

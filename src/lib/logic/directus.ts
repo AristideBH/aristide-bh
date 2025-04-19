@@ -43,7 +43,7 @@ export function client(fetch: Fetch, token?: string | null) {
     //@ts-expect-error we pass the function not to execute it
     const options = fetch ? { globals: { fetch } } : {};
     const directus = createDirectus<Schema>(PUBLIC_DIRECTUS_URL, options)
-        .with(authentication('cookie', { credentials: 'include' }))
+        .with(authentication())
         .with(rest());
 
     // if (token) directus.setToken(token);

@@ -57,7 +57,7 @@
 	{#if props.project.thumbnail}
 		<Image
 			item={props.project.thumbnail}
-			class="object-covert pointer-events-none absolute inset-0 w-full"
+			class="pointer-events-none absolute inset-0 w-full object-cover"
 		/>
 	{/if}
 
@@ -65,7 +65,7 @@
 		style:--x={`${x.current}px`}
 		style:--y={`${y.current}px`}
 		data-glow
-		class="pointer-events-none absolute inset-0 h-full w-full bg-black/10"
+		class="pointer-events-none absolute inset-0 h-full w-full bg-black/10 print:hidden"
 	></span>
 
 	<div class="pointer-events-none absolute bottom-6 right-6">

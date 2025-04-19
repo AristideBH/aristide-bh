@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { ChevronsDown } from 'lucide-svelte';
 	import Marqueeck from '@arisbh/marqueeck';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
@@ -7,7 +6,6 @@
 	import Logo from '$lib/components/layout/Logo.svelte';
 	import Section from '$lib/components/layout/Section.svelte';
 	import { MetaTags } from 'svelte-meta-tags';
-	import { handleContact } from '$lib/logic/email';
 	import SectionNudge from '$lib/components/layout/SectionNudge.svelte';
 	import ContactMarquee from '$lib/components/layout/ContactMarquee.svelte';
 

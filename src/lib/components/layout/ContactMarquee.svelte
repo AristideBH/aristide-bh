@@ -3,7 +3,7 @@
 	import { clipPath } from '$lib/logic/transition';
 	import Marqueeck from '@arisbh/marqueeck';
 
-	const mail = 'aristide.bruneau@gmail.com';
+	const mail = 'hello@aristide-bh.com';
 	let hovered = $state(false);
 </script>
 

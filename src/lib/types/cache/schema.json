@@ -19891,7 +19891,9 @@
         ],
         "interface": "seo-interface",
         "options": {
-          "titleTemplate": "{{title}}"
+          "titleTemplate": "{{title}}",
+          "showSearchControls": true,
+          "showSitemap": true
         },
         "display": "seo-display",
         "display_options": {
@@ -20574,15 +20576,33 @@
         ],
         "interface": "file-image",
         "options": null,
-        "display": null,
-        "display_options": null,
+        "display": "image",
+        "display_options": {},
         "readonly": false,
         "hidden": false,
         "sort": 12,
         "width": "full",
         "translations": null,
         "note": null,
-        "conditions": null,
+        "conditions": [
+          {
+            "name": "can be unset if draft",
+            "rule": {
+              "_and": [
+                {
+                  "status": {
+                    "_eq": "draft"
+                  }
+                }
+              ]
+            },
+            "required": false,
+            "options": {
+              "crop": true,
+              "letterbox": false
+            }
+          }
+        ],
         "required": true,
         "group": null,
         "validation": null,

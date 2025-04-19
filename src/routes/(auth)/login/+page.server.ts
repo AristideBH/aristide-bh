@@ -5,8 +5,8 @@ import { superValidate } from "sveltekit-superforms";
 import { zod } from "sveltekit-superforms/adapters";
 
 import { formSchema } from "$lib/types/forms/login";
-import { loginUser, constructCookieOpts, directusError } from '$logic/directus';
-
+import { loginUser, constructCookieOpts, directusError, client } from '$logic/directus';
+import { login } from '@directus/sdk';
 
 // Set in days - sync this with the Setting from Directus.
 const REFRESH_TOKEN_TTL = 7;
@@ -25,20 +25,22 @@ export const load = (async ({ locals, url }) => {
 export const actions: Actions = {
     default: async (event) => {
         const form = await superValidate(event, zod(formSchema));
-        const { cookies, request } = event;
+        const { cookies, request, fetch, locals } = event;
+
+        const token = locals.token ?? null;
+        const directus = client(fetch, token);
+
         const email = form.data.email;
         const password = form.data.password;
 
         if (!form.valid) return fail(400, { form });
 
         try {
-            const tokens = await loginUser(request, email, password);
+            const login = await directus.login(email, password);
+            console.log('🩺: login', login)
             // save cookies
-            cookies.set('access_token', tokens.access_token,
-                constructCookieOpts(Math.floor(tokens.expires / 1000))
-            );
-            cookies.set('refresh_token', tokens.refresh_token,
-                constructCookieOpts(60 * 60 * 24 * REFRESH_TOKEN_TTL)
+            cookies.set('access_token', (login.access_token as string),
+                constructCookieOpts(Math.floor(login.expires! / 1000))
             );
 
         } catch (e) {
