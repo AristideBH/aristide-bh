@@ -1,10 +1,38 @@
 import { PUBLIC_SITE_URL } from "$env/static/public";
 import { client } from "$lib/logic/directus";
-import { listPages, listProjets } from "$lib/types/client";
+import { listPages, listProjets, type Collections } from "$lib/types/client";
 import { promisify } from "util";
 import { gzip } from "zlib";
 import type { RequestHandler } from "./$types";
-import { Frequency, Priority, type PageOrProject, type SitemapEntry } from "./types";
+
+enum Frequency {
+    ALWAYS = "always",
+    HOURLY = "hourly",
+    DAILY = "daily",
+    WEEKLY = "weekly",
+    MONTHLY = "monthly",
+    YEARLY = "yearly",
+    NEVER = "never",
+}
+
+enum Priority {
+    VERY_HIGH = "1.0",
+    HIGH = "0.8",
+    NORMAL = "0.5",
+    LOW = "0.3",
+    VERY_LOW = "0.1",
+}
+
+interface SitemapEntry {
+    path: string;
+    lastmod: string;
+    frequency: Frequency;
+    priority: Priority;
+}
+
+type Page = Partial<Collections.Pages>;
+type Project = Partial<Collections.Projets>;
+type PageOrProject = Page | Project;
 
 const compress = promisify(gzip);
 const defaultFrequency = Frequency.WEEKLY;
@@ -21,7 +49,7 @@ const manualEntries: SitemapEntry[] = [
         path: "",
         lastmod: new Date().toISOString(),
         frequency: defaultFrequency,
-        priority: defaultPriority,
+        priority: Priority.HIGH,
     },
 ];
 
