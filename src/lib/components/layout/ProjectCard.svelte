@@ -77,9 +77,9 @@
 	<div
 		class="pointer-events-none absolute left-6 top-6 isolate flex h-full grow flex-col justify-start space-y-1"
 	>
-		<h3 class="mt-0 text-3xl font-semibold leading-none tracking-wide">
+		<h2 class="mt-0 text-3xl font-semibold leading-none tracking-wide">
 			{props.project.title}
-		</h3>
+		</h2>
 		{#if props.project.subtitle}
 			<p
 				class="text-balance text-sm text-muted-foreground mix-blend-multiply transition-opacity duration-500 group-hover:opacity-0"

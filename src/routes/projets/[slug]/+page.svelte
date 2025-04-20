@@ -5,18 +5,16 @@
 	import { Badge } from '$lib/components/ui/badge/index.js';
 	import { Button } from '$lib/components/ui/button';
 	import ExternalLink from 'lucide-svelte/icons/external-link';
-	import { MetaTags } from 'svelte-meta-tags';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData | Record<string, any> } = $props();
 	let { project } = data;
 </script>
 
-<MetaTags
-	title={project?.seo.title ?? project.title}
-	description={project?.seo.meta_description ?? 'Découvrez ce projet! '}
-	titleTemplate="%s | Aristide BH"
-/>
+<svelte:head>
+	<title>{project?.seo.title} | Aristide BH</title>
+	<meta name="description" content={project?.seo.meta_description} />
+</svelte:head>
 
 <Section content={{ width: 'full-width' }}>
 	<Image item={project?.thumbnail!} loading="eager" class="aspect-project" />

@@ -5,7 +5,6 @@
 	import type { PageData } from '../$types';
 	import Logo from '$lib/components/layout/Logo.svelte';
 	import Section from '$lib/components/layout/Section.svelte';
-	import { MetaTags } from 'svelte-meta-tags';
 	import SectionNudge from '$lib/components/layout/SectionNudge.svelte';
 	import ContactMarquee from '$lib/components/layout/ContactMarquee.svelte';
 
@@ -20,12 +19,12 @@
 
 <svelte:head>
 	<meta name="robots" content="noindex" />
+	<title>Aristide BH | Maintenance</title>
+	<meta
+		name="description"
+		content={global.maintenance_title! + ' ' + global.maintenance_description}
+	/>
 </svelte:head>
-
-<MetaTags
-	title="Aristide BH | Maintenance"
-	description={global.maintenance_title! + ' ' + global.maintenance_description}
-/>
 
 <Section content={{ width: 'full-width' }} class=" !mb-0 !mt-56 gap-y-4 !p-0">
 	<Marqueeck
