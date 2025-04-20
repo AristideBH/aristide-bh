@@ -63,11 +63,11 @@
 			}
 		};
 
-		console.clear();
 		const x = calcValue(layerX, node.width, 'left', 'center', 'right');
-		console.log('🩺: x', x);
 		const y = calcValue(layerY, node.height, 'top', 'center', 'bottom');
-		console.log('🩺: y', y);
+		// console.clear();
+		// console.log('🩺: x', x);
+		// console.log('🩺: y', y);
 
 		if (x === 'center' && y !== 'center') {
 			return y;

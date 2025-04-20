@@ -21,7 +21,11 @@
 <svelte:window bind:scrollY bind:outerHeight={heightY} />
 
 <!-- UTILITIES -->
-<ModeWatcher darkClassNames={['dark', 'cc--darkmode']} />
+<ModeWatcher
+	darkClassNames={['dark', 'cc--darkmode']}
+	defaultMode={'system'}
+	themeColors={{ dark: 'dark', light: 'light' }}
+/>
 <Toaster />
 
 <!-- MARKUP -->
