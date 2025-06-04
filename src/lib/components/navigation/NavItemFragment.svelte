@@ -9,12 +9,21 @@
 	};
 
 	let { item, class: className, onclick }: Props = $props();
+	const homeLink = (url: string) => {
+		console.log(page.url.pathname);
+
+		if (page.url.pathname === '/') {
+			return url;
+		} else {
+			return '/' + url;
+		}
+	};
 </script>
 
 {#if item.type === 'url'}
 	<a
 		class={className ?? ''}
-		href={item.url}
+		href={homeLink(item.url!)}
 		target={item.open_in_new_tab ? '_blank' : ''}
 		class:active={page.url.pathname === item.url}
 		{...onclick ? { onclick } : {}}

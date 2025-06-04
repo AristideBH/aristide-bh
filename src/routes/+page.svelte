@@ -13,6 +13,7 @@
 	import Marqueeck, { type MarqueeckOptions } from '@arisbh/marqueeck';
 	import { onMount } from 'svelte';
 	import { quartOut } from 'svelte/easing';
+	import DirHover from '$lib/components/layout/DirHover.svelte';
 
 	let serviceSectionToggle = $state(false);
 
@@ -32,15 +33,17 @@
 	<meta name="description" content={home?.seo.meta_description} />
 </svelte:head>
 
-<Section class="z-50 scroll-mt-96 from-0% pt-10" content={{ width: 'full-width' }} id="home_header">
+<Section
+	class="z-50 scroll-mt-96 from-0% !pb-0 pt-10"
+	content={{ width: 'full-width' }}
+	id="home_header"
+>
 	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline ~text-6xl/9xl ~gap-4/8">
-		<MenuButton class="group grid -translate-y-[0.025em] ~text-6xl/9xl">
-			<!-- <Button role="status" variant="white" class="group aspect-logo h-full w-full cursor-default"> -->
-			<div class="grid aspect-logo place-items-center bg-white px-4">
+		<DirHover class="group bg-white">
+			<div class="z-50 grid aspect-logo place-items-center px-4">
 				<Logo class="transition-colors !~size-12/20 group-hover:fill-white" />
 			</div>
-			<!-- </Button> -->
-		</MenuButton>
+		</DirHover>
 
 		{data.global.project_name}
 	</AnimatedHeading>
@@ -77,7 +80,7 @@
 		<Image
 			item={home.img}
 			class="block-wrapper col-start-3 -col-end-1 me-auto h-fit max-w-80 shadow-lg"
-			loading="eager"
+			loading="lazy"
 		/>
 	{/if}
 </Section>

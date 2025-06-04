@@ -12,8 +12,13 @@
 </script>
 
 <svelte:head>
-	<title>{project?.seo.title} | Aristide BH</title>
-	<meta name="description" content={project?.seo.meta_description} />
+	<title>{project?.seo.title ? project?.seo.title : 'Projet'} | Aristide BH</title>
+	<meta
+		name="description"
+		content={project?.seo?.meta_description
+			? project?.seo?.meta_description
+			: 'Découvrir ce projet'}
+	/>
 </svelte:head>
 
 <Section content={{ width: 'full-width' }}>
