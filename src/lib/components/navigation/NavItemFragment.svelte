@@ -10,12 +10,10 @@
 
 	let { item, class: className, onclick }: Props = $props();
 	const homeLink = (url: string) => {
-		console.log(page.url.pathname);
-
 		if (page.url.pathname === '/') {
 			return url;
 		} else {
-			return '/' + url;
+			return 'http://localhost:5173' + url;
 		}
 	};
 </script>
@@ -43,7 +41,7 @@
 
 <style lang="postcss">
 	a {
-		@apply flex w-fit grow text-foreground hover:no-underline;
+		@apply flex w-fit grow font-heading text-foreground hover:no-underline;
 	}
 	a.active {
 		@apply flex flex-nowrap items-center gap-2;

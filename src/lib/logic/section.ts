@@ -18,7 +18,6 @@ export type SectionProps = {
     children: Snippet;
     content?: Partial<Collections.Section>
     id?: string;
-
 };
 
 // ViewTimeline
@@ -58,7 +57,7 @@ export const inView = (node: HTMLElement, params: Partial<InViewParams> = inView
     node.animate(translate(distance!).in, {
         fill: 'forwards',
         timeline,
-        // @ts-expect-error Rangestart not yet typed in
+        // @ts-expect-error Rangestart not yet typed
         rangeStart: 'entry 0%',
         rangeEnd: `cover ${trigger?.start}`,
     });
@@ -66,7 +65,7 @@ export const inView = (node: HTMLElement, params: Partial<InViewParams> = inView
     node.animate(translate(distance!).out, {
         fill: 'forwards',
         timeline,
-        // @ts-expect-error Rangestart not yet typed in
+        // @ts-expect-error Rangestart not yet typed
         rangeStart: `cover calc(100% - ${trigger?.end})`,
         rangeEnd: 'exit 100%'
     });

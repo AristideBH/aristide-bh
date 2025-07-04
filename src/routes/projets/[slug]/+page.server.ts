@@ -35,5 +35,4 @@ export const load = (async ({ params, fetch }) => {
         directusError(error);
     }
 
-    return {};
 }) satisfies PageServerLoad;

@@ -1,4 +1,5 @@
 import { client, directusError } from '$lib/logic/directus';
+import { formatText } from '$lib/logic/strings';
 import { readCategoriesItems, readHomepage } from '$lib/types/client';
 import type { PageServerLoad } from './$types';
 

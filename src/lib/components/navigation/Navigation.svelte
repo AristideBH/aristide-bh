@@ -4,7 +4,7 @@
 	import DesktopNav from './desktop/DesktopNav.svelte';
 	import MobileNav from './mobile/MobileNav.svelte';
 
-	const large = new MediaQuery('min-width: 620px');
+	const large = new MediaQuery('min-width: 860px');
 	const { headerNav: menu } = page.data;
 </script>
 

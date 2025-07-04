@@ -71,6 +71,7 @@
 		]
 	},
 	"dependencies": {
-		"@arisbh/marqueeck": "^0.5.1"
+		"@arisbh/marqueeck": "^0.5.1",
+		"jsdom": "^26.1.0"
 	}
 }

@@ -17,6 +17,7 @@ Props:
 	import { afterNavigate, beforeNavigate, disableScrollHandling } from '$app/navigation';
 	import { fly } from 'svelte/transition';
 	import { loading, loadingTimeout } from '$lib/logic/pageLoading.svelte';
+	import { page } from '$app/state';
 
 	type Props = {
 		children: Snippet;
@@ -45,9 +46,22 @@ Props:
 		}
 		$loading = false;
 		disableScrollHandling();
-		setTimeout(() => {
+
+		const hash = page.url.hash?.slice(1);
+
+		const scrollToHash = () => {
+			if (hash) {
+				const el = document.getElementById(hash);
+				if (el) {
+					el.scrollIntoView({ behavior: 'smooth' });
+					return;
+				}
+			}
+			// Fallback: scroll to top instantly
 			scrollTo({ top: 0, behavior: 'instant' });
-		}, duration);
+		};
+
+		setTimeout(scrollToHash, duration + (hash ? 100 : 0));
 	});
 </script>
 

@@ -6,7 +6,7 @@
 		@apply scroll-smooth;
 	}
 	body {
-		@apply bg-background from-primary/10 text-foreground flex min-h-screen w-screen flex-col overflow-x-clip bg-gradient-to-br;
+		@apply flex min-h-screen w-screen flex-col overflow-x-clip bg-background bg-gradient-to-br from-primary/10 text-foreground;
 		& > div:first-of-type {
 			@apply contents;
 		}
@@ -26,5 +26,9 @@
 
 	section.layout-full:not([data-template='inherit-main']) > figure {
 		@apply rounded-none;
+	}
+
+	#svelte-announcer {
+		@apply hidden;
 	}
 }

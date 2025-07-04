@@ -29,7 +29,7 @@
 </script>
 
 <header
-	class="sticky bottom-0 z-50 mt-auto border-t border-foreground/10 bg-background/70 py-6 backdrop-blur"
+	class="sticky bottom-0 z-50 mt-auto border-t border-foreground/10 bg-background/70 py-6 backdrop-blur-lg"
 	transition:clipPath={{ direction: 'DOWN', duration: 400, easing: quartOut }}
 >
 	{#if $loading}

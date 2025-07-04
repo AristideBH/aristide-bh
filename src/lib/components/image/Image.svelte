@@ -131,13 +131,13 @@ The component uses the `getFileInfos`, `getImgSrcSet`, `getImgUrl`, `getThumbhas
 		width: 100%;
 		height: 100%;
 		background-size: 100%;
-		transition: all ease-in-out 0.3s;
+		transition: filter ease-in-out 0.33s;
 		object-fit: cover;
 		max-height: 70dvh;
 	}
 
 	.not-loaded {
-		filter: blur(100px);
+		filter: blur(50px);
 	}
 
 	figcaption {
