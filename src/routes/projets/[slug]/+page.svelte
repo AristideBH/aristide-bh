@@ -9,6 +9,7 @@
 	import ExternalLink from 'lucide-svelte/icons/external-link';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
+	import Video from '$lib/components/image/Video.svelte';
 
 	let { data }: { data: PageData | Record<string, any> } = $props();
 	let { project } = data;
@@ -71,11 +72,16 @@
 		<div class="flex flex-col gap-y-12">
 			{#each project.gallery as image, id}
 				{@const topGap = (id + 1) * 2}
-				<Image
+				<!-- <Image
 					item={image.directus_files_id}
 					class="!sticky h-full max-h-[70dvh] border border-muted/20 shadow-lg"
 					style={`top: ${topGap}rem;`}
-				/>
+				/> -->
+				<Video
+					item={image.directus_files_id}
+					class="!sticky h-full max-h-[70dvh] border border-muted/20 shadow-lg"
+					style={`top: ${topGap}rem;`}
+				></Video>
 			{/each}
 		</div>
 	</Section>

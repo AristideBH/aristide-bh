@@ -40,6 +40,7 @@ const getFileInfos = async (client: DirectusClient, id: string) => {
                 'description',
                 'type'
 
+
             ]
         })
     )
@@ -63,6 +64,10 @@ const getImgSrcSet = (
     return srcSet.join(', ');
 }
 
+
+export const getVideoUrl = (id: string) => {
+    return `${assetBaseUrl}${id}`;
+}
 
 /**
  * Generates the URL for an image asset with optional transformations or a preset.
