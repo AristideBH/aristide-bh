@@ -397,7 +397,7 @@
         "collection": "projets",
         "icon": "tools_power_drill",
         "note": null,
-        "display_template": null,
+        "display_template": "{{thumbnail}}{{title}}",
         "hidden": false,
         "singleton": false,
         "translations": null,
@@ -23241,6 +23241,42 @@
       }
     },
     {
+      "collection": "homepage",
+      "field": "pinned_projects",
+      "type": "alias",
+      "schema": null,
+      "meta": {
+        "id": 189,
+        "collection": "homepage",
+        "field": "pinned_projects",
+        "special": [
+          "o2m"
+        ],
+        "interface": "list-o2m",
+        "options": {
+          "template": "{{title}}",
+          "enableCreate": false,
+          "filter": null,
+          "enableLink": true
+        },
+        "display": "raw",
+        "display_options": {
+          "template": "{{thumbnail}}{{title}}"
+        },
+        "readonly": false,
+        "hidden": false,
+        "sort": 9,
+        "width": "full",
+        "translations": null,
+        "note": null,
+        "conditions": null,
+        "required": false,
+        "group": null,
+        "validation": null,
+        "validation_message": null
+      }
+    },
+    {
       "collection": "categories",
       "field": "tags",
       "type": "alias",
@@ -23315,40 +23351,6 @@
         "interface": "list-o2m",
         "options": {
           "template": "{{title}}"
-        },
-        "display": null,
-        "display_options": null,
-        "readonly": false,
-        "hidden": false,
-        "sort": 9,
-        "width": "full",
-        "translations": null,
-        "note": null,
-        "conditions": null,
-        "required": false,
-        "group": null,
-        "validation": null,
-        "validation_message": null
-      }
-    },
-    {
-      "collection": "homepage",
-      "field": "pinned_projects",
-      "type": "alias",
-      "schema": null,
-      "meta": {
-        "id": 189,
-        "collection": "homepage",
-        "field": "pinned_projects",
-        "special": [
-          "o2m"
-        ],
-        "interface": "list-o2m",
-        "options": {
-          "template": "{{title}}",
-          "enableCreate": false,
-          "filter": null,
-          "enableLink": true
         },
         "display": null,
         "display_options": null,

@@ -16,6 +16,8 @@
     "note": null,
     "options": {
       "descriptionTemplate": "{{description}}",
+      "showSearchControls": true,
+      "showSitemap": true,
       "titleTemplate": "{{title}}"
     },
     "readonly": false,

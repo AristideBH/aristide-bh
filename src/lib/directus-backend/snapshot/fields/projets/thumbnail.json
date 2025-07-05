@@ -4,9 +4,27 @@
   "type": "uuid",
   "meta": {
     "collection": "projets",
-    "conditions": null,
-    "display": null,
-    "display_options": null,
+    "conditions": [
+      {
+        "name": "can be unset if draft",
+        "options": {
+          "crop": true,
+          "letterbox": false
+        },
+        "required": false,
+        "rule": {
+          "_and": [
+            {
+              "status": {
+                "_eq": "draft"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "display": "image",
+    "display_options": {},
     "field": "thumbnail",
     "group": null,
     "hidden": false,

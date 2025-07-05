@@ -8,7 +8,7 @@
     "collapse": "open",
     "collection": "projets",
     "color": null,
-    "display_template": null,
+    "display_template": "{{thumbnail}}{{title}}",
     "group": null,
     "hidden": false,
     "icon": "tools_power_drill",

@@ -12,7 +12,10 @@
     "hidden": false,
     "interface": "seo-interface",
     "note": null,
-    "options": null,
+    "options": {
+      "showSearchControls": true,
+      "showSitemap": true
+    },
     "readonly": false,
     "required": false,
     "sort": 12,

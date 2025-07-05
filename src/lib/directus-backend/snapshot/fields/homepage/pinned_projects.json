@@ -5,8 +5,10 @@
   "meta": {
     "collection": "homepage",
     "conditions": null,
-    "display": null,
-    "display_options": null,
+    "display": "raw",
+    "display_options": {
+      "template": "{{thumbnail}}{{title}}"
+    },
     "field": "pinned_projects",
     "group": null,
     "hidden": false,
