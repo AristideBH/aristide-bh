@@ -35,11 +35,7 @@
 </svelte:head>
 
 <Section content={{ template: 'inherit-main' }}>
-	<Image
-		item={project?.thumbnail!}
-		loading="eager"
-		class="aspect-project min-h-96 rounded-t-none"
-	/>
+	<Image item={project?.thumbnail!} loading="eager" class="aspect-video min-h-96 rounded-t-none" />
 	<div class="block-wrapper col-span-full flex flex-col gap-8">
 		<hgroup class=" flex flex-col gap-2">
 			<h1 style="--wght: 500;">{project?.title}</h1>

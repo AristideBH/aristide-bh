@@ -19,12 +19,7 @@
 
 	$effect(() => {
 		if (typeof id === 'string') {
-			getFileInfos(directus, id).then((data) => {
-				// fetchedFile = data;
-				type = data.type;
-			});
-		} else {
-			console.log(item);
+			getFileInfos(directus, id).then((data) => (type = data.type));
 		}
 	});
 </script>
