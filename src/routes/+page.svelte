@@ -6,14 +6,12 @@
 	import ProjectCard from '$lib/components/layout/ProjectCard.svelte';
 	import Section from '$lib/components/layout/Section.svelte';
 	import SectionNudge from '$lib/components/layout/SectionNudge.svelte';
-	import { Button } from '$lib/components/ui/button/index.js';
 	import { addClassesToParagraphs, formatText, frenchTypoRules } from '$lib/logic/strings.js';
 	import { clipPath } from '$lib/logic/transition';
 	import Marqueeck, { type MarqueeckOptions } from '@arisbh/marqueeck';
 	import { onMount } from 'svelte';
 	import { quartOut } from 'svelte/easing';
 	import DirHover from '$lib/components/layout/DirHover.svelte';
-	import { ChevronRight, ChevronsRight } from 'lucide-svelte';
 	import { browser } from '$app/environment';
 
 	let serviceSectionToggle = $state(false);
@@ -114,23 +112,6 @@
 			{/each}
 		</div>
 	{/if}
-
-	<!-- <Button class="mx-auto mt-6 w-full max-w-[16ch] px-0 shadow-lg" href="/projets">
-		<Marqueeck
-			hoverClasses="bg-secondary"
-			options={{ gap: 28, speed: 24, hoverSpeed: 100, brakeDuration: 1000 }}
-			extend={false}
-			class="transition-colors"
-			--marqueeck-bg-color="hsl(var(--muted))"
-			--marqueeck-text-color="hsl(var(--foreground))"
-			--marqueeck-padding-y="1rem"
-		>
-			<span class="text-md">En voir plus</span>
-			<svelte:fragment slot="separator">
-				<ChevronsRight />
-			</svelte:fragment>
-		</Marqueeck>
-	</Button> -->
 </Section>
 
 <!-- * Contact -->

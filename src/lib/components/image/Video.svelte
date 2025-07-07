@@ -44,7 +44,7 @@
 	});
 </script>
 
-<div class="video {className ?? ''}" {style}>
+<div class="video rounded {className ?? ''}" {style}>
 	<video playsinline controls muted class="js-player cursor-pointer object-cover">
 		<source src={url} type="video/mp4" />
 	</video>

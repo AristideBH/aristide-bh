@@ -18,7 +18,7 @@ export const load = (async ({ params, fetch }) => {
                     fields: [
                         "*",
                         { thumbnail: ["id"] },
-                        { tags: ["title"] },
+                        { tags: [{ tags_id: ["*"] }] },
                         { gallery: ["directus_files_id"] }
                     ]
                 }

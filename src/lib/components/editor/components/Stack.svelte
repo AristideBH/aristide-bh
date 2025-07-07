@@ -30,7 +30,7 @@
 
 <style>
 	:global(.block-wrapper p + p) {
-		margin-top: 0;
+		/* margin-top: 0; */
 	}
 	.block-wrapper:empty {
 		display: none;

@@ -9,7 +9,6 @@
 	import ExternalLink from 'lucide-svelte/icons/external-link';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
-	import Video from '$lib/components/image/Video.svelte';
 	import MediaDiscriminator from '$lib/components/image/MediaDiscriminator.svelte';
 
 	let { data }: { data: PageData | Record<string, any> } = $props();
@@ -39,7 +38,7 @@
 
 <Section content={{ template: 'inherit-main' }}>
 	<Image item={project?.thumbnail!} loading="eager" class=" min-h-[30rem] rounded-t-none" />
-	<div class="block-wrapper col-span-full mt-6 flex flex-col gap-8">
+	<div class="block-wrapper col-span-full flex flex-col gap-8">
 		<hgroup>
 			<h1 style="--wght: 500;">{project?.title}</h1>
 			<p class="text-balance font-mono italic text-primary">{@html subtitle}</p>
@@ -47,7 +46,7 @@
 		{#if project.tags?.length}
 			<div class=" flex flex-wrap gap-3">
 				{#each project.tags as tag}
-					<Badge variant="secondary" class="pointer-events-none">{tag.title}</Badge>
+					<Badge variant="secondary" class="pointer-events-none">{tag.tags_id.title}</Badge>
 				{/each}
 			</div>
 		{/if}
@@ -84,3 +83,9 @@
 	</p>
 	<ContactMarquee />
 </Section>
+
+<style>
+	:global(p + p) {
+		margin-top: 0.65em;
+	}
+</style>

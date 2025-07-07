@@ -50,14 +50,6 @@
 	{/await}
 {/snippet}
 
-{#snippet video(image: Collections.GalleryFiles)}
-	{#await getImgData(image.directus_files_id) then res}
-		{#if res}
-			<Image item={res} />
-		{/if}
-	{/await}
-{/snippet}
-
 <svelte:window bind:outerWidth />
 <pre>{JSON.stringify(content, null, 2)}</pre>
 
