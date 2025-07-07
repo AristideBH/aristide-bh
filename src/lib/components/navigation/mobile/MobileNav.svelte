@@ -19,15 +19,15 @@
 </script>
 
 <Drawer.Root bind:open={$isDrawerOpen}>
-	<Drawer.Trigger class="h-full w-12 ">
+	<Drawer.Trigger class="aspect-square h-full">
 		<MenuButton class="h-full !w-full shadow-xl">
-			<Button variant="white" aria-label="Open menu" class="h-full !w-full">
+			<Button variant="white" aria-label="Menu" class="h-full !w-full">
 				<Menu class="size-8" />
 			</Button>
 		</MenuButton>
 	</Drawer.Trigger>
 	<Drawer.Content class="max-h-full min-h-[33vh] ">
-		<Drawer.Header class="flex items-start gap-3 px-8 pt-8 text-left">
+		<!-- <Drawer.Header class="flex items-start gap-3 px-8 pt-8 text-left">
 			<a href="/" onclick={closeDrawer}>
 				<img
 					class="size-11"
@@ -42,13 +42,13 @@
 				<br />
 				<span class="small">{project_descriptor}</span>
 			</p>
-		</Drawer.Header>
-		<nav class=" flex flex-col gap-8 overflow-auto p-8 pb-28 text-3xl">
+		</Drawer.Header> -->
+		<nav class=" flex flex-col gap-8 overflow-auto p-8 pb-16 pt-12 text-3xl">
 			{#each menu.items as item}
 				{#if item.type === 'list'}
 					<NavItemSub {item} />
 				{:else}
-					<NavItemFragment {item} onclick={closeDrawer} class="!w-full" />
+					<NavItemFragment {item} onclick={closeDrawer} class="!w-full justify-center" />
 				{/if}
 			{/each}
 		</nav>

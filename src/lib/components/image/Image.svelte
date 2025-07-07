@@ -133,7 +133,7 @@ The component uses the `getFileInfos`, `getImgSrcSet`, `getImgUrl`, `getThumbhas
 		background-size: 100%;
 		transition: filter ease-in-out 0.33s;
 		object-fit: cover;
-		max-height: 70dvh;
+		max-height: 55dvh;
 	}
 
 	.not-loaded {

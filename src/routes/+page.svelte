@@ -22,18 +22,15 @@
 		gap: 46,
 		hoverSpeed: 150,
 		childStaggerDuration: 1000,
-
 		childStagger: true
 	};
 
-	onMount(() => (serviceSectionToggle = true));
-
 	let { data } = $props();
 	let { home, categories } = data;
-
 	let aboutText = $state('');
 	let contactText = $state('');
 
+	onMount(() => (serviceSectionToggle = true));
 	if (browser) {
 		onMount(() => {
 			const rawAbout = home?.presentation!;
@@ -51,14 +48,14 @@
 
 <!-- * Name -->
 <Section
-	class="z-50 scroll-mt-40 from-0% !pb-0 pt-10"
+	class="z-50 scroll-mt-32 from-0% !pb-0 pt-10"
 	content={{ width: 'full-width' }}
 	id="home_header"
 >
 	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline ~text-6xl/9xl ~gap-4/8">
 		<DirHover class="group bg-white">
 			<div class="z-50 grid aspect-logo place-items-center px-4">
-				<Logo class="transition-colors !~size-12/20 group-hover:fill-white" />
+				<Logo class="select-none transition-colors !~size-12/20 group-hover:fill-white" />
 			</div>
 		</DirHover>
 
@@ -69,7 +66,7 @@
 </Section>
 
 <!-- * Services -->
-<Section content={{ width: 'full-width' }} class="-my-16 min-h-[430px] scroll-mt-40" id="services">
+<Section content={{ width: 'full-width' }} class="-my-16 min-h-[430px] scroll-mt-32" id="services">
 	{#if serviceSectionToggle && categories}
 		<div
 			class="layout-full flex flex-col items-center gap-4 overflow-x-visible py-16"
@@ -89,7 +86,7 @@
 </Section>
 
 <!-- * About -->
-<Section content={{ template: 'inherit-main' }} class="scroll-mt-40 !p-0" id="about">
+<Section content={{ template: 'inherit-main' }} class="scroll-mt-32 !p-0" id="about">
 	{#if home?.presentation}
 		<div class="block-wrapper flex flex-col gap-4">
 			{@html aboutText}
@@ -105,7 +102,7 @@
 </Section>
 
 <!-- * Projects -->
-<Section id="projects" class="scroll-mt-40">
+<Section id="projects" class="scroll-mt-32">
 	{#if home?.nudge_project}
 		<SectionNudge>{home.nudge_project}</SectionNudge>
 	{/if}

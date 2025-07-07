@@ -93,16 +93,14 @@ const config: Config = {
 				'caret-blink': 'caret-blink 1.25s ease-out infinite'
 			},
 			aspectRatio: {
-				"project": '9/3',
+				"project": '9/4',
 				'4/3': '4/3',
 				'logo': '20/17'
 			},
 			gridTemplateRows: {
-				// Define the first 4 explicit rows
 				'explicit-rows': '1fr 1fr 1fr',
 			},
 			gridAutoRows: {
-				// Define the size for implicitly created rows
 				'1fr': '0.5fr',
 			}
 		},

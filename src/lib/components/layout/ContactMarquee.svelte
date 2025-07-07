@@ -22,7 +22,6 @@
 	--marqueeck-padding-y="1.5rem"
 	--marqueeck-bg-color="hsl(var(--primary))"
 	onClick={() => handleContact(mail)}
-	on:hover={(e) => (hovered = e.detail)}
 	hoverClasses="bg-foreground"
 >
 	<span class="font-heading font-semibold text-background ~text-4xl/6xl">

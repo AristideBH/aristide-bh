@@ -15,11 +15,14 @@
 	let { data }: { data: PageData | Record<string, any> } = $props();
 	let { project } = data;
 
+	let subtitle = $state('');
 	let description = $state('');
 	if (browser) {
 		onMount(() => {
 			const rawAbout = project?.description!;
 			description = formatText(rawAbout);
+			const rawSubtitle = project?.subtitle!;
+			subtitle = formatText(rawSubtitle);
 		});
 	}
 </script>
@@ -35,11 +38,11 @@
 </svelte:head>
 
 <Section content={{ template: 'inherit-main' }}>
-	<Image item={project?.thumbnail!} loading="eager" class="aspect-video min-h-96 rounded-t-none" />
-	<div class="block-wrapper col-span-full flex flex-col gap-8">
-		<hgroup class=" flex flex-col gap-2">
+	<Image item={project?.thumbnail!} loading="eager" class=" min-h-[30rem] rounded-t-none" />
+	<div class="block-wrapper col-span-full mt-6 flex flex-col gap-8">
+		<hgroup>
 			<h1 style="--wght: 500;">{project?.title}</h1>
-			<p class="font-mono italic text-primary">{project?.subtitle}</p>
+			<p class="text-balance font-mono italic text-primary">{@html subtitle}</p>
 		</hgroup>
 		{#if project.tags?.length}
 			<div class=" flex flex-wrap gap-3">
@@ -50,13 +53,11 @@
 		{/if}
 	</div>
 	{#if project.description}
-		<div class="block-wrapper !col-auto">
-			<div class="">{@html description}</div>
-		</div>
+		<div class="block-wrapper !col-auto">{@html description}</div>
 	{/if}
 	{#if project.site_url}
-		<div class="block-wrapper col-start-3">
-			<Button href={project.site_url} size={'lg'} target="_blank" class=" w-full">
+		<div class="block-wrapper sticky top-8 z-40 col-start-3 h-fit">
+			<Button href={project.site_url} size={'lg'} target="_blank" class=" w-full shadow-md">
 				Voir le site
 				<ExternalLink class="ml-1 size-4" />
 			</Button>
@@ -75,7 +76,7 @@
 	</Section>
 {/if}
 
-<Section content={{ width: 'full-width' }} class="pb-24">
+<Section content={{ width: 'full-width' }} class="pb-20">
 	<p class="lead pb-8">
 		Ce projet vous a plu ? Vous avez un projet similaire (ou pas) en tête ?
 		<br />

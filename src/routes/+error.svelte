@@ -10,11 +10,8 @@
 	const error = structuredClone(page.error);
 
 	const message = [
-		{ text: `${status}`, gap: 65, class: 'text-8xl pt-6 pb-4 mb-6' },
-		{ text: 'Une erreur', gap: 20, class: 'text-lg pt-4' },
-		{ text: "s'est", gap: 20, class: 'text-lg' },
-		{ text: 'produite', gap: 20, class: 'text-lg pb-4' },
-		{ text: `${status}`, gap: 65, class: 'text-8xl pt-6 pb-4 mt-6' }
+		{ text: `${status}`, gap: 65, class: 'text-8xl pt-6 pb-4 mb-2' },
+		{ text: "Une erreur s'est produite", gap: 20, class: 'text-lg py-2' }
 	];
 </script>
 
@@ -30,7 +27,7 @@
 </Section>
 
 <section class="flex flex-col">
-	<pre>{JSON.stringify(error, null, 2)}</pre>
+	<!-- <pre>{JSON.stringify(error, null, 2)}</pre> -->
 	<p class="lead text-balance">
 		Cette page semble ne pas exister !<br /> Reprenez depuis la <a href="/"> page d'accueil</a>.
 	</p>

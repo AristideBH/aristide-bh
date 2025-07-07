@@ -57,7 +57,7 @@
 	{#if props.project.thumbnail}
 		<Image
 			item={props.project.thumbnail}
-			class="pointer-events-none absolute inset-0 w-full object-cover"
+			class="pointer-events-none absolute inset-0 h-full w-full object-cover"
 		/>
 	{/if}
 
@@ -94,10 +94,9 @@
 	[data-glow] {
 		--x: 0px;
 		--y: 0px;
-		color: hsla(var(--foreground) / 50%);
 		background: radial-gradient(
 			circle at var(--x) var(--y),
-			hsla(var(--background) / 7.5%) 0%,
+			hsla(var(--primary) / 7.5%) 0%,
 			hsl(var(--card) / 90%) 85%
 		);
 	}
