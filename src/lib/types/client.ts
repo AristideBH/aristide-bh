@@ -380,7 +380,7 @@ export namespace Collections {
     title: Types.Optional<Types.String>;
     slug: Types.Optional<Types.String>;
     subtitle: Types.Optional<Types.String>;
-    tags: Collections.Tags[];
+    tags: Collections.ProjetsTags1[];
     description: Types.Optional<Types.String>;
     site_url: Types.Optional<Types.String>;
     thumbnail: Types.Optional<Types.UUID | Collections.DirectusFile>;
@@ -396,6 +396,25 @@ export namespace Collections {
     id: Types.PrimaryKey<Types.Integer>;
     projets_id: Types.Optional<Types.UUID | Collections.Projets>;
     directus_files_id: Types.Optional<Types.UUID | Collections.DirectusFile>;
+    sort: Types.Optional<Types.Integer>;
+  }
+
+  /**
+   * The projets tags collection.
+   */
+  export interface ProjetsTags {
+    id: Types.PrimaryKey<Types.Integer>;
+    projets_id: Types.Optional<Types.UUID | Collections.Projets>;
+    tags_id: Types.Optional<Types.UUID | Collections.Tags>;
+  }
+
+  /**
+   * The projets tags 1 collection.
+   */
+  export interface ProjetsTags1 {
+    id: Types.PrimaryKey<Types.Integer>;
+    projets_id: Types.Optional<Types.UUID | Collections.Projets>;
+    tags_id: Types.Optional<Types.UUID | Collections.Tags>;
     sort: Types.Optional<Types.Integer>;
   }
 
@@ -728,6 +747,16 @@ export interface Schema extends System {
    * The projets files collection.
    */
   projets_files: Collections.ProjetsFiles[];
+
+  /**
+   * The projets tags collection.
+   */
+  projets_tags: Collections.ProjetsTags[];
+
+  /**
+   * The projets tags 1 collection.
+   */
+  projets_tags_1: Collections.ProjetsTags1[];
 
   /**
    * The quote collection.
@@ -4383,6 +4412,607 @@ export class ProjetsFilesItem
 }
 
 /**
+ * Create many projets tags items.
+ */
+export function createProjetsTagsItems<
+  const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>,
+>(items: Partial<Collections.ProjetsTags>[], query?: Query) {
+  return DirectusSDK.createItems<Schema, "projets_tags", Query>(
+    "projets_tags",
+    items,
+    query,
+  );
+}
+
+/**
+ * Create a single projets tags item.
+ */
+export function createProjetsTagsItem<
+  const Query extends DirectusSDK.Query<Schema, Collections.ProjetsTags[]>, // Is this a mistake? Why []?
+>(item: Partial<Collections.ProjetsTags>, query?: Query) {
+  return DirectusSDK.createItem<Schema, "projets_tags", Query>(
+    "projets_tags",
+    item,
+    query,
+  );
+}
+
+/**
+ * Read many projets tags items.
+ */
+export function readProjetsTagsItems<
+  const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
+>(query?: Query) {
+  return DirectusSDK.readItems<Schema, "projets_tags", Query>(
+    "projets_tags",
+    query,
+  );
+}
+
+/**
+ * Read many projets tags items.
+ */
+export const listProjetsTags = readProjetsTagsItems;
+
+/**
+ * Gets a single known projets tags item by id.
+ */
+export function readProjetsTagsItem<
+  const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
+>(key: string | number, query?: Query) {
+  return DirectusSDK.readItem<Schema, "projets_tags", Query>(
+    "projets_tags",
+    key,
+    query,
+  );
+}
+
+/**
+ * Gets a single known projets tags item by id.
+ */
+export const readProjetsTags = readProjetsTagsItem;
+
+/**
+ * Read many projets tags items.
+ */
+export function updateProjetsTagsItems<
+  const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>,
+>(
+  keys: string[] | number[],
+  patch: Partial<Collections.ProjetsTags>,
+  query?: Query,
+) {
+  return DirectusSDK.updateItems<Schema, "projets_tags", Query>(
+    "projets_tags",
+    keys,
+    patch,
+    query,
+  );
+}
+
+/**
+ * Gets a single known projets tags item by id.
+ */
+export function updateProjetsTagsItem<
+  const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>,
+>(
+  key: string | number,
+  patch: Partial<Collections.ProjetsTags>,
+  query?: Query,
+) {
+  return DirectusSDK.updateItem<Schema, "projets_tags", Query>(
+    "projets_tags",
+    key,
+    patch,
+    query,
+  );
+}
+
+/**
+ * Deletes many projets tags items.
+ */
+export function deleteProjetsTagsItems<
+  const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>,
+>(keys: string[] | number[]) {
+  return DirectusSDK.deleteItems<Schema, "projets_tags", Query>(
+    "projets_tags",
+    keys,
+  );
+}
+
+/**
+ * Deletes a single known projets tags item by id.
+ */
+export function deleteProjetsTagsItem(key: string | number) {
+  return DirectusSDK.deleteItem<Schema, "projets_tags">("projets_tags", key);
+}
+
+export class ProjetsTagsItems
+  implements TypedCollectionItemsWrapper<Collections.ProjetsTags>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Creates many items in the collection.
+   */
+  async create<
+    const Query extends DirectusSDK.Query<Schema, Collections.ProjetsTags>,
+  >(
+    items: Partial<Collections.ProjetsTags>[],
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.ProjetsTags,
+      Query["fields"]
+    >[]
+  > {
+    return (await this.client.request(
+      createProjetsTagsItems(items, query as any),
+    )) as any; // Seems like a bug in the SDK.
+  }
+
+  /**
+   * Read many items from the collection.
+   */
+  async query<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
+  >(
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.ProjetsTags,
+      Query["fields"]
+    >[]
+  > {
+    return await this.client.request(readProjetsTagsItems(query));
+  }
+
+  /**
+   * Read the first item from the collection matching the query.
+   */
+  async find<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
+  >(
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.ProjetsTags,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    const items = await this.client.request(
+      readProjetsTagsItems({
+        ...query,
+        limit: 1,
+      }),
+    );
+    return items?.[0] as any; // TODO: fix
+  }
+
+  /**
+   * Update many items in the collection.
+   */
+  async update<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>,
+  >(
+    keys: string[] | number[],
+    patch: Partial<Collections.ProjetsTags>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.ProjetsTags,
+      Query["fields"]
+    >[]
+  > {
+    return await this.client.request(
+      updateProjetsTagsItems(keys, patch, query),
+    );
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
+  >(keys: string[] | number[]): Promise<void> {}
+}
+
+export class ProjetsTagsItem
+  implements TypedCollectionItemWrapper<Collections.ProjetsTags>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Create a single item in the collection.
+   */
+  async create<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
+  >(
+    item: Partial<Collections.ProjetsTags>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.ProjetsTags,
+      Query["fields"]
+    >
+  > {
+    return (await this.client.request(
+      createProjetsTagsItem(item, query as any),
+    )) as any;
+  }
+
+  /**
+   * Read a single item from the collection.
+   */
+  async get<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
+  >(
+    key: string | number,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.ProjetsTags,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    return await this.client.request(readProjetsTagsItem(key, query));
+  }
+
+  /**
+   * Update a single item from the collection.
+   */
+  async update<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
+  >(
+    key: string | number,
+    patch: Partial<Collections.ProjetsTags>,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.ProjetsTags,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    return (await this.client.request(
+      updateProjetsTagsItem(key, patch, query as any),
+    )) as any;
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
+  >(key: string | number): Promise<void> {
+    return await this.client.request(deleteProjetsTagsItem(key));
+  }
+}
+
+/**
+ * Create many projets tags 1 items.
+ */
+export function createProjetsTags1Items<
+  const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>,
+>(items: Partial<Collections.ProjetsTags1>[], query?: Query) {
+  return DirectusSDK.createItems<Schema, "projets_tags_1", Query>(
+    "projets_tags_1",
+    items,
+    query,
+  );
+}
+
+/**
+ * Create a single projets tags 1 item.
+ */
+export function createProjetsTags1Item<
+  const Query extends DirectusSDK.Query<Schema, Collections.ProjetsTags1[]>, // Is this a mistake? Why []?
+>(item: Partial<Collections.ProjetsTags1>, query?: Query) {
+  return DirectusSDK.createItem<Schema, "projets_tags_1", Query>(
+    "projets_tags_1",
+    item,
+    query,
+  );
+}
+
+/**
+ * Read many projets tags 1 items.
+ */
+export function readProjetsTags1Items<
+  const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
+>(query?: Query) {
+  return DirectusSDK.readItems<Schema, "projets_tags_1", Query>(
+    "projets_tags_1",
+    query,
+  );
+}
+
+/**
+ * Read many projets tags 1 items.
+ */
+export const listProjetsTags1 = readProjetsTags1Items;
+
+/**
+ * Gets a single known projets tags 1 item by id.
+ */
+export function readProjetsTags1Item<
+  const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
+>(key: string | number, query?: Query) {
+  return DirectusSDK.readItem<Schema, "projets_tags_1", Query>(
+    "projets_tags_1",
+    key,
+    query,
+  );
+}
+
+/**
+ * Gets a single known projets tags 1 item by id.
+ */
+export const readProjetsTags1 = readProjetsTags1Item;
+
+/**
+ * Read many projets tags 1 items.
+ */
+export function updateProjetsTags1Items<
+  const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>,
+>(
+  keys: string[] | number[],
+  patch: Partial<Collections.ProjetsTags1>,
+  query?: Query,
+) {
+  return DirectusSDK.updateItems<Schema, "projets_tags_1", Query>(
+    "projets_tags_1",
+    keys,
+    patch,
+    query,
+  );
+}
+
+/**
+ * Gets a single known projets tags 1 item by id.
+ */
+export function updateProjetsTags1Item<
+  const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>,
+>(
+  key: string | number,
+  patch: Partial<Collections.ProjetsTags1>,
+  query?: Query,
+) {
+  return DirectusSDK.updateItem<Schema, "projets_tags_1", Query>(
+    "projets_tags_1",
+    key,
+    patch,
+    query,
+  );
+}
+
+/**
+ * Deletes many projets tags 1 items.
+ */
+export function deleteProjetsTags1Items<
+  const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>,
+>(keys: string[] | number[]) {
+  return DirectusSDK.deleteItems<Schema, "projets_tags_1", Query>(
+    "projets_tags_1",
+    keys,
+  );
+}
+
+/**
+ * Deletes a single known projets tags 1 item by id.
+ */
+export function deleteProjetsTags1Item(key: string | number) {
+  return DirectusSDK.deleteItem<Schema, "projets_tags_1">(
+    "projets_tags_1",
+    key,
+  );
+}
+
+export class ProjetsTags1Items
+  implements TypedCollectionItemsWrapper<Collections.ProjetsTags1>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Creates many items in the collection.
+   */
+  async create<
+    const Query extends DirectusSDK.Query<Schema, Collections.ProjetsTags1>,
+  >(
+    items: Partial<Collections.ProjetsTags1>[],
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.ProjetsTags1,
+      Query["fields"]
+    >[]
+  > {
+    return (await this.client.request(
+      createProjetsTags1Items(items, query as any),
+    )) as any; // Seems like a bug in the SDK.
+  }
+
+  /**
+   * Read many items from the collection.
+   */
+  async query<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
+  >(
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.ProjetsTags1,
+      Query["fields"]
+    >[]
+  > {
+    return await this.client.request(readProjetsTags1Items(query));
+  }
+
+  /**
+   * Read the first item from the collection matching the query.
+   */
+  async find<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
+  >(
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.ProjetsTags1,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    const items = await this.client.request(
+      readProjetsTags1Items({
+        ...query,
+        limit: 1,
+      }),
+    );
+    return items?.[0] as any; // TODO: fix
+  }
+
+  /**
+   * Update many items in the collection.
+   */
+  async update<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>,
+  >(
+    keys: string[] | number[],
+    patch: Partial<Collections.ProjetsTags1>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.ProjetsTags1,
+      Query["fields"]
+    >[]
+  > {
+    return await this.client.request(
+      updateProjetsTags1Items(keys, patch, query),
+    );
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
+  >(keys: string[] | number[]): Promise<void> {}
+}
+
+export class ProjetsTags1Item
+  implements TypedCollectionItemWrapper<Collections.ProjetsTags1>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Create a single item in the collection.
+   */
+  async create<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
+  >(
+    item: Partial<Collections.ProjetsTags1>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.ProjetsTags1,
+      Query["fields"]
+    >
+  > {
+    return (await this.client.request(
+      createProjetsTags1Item(item, query as any),
+    )) as any;
+  }
+
+  /**
+   * Read a single item from the collection.
+   */
+  async get<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
+  >(
+    key: string | number,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.ProjetsTags1,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    return await this.client.request(readProjetsTags1Item(key, query));
+  }
+
+  /**
+   * Update a single item from the collection.
+   */
+  async update<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
+  >(
+    key: string | number,
+    patch: Partial<Collections.ProjetsTags1>,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.ProjetsTags1,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    return (await this.client.request(
+      updateProjetsTags1Item(key, patch, query as any),
+    )) as any;
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<
+    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
+  >(key: string | number): Promise<void> {
+    return await this.client.request(deleteProjetsTags1Item(key));
+  }
+}
+
+/**
  * Create many quote items.
  */
 export function createQuoteItems<
@@ -6315,6 +6945,26 @@ export type TypedClient = {
   projets_file: TypedCollectionItemWrapper<Collections.ProjetsFiles>;
 
   /**
+   * Manages multiple items from the ProjetsTags collection.
+   */
+  projets_tags: TypedCollectionItemsWrapper<Collections.ProjetsTags>;
+
+  /**
+   * Manages individual items from the ProjetsTags collection.
+   */
+  projets_tag: TypedCollectionItemWrapper<Collections.ProjetsTags>;
+
+  /**
+   * Manages multiple items from the ProjetsTags1 collection.
+   */
+  projets_tags_1s: TypedCollectionItemsWrapper<Collections.ProjetsTags1>;
+
+  /**
+   * Manages individual items from the ProjetsTags1 collection.
+   */
+  projets_tags_1: TypedCollectionItemWrapper<Collections.ProjetsTags1>;
+
+  /**
    * Manages multiple items from the Quote collection.
    */
   quotes: TypedCollectionItemsWrapper<Collections.Quote>;
@@ -6575,6 +7225,12 @@ export const schema = () => {
 
       ["projets_files", new ProjetsFilesItems(client as any)],
       ["projets_file", new ProjetsFilesItem(client as any)],
+
+      ["projets_tags", new ProjetsTagsItems(client as any)],
+      ["projets_tag", new ProjetsTagsItem(client as any)],
+
+      ["projets_tags_1s", new ProjetsTags1Items(client as any)],
+      ["projets_tags_1", new ProjetsTags1Item(client as any)],
 
       ["quotes", new QuoteItems(client as any)],
       ["quote", new QuoteItem(client as any)],

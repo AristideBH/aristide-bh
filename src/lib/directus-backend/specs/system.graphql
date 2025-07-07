@@ -283,6 +283,8 @@ type Subscription {
   categories_mutated(event: EventEnum): categories_mutated
   tags_mutated(event: EventEnum): tags_mutated
   projets_mutated(event: EventEnum): projets_mutated
+  projets_tags_mutated(event: EventEnum): projets_tags_mutated
+  projets_tags_1_mutated(event: EventEnum): projets_tags_1_mutated
 }
 
 """The `Boolean` scalar type represents `true` or `false`."""
@@ -1857,7 +1859,7 @@ type projets {
   seo_func: count_functions
   gallery(filter: projets_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets_files]
   gallery_func: count_functions
-  tags(filter: tags_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [tags]
+  tags(filter: projets_tags_1_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets_tags_1]
   tags_func: count_functions
 }
 
@@ -1878,6 +1880,31 @@ type projets_mutated {
   key: ID!
   event: EventEnum
   data: projets
+}
+
+type projets_tags {
+  id: ID!
+  projets_id(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): projets
+  tags_id(filter: tags_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): tags
+}
+
+type projets_tags_1 {
+  id: ID!
+  projets_id(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): projets
+  tags_id(filter: tags_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): tags
+  sort: Int
+}
+
+type projets_tags_1_mutated {
+  key: ID!
+  event: EventEnum
+  data: projets_tags_1
+}
+
+type projets_tags_mutated {
+  key: ID!
+  event: EventEnum
+  data: projets_tags
 }
 
 type quote {
@@ -3023,10 +3050,19 @@ input projets_filter {
   seo_func: count_function_filter_operators
   gallery: projets_files_filter
   gallery_func: count_function_filter_operators
-  tags: tags_filter
+  tags: projets_tags_1_filter
   tags_func: count_function_filter_operators
   _and: [projets_filter]
   _or: [projets_filter]
+}
+
+input projets_tags_1_filter {
+  id: number_filter_operators
+  projets_id: projets_filter
+  tags_id: tags_filter
+  sort: number_filter_operators
+  _and: [projets_tags_1_filter]
+  _or: [projets_tags_1_filter]
 }
 
 input quote_filter {
