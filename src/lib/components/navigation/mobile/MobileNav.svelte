@@ -43,12 +43,12 @@
 				<span class="small">{project_descriptor}</span>
 			</p>
 		</Drawer.Header> -->
-		<nav class=" flex flex-col gap-8 overflow-auto p-8 pb-16 pt-12 text-3xl">
+		<nav class=" flex flex-col items-center gap-8 overflow-auto p-8 pb-14 pt-12 text-3xl">
 			{#each menu.items as item}
 				{#if item.type === 'list'}
 					<NavItemSub {item} />
 				{:else}
-					<NavItemFragment {item} onclick={closeDrawer} class="!w-full justify-center" />
+					<NavItemFragment {item} onclick={closeDrawer} class="!w-fit" />
 				{/if}
 			{/each}
 		</nav>

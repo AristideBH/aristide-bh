@@ -197,3 +197,21 @@
 		@apply no-underline;
 	}
 }
+
+@layer components {
+	a.animate {
+		border-bottom-width: 0;
+		background-image:
+			linear-gradient(transparent, transparent),
+			linear-gradient(hsl(var(--primary)), hsl(var(--primary)));
+		background-size: 0 2px;
+		background-position: 0 100%;
+		background-repeat: no-repeat;
+		transition: background-size 0.2s ease-in-out;
+	}
+
+	a.animate:hover {
+		background-size: 100% 2px;
+		background-position: 0 100%;
+	}
+}

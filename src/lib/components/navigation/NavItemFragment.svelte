@@ -13,7 +13,7 @@
 
 {#if item.type === 'url'}
 	<a
-		class={className ?? ''}
+		class="{className ?? ''} animate"
 		href={item.url}
 		target={item.open_in_new_tab ? '_blank' : ''}
 		class:active={page.url.pathname === item.url}
@@ -23,7 +23,7 @@
 	</a>
 {:else if item.type === 'page' && typeof item.page != 'string'}
 	<a
-		class={className ?? ''}
+		class="{className ?? ''} animate"
 		href="/{item.page?.permalink}"
 		class:active={page.url.pathname.replace('/', '') === item.page?.permalink}
 		{...onclick ? { onclick } : {}}
@@ -54,21 +54,5 @@
 			content: '';
 			@apply absolute -bottom-1 right-1/2 mx-auto h-1 w-full max-w-[4px] origin-center translate-x-1/2 translate-y-1/2 scale-100;
 		}
-	}
-
-	a {
-		border-bottom-width: 0;
-		background-image:
-			linear-gradient(transparent, transparent),
-			linear-gradient(hsl(var(--primary)), hsl(var(--primary)));
-		background-size: 0 2px;
-		background-position: 0 100%;
-		background-repeat: no-repeat;
-		transition: background-size 0.2s ease-in-out;
-	}
-
-	a:hover {
-		background-size: 100% 2px;
-		background-position: 0 100%;
 	}
 </style>

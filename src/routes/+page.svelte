@@ -13,6 +13,7 @@
 	import { quartOut } from 'svelte/easing';
 	import DirHover from '$lib/components/layout/DirHover.svelte';
 	import { browser } from '$app/environment';
+	import { page } from '$app/state';
 
 	let serviceSectionToggle = $state(false);
 
@@ -90,12 +91,22 @@
 	{#if home?.presentation}
 		<div class="block-wrapper flex flex-col gap-4">
 			{@html aboutText}
+			<div class="mt-6 flex items-baseline gap-3">
+				<p class="text-secondary-foreground/70">Pour un peu plus d'infos :</p>
+				{#each page.data.footerNav.items as item}
+					<a
+						href={item.url}
+						class="animate text-lg text-foreground hover:no-underline"
+						target="_blank">{item.label}</a
+					>
+				{/each}
+			</div>
 		</div>
 	{/if}
 	{#if home?.img}
 		<Image
 			item={home.img}
-			class="block-wrapper col-start-3 -col-end-1 me-auto h-fit max-w-80 shadow-lg"
+			class="block-wrapper col-start-3 -col-end-1 mx-auto h-fit max-w-64 shadow-lg lg:mx-0 lg:max-w-none"
 			loading="lazy"
 		/>
 	{/if}
