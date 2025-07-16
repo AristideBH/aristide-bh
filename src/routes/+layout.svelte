@@ -5,6 +5,7 @@
 	import Main from '$lib/components/layout/Main.svelte';
 	import { Toaster } from '$lib/components/ui/sonner';
 	import { client, type DirectusClient } from '$lib/logic/directus';
+	import { UmamiAnalyticsEnv } from '@lukulent/svelte-umami';
 	import { ModeWatcher } from 'mode-watcher';
 	import { setContext } from 'svelte';
 	import '../app.pcss';
@@ -27,6 +28,7 @@
 	themeColors={{ dark: 'dark', light: 'light' }}
 />
 <Toaster />
+<UmamiAnalyticsEnv />
 
 <!-- MARKUP -->
 <Main transitionKey={data.pathName} options={{ duration: 100, y: 20, delta: 0 }}>

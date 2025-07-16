@@ -21,6 +21,9 @@ importers:
       '@lucide/svelte':
         specifier: ^0.501.0
         version: 0.501.0(svelte@5.28.1)
+      '@lukulent/svelte-umami':
+        specifier: ^0.0.4
+        version: 0.0.4(svelte@5.28.1)
       '@sveltejs/adapter-node':
         specifier: ^5.2.12
         version: 5.2.12(@sveltejs/kit@2.20.7(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.28.1)(vite@6.3.2(@types/node@22.14.1)(jiti@1.21.7)(yaml@2.7.1)))(svelte@5.28.1)(vite@6.3.2(@types/node@22.14.1)(jiti@1.21.7)(yaml@2.7.1)))
@@ -433,6 +436,11 @@ packages:
     resolution: {integrity: sha512-W3YWDyANY+Gi1wzf4JKK5bRYGqRQFAIDbNmMR1ujZ/TR+/jT+8rj9txn5XEuxygYn0ioEw5EcaVewDWSUOU/bg==}
     peerDependencies:
       svelte: ^5
+
+  '@lukulent/svelte-umami@0.0.4':
+    resolution: {integrity: sha512-LXmo0oa8lPg032gfqFQgRhEJgUDqgsOzyqPSXtJ2nKlUAYhsPbB0EXwgOjrj7+IfeiBEiq2c6vfv0VV5Jvv/PA==}
+    peerDependencies:
+      svelte: ^4.0.0 || ^5.0.0
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2259,6 +2267,11 @@ snapshots:
 
   '@lucide/svelte@0.501.0(svelte@5.28.1)':
     dependencies:
+      svelte: 5.28.1
+
+  '@lukulent/svelte-umami@0.0.4(svelte@5.28.1)':
+    dependencies:
+      esm-env: 1.2.2
       svelte: 5.28.1
 
   '@nodelib/fs.scandir@2.1.5':
