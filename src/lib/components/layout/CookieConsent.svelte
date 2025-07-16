@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Cookie } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import * as CookieConsent from 'vanilla-cookieconsent';
 	import 'vanilla-cookieconsent/dist/cookieconsent.css';
@@ -27,15 +28,9 @@
 						label: 'Google Analytics',
 						onAccept: () => {},
 						onReject: () => {}
-					},
-					another: {
-						label: 'Another service',
-						onAccept: () => {},
-						onReject: () => {}
 					}
 				}
-			},
-			ads: {}
+			}
 		},
 
 		onFirstConsent: ({ cookie }) => {
@@ -64,8 +59,8 @@
 
 		guiOptions: {
 			consentModal: {
-				layout: 'cloud inline',
-				position: 'bottom center',
+				layout: 'box inline',
+				position: 'top right',
 				equalWeightButtons: true,
 				flipButtons: true
 			},
@@ -77,52 +72,52 @@
 		},
 
 		language: {
-			default: 'en',
+			default: 'fr',
 			translations: {
-				en: {
+				fr: {
 					consentModal: {
-						title: 'We use cookies',
+						title: '🍪 Ce site utilise des cookies',
 						description:
-							'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-						acceptAllBtn: 'Accept all',
-						acceptNecessaryBtn: 'Reject all',
-						showPreferencesBtn: 'Manage Individual preferences',
+							'En acceptant, vous consentez à l’utilisation de cookie pour optimiser votre expérience de navigation. Vous pouvez modifier vos préférences ou retirer votre consentement à tout moment.',
+						acceptAllBtn: 'Tout accepter',
+						acceptNecessaryBtn: 'Tout refuser',
+						showPreferencesBtn: 'Gérer les préférences',
 						// closeIconLabel: 'Reject all and close modal',
 						footer: `
-							<a href="#path-to-impressum.html" target="_blank">Impressum</a>
-							<a href="#path-to-privacy-policy.html" target="_blank">Privacy Policy</a>
+							<a href="/mentions-legales" >Mentions légales</a>
+							<a href="/confidentialite" >Politique de confidentialité</a>
 					`
 					},
 					preferencesModal: {
-						title: 'Manage cookie preferences',
-						acceptAllBtn: 'Accept all',
-						acceptNecessaryBtn: 'Reject all',
-						savePreferencesBtn: 'Accept current selection',
-						closeIconLabel: 'Close modal',
+						title: 'Gérer les préférences',
+						acceptAllBtn: 'Tout accepter',
+						acceptNecessaryBtn: 'Tout refuser',
+						savePreferencesBtn: 'Accepter et enregistrer',
+						closeIconLabel: 'Fermer',
 						serviceCounterLabel: 'Service|Services',
 						sections: [
 							{
-								title: 'Your Privacy Choices',
+								title: 'Vos préférences de confidentialité',
 								description: `In this panel you can express some preferences related to the processing of your personal information. You may review and change expressed choices at any time by resurfacing this panel via the provided link. To deny your consent to the specific processing activities described below, switch the toggles to off or use the “Reject all” button and confirm you want to save your choices.`
 							},
 							{
-								title: 'Strictly Necessary',
+								title: 'Nécessaires',
 								description:
-									'These cookies are essential for the proper functioning of the website and cannot be disabled.',
+									'Ces cookies sont indispensables au bon fonctionnement du site et ne peuvent pas être désactivés. Ils sont généralement définis en réponse à des actions effectuées par vous, comme la définition de vos préférences de confidentialité, la connexion ou le remplissage de formulaires.',
 
 								//this field will generate a toggle linked to the 'necessary' category
 								linkedCategory: 'necessary'
 							},
 							{
-								title: 'Performance and Analytics',
+								title: 'Performances et analyses',
 								description:
-									'These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.',
+									"Ces cookies collectent des informations sur votre utilisation de notre site web, et me permettent d'optimiser son fonctionnement de manière informée. Toutes les données sont anonymisées et ne peuvent pas être utilisées pour vous identifier.",
 								linkedCategory: 'analytics',
 								cookieTable: {
-									caption: 'Cookie table',
+									caption: 'Données',
 									headers: {
 										name: 'Cookie',
-										domain: 'Domain',
+										domain: 'Domaine',
 										desc: 'Description'
 									},
 									body: [
@@ -139,16 +134,16 @@
 									]
 								}
 							},
+							// {
+							// 	title: 'Targeting and Advertising',
+							// 	description:
+							// 		'These cookies are used to make advertising messages more relevant to you and your interests. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.',
+							// 	linkedCategory: 'ads'
+							// },
 							{
-								title: 'Targeting and Advertising',
+								title: 'Informations complémentaires',
 								description:
-									'These cookies are used to make advertising messages more relevant to you and your interests. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.',
-								linkedCategory: 'ads'
-							},
-							{
-								title: 'More information',
-								description:
-									'For any queries in relation to my policy on cookies and your choices, please <a href="#contact-page">contact us</a>'
+									'Pour toute question relative à la gestion en matière de cookies, veuillez <a href="#contact-page">me contacter</a>.'
 							}
 						]
 					}
@@ -162,5 +157,6 @@
 	 */
 	onMount(() => {
 		CookieConsent.run(config);
+		// CookieConsent.showPreferences();
 	});
 </script>

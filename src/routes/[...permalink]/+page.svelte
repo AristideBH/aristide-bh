@@ -4,7 +4,7 @@
 	let { page, editor } = data;
 </script>
 
-<pre>{JSON.stringify(page.seo, null, 2)}</pre>
+<!-- <pre>{JSON.stringify(page.seo, null, 2)}</pre> -->
 
 <svelte:head>
 	<title>{page?.seo.title}</title>

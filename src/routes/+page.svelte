@@ -106,7 +106,7 @@
 	{#if home?.img}
 		<Image
 			item={home.img}
-			class="block-wrapper col-start-3 -col-end-1 mx-auto h-fit max-w-64 shadow-lg lg:mx-0 lg:max-w-none"
+			class="block-wrapper col-start-3 -col-end-1  h-fit max-w-64 shadow-lg lg:mx-0 lg:max-w-none"
 			loading="lazy"
 		/>
 	{/if}
