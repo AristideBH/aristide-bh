@@ -48,10 +48,11 @@
 					<Logo class="!size-10 transition-all group-hover:fill-white" />
 				</Button>
 			</MenuButton>
-			<p class="hidden leading-4 sm:block">
+			<p class="leading-4">
 				<span class="font-heading text-2xl font-extrabold">{project_name}</span>
 				<br />
-				<span class="small font-mono italic text-primary">{project_descriptor}</span>
+				<span class="small hidden font-mono italic text-primary sm:block">{project_descriptor}</span
+				>
 			</p>
 		</div>
 		<Navigation />

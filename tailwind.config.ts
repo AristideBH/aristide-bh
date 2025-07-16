@@ -94,6 +94,7 @@ const config: Config = {
 			},
 			aspectRatio: {
 				"project": '9/4',
+				"projectMin": '89/55',
 				'4/3': '4/3',
 				'logo': '20/17'
 			},

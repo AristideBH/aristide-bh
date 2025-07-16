@@ -50,7 +50,7 @@
 	bind:offsetHeight={linkHeight}
 	transition:slide={{ axis: 'y', duration: 500, easing: quartOut }}
 	href="/projets/{props.project.slug}"
-	class="group relative aspect-project h-full w-full overflow-hidden rounded border bg-card text-card-foreground no-underline shadow-lg
+	class="group relative aspect-projectMin h-full w-full overflow-hidden rounded border bg-card text-card-foreground no-underline shadow-lg md:aspect-project
 	{props.class ?? ''} "
 	{...props}
 >

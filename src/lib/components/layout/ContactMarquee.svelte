@@ -18,7 +18,7 @@
 
 <Marqueeck
 	options={{ speed: 43, direction: 'left', gap: 56 }}
-	class="layout-full z-50 -rotate-3"
+	class="layout-full z-50 -rotate-3 transition-colors"
 	--marqueeck-padding-y="1.5rem"
 	--marqueeck-bg-color="hsl(var(--primary))"
 	onClick={() => handleContact(mail)}

@@ -52,8 +52,10 @@
 >
 	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline ~text-6xl/9xl ~gap-4/8">
 		<DirHover class="group bg-white">
-			<div class="z-50 grid aspect-logo place-items-center px-4">
-				<Logo class="select-none transition-colors !~size-12/20 group-hover:fill-white" />
+			<div class="pointer-events-none z-50 grid aspect-logo select-none place-items-center px-4">
+				<Logo
+					class="pointer-events-none select-none transition-colors !~size-12/20 group-hover:fill-white"
+				/>
 			</div>
 		</DirHover>
 
