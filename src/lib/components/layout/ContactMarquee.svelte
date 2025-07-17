@@ -2,6 +2,7 @@
 	import { handleContact } from '$lib/logic/email';
 	import { clipPath } from '$lib/logic/transition';
 	import Marqueeck from '@arisbh/marqueeck';
+	import { toast } from 'svelte-sonner';
 
 	const mail = 'hello@aristide-bh.com';
 	let hovered = $state(false);
@@ -21,7 +22,18 @@
 	class="layout-full z-50 -rotate-3 transition-all"
 	--marqueeck-padding-y="1.5rem"
 	--marqueeck-bg-color="hsl(var(--primary))"
-	onClick={() => handleContact(mail)}
+	onClick={() => {
+		navigator.clipboard.writeText(mail);
+		toast.success('Email copié', {
+			action: {
+				label: 'Utiliser votre messagerie',
+				onClick: () => handleContact(mail)
+			}
+		});
+		// setTimeout(() => {
+		// 	handleContact(mail);
+		// }, 500);
+	}}
 	hoverClasses="bg-foreground drop-shadow-glow"
 >
 	<span class="font-heading font-semibold text-background ~text-4xl/6xl">
