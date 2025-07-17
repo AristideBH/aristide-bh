@@ -11,6 +11,7 @@
 	import SectionNudge from '$lib/components/layout/SectionNudge.svelte';
 	import { addClassesToParagraphs, formatText, frenchTypoRules } from '$lib/logic/strings.js';
 	import { clipPath } from '$lib/logic/transition';
+	import { shuffleArray } from '$lib/logic/utils.js';
 	import Marqueeck, { type MarqueeckOptions } from '@arisbh/marqueeck';
 	import { onMount } from 'svelte';
 	import { quartOut } from 'svelte/easing';
@@ -28,29 +29,17 @@
 	let { home, categories } = data;
 	let aboutText = $state('');
 	let contactText = $state('');
+
 	let wall_imgs_pools = $derived.by(() => {
 		if (!home?.projects_wall) return [[], []];
-		const ids = [...home.projects_wall].map((item) => item.directus_files_id);
+		const ids = home.projects_wall.map((item) => item.directus_files_id);
+		const shuffled = shuffleArray(ids);
 
-		// Fisher-Yates shuffle
-		for (let i = ids.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
-			[ids[i], ids[j]] = [ids[j], ids[i]];
-		}
+		const pool1: any[] = [],
+			pool2: any[] = [];
+		shuffled.forEach((id, i) => (i % 2 === 0 ? pool1.push(id) : pool2.push(id)));
 
-		const pool1: any[] = [];
-		const pool2: any[] = [];
-		ids.forEach((id, i) => (i % 2 === 0 ? pool1.push(id) : pool2.push(id)));
-
-		// Optionally shuffle each pool again
-		for (let arr of [pool1, pool2]) {
-			for (let i = arr.length - 1; i > 0; i--) {
-				const j = Math.floor(Math.random() * (i + 1));
-				[arr[i], arr[j]] = [arr[j], arr[i]];
-			}
-		}
-
-		return [pool1, pool2];
+		return [shuffleArray(pool1), shuffleArray(pool2)];
 	});
 
 	onMount(() => (serviceSectionToggle = true));
@@ -172,7 +161,7 @@
 					--marqueeck-bg-color="transparent"
 				>
 					{#each pool as item}
-						<Image loading="lazy" {item} preset="320" class="max-h-36 !w-52 [&>img]:shadow-lg" />
+						<Image {item} loading="lazy" preset="320" class="max-h-36 !w-52 [&>img]:shadow-lg" />
 					{/each}
 				</Marqueeck>
 			{/each}
