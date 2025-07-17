@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
+	import { page } from '$app/state';
 	import AnimatedHeading from '$lib/components/editor/components/AnimatedHeading.svelte';
 	import Image from '$lib/components/image/Image.svelte';
 	import ContactMarquee from '$lib/components/layout/ContactMarquee.svelte';
+	import DirHover from '$lib/components/layout/DirHover.svelte';
 	import Logo from '$lib/components/layout/Logo.svelte';
 	import ProjectCard from '$lib/components/layout/ProjectCard.svelte';
 	import Section from '$lib/components/layout/Section.svelte';
@@ -11,9 +14,6 @@
 	import Marqueeck, { type MarqueeckOptions } from '@arisbh/marqueeck';
 	import { onMount } from 'svelte';
 	import { quartOut } from 'svelte/easing';
-	import DirHover from '$lib/components/layout/DirHover.svelte';
-	import { browser } from '$app/environment';
-	import { page } from '$app/state';
 
 	let serviceSectionToggle = $state(false);
 
@@ -28,6 +28,30 @@
 	let { home, categories } = data;
 	let aboutText = $state('');
 	let contactText = $state('');
+	let wall_imgs_pools = $derived.by(() => {
+		if (!home?.projects_wall) return [[], []];
+		const ids = [...home.projects_wall].map((item) => item.directus_files_id);
+
+		// Fisher-Yates shuffle
+		for (let i = ids.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[ids[i], ids[j]] = [ids[j], ids[i]];
+		}
+
+		const pool1: any[] = [];
+		const pool2: any[] = [];
+		ids.forEach((id, i) => (i % 2 === 0 ? pool1.push(id) : pool2.push(id)));
+
+		// Optionally shuffle each pool again
+		for (let arr of [pool1, pool2]) {
+			for (let i = arr.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[arr[i], arr[j]] = [arr[j], arr[i]];
+			}
+		}
+
+		return [pool1, pool2];
+	});
 
 	onMount(() => (serviceSectionToggle = true));
 	if (browser) {
@@ -106,7 +130,7 @@
 	{#if home?.img}
 		<Image
 			item={home.img}
-			class="block-wrapper col-start-3 -col-end-1  h-fit max-w-64 shadow-lg lg:mx-0 lg:max-w-none"
+			class="block-wrapper col-start-3 -col-end-1 h-fit max-w-64 shadow-lg lg:mx-0 lg:max-w-none"
 			loading="lazy"
 		/>
 	{/if}
@@ -127,8 +151,37 @@
 	{/if}
 </Section>
 
+<!-- * Projects Wall -->
+{#if home?.projects_wall}
+	<Section content={{ width: 'full-width' }} class="-mt-16 scroll-mt-32" id="projects_wall">
+		<div
+			class="layout-full flex flex-col items-center gap-3 overflow-x-visible"
+			transition:clipPath={{ direction: 'LEFT', duration: 400, easing: quartOut }}
+		>
+			{#each wall_imgs_pools as pool, i}
+				<Marqueeck
+					options={{
+						...options,
+						speed: 45 * (i + 0.5),
+						gap: 12,
+						brakeDuration: 1000,
+						hoverSpeed: 20
+					}}
+					class="-rotate-3"
+					--marqueeck-padding-y="0px"
+					--marqueeck-bg-color="transparent"
+				>
+					{#each pool as item}
+						<Image loading="lazy" {item} preset="320" class="max-h-36 !w-52 [&>img]:shadow-lg" />
+					{/each}
+				</Marqueeck>
+			{/each}
+		</div>
+	</Section>
+{/if}
+
 <!-- * Contact -->
-<Section content={{ width: 'full-width' }} class="pb-24" id="contact">
+<Section content={{ width: 'full-width' }} class="-mt-8 pb-24" id="contact">
 	{#if home?.contact_text}
 		{@html contactText}
 	{/if}

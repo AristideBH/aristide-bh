@@ -103,6 +103,12 @@ const config: Config = {
 			},
 			gridAutoRows: {
 				'1fr': '0.5fr',
+			},
+			dropShadow: {
+				glow: [
+					"0 0px 10px hsl(var(--primary) / 0.8)",
+					"0 0px 32px hsl(var(--primary) / 0.2)"
+				]
 			}
 		},
 		screens,

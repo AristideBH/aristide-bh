@@ -39,6 +39,6 @@
 	<Header />
 {/if}
 
-{#if !data.global.maintenance_state}
+<!-- {#if !data.global.maintenance_state}
 	<CookieConsent />
-{/if}
+{/if} -->

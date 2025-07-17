@@ -97,7 +97,7 @@ The component uses the `getFileInfos`, `getImgSrcSet`, `getImgUrl`, `getThumbhas
 <figure class={`${className ?? ''}`} bind:this={imgContainer} bind:offsetWidth={elWidth} {style}>
 	<img
 		{src}
-		{srcset}
+		srcset={!src ? srcset : ''}
 		{loading}
 		alt={alt || fetchedFile?.description || ''}
 		title={title || fetchedFile?.title || ''}
@@ -133,7 +133,6 @@ The component uses the `getFileInfos`, `getImgSrcSet`, `getImgUrl`, `getThumbhas
 		background-size: 100%;
 		transition: filter ease-in-out 0.33s;
 		object-fit: cover;
-		max-height: 55dvh;
 	}
 
 	.not-loaded {

@@ -16,11 +16,12 @@ export const load = (async ({ fetch }) => {
                     { pinned_projects: ['*'] },
                     'contact_text',
                     'contact_nudge',
-                    'projects_wall',
+                    { projects_wall: ['directus_files_id'] },
                     'seo'
                 ],
             })
         );
+
         const categories = await directus.request(
             readCategoriesItems({
                 fields: [{ tags: ['title'] }, 'speed'],

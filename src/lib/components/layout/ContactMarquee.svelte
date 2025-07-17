@@ -18,11 +18,11 @@
 
 <Marqueeck
 	options={{ speed: 43, direction: 'left', gap: 56 }}
-	class="layout-full z-50 -rotate-3 transition-colors"
+	class="layout-full z-50 -rotate-3 transition-all"
 	--marqueeck-padding-y="1.5rem"
 	--marqueeck-bg-color="hsl(var(--primary))"
 	onClick={() => handleContact(mail)}
-	hoverClasses="bg-foreground"
+	hoverClasses="bg-foreground drop-shadow-glow"
 >
 	<span class="font-heading font-semibold text-background ~text-4xl/6xl">
 		{mail}
