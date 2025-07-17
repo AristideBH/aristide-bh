@@ -33,7 +33,7 @@
     "options": null,
     "readonly": false,
     "required": true,
-    "sort": 12,
+    "sort": 4,
     "special": [
       "file"
     ],

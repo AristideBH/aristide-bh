@@ -641,6 +641,30 @@
     "_syncId": "e6d9425e-7131-4ba7-9a46-fd3fd391ab86"
   },
   {
+    "collection": "projets_tags_1",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "abf8a154-5b1c-4a46-ac9c-7300570f4f17",
+    "_syncId": "67884fe5-b8f5-4ed8-84ad-1d3e3358d2c3"
+  },
+  {
+    "collection": "projets_tags",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "abf8a154-5b1c-4a46-ac9c-7300570f4f17",
+    "_syncId": "6c950d28-3b6c-4378-b25e-9df413ff3b81"
+  },
+  {
     "collection": "projets",
     "action": "read",
     "permissions": null,

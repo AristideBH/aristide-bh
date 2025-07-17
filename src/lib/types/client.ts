@@ -298,9 +298,19 @@ export namespace Collections {
     img: Types.Optional<Types.UUID | Collections.DirectusFile>;
     nudge_project: Types.Optional<Types.String>;
     pinned_projects: Collections.Projets[];
+    projects_wall: Collections.HomepageFiles[];
     contact_text: Types.Optional<Types.String>;
     contact_nudge: Types.Optional<Types.String>;
     seo: Types.Optional<Types.JSON | Types.JSON>;
+  }
+
+  /**
+   * The homepage files collection.
+   */
+  export interface HomepageFiles {
+    id: Types.PrimaryKey<Types.Integer>;
+    homepage_id: Types.Optional<Types.UUID | Collections.Homepage>;
+    directus_files_id: Types.Optional<Types.UUID | Collections.DirectusFile>;
   }
 
   /**
@@ -375,6 +385,7 @@ export namespace Collections {
     id: Types.PrimaryKey<Types.UUID>;
     status: "archived" | "draft" | "published" | Types.String;
     sort: Types.Optional<Types.Integer>;
+    thumbnail: Types.Optional<Types.UUID | Collections.DirectusFile>;
     date_created: Types.Optional<Types.DateTime>;
     date_updated: Types.Optional<Types.DateTime>;
     title: Types.Optional<Types.String>;
@@ -383,7 +394,6 @@ export namespace Collections {
     tags: Collections.ProjetsTags1[];
     description: Types.Optional<Types.String>;
     site_url: Types.Optional<Types.String>;
-    thumbnail: Types.Optional<Types.UUID | Collections.DirectusFile>;
     gallery: Collections.ProjetsFiles[];
     seo: Types.Optional<Types.JSON | Types.JSON>;
     pinned: Types.Optional<Types.UUID | Collections.Homepage>;
@@ -712,6 +722,11 @@ export interface Schema extends System {
    * The homepage collection.
    */
   homepage: Collections.Homepage;
+
+  /**
+   * The homepage files collection.
+   */
+  homepage_files: Collections.HomepageFiles[];
 
   /**
    * The image collection.
@@ -2586,6 +2601,308 @@ export function readHomepage<
  * Reads the homepage singleton.
  */
 export const getHomepage = readHomepage;
+
+/**
+ * Create many homepage files items.
+ */
+export function createHomepageFilesItems<
+  const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>,
+>(items: Partial<Collections.HomepageFiles>[], query?: Query) {
+  return DirectusSDK.createItems<Schema, "homepage_files", Query>(
+    "homepage_files",
+    items,
+    query,
+  );
+}
+
+/**
+ * Create a single homepage files item.
+ */
+export function createHomepageFilesItem<
+  const Query extends DirectusSDK.Query<Schema, Collections.HomepageFiles[]>, // Is this a mistake? Why []?
+>(item: Partial<Collections.HomepageFiles>, query?: Query) {
+  return DirectusSDK.createItem<Schema, "homepage_files", Query>(
+    "homepage_files",
+    item,
+    query,
+  );
+}
+
+/**
+ * Read many homepage files items.
+ */
+export function readHomepageFilesItems<
+  const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
+>(query?: Query) {
+  return DirectusSDK.readItems<Schema, "homepage_files", Query>(
+    "homepage_files",
+    query,
+  );
+}
+
+/**
+ * Read many homepage files items.
+ */
+export const listHomepageFiles = readHomepageFilesItems;
+
+/**
+ * Gets a single known homepage files item by id.
+ */
+export function readHomepageFilesItem<
+  const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
+>(key: string | number, query?: Query) {
+  return DirectusSDK.readItem<Schema, "homepage_files", Query>(
+    "homepage_files",
+    key,
+    query,
+  );
+}
+
+/**
+ * Gets a single known homepage files item by id.
+ */
+export const readHomepageFiles = readHomepageFilesItem;
+
+/**
+ * Read many homepage files items.
+ */
+export function updateHomepageFilesItems<
+  const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>,
+>(
+  keys: string[] | number[],
+  patch: Partial<Collections.HomepageFiles>,
+  query?: Query,
+) {
+  return DirectusSDK.updateItems<Schema, "homepage_files", Query>(
+    "homepage_files",
+    keys,
+    patch,
+    query,
+  );
+}
+
+/**
+ * Gets a single known homepage files item by id.
+ */
+export function updateHomepageFilesItem<
+  const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>,
+>(
+  key: string | number,
+  patch: Partial<Collections.HomepageFiles>,
+  query?: Query,
+) {
+  return DirectusSDK.updateItem<Schema, "homepage_files", Query>(
+    "homepage_files",
+    key,
+    patch,
+    query,
+  );
+}
+
+/**
+ * Deletes many homepage files items.
+ */
+export function deleteHomepageFilesItems<
+  const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>,
+>(keys: string[] | number[]) {
+  return DirectusSDK.deleteItems<Schema, "homepage_files", Query>(
+    "homepage_files",
+    keys,
+  );
+}
+
+/**
+ * Deletes a single known homepage files item by id.
+ */
+export function deleteHomepageFilesItem(key: string | number) {
+  return DirectusSDK.deleteItem<Schema, "homepage_files">(
+    "homepage_files",
+    key,
+  );
+}
+
+export class HomepageFilesItems
+  implements TypedCollectionItemsWrapper<Collections.HomepageFiles>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Creates many items in the collection.
+   */
+  async create<
+    const Query extends DirectusSDK.Query<Schema, Collections.HomepageFiles>,
+  >(
+    items: Partial<Collections.HomepageFiles>[],
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.HomepageFiles,
+      Query["fields"]
+    >[]
+  > {
+    return (await this.client.request(
+      createHomepageFilesItems(items, query as any),
+    )) as any; // Seems like a bug in the SDK.
+  }
+
+  /**
+   * Read many items from the collection.
+   */
+  async query<
+    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
+  >(
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.HomepageFiles,
+      Query["fields"]
+    >[]
+  > {
+    return await this.client.request(readHomepageFilesItems(query));
+  }
+
+  /**
+   * Read the first item from the collection matching the query.
+   */
+  async find<
+    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
+  >(
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.HomepageFiles,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    const items = await this.client.request(
+      readHomepageFilesItems({
+        ...query,
+        limit: 1,
+      }),
+    );
+    return items?.[0] as any; // TODO: fix
+  }
+
+  /**
+   * Update many items in the collection.
+   */
+  async update<
+    const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>,
+  >(
+    keys: string[] | number[],
+    patch: Partial<Collections.HomepageFiles>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.HomepageFiles,
+      Query["fields"]
+    >[]
+  > {
+    return await this.client.request(
+      updateHomepageFilesItems(keys, patch, query),
+    );
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<
+    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
+  >(keys: string[] | number[]): Promise<void> {}
+}
+
+export class HomepageFilesItem
+  implements TypedCollectionItemWrapper<Collections.HomepageFiles>
+{
+  /**
+   *
+   */
+  constructor(
+    private client: Directus.DirectusClient<Schema> &
+      Directus.RestClient<Schema>,
+  ) {}
+
+  /**
+   * Create a single item in the collection.
+   */
+  async create<
+    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
+  >(
+    item: Partial<Collections.HomepageFiles>,
+    query?: Query,
+  ): Promise<
+    DirectusSDK.ApplyQueryFields<
+      Schema,
+      Collections.HomepageFiles,
+      Query["fields"]
+    >
+  > {
+    return (await this.client.request(
+      createHomepageFilesItem(item, query as any),
+    )) as any;
+  }
+
+  /**
+   * Read a single item from the collection.
+   */
+  async get<
+    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
+  >(
+    key: string | number,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.HomepageFiles,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    return await this.client.request(readHomepageFilesItem(key, query));
+  }
+
+  /**
+   * Update a single item from the collection.
+   */
+  async update<
+    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
+  >(
+    key: string | number,
+    patch: Partial<Collections.HomepageFiles>,
+    query?: Query,
+  ): Promise<
+    | DirectusSDK.ApplyQueryFields<
+        Schema,
+        Collections.HomepageFiles,
+        Query["fields"]
+      >
+    | undefined
+  > {
+    return (await this.client.request(
+      updateHomepageFilesItem(key, patch, query as any),
+    )) as any;
+  }
+
+  /**
+   * Remove many items in the collection.
+   */
+  async remove<
+    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
+  >(key: string | number): Promise<void> {
+    return await this.client.request(deleteHomepageFilesItem(key));
+  }
+}
 
 /**
  * Create many image items.
@@ -6875,6 +7192,16 @@ export type TypedClient = {
   >;
 
   /**
+   * Manages multiple items from the HomepageFiles collection.
+   */
+  homepage_files: TypedCollectionItemsWrapper<Collections.HomepageFiles>;
+
+  /**
+   * Manages individual items from the HomepageFiles collection.
+   */
+  homepage_file: TypedCollectionItemWrapper<Collections.HomepageFiles>;
+
+  /**
    * Manages multiple items from the Image collection.
    */
   images: TypedCollectionItemsWrapper<Collections.Image>;
@@ -7204,6 +7531,9 @@ export const schema = () => {
           return client.request(readHomepage(query));
         },
       ],
+
+      ["homepage_files", new HomepageFilesItems(client as any)],
+      ["homepage_file", new HomepageFilesItem(client as any)],
 
       ["images", new ImageItems(client as any)],
       ["image", new ImageItem(client as any)],

@@ -1,25 +1,23 @@
 {
-  "collection": "projets",
-  "field": "tags",
+  "collection": "homepage",
+  "field": "projects_wall",
   "type": "alias",
   "meta": {
-    "collection": "projets",
+    "collection": "homepage",
     "conditions": null,
-    "display": "related-values",
-    "display_options": {
-      "template": "{{tags_id.title}}"
-    },
-    "field": "tags",
+    "display": null,
+    "display_options": null,
+    "field": "projects_wall",
     "group": null,
     "hidden": false,
-    "interface": "list-m2m",
+    "interface": "files",
     "note": null,
     "options": null,
     "readonly": false,
     "required": false,
     "sort": 10,
     "special": [
-      "m2m"
+      "files"
     ],
     "translations": null,
     "validation": null,

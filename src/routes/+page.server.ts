@@ -16,6 +16,7 @@ export const load = (async ({ fetch }) => {
                     { pinned_projects: ['*'] },
                     'contact_text',
                     'contact_nudge',
+                    'projects_wall',
                     'seo'
                 ],
             })

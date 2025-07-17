@@ -143,7 +143,7 @@
       }
     ],
     "maintenance_description": "Je fais au mieux pour le mettre à jour, revenez bientôt !",
-    "maintenance_state": true,
+    "maintenance_state": false,
     "maintenance_title": "Mon site est en plein refonte",
     "_syncId": "8d243d1f-ad87-412c-b254-7b217df33d65"
   }

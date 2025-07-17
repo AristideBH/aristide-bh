@@ -1,0 +1,25 @@
+{
+  "collection": "homepage_files",
+  "field": "homepage_id",
+  "related_collection": "homepage",
+  "meta": {
+    "junction_field": "directus_files_id",
+    "many_collection": "homepage_files",
+    "many_field": "homepage_id",
+    "one_allowed_collections": null,
+    "one_collection": "homepage",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "projects_wall",
+    "sort_field": null
+  },
+  "schema": {
+    "table": "homepage_files",
+    "column": "homepage_id",
+    "foreign_key_table": "homepage",
+    "foreign_key_column": "id",
+    "constraint_name": "homepage_files_homepage_id_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "SET NULL"
+  }
+}

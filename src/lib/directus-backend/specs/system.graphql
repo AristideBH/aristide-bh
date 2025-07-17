@@ -285,6 +285,7 @@ type Subscription {
   projets_mutated(event: EventEnum): projets_mutated
   projets_tags_mutated(event: EventEnum): projets_tags_mutated
   projets_tags_1_mutated(event: EventEnum): projets_tags_1_mutated
+  homepage_files_mutated(event: EventEnum): homepage_files_mutated
 }
 
 """The `Boolean` scalar type represents `true` or `false`."""
@@ -1739,6 +1740,20 @@ type homepage {
   seo_func: count_functions
   pinned_projects(filter: projets_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets]
   pinned_projects_func: count_functions
+  projects_wall(filter: homepage_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [homepage_files]
+  projects_wall_func: count_functions
+}
+
+type homepage_files {
+  id: ID!
+  homepage_id(filter: homepage_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): homepage
+  directus_files_id(filter: directus_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): directus_files
+}
+
+type homepage_files_mutated {
+  key: ID!
+  event: EventEnum
+  data: homepage_files
 }
 
 type homepage_mutated {
@@ -1857,10 +1872,10 @@ type projets {
   pinned(filter: homepage_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): homepage
   seo: JSON
   seo_func: count_functions
-  gallery(filter: projets_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets_files]
-  gallery_func: count_functions
   tags(filter: projets_tags_1_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets_tags_1]
   tags_func: count_functions
+  gallery(filter: projets_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [projets_files]
+  gallery_func: count_functions
 }
 
 type projets_files {
@@ -2919,6 +2934,14 @@ input hash_filter_operators {
   _nempty: Boolean
 }
 
+input homepage_files_filter {
+  id: number_filter_operators
+  homepage_id: homepage_filter
+  directus_files_id: directus_files_filter
+  _and: [homepage_files_filter]
+  _or: [homepage_files_filter]
+}
+
 input homepage_filter {
   date_created: date_filter_operators
   date_created_func: datetime_function_filter_operators
@@ -2936,6 +2959,8 @@ input homepage_filter {
   seo_func: count_function_filter_operators
   pinned_projects: projets_filter
   pinned_projects_func: count_function_filter_operators
+  projects_wall: homepage_files_filter
+  projects_wall_func: count_function_filter_operators
   _and: [homepage_filter]
   _or: [homepage_filter]
 }
@@ -3048,10 +3073,10 @@ input projets_filter {
   pinned: homepage_filter
   seo: string_filter_operators
   seo_func: count_function_filter_operators
-  gallery: projets_files_filter
-  gallery_func: count_function_filter_operators
   tags: projets_tags_1_filter
   tags_func: count_function_filter_operators
+  gallery: projets_files_filter
+  gallery_func: count_function_filter_operators
   _and: [projets_filter]
   _or: [projets_filter]
 }
