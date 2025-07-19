@@ -18,6 +18,7 @@ export type SectionProps = {
     children: Snippet;
     content?: Partial<Collections.Section>
     id?: string;
+    ref?: HTMLElement | null;
 };
 
 // ViewTimeline
@@ -70,3 +71,4 @@ export const inView = (node: HTMLElement, params: Partial<InViewParams> = inView
         rangeEnd: 'exit 100%'
     });
 };
+

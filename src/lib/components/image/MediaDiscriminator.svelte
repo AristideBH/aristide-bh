@@ -12,10 +12,9 @@
 	};
 
 	let { item, topGap }: Props = $props();
+	const directus = getContext<DirectusClient>('directus');
 	let id = typeof item === 'string' ? item : item?.id;
 	let type = $state<string | undefined | null>('');
-	const directus = getContext<DirectusClient>('directus');
-	let classes = $state<string>('!sticky h-full max-h-[70dvh] border border-muted/20 shadow-lg');
 
 	$effect(() => {
 		if (typeof id === 'string') {
@@ -24,8 +23,8 @@
 	});
 </script>
 
-{#if type === 'video/mp4'}
-	<Video {item} class={classes + 'aspect-video'} style={`top: ${topGap}rem;`} />
+{#if type?.startsWith('video/')}
+	<Video {item} />
 {:else if type?.startsWith('image/')}
-	<Image {item} class={classes} style={`top: ${topGap}rem;`} />
+	<Image {item} />
 {/if}

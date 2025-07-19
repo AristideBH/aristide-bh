@@ -39,8 +39,6 @@ const getFileInfos = async (client: DirectusClient, id: string) => {
                 'thumbhash',
                 'description',
                 'type'
-
-
             ]
         })
     )

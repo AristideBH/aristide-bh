@@ -10,6 +10,7 @@
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import MediaDiscriminator from '$lib/components/image/MediaDiscriminator.svelte';
+	import Gallery from './Gallery.svelte';
 
 	let { data }: { data: PageData | Record<string, any> } = $props();
 	let { project } = data;
@@ -69,17 +70,20 @@
 </Section>
 
 {#if project.gallery?.length}
-	<Section>
-		<div class="flex flex-col gap-y-12">
-			{#each project.gallery as image, id}
-				{@const topGap = (id + 1) * 2}
-				<MediaDiscriminator item={image.directus_files_id} {topGap} />
-			{/each}
+	<Gallery items={project.gallery}></Gallery>
+	<!-- <Section id="gallery" class="horizontal-section">
+		<div class="sticky-wrapper sticky top-0 w-full overflow-x-auto pb-32 pt-24">
+			<div class="element-wrapper flex h-[590px] w-full flex-row gap-8">
+				{#each project.gallery as image, id}
+					{@const topGap = (id + 1) * 2}
+					<MediaDiscriminator item={image.directus_files_id} />
+				{/each}
+			</div>
 		</div>
-	</Section>
+	</Section> -->
 {/if}
 
-<Section content={{ width: 'full-width' }} class="pb-20">
+<Section content={{ width: 'full-width' }} class="z-50 pb-20">
 	<p class="lead pb-8">
 		Ce projet vous a plu ? Vous avez un projet similaire (ou pas) en tête ?
 		<br />

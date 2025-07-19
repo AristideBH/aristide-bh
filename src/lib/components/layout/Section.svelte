@@ -43,8 +43,8 @@
 		this={tag}
 		bind:this={element}
 		use:inView={viewTimeline}
-		transition:flyAndScale={{ y: -20, start: 0.975 }}
 		use:setStyles
+		transition:flyAndScale={{ y: -20, start: 0.975 }}
 		class={className ?? ''}
 		data-template="none"
 		{id}
