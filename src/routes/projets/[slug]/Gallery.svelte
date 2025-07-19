@@ -47,7 +47,10 @@
 		}, 500);
 	});
 
-	onDestroy(() => window.removeEventListener('resize', refresh));
+	onDestroy(() => {
+		if (!browser) return;
+		window.removeEventListener('resize', refresh);
+	});
 
 	function scrollHandler() {
 		let scrollTop = scrollY.current;
@@ -68,7 +71,7 @@
 <svelte:window onscroll={scrollHandler} onresize={refresh} />
 
 <section class="layout-full !block" bind:this={horizontalSection} style:height={`${horLength}px`}>
-	<div class="sticky top-28 w-full overflow-hidden">
+	<div class="sticky top-20 w-full overflow-hidden">
 		<div class="element-wrapper relative flex gap-8" bind:this={elementWrapper}>
 			{#each objs as obj}
 				{#await obj then item}

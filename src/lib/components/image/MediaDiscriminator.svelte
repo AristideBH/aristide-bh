@@ -24,7 +24,7 @@
 </script>
 
 {#if type?.startsWith('video/')}
-	<Video {item} />
+	<Video {item} class="aspect-video" />
 {:else if type?.startsWith('image/')}
 	<Image {item} />
 {/if}

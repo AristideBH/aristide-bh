@@ -20,7 +20,7 @@
 			const module = await import('plyr');
 			Plyr = module.default;
 			player = new Plyr('.js-player', {
-				controls: ['play-large'],
+				controls: ['play-large', 'fullscreen', 'progress'],
 				autopause: true,
 				resetOnEnd: true
 			});

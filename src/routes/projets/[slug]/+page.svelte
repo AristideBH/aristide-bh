@@ -9,7 +9,6 @@
 	import ExternalLink from 'lucide-svelte/icons/external-link';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
-	import MediaDiscriminator from '$lib/components/image/MediaDiscriminator.svelte';
 	import Gallery from './Gallery.svelte';
 
 	let { data }: { data: PageData | Record<string, any> } = $props();
@@ -60,7 +59,7 @@
 		<div class="block-wrapper !col-auto">{@html description}</div>
 	{/if}
 	{#if project.site_url}
-		<div class="block-wrapper sticky top-8 z-40 col-start-3 h-fit">
+		<div class="block-wrapper z-40 col-start-3 h-fit">
 			<Button href={project.site_url} size={'lg'} target="_blank" class=" w-full shadow-md">
 				Voir le site
 				<ExternalLink class="ml-1 size-4" />
@@ -71,16 +70,6 @@
 
 {#if project.gallery?.length}
 	<Gallery items={project.gallery}></Gallery>
-	<!-- <Section id="gallery" class="horizontal-section">
-		<div class="sticky-wrapper sticky top-0 w-full overflow-x-auto pb-32 pt-24">
-			<div class="element-wrapper flex h-[590px] w-full flex-row gap-8">
-				{#each project.gallery as image, id}
-					{@const topGap = (id + 1) * 2}
-					<MediaDiscriminator item={image.directus_files_id} />
-				{/each}
-			</div>
-		</div>
-	</Section> -->
 {/if}
 
 <Section content={{ width: 'full-width' }} class="z-50 pb-20">
