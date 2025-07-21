@@ -37,8 +37,6 @@
 	}
 </script>
 
-<!-- <pre>{JSON.stringify(token, null, 2)}</pre> -->
-
 <Card.Root class="w-full max-w-xl bg-muted">
 	<Card.Header>
 		<Card.Title class="mt-0 text-3xl">Profile</Card.Title>

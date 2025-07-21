@@ -6,6 +6,10 @@
 	let { data } = $props();
 </script>
 
+<svelte:head>
+	<title>Aristide BH - Profile</title>
+</svelte:head>
+
 <Section>
 	<h1 class="text-3xl">Bienvenue {data.user!.first_name}</h1>
 </Section>
