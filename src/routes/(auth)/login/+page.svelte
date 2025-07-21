@@ -1,9 +1,10 @@
 <script lang="ts">
 	import LoginForm from '$lib/components/forms/LoginForm.svelte';
+	import { type PageData } from './$types';
 
-	let { data } = $props();
+	let { data }: { data: PageData } = $props();
 </script>
 
 <section>
-	<LoginForm data={data.form} />
+	<LoginForm {data} />
 </section>

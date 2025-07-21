@@ -29,9 +29,9 @@
 </div>
 
 <style>
-	:global(.block-wrapper p + p) {
-		/* margin-top: 0; */
-	}
+	/* :global(.block-wrapper p + p) {
+		margin-top: 0;
+	} */
 	.block-wrapper:empty {
 		display: none;
 	}

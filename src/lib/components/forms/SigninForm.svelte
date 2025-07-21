@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { formSchema, type FormSchema } from '$lib/types/forms/signin';
-	import { zodClient } from 'sveltekit-superforms/adapters';
+	import { zod4Client } from 'sveltekit-superforms/adapters';
 
 	import { toast } from 'svelte-sonner';
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
 	import { Loader2 } from 'lucide-svelte';
 
-	let { data }: { data: SuperValidated<Infer<FormSchema>> } = $props();
+	let { data }: { data: { form: SuperValidated<Infer<FormSchema>> } } = $props();
 
-	const form = superForm(data, {
-		validators: zodClient(formSchema),
+	const form = superForm(data.form, {
+		validators: zod4Client(formSchema),
 		resetForm: false,
 		onResult: (e) => {
 			if (e.result.type === 'success') toast.success('Successful registration, login you in...');

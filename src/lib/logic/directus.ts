@@ -12,22 +12,15 @@ import directusSettings from '$lib/directus-backend/collections/settings.json'
 // * ////////////////////////////////////////////////////////////////////////////////
 
 export type Fetch = {
-    (input: URL | RequestInfo | string, init?: RequestInit | undefined): Promise<Response>;
+    (
+        input: URL | RequestInfo | string,
+        init?: RequestInit | undefined
+    )
+        : Promise<Response>;
 };
-
 export type DirectusClient = ReturnType<typeof client>;
-
 export type CustomDirectusFile = Partial<Types.Optional<Collections.DirectusFile>>
 export const assetBaseUrl = `${PUBLIC_DIRECTUS_URL}/assets/`;
-//@ts-expect-error this is a hack to get the type from a json object
-export const PixelSizes = directusSettings[0].storage_asset_presets.map((preset) => preset.key) as const;
-export type DirectusImagePreset = typeof PixelSizes[number];
-
-export type DirectusTokens = {
-    access_token: string,
-    refresh_token: string,
-    expires: number
-}
 
 // * ////////////////////////////////////////////////////////////////////////////////
 // * Client
@@ -55,6 +48,10 @@ export function client(fetch: Fetch, token?: string | null) {
 // * Utils functions
 // * ////////////////////////////////////////////////////////////////////////////////
 
+//@ts-expect-error this is a hack to get the type from a json object
+export const PixelSizes = directusSettings[0].storage_asset_presets.map((preset) => preset.key) as const;
+export type DirectusImagePreset = typeof PixelSizes[number];
+
 
 export const getImgData = async (uuid: string | null | undefined | Collections.DirectusFile) => {
     if (!uuid || typeof uuid === "object") return
@@ -81,6 +78,11 @@ export const directusError = (err: unknown, showToast: boolean = false) => {
 // * Authentication
 // * ////////////////////////////////////////////////////////////////////////////////
 
+export type DirectusTokens = {
+    access_token: string,
+    refresh_token: string,
+    expires: number
+}
 /**
  * Logs in a user by making a request to the Directus API login endpoint.
  *

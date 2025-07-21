@@ -6,5 +6,5 @@
 </script>
 
 <Section>
-	<ContactForm data={data.form} />
+	<ContactForm {data} />
 </Section>

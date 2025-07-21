@@ -2,7 +2,7 @@ import type { PageServerLoad, Actions } from './$types';
 
 import { redirect, fail } from '@sveltejs/kit';
 import { superValidate } from "sveltekit-superforms";
-import { zod } from "sveltekit-superforms/adapters";
+import { zod4 } from "sveltekit-superforms/adapters";
 import { createUser } from '@directus/sdk';
 
 import { formSchema } from "$lib/types/forms/signin";
@@ -18,14 +18,14 @@ export const load = (async ({ locals, url }) => {
     if (locals.token) redirect(302, redirectedFrom ? redirectedFrom : `/profile`)
 
     return {
-        form: await superValidate(zod(formSchema)),
+        form: await superValidate(zod4(formSchema)),
     };
 }) satisfies PageServerLoad;
 
 
 export const actions: Actions = {
     default: async (event) => {
-        const form = await superValidate(event, zod(formSchema));
+        const form = await superValidate(event, zod4(formSchema));
         const { cookies, request, fetch } = event;
         const email = form.data.email;
         const password = form.data.password;

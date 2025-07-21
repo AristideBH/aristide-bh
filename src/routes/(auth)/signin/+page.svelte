@@ -5,5 +5,5 @@
 </script>
 
 <section>
-	<SigninForm data={data.form} />
+	<SigninForm {data} />
 </section>
