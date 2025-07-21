@@ -70,3 +70,13 @@ export function shuffleArray<T>(arr: T[]): T[] {
 	}
 	return array;
 }
+
+export const lowestFraction = (a: number, b: number): string => {
+	const gcd = (x: number, y: number): number => {
+		x = Math.abs(x);
+		y = Math.abs(y);
+		return y === 0 ? x : gcd(y, x % y);
+	};
+	const divisor = gcd(a, b);
+	return `${a / divisor}/${b / divisor}`;
+};

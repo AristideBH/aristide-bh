@@ -10,9 +10,10 @@
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import Gallery from './Gallery.svelte';
+	import Marqueeck from '@arisbh/marqueeck';
 
 	let { data }: { data: PageData | Record<string, any> } = $props();
-	let { project } = data;
+	let { project, gallery } = data;
 
 	let subtitle = $state('');
 	let description = $state('');
@@ -40,7 +41,7 @@
 	<Image
 		item={project?.thumbnail!}
 		loading="eager"
-		class=" max-h-[55vh] min-h-[30rem] rounded-t-none"
+		class="max-h-[45vh] min-h-[25rem] rounded-t-none"
 	/>
 	<div class="block-wrapper col-span-full flex flex-col gap-8">
 		<hgroup>
@@ -48,11 +49,16 @@
 			<p class="text-balance font-mono italic text-primary">{@html subtitle}</p>
 		</hgroup>
 		{#if project.tags?.length}
-			<div class=" flex flex-wrap gap-3">
+			<Marqueeck
+				extend={false}
+				--marqueeck-padding-y="0px"
+				--marqueeck-bg-color="transparent"
+				options={{ gap: 12, direction: 'left', speed: 20 }}
+			>
 				{#each project.tags as tag}
 					<Badge variant="secondary" class="pointer-events-none">{tag.tags_id.title}</Badge>
 				{/each}
-			</div>
+			</Marqueeck>
 		{/if}
 	</div>
 	{#if project.description}
@@ -69,7 +75,7 @@
 </Section>
 
 {#if project.gallery?.length}
-	<Gallery items={project.gallery}></Gallery>
+	<Gallery items={gallery}></Gallery>
 {/if}
 
 <Section content={{ width: 'full-width' }} class="z-50 pb-20">

@@ -7,11 +7,11 @@
 	import DirHover from '$lib/components/layout/DirHover.svelte';
 	import Logo from '$lib/components/layout/Logo.svelte';
 	import ProjectCard from '$lib/components/layout/ProjectCard.svelte';
+	import ProjectsMarquee from '$lib/components/layout/ProjectsMarquee.svelte';
 	import Section from '$lib/components/layout/Section.svelte';
 	import SectionNudge from '$lib/components/layout/SectionNudge.svelte';
 	import { addClassesToParagraphs, formatText, frenchTypoRules } from '$lib/logic/strings.js';
 	import { clipPath } from '$lib/logic/transition';
-	import { shuffleArray } from '$lib/logic/utils.js';
 	import Marqueeck, { type MarqueeckOptions } from '@arisbh/marqueeck';
 	import { onMount } from 'svelte';
 	import { quartOut } from 'svelte/easing';
@@ -26,25 +26,14 @@
 	};
 
 	let { data } = $props();
-	let { home, categories } = data;
+	let { home, categories, wall_projects_pools } = data;
 	let aboutText = $state('');
 	let contactText = $state('');
 
-	let wall_imgs_pools = $derived.by(() => {
-		if (!home?.projects_wall) return [[], []];
-		const ids = home.projects_wall.map((item) => item.directus_files_id);
-		const shuffled = shuffleArray(ids);
-
-		const pool1: any[] = [],
-			pool2: any[] = [];
-		shuffled.forEach((id, i) => (i % 2 === 0 ? pool1.push(id) : pool2.push(id)));
-
-		return [shuffleArray(pool1), shuffleArray(pool2)];
-	});
-
-	onMount(() => (serviceSectionToggle = true));
 	if (browser) {
 		onMount(() => {
+			serviceSectionToggle = true;
+
 			const rawAbout = home?.presentation!;
 			aboutText = formatText(rawAbout);
 			const rawContact = home?.contact_text!;
@@ -87,7 +76,7 @@
 			transition:clipPath={{ direction: 'LEFT', duration: 400, easing: quartOut }}
 		>
 			{#each categories as category}
-				<Marqueeck options={{ ...options, speed: category.speed! }} class=" -rotate-3">
+				<Marqueeck options={{ ...options, speed: category.speed! }} class="-rotate-3">
 					{#if category.tags}
 						{#each category.tags as tag}
 							<span class="select-none font-heading ~text-3xl/5xl">{tag.title}</span>
@@ -141,33 +130,7 @@
 </Section>
 
 <!-- * Projects Wall -->
-{#if home?.projects_wall}
-	<Section content={{ width: 'full-width' }} class="-mt-16 scroll-mt-32" id="projects_wall">
-		<div
-			class="layout-full flex flex-col items-center gap-3 overflow-x-visible"
-			transition:clipPath={{ direction: 'LEFT', duration: 400, easing: quartOut }}
-		>
-			{#each wall_imgs_pools as pool, i}
-				<Marqueeck
-					options={{
-						...options,
-						speed: 45 * (i + 0.5),
-						gap: 12,
-						brakeDuration: 1000,
-						hoverSpeed: 20
-					}}
-					class="-rotate-3"
-					--marqueeck-padding-y="0px"
-					--marqueeck-bg-color="transparent"
-				>
-					{#each pool as item}
-						<Image {item} loading="lazy" preset="320" class="max-h-36 !w-52 [&>img]:shadow-lg" />
-					{/each}
-				</Marqueeck>
-			{/each}
-		</div>
-	</Section>
-{/if}
+<ProjectsMarquee pools={wall_projects_pools} />
 
 <!-- * Contact -->
 <Section content={{ width: 'full-width' }} class="-mt-8 pb-24" id="contact">

@@ -27,6 +27,7 @@ type ImageProps = {
  * @throws Will throw an error if the API request fails.
  */
 const getFileInfos = async (client: DirectusClient, id: string) => {
+
     return await client.request(
         readFile(id, {
             fields: [
