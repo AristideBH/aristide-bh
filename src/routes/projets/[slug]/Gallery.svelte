@@ -21,7 +21,9 @@
 
 	onMount(() => {
 		window.addEventListener('resize', refreshGallery);
-		tick();
+		setTimeout(() => {
+			refreshGallery();
+		}, 100);
 		refreshGallery();
 	});
 
