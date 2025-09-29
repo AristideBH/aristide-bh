@@ -15,7 +15,7 @@
   - Responsive image
   - Flexible builder
 - Custom fonts configuration
-- And many small improvements to help you speed up your dev cycle.
+- And many more improvements to help you speed up your dev cycle.
 
 ## Installations
 
