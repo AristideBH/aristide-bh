@@ -33,22 +33,20 @@ export const load = (async ({ params, fetch }) => {
 
         const getGalleryFiles = async () => {
             try {
-                const objs = await Promise.all(
+                return await Promise.all(
                     gallery.map(async (item) => {
                         const file = await getFileInfos(directus, (item as string));
                         return file;
                     })
                 );
-                return objs;
-
             } catch (error) {
                 directusError(error);
             }
         }
 
-
         return {
-            project, gallery: await getGalleryFiles(),
+            project,
+            gallery: await getGalleryFiles(),
         };
 
     } catch (error) {

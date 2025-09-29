@@ -19,9 +19,9 @@
 		if (horizontalSection) distFromTop = horizontalSection.offsetTop;
 	};
 
-	onMount(() => {
+	onMount(async () => {
 		window.addEventListener('resize', refreshGallery);
-		tick();
+		await tick();
 		refreshGallery();
 	});
 
@@ -51,7 +51,7 @@
 		<div class="element-wrapper relative flex gap-8" bind:this={elementWrapper}>
 			{#each items as item}
 				{#if item}
-					{@const ratio = lowestFraction(item.width ?? 16, item.height ?? 9)}
+					{@const ratio = lowestFraction(item.width ?? 9, item.height ?? 16)}
 					<div
 						class="h-[75dvh] max-h-[1000px] min-h-[500px] shrink-0 rounded shadow-lg"
 						style:aspect-ratio={ratio}

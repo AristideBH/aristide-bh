@@ -6,6 +6,16 @@
 
 	const mail = 'hello@aristide-bh.com';
 	let hovered = $state(false);
+
+	const clickHandler = () => {
+		navigator.clipboard.writeText(mail);
+		toast.success('Email copié', {
+			action: {
+				label: 'Utiliser votre messagerie',
+				onClick: () => handleContact(mail)
+			}
+		});
+	};
 </script>
 
 {#if hovered}
@@ -23,13 +33,7 @@
 	--marqueeck-padding-y="1.5rem"
 	--marqueeck-bg-color="hsl(var(--primary))"
 	onClick={() => {
-		navigator.clipboard.writeText(mail);
-		toast.success('Email copié', {
-			action: {
-				label: 'Utiliser votre messagerie',
-				onClick: () => handleContact(mail)
-			}
-		});
+		clickHandler();
 	}}
 >
 	<span class="font-heading font-semibold text-background ~text-4xl/6xl">

@@ -58,4 +58,8 @@
 	:global(.plyr--video .plyr__control:hover) {
 		--plyr-control-spacing: 28px;
 	}
+
+	:global(.plyr) {
+		border-radius: 0.25rem;
+	}
 </style>
