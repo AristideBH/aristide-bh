@@ -3,12 +3,12 @@
 	import { page } from '$app/state';
 	import { Button } from '$components/ui/button';
 	import Logo from '$lib/components/layout/Logo.svelte';
-	import MenuButton from '$lib/components/layout/MenuButton.svelte';
 	import Navigation from '$lib/components/navigation/Navigation.svelte';
 	import { loading } from '$lib/logic/pageLoading.svelte';
 	import { clipPath } from '$lib/logic/transition';
 	import { quartOut } from 'svelte/easing';
 	import LoadingBar from './LoadingBar.svelte';
+	import { dirhover } from '@arisbh/dirhover-svelte';
 
 	let { project_name, project_descriptor } = page.data.global;
 
@@ -29,7 +29,7 @@
 </script>
 
 <header
-	class="sticky bottom-0 z-50 mt-auto border-t border-foreground/10 bg-background/70 py-6 backdrop-blur-lg"
+	class="sticky bottom-0 z-50 mt-auto py-6"
 	transition:clipPath={{ direction: 'DOWN', duration: 400, easing: quartOut }}
 >
 	{#if $loading}
@@ -37,17 +37,16 @@
 	{/if}
 	<div class="flex items-center justify-between">
 		<div class="flex items-center gap-4">
-			<MenuButton class="shadow-xl">
-				<Button
-					href="/"
-					title="Page d'accueil"
-					variant="white"
-					class="group h-full w-full"
-					onclick={handleClick}
-				>
-					<Logo class="!size-10 transition-all group-hover:fill-white" />
-				</Button>
-			</MenuButton>
+			<Button href="/" title="Page d'accueil" class="p-0" onclick={handleClick}>
+				<Logo
+					class="group select-none bg-white transition-colors"
+					padding={true}
+					{@attach dirhover({
+						childClass: '!size-10 flex item-center justify-center group-hover:fill-white',
+						curtainClass: '!bg-primary'
+					})}
+				/>
+			</Button>
 			<p class="leading-4">
 				<span class="font-heading text-2xl font-extrabold">{project_name}</span>
 				<br />

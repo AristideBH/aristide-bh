@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@arisbh/dirhover-svelte':
+        specifier: ^0.0.5
+        version: 0.0.5(svelte@5.36.6)
       '@arisbh/marqueeck':
         specifier: ^0.5.1
         version: 0.5.1(svelte@5.36.6)
@@ -44,7 +47,7 @@ importers:
         version: 9.0.10
       autoprefixer:
         specifier: ^10.4.21
-        version: 10.4.21(postcss@8.5.3)
+        version: 10.4.21(postcss@8.5.6)
       bits-ui:
         specifier: 1.3.19
         version: 1.3.19(svelte@5.36.6)
@@ -157,6 +160,11 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@arisbh/dirhover-svelte@0.0.5':
+    resolution: {integrity: sha512-C/P3r9J0kj9LQ9e42X7jo50DRx/BqvHL1W10i9zVF2TS+mk6xrT3YF6dXUAzsFD0hsrP6ceqx8pCb6XNKPINng==}
+    peerDependencies:
+      svelte: ^5.0.0
 
   '@arisbh/marqueeck@0.5.1':
     resolution: {integrity: sha512-7sjBwIRvm+UdQgb8fOK44ssy+oMC5A/33/CC+E62OzMtW2i5OotE3xw0YY+tjqOI7y9LV1d44rHixhni0IEGOw==}
@@ -1222,6 +1230,9 @@ packages:
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
 
+  gsap@3.13.0:
+    resolution: {integrity: sha512-QL7MJ2WMjm1PHWsoFrAQH/J8wUeqZvMtHO58qdekHpCfhvhSL4gSiz6vJf5EeMP0LOn3ZCprL2ki/gjED8ghVw==}
+
   has-flag@4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
     engines: {node: '>=8'}
@@ -2135,6 +2146,11 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.8
       '@jridgewell/trace-mapping': 0.3.25
 
+  '@arisbh/dirhover-svelte@0.0.5(svelte@5.36.6)':
+    dependencies:
+      gsap: 3.13.0
+      svelte: 5.36.6
+
   '@arisbh/marqueeck@0.5.1(svelte@5.36.6)':
     dependencies:
       svelte: 5.36.6
@@ -2757,14 +2773,14 @@ snapshots:
       '@ark/util': 0.46.0
     optional: true
 
-  autoprefixer@10.4.21(postcss@8.5.3):
+  autoprefixer@10.4.21(postcss@8.5.6):
     dependencies:
       browserslist: 4.24.4
       caniuse-lite: 1.0.30001715
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
-      postcss: 8.5.3
+      postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
   axobject-query@4.1.0: {}
@@ -3178,6 +3194,8 @@ snapshots:
   globals@16.3.0: {}
 
   graphemer@1.4.0: {}
+
+  gsap@3.13.0: {}
 
   has-flag@4.0.0: {}
 

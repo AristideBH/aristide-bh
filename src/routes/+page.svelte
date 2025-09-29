@@ -4,7 +4,6 @@
 	import AnimatedHeading from '$lib/components/editor/components/AnimatedHeading.svelte';
 	import Image from '$lib/components/image/Image.svelte';
 	import ContactMarquee from '$lib/components/layout/ContactMarquee.svelte';
-	import DirHover from '$lib/components/layout/DirHover.svelte';
 	import Logo from '$lib/components/layout/Logo.svelte';
 	import ProjectCard from '$lib/components/layout/ProjectCard.svelte';
 	import ProjectsMarquee from '$lib/components/layout/ProjectsMarquee.svelte';
@@ -15,6 +14,7 @@
 	import Marqueeck, { type MarqueeckOptions } from '@arisbh/marqueeck';
 	import { onMount } from 'svelte';
 	import { quartOut } from 'svelte/easing';
+	import { dirhover } from '@arisbh/dirhover-svelte';
 
 	let serviceSectionToggle = $state(false);
 
@@ -49,18 +49,20 @@
 
 <!-- * Name -->
 <Section
-	class="z-50 scroll-mt-32 from-0% !pb-0 pt-10"
+	class="z-40 scroll-mt-32 from-0% !pb-0 pt-10"
 	content={{ width: 'full-width' }}
 	id="home_header"
 >
-	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline ~text-6xl/9xl ~gap-4/8">
-		<DirHover class="group bg-white">
-			<div class="pointer-events-none z-50 grid aspect-logo select-none place-items-center px-4">
-				<Logo
-					class="pointer-events-none select-none transition-colors !~size-12/20 group-hover:fill-white"
-				/>
-			</div>
-		</DirHover>
+	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline ~gap-4/8">
+		<Logo
+			padding={true}
+			{@attach dirhover({
+				childClass:
+					'!~size-12/20 ~text-6xl/9xl flex item-center justify-center  group-hover:fill-white',
+				curtainClass: '!bg-primary'
+			})}
+			class="group select-none bg-white transition-colors"
+		/>
 
 		{data.global.project_name}
 	</AnimatedHeading>

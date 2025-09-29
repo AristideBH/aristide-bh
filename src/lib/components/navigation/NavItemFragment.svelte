@@ -34,7 +34,7 @@
 
 <style lang="postcss">
 	a {
-		@apply flex w-fit grow font-heading text-foreground hover:no-underline;
+		@apply z-10 flex w-fit grow font-heading text-foreground mix-blend-difference hover:no-underline;
 	}
 	a.active {
 		@apply flex flex-nowrap items-center gap-2;

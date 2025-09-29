@@ -9,6 +9,7 @@
 	import { ModeWatcher } from 'mode-watcher';
 	import { setContext } from 'svelte';
 	import '../app.pcss';
+	import GradientBlur from '$lib/components/layout/GradientBlur.svelte';
 
 	let { children, data } = $props();
 	const directus = client(fetch, data.token);
@@ -38,6 +39,8 @@
 {#if percent > 20 || (page.data.pathName !== '/' && page.data.pathName !== '/maintenance')}
 	<Header />
 {/if}
+
+<GradientBlur />
 
 <!-- {#if !data.global.maintenance_state}
 	<CookieConsent />
