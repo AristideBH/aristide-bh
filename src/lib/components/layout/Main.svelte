@@ -13,7 +13,7 @@ Props:
 
 -->
 <script lang="ts">
-	import type { Snippet } from 'svelte';
+	import { type Snippet } from 'svelte';
 	import { afterNavigate, beforeNavigate, disableScrollHandling } from '$app/navigation';
 	import { fly } from 'svelte/transition';
 	import { loading, loadingTimeout } from '$lib/logic/pageLoading.svelte';

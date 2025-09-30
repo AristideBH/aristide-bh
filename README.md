@@ -10,6 +10,7 @@
 - [Directus authentification](https://docs.directus.io/blog/directus-auth-sveltekit.html) and account page
 - Basic layout
 - Page transitions
+- Smooth scroll using Lenis
 - Auto dark-mode
 - Custom components :
   - Responsive image

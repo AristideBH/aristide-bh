@@ -1,8 +1,8 @@
-<div class="gradient-blur top">
+<!-- <div class="gradient-blur top">
 	{#each { length: 6 }}
 		<div></div>
 	{/each}
-</div>
+</div> -->
 
 <div class="gradient-blur bottom">
 	{#each { length: 6 }}
