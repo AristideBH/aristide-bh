@@ -38,7 +38,7 @@
 			x.set(offsetX);
 			y.set(offsetY);
 		};
-		node.onpointerleave = (event) => {
+		node.onpointerleave = () => {
 			resetGlow();
 		};
 	};
@@ -62,9 +62,9 @@
 	{/if}
 
 	<span
+		data-glow
 		style:--x={`${x.current}px`}
 		style:--y={`${y.current}px`}
-		data-glow
 		class="pointer-events-none absolute inset-0 h-full w-full bg-black/10 print:hidden"
 	></span>
 
@@ -77,7 +77,7 @@
 	<div
 		class="pointer-events-none absolute left-6 top-6 isolate flex h-full grow flex-col justify-start space-y-1"
 	>
-		<h2 class="mb-0.5 mt-0 text-3xl font-semibold leading-none tracking-wide">
+		<h2 class="mb-0.5 mt-0 text-3xl font-semibold leading-none tracking-wide mix-blend-difference">
 			{props.project.title}
 		</h2>
 		{#if props.project.subtitle}

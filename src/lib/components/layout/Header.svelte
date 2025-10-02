@@ -32,9 +32,6 @@
 	class="sticky bottom-0 z-50 mt-auto py-6"
 	transition:clipPath={{ direction: 'DOWN', duration: 400, easing: quartOut }}
 >
-	{#if $loading}
-		<LoadingBar />
-	{/if}
 	<div class="flex items-center justify-between">
 		<div class="flex items-center gap-4">
 			<Button href="/" title="Page d'accueil" class="p-0" onclick={handleClick}>
@@ -56,4 +53,7 @@
 		</div>
 		<Navigation />
 	</div>
+	{#if $loading}
+		<LoadingBar />
+	{/if}
 </header>

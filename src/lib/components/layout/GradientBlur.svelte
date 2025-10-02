@@ -21,10 +21,10 @@
 			inset: auto 0 0 0;
 		}
 
-		&.top {
+		/* &.top {
 			inset: 0 0 auto 0;
 			rotate: 180deg;
-		}
+		} */
 
 		& > div,
 		&::before,

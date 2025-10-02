@@ -56,11 +56,12 @@
 	</Main>
 </SvelteLenis>
 
-{#if percent > 20 || (page.data.pathName !== '/' && page.data.pathName !== '/maintenance')}
+{#if percent > 25 || (page.data.pathName !== '/' && page.data.pathName !== '/maintenance')}
 	<Header />
 {/if}
 
 <GradientBlur />
+
 <!-- {#if !data.global.maintenance_state}
 	<CookieConsent />
 {/if} -->
