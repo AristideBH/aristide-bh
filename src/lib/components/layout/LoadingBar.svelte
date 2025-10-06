@@ -4,7 +4,7 @@
 
 <div
 	transition:slide={{ axis: 'y' }}
-	class="progress-bar absolute left-0 right-0 top-0 col-span-full h-[3px] w-full overflow-hidden bg-accent opacity-35"
+	class="progress-bar absolute bottom-0 left-0 right-0 col-span-full h-[3px] w-full overflow-hidden bg-accent opacity-35"
 >
 	<span class="progress-bar-value h-full w-full origin-left bg-primary"></span>
 </div>
