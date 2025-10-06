@@ -47,10 +47,12 @@ function buildCSP(url: URL) {
         'default-src': ["'self'"],
         'script-src': ["'self'"],
         'style-src': ["'self'"],
-        'connect-src': ["'self'", PUBLIC_DIRECTUS_URL],
+        'connect-src': ["'self'", PUBLIC_DIRECTUS_URL, 'https://cdn.plyr.io'],
         'child-src': ["'self'", 'blob:', PUBLIC_DIRECTUS_URL],
         'frame-ancestors': ["'self'", PUBLIC_DIRECTUS_URL],
         'img-src': ["'self'", 'data:', PUBLIC_DIRECTUS_URL],
+        'media-src': ["'self'", 'data:', PUBLIC_DIRECTUS_URL],
+
     };
 
     // 1. GESTION DU MODE DE DÉVELOPPEMENT SVELTEKIT (VITE)
@@ -65,16 +67,7 @@ function buildCSP(url: URL) {
         directives['connect-src'].push(`ws://${url.hostname}:5173`, `wss://${url.hostname}:5173`);
     } else {
         // 2. GESTION DU MODE DE PRODUCTION SVELTEKIT
-        // En prod, SvelteKit utilise des scripts et styles avec hachage (nonce/sha).
-        // Cependant, le mode auto-hébergé nécessite souvent un assouplissement minimal.
-        // Puisque vous voyez des erreurs `style-src-attr` (styles d'attributs), 
-        // nous ajoutons 'unsafe-inline' UNIQUEMENT pour les styles, ou 'unsafe-hashes'.
-        // Utiliser 'unsafe-inline' pour 'style-src' est souvent un compromis acceptable.
         directives['style-src'].push("'unsafe-inline'");
-        // Si vous utilisez des gestionnaires d'événements inline (ex: onclick="..."), 
-        // vous aurez besoin de 'unsafe-inline' ou 'unsafe-hashes' pour 'script-src'.
-        // L'erreur mentionne "Source: this.__e=event", c'est Sveltekit qui génère du code inline, 
-        // donc on ajoute temporairement 'unsafe-inline' pour les scripts.
         directives['script-src'].push("'unsafe-inline'");
     }
 
@@ -83,11 +76,7 @@ function buildCSP(url: URL) {
         try {
             // Utilisation de l'URL du script Umami pour extraire le domaine
             const umamiUrl = new URL(PUBLIC_UMAMI_SRC);
-
-            // Autoriser le script Umami
             directives['script-src'].push(umamiUrl.origin);
-
-            // Umami doit pouvoir se connecter à son serveur pour envoyer les données
             directives['connect-src'].push(umamiUrl.origin);
 
         } catch (e) {
