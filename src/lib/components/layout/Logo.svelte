@@ -9,7 +9,7 @@
 	let { class: className = 'fill-primary', onclick, padding = true, ...props }: Props = $props();
 </script>
 
-<div {...props} class={cn(padding ? 'px-3 py-1' : '', className ?? '')}>
+<div {...props} class={cn(padding ? 'px-3 py-0.5' : '', className ?? '')}>
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 397.82 175.99"

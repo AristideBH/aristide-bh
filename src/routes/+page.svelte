@@ -15,7 +15,6 @@
 	import { onMount } from 'svelte';
 	import { quartOut } from 'svelte/easing';
 	import { dirhover } from '@arisbh/dirhover-svelte';
-	import { loading } from '$lib/logic/pageLoading.svelte';
 
 	let serviceSectionToggle = $state(false);
 
@@ -30,11 +29,12 @@
 	let { home, categories, wall_projects_pools } = data;
 	let aboutText = $state('');
 	let contactText = $state('');
+	let loading = $state(true);
 
 	if (browser) {
 		onMount(() => {
 			serviceSectionToggle = true;
-
+			loading = false;
 			const rawAbout = home?.presentation!;
 			aboutText = formatText(rawAbout);
 			const rawContact = home?.contact_text!;
@@ -49,31 +49,29 @@
 </svelte:head>
 
 <!-- * Name -->
-{#if !$loading}
-	<Section
-		class="z-40 scroll-mt-32 from-0% !pb-0 pt-10 transition-opacity duration-500
+<Section
+	class="z-40 scroll-mt-32 from-0% !pb-0 pt-10 transition-opacity duration-500
 			{loading ? 'opacity-0' : 'opacity-100'} "
-		content={{ width: 'full-width' }}
-		id="home_header"
-	>
-		<!-- content here -->
-		<AnimatedHeading class="mb-0 flex flex-wrap items-baseline ~gap-4/8">
-			<Logo
-				padding={true}
-				{@attach dirhover({
-					childClass:
-						'!~size-12/20 ~text-6xl/9xl flex item-center justify-center  group-hover:fill-white',
-					curtainClass: '!bg-primary'
-				})}
-				class="group select-none bg-white transition-colors"
-			/>
+	content={{ width: 'full-width' }}
+	id="home_header"
+>
+	<!-- content here -->
+	<AnimatedHeading class="mb-0 flex flex-wrap items-baseline ~gap-4/8">
+		<Logo
+			padding={true}
+			{@attach dirhover({
+				childClass:
+					'!~size-12/20 ~text-6xl/9xl flex item-center justify-center  group-hover:fill-white',
+				curtainClass: '!bg-primary'
+			})}
+			class="group select-none bg-white transition-colors"
+		/>
 
-			{data.global.project_name}
-		</AnimatedHeading>
+		{data.global.project_name}
+	</AnimatedHeading>
 
-		<p class="lead font-mono italic text-primary">{data.global.project_descriptor}</p>
-	</Section>
-{/if}
+	<p class="lead font-mono italic text-primary">{data.global.project_descriptor}</p>
+</Section>
 
 <!-- * Services -->
 <Section content={{ width: 'full-width' }} class="-my-16 min-h-[430px] scroll-mt-32" id="services">

@@ -53,7 +53,7 @@
 				extend={false}
 				--marqueeck-padding-y="0px"
 				--marqueeck-bg-color="transparent"
-				options={{ gap: 12, direction: 'left', speed: 20 }}
+				options={{ gap: 12, direction: 'left', speed: 20, hoverSpeed: 0 }}
 			>
 				{#each project.tags as tag}
 					<Badge variant="secondary" class="pointer-events-none">{tag.tags_id.title}</Badge>
@@ -78,7 +78,7 @@
 	<Gallery items={gallery}></Gallery>
 {/if}
 
-<Section content={{ width: 'full-width' }} class="z-50 pb-20">
+<Section content={{ width: 'full-width' }} class="z-40 pb-20">
 	<p class="lead pb-8">
 		Ce projet vous a plu ? Vous avez un projet similaire (ou pas) en tête ?
 		<br />
