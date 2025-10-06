@@ -52,7 +52,7 @@ function buildCSP(url: URL) {
         'frame-ancestors': ["'self'", PUBLIC_DIRECTUS_URL],
         'img-src': ["'self'", 'data:', PUBLIC_DIRECTUS_URL],
         'media-src': ["'self'", 'data:', PUBLIC_DIRECTUS_URL],
-
+        'frame-src': ["'self'", 'data:', PUBLIC_DIRECTUS_URL],
     };
 
     // 1. GESTION DU MODE DE DÉVELOPPEMENT SVELTEKIT (VITE)
