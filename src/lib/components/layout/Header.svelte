@@ -9,17 +9,15 @@
 	import { quartOut } from 'svelte/easing';
 	import LoadingBar from './LoadingBar.svelte';
 	import { dirhover } from '@arisbh/dirhover-svelte';
+	import type { Lenis } from 'svelte-lenis';
 
 	let { project_name, project_descriptor } = page.data.global;
+	let { lenis }: { lenis?: Lenis } = $props();
 
 	const handleClick = (e: MouseEvent) => {
 		e.preventDefault();
-		if (page.data.pathName === '/') {
-			// scroll to the top of the page smoothly
-			window.scrollTo({
-				top: 0,
-				behavior: 'smooth'
-			});
+		if (page.data.pathName === '/' && lenis) {
+			lenis.scrollTo(0, { duration: 0.5, lerp: 0.5 });
 		} else {
 			// navigate to the page set via the href on the the anchor tag
 			const target = e.target as HTMLElement;

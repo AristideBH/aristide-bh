@@ -108,7 +108,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     const { cookies, url, fetch, locals } = event
 
     const token = locals.token ?? null;
-    // const directus = client(fetch, token);
+    const directus = client(fetch, token);
 
     if (cookies.get('access_token') || cookies.get('refresh_token')) {
         let jwtPayload = cookies.get('access_token') ? jwt.decode(cookies.get('access_token') || '') as jwt.JwtPayload | null : null;
