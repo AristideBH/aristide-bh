@@ -9,7 +9,6 @@
 	import { ModeWatcher } from 'mode-watcher';
 	import { setContext } from 'svelte';
 	import '../app.pcss';
-	import GradientBlur from '$lib/components/layout/GradientBlur.svelte';
 	import { SvelteLenis, type Lenis, type OnSetup } from 'svelte-lenis';
 
 	let { children, data } = $props();
@@ -57,11 +56,9 @@
 	</Main>
 </SvelteLenis>
 
-{#if percent > 25 || (page.data.pathName !== '/' && page.data.pathName !== '/maintenance')}
+{#if percent > 20 || (page.data.pathName !== '/' && page.data.pathName !== '/maintenance')}
 	<Header {lenis} />
 {/if}
-
-<GradientBlur />
 
 <!-- {#if !data.global.maintenance_state}
 	<CookieConsent />

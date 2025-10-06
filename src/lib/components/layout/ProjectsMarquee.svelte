@@ -7,11 +7,10 @@
 	import { quartOut } from 'svelte/easing';
 	import Image from '$lib/components/image/Image.svelte';
 
-	let {
-		pools
-	}: {
+	type Props = {
 		pools: CustomDirectusFile[][] | undefined;
-	} = $props();
+	};
+	let { pools }: Props = $props();
 </script>
 
 {#if pools}

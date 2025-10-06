@@ -56,14 +56,10 @@ function buildCSP(url: URL) {
     };
 
     // 1. GESTION DU MODE DE DÉVELOPPEMENT SVELTEKIT (VITE)
-    // En dev, SvelteKit (Vite) utilise des scripts et styles inline, 
-    // et WebSocket pour le Hot Module Replacement (HMR).
+
     if (process.env.NODE_ENV === 'development') {
-        // 'unsafe-inline' est requis pour la majorité des styles et scripts Sveltekit/Vite en dev
         directives['script-src'].push("'unsafe-inline'", "'unsafe-eval'");
         directives['style-src'].push("'unsafe-inline'");
-
-        // HMR (Hot Module Replacement) utilise les WebSockets.
         directives['connect-src'].push(`ws://${url.hostname}:5173`, `wss://${url.hostname}:5173`);
     } else {
         // 2. GESTION DU MODE DE PRODUCTION SVELTEKIT

@@ -50,7 +50,14 @@
 			content: '';
 			z-index: 8;
 			backdrop-filter: blur(64px);
-			mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
+			mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 1) 100%);
+			background: linear-gradient(
+				to bottom,
+				rgba(0, 0, 0, 0) 0%,
+				rgba(0, 0, 0, 0.2) 50%,
+				rgba(0, 0, 0, 0.4) 75.5%,
+				rgba(0, 0, 0, 0.6) 100%
+			);
 		}
 
 		& > div {

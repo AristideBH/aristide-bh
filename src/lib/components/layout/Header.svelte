@@ -9,6 +9,8 @@
 	import { quartOut } from 'svelte/easing';
 	import LoadingBar from './LoadingBar.svelte';
 	import { dirhover } from '@arisbh/dirhover-svelte';
+	import GradientBlur from '$lib/components/layout/GradientBlur.svelte';
+
 	import type { Lenis } from 'svelte-lenis';
 
 	let { project_name, project_descriptor } = page.data.global;
@@ -30,7 +32,8 @@
 	class="sticky bottom-0 z-50 mt-auto py-6"
 	transition:clipPath={{ direction: 'DOWN', duration: 400, easing: quartOut }}
 >
-	<div class="flex items-center justify-between">
+	<GradientBlur />
+	<div class="z-50 flex items-center justify-between">
 		<div class="flex items-center gap-4">
 			<Button href="/" title="Page d'accueil" class="p-0" onclick={handleClick}>
 				<Logo

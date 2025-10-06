@@ -24,7 +24,7 @@
 </script>
 
 {#if type?.startsWith('video/')}
-	<Video {item} class="" />
+	<Video {item} />
 {:else if type?.startsWith('image/')}
 	<Image {item} />
 {/if}
