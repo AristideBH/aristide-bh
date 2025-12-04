@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { PUBLIC_SITE_URL } from '$env/static/public';
 	import CookieConsent from '$lib/components/layout/CookieConsent.svelte';
 	import Header from '$lib/components/layout/Header.svelte';
 	import Main from '$lib/components/layout/Main.svelte';
@@ -68,7 +67,6 @@
 
 {#if percent > 20 || (page.data.pathName !== '/' && page.data.pathName !== '/maintenance')}
 	<Header {lenis} />
-	<img src={OgImageUrl} alt="Open Graph Thumbnail" />
 {/if}
 
 <!-- {#if !data.global.maintenance_state}
