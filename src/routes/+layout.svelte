@@ -19,6 +19,7 @@
 	let scrollY = $state(0);
 	let heightY = $state(0);
 	let percent = $derived((scrollY / heightY) * 100);
+	const OgImageUrl = `${data.hostname}/og_thumbnail.png`;
 
 	let lenis = $state<Lenis>();
 	let lenisOptions = {
@@ -40,7 +41,7 @@
 </script>
 
 <svelte:head>
-	<meta property="og:image" content="/og_thumbnail.png" />
+	<meta property="og:image" content={OgImageUrl} />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 	<meta property="og:title" content="Aristide Bruneau-Heudes | Portfolio" />
@@ -67,7 +68,7 @@
 
 {#if percent > 20 || (page.data.pathName !== '/' && page.data.pathName !== '/maintenance')}
 	<Header {lenis} />
-	<img src="/og_thumbnail.png" alt="Open Graph Thumbnail" />
+	<img src={OgImageUrl} alt="Open Graph Thumbnail" />
 {/if}
 
 <!-- {#if !data.global.maintenance_state}

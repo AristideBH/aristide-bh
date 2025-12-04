@@ -9,6 +9,7 @@ export const load = (async ({ fetch, locals, url }) => {
     const token = locals.token ?? null;
     const directus = client(fetch, token);
     const env = process.env.NODE_ENV;
+    const hostname = url.origin;
 
     //@ts-expect-error TS screams when using dot notation for Directus fields
     const headerNav = await directus.request(readMenus("Header", { fields: ["*.*.*.*.*.*"] }));
@@ -22,6 +23,8 @@ export const load = (async ({ fetch, locals, url }) => {
         redirect(307, "/");
     }
 
+
+
     return {
         // Transition
         pathName: url.pathname,
@@ -32,6 +35,7 @@ export const load = (async ({ fetch, locals, url }) => {
         headerNav,
         footerNav,
         global,
+        hostname
 
     };
 }) satisfies LayoutServerLoad;
