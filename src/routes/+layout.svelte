@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { PUBLIC_SITE_URL } from '$env/static/public';
 	import CookieConsent from '$lib/components/layout/CookieConsent.svelte';
 	import Header from '$lib/components/layout/Header.svelte';
 	import Main from '$lib/components/layout/Main.svelte';
@@ -38,6 +39,14 @@
 	};
 </script>
 
+<svelte:head>
+	<meta property="og:image" content="/og_thumbnail.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:title" content="Aristide Bruneau-Heudes | Portfolio" />
+	<meta property="og:description" content="Design graphique & Développement web" />
+</svelte:head>
+
 <svelte:window bind:scrollY bind:outerHeight={heightY} />
 
 <!-- UTILITIES -->
@@ -58,6 +67,7 @@
 
 {#if percent > 20 || (page.data.pathName !== '/' && page.data.pathName !== '/maintenance')}
 	<Header {lenis} />
+	<img src="/og_thumbnail.png" alt="Open Graph Thumbnail" />
 {/if}
 
 <!-- {#if !data.global.maintenance_state}
