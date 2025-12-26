@@ -18,7 +18,7 @@
 - Custom fonts configuration
 - And many more improvements to help you speed up your dev cycle.
 
-## Installations
+## Installation
 
 - [Backend setup](https://github.com/AristideBH/starter_caprover-sveltekit-directus/tree/main/README_backend.md)
 - [Frontend setup](https://github.com/AristideBH/starter_caprover-sveltekit-directus/tree/main/README_frontend.md)
