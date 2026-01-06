@@ -4,14 +4,14 @@
 	{/each}
 </div> -->
 
-<div class="gradient-blur bottom">
+<span class="bottom">
 	{#each { length: 6 }}
 		<div></div>
 	{/each}
-</div>
+</span>
 
 <style>
-	.gradient-blur {
+	span {
 		position: fixed;
 		z-index: 40;
 		height: 12vh;
@@ -39,10 +39,10 @@
 			backdrop-filter: blur(0.5px);
 			mask: linear-gradient(
 				to bottom,
-				rgba(0, 0, 0, 0) 0%,
-				rgba(0, 0, 0, 1) 12.5%,
-				rgba(0, 0, 0, 1) 25%,
-				rgba(0, 0, 0, 0) 37.5%
+				hsl(var(--background)) 0%,
+				hsl(var(--background)) 12.5%,
+				hsl(var(--background)) 25%,
+				hsl(var(--background)) 37.5%
 			);
 		}
 
@@ -53,10 +53,10 @@
 			mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 1) 100%);
 			background: linear-gradient(
 				to bottom,
-				rgba(0, 0, 0, 0) 0%,
-				rgba(0, 0, 0, 0.2) 50%,
-				rgba(0, 0, 0, 0.4) 75.5%,
-				rgba(0, 0, 0, 0.6) 100%
+				hsl(var(--background) / 0.2) 0%,
+				hsl(var(--background) / 0.4) 50%,
+				hsl(var(--background) / 0.6) 75.5%,
+				hsl(var(--background) / 0.8) 100%
 			);
 		}
 
