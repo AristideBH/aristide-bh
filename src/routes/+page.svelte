@@ -98,15 +98,19 @@
 	{#if home?.presentation}
 		<div class="block-wrapper flex flex-col gap-4">
 			{@html aboutText}
-			<div class="mt-6 flex items-baseline gap-3">
+			<div class="mt-6 flex flex-wrap items-baseline gap-3">
 				<p class="text-secondary-foreground/70">Pour un peu plus d'infos :</p>
-				{#each page.data.footerNav.items as item}
-					<a
-						href={item.url}
-						class="animate text-lg text-foreground hover:no-underline"
-						target="_blank">{item.label}</a
-					>
-				{/each}
+				<ul class="m-0 flex flex-row flex-wrap gap-x-4">
+					{#each page.data.footerNav.items as item}
+						<li class="list-none">
+							<a
+								href={item.url}
+								class="animate text-lg text-foreground hover:no-underline"
+								target="_blank">{item.label}</a
+							>
+						</li>
+					{/each}
+				</ul>
 			</div>
 		</div>
 	{/if}

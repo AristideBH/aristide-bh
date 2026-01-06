@@ -46,8 +46,7 @@
 				/>
 			</Button>
 			<p class="leading-4">
-				<span class="font-heading text-2xl font-extrabold">{project_name}</span>
-				<br />
+				<span class="hidden font-heading text-2xl font-extrabold sm:flex">{project_name}</span>
 				<span class="small hidden font-mono italic text-primary sm:block">{project_descriptor}</span
 				>
 			</p>
