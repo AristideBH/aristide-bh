@@ -11,33 +11,22 @@
 		{ text: `${status}`, gap: 65, class: 'text-8xl pt-6 pb-4 mb-2' },
 		{ text: "Une erreur s'est produite", gap: 20, class: 'text-lg py-2' }
 	];
+	
+	const errorChars = $derived(status?.toString().split('') || []);
 </script>
 
-<section class="flex flex-row">
-	<span class="~size-12/20" 
+<section class="flex flex-row gap-1">
+
+	{#each errorChars as char}
+		<span class="~size-36/72 text-9xl font-light font-heading bg-foreground text-background transition-colors duration-150 hover:text-foreground" 
 	{@attach dirhover({
 				childClass:
-					'!~size-12/20 grid place-items-center group-hover:fill-white',
+					'!~size-36/72 grid place-items-center group-hover:fill-white',
 				curtainClass: '!bg-primary'
 			})}>
-		4
+		{char}
 	</span>
-	<span class="~size-12/20" 
-	{@attach dirhover({
-				childClass:
-					'!~size-12/20 grid place-items-center group-hover:fill-white',
-				curtainClass: '!bg-primary'
-			})}>
-		0
-	</span>
-	<span class="~size-12/20" 
-	{@attach dirhover({
-				childClass:
-					'!~size-12/20 grid place-items-center group-hover:fill-white',
-				curtainClass: '!bg-primary'
-			})}>
-		4
-	</span>
+	{/each}
 </section>
 
 <!-- <Section content={{ width: 'full-width' }} class="full-width flex flex-col">
