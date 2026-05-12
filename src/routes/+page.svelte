@@ -94,7 +94,7 @@
 </Section>
 
 <!-- * About -->
-<Section content={{ template: 'inherit-main' }} class="scroll-mt-32 !p-0" id="about">
+<Section content={{ template: 'inherit-main' }} class="scroll-mt-32 !p-0 flex flex-col-reverse md:grid" id="about">
 	{#if home?.presentation}
 		<div class="block-wrapper flex flex-col gap-4">
 			{@html aboutText}

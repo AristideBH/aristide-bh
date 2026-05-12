@@ -71,6 +71,7 @@
 		</hgroup>
 		{#if project.tags?.length}
 			<Marqueeck
+				class="rounded-full"
 				extend={false}
 				--marqueeck-padding-y="0px"
 				--marqueeck-bg-color="transparent"
