@@ -42,7 +42,7 @@
 	let { images, type } = content;
 </script>
 
-{#snippet img(image: Collections.GalleryFiles, aspectOverwrite?: true)}
+{#snippet img(image: Collections.GalleryFiles, aspectOverwrite = true)}
 	{#await getImgData(image.directus_files_id) then res}
 		{#if res}
 			<Image item={res} {aspectOverwrite} />
