@@ -7383,6 +7383,7 @@ const excludedDirectusCommands: {
   ["generateUid"]: true,
   ["getAuthEndpoint"]: true,
   ["graphql"]: true,
+  ["isDirectusError"]: true,
   ["memoryStorage"]: true,
   ["messageCallback"]: true,
   ["pong"]: true,

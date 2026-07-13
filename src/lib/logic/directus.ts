@@ -35,7 +35,7 @@ export const assetBaseUrl = `${env.PUBLIC_DIRECTUS_URL}/assets/`;
 export function client(fetch: Fetch, token?: string | null) {
     //@ts-expect-error we pass the function not to execute it
     const options = fetch ? { globals: { fetch } } : {};
-    const directus = createDirectus<Schema>(env.PUBLIC_DIRECTUS_URL, options)
+    const directus = createDirectus<Schema>(env.PUBLIC_DIRECTUS_URL!, options)
         .with(authentication())
         .with(rest());
 
