@@ -2,7 +2,7 @@ import type { Schema, Collections, Types } from '$lib/types/client';
 import type { SerializeOptions } from 'cookie';
 
 import { createDirectus, rest, authentication, readFile } from '@directus/sdk';
-import { PUBLIC_DIRECTUS_URL, PUBLIC_COOKIE_DOMAIN } from '$env/static/public';
+import { env } from '$env/dynamic/public';
 import { error } from '@sveltejs/kit';
 import { toast } from 'svelte-sonner';
 import directusSettings from '$lib/directus-backend/collections/settings.json'
@@ -20,7 +20,7 @@ export type Fetch = {
 };
 export type DirectusClient = ReturnType<typeof client>;
 export type CustomDirectusFile = Partial<Types.Optional<Collections.DirectusFile>>
-export const assetBaseUrl = `${PUBLIC_DIRECTUS_URL}/assets/`;
+export const assetBaseUrl = `${env.PUBLIC_DIRECTUS_URL}/assets/`;
 
 // * ////////////////////////////////////////////////////////////////////////////////
 // * Client
@@ -35,7 +35,7 @@ export const assetBaseUrl = `${PUBLIC_DIRECTUS_URL}/assets/`;
 export function client(fetch: Fetch, token?: string | null) {
     //@ts-expect-error we pass the function not to execute it
     const options = fetch ? { globals: { fetch } } : {};
-    const directus = createDirectus<Schema>(PUBLIC_DIRECTUS_URL, options)
+    const directus = createDirectus<Schema>(env.PUBLIC_DIRECTUS_URL, options)
         .with(authentication())
         .with(rest());
 
@@ -101,7 +101,7 @@ export const loginUser = async (
 
     if (userAgent) headers['user-agent'] = userAgent;
 
-    const req = await fetch(`${PUBLIC_DIRECTUS_URL}/auth/login`, {
+    const req = await fetch(`${env.PUBLIC_DIRECTUS_URL}/auth/login`, {
         method: 'POST',
         headers,
         body: JSON.stringify({
@@ -124,7 +124,7 @@ export const loginUser = async (
  */
 export const constructCookieOpts = (age: number): SerializeOptions & { path: string } => {
     return {
-        domain: PUBLIC_COOKIE_DOMAIN,
+        domain: env.PUBLIC_COOKIE_DOMAIN,
         // send cookie for every page
         path: '/',
         // server side only cookie so you can't use `document.cookie`

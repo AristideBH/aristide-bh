@@ -1,4 +1,4 @@
-import { PUBLIC_SITE_URL } from "$env/static/public";
+import { env } from "$env/dynamic/public";
 import { client } from "$lib/logic/directus";
 import { getHomepage, listPages, listProjets, type Collections } from "$lib/types/client";
 import { promisify } from "util";
@@ -131,7 +131,7 @@ export const GET: RequestHandler = async ({ fetch }) => {
                 .map(
                     ({ path, lastmod, frequency, priority }) => `
                 <url>
-                    <loc>${PUBLIC_SITE_URL}${path}</loc>
+                    <loc>${env.PUBLIC_SITE_URL}${path}</loc>
                     <lastmod>${lastmod}</lastmod>
                     <changefreq>${frequency}</changefreq>
                     <priority>${priority}</priority>

@@ -3,14 +3,14 @@ import type { JwtPayload } from 'jsonwebtoken';
 
 import jwt from "jsonwebtoken";
 import { redirect } from '@sveltejs/kit';
-import { PUBLIC_DIRECTUS_URL, PUBLIC_UMAMI_SRC } from '$env/static/public';
+import { env } from '$env/dynamic/public';
 import { client, constructCookieOpts } from '$logic/directus';
 
 const TOKEN_EXPIRATION_BUFFER = 300;
 
 // exchange the refresh token for an access token
 async function refreshAccessToken(cookies: Cookies) {
-    const res = await fetch(PUBLIC_DIRECTUS_URL + "/auth/refresh", {
+    const res = await fetch(env.PUBLIC_DIRECTUS_URL + "/auth/refresh", {
         method: "POST",
         mode: "cors",
         headers: {
@@ -47,12 +47,12 @@ function buildCSP(url: URL) {
         'default-src': ["'self'"],
         'script-src': ["'self'"],
         'style-src': ["'self'"],
-        'connect-src': ["'self'", PUBLIC_DIRECTUS_URL, 'https://cdn.plyr.io'],
-        'child-src': ["'self'", 'blob:', PUBLIC_DIRECTUS_URL],
-        'frame-ancestors': ["'self'", PUBLIC_DIRECTUS_URL],
-        'img-src': ["'self'", 'data:', PUBLIC_DIRECTUS_URL],
-        'media-src': ["'self'", 'data:', PUBLIC_DIRECTUS_URL],
-        'frame-src': ["'self'", 'data:', PUBLIC_DIRECTUS_URL],
+        'connect-src': ["'self'", env.PUBLIC_DIRECTUS_URL, 'https://cdn.plyr.io'],
+        'child-src': ["'self'", 'blob:', env.PUBLIC_DIRECTUS_URL],
+        'frame-ancestors': ["'self'", env.PUBLIC_DIRECTUS_URL],
+        'img-src': ["'self'", 'data:', env.PUBLIC_DIRECTUS_URL],
+        'media-src': ["'self'", 'data:', env.PUBLIC_DIRECTUS_URL],
+        'frame-src': ["'self'", 'data:', env.PUBLIC_DIRECTUS_URL],
     };
 
     // 1. GESTION DU MODE DE DÉVELOPPEMENT SVELTEKIT (VITE)
@@ -68,10 +68,10 @@ function buildCSP(url: URL) {
     }
 
 
-    if (PUBLIC_UMAMI_SRC) {
+    if (env.PUBLIC_UMAMI_SRC) {
         try {
             // Utilisation de l'URL du script Umami pour extraire le domaine
-            const umamiUrl = new URL(PUBLIC_UMAMI_SRC);
+            const umamiUrl = new URL(env.PUBLIC_UMAMI_SRC);
             directives['script-src'].push(umamiUrl.origin);
             directives['connect-src'].push(umamiUrl.origin);
 
