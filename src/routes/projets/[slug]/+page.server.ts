@@ -5,52 +5,45 @@ import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ params, fetch }) => {
-    try {
-        const directus = client(fetch);
-        const projects = await directus.request(
-            listProjets(
-                {
-                    filter: {
-                        "_and": [
-                            { "status": { "_in": ['published'] } },
-                            { "slug": { "_eq": params.slug } }
-                        ]
-                    },
-                    fields: [
-                        "*",
-                        { thumbnail: ["id"] },
-                        { tags: [{ tags_id: ["*"] }] },
-                        { gallery: ["directus_files_id"] }
-                    ]
-                }
-            )
-        )
+	try {
+		const directus = client(fetch);
+		const projects = await directus.request(
+			listProjets({
+				filter: {
+					_and: [{ status: { _in: ['published'] } }, { slug: { _eq: params.slug } }]
+				},
+				fields: [
+					'*',
+					{ thumbnail: ['id'] },
+					{ tags: [{ tags_id: ['*'] }] },
+					{ gallery: ['directus_files_id'] }
+				]
+			})
+		);
 
-        if (projects.length === 0) error(404, "Project not found");
-        const project = projects[0];
-        if (!project) error(404, "Project not found");
-        const gallery = (project.gallery ?? []).map((item) => item.directus_files_id);
+		if (projects.length === 0) error(404, 'Project not found');
+		const project = projects[0];
+		if (!project) error(404, 'Project not found');
+		const gallery = (project.gallery ?? []).map((item) => item.directus_files_id);
 
-        const getGalleryFiles = async () => {
-            try {
-                return await Promise.all(
-                    gallery.map(async (item) => {
-                        const file = await getFileInfos(directus, (item as string));
-                        return file;
-                    })
-                );
-            } catch (error) {
-                directusError(error);
-            }
-        }
+		const getGalleryFiles = async () => {
+			try {
+				return await Promise.all(
+					gallery.map(async (item) => {
+						const file = await getFileInfos(directus, item as string);
+						return file;
+					})
+				);
+			} catch (error) {
+				directusError(error);
+			}
+		};
 
-        return {
-            project,
-            gallery: await getGalleryFiles(),
-        };
-
-    } catch (error) {
-        directusError(error);
-    }
-
+		return {
+			project,
+			gallery: await getGalleryFiles()
+		};
+	} catch (error) {
+		directusError(error);
+	}
 }) satisfies PageServerLoad;

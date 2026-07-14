@@ -3,9 +3,9 @@
  * Follow the package's instruction to update this file with the latest schema.
  */
 
-import type * as Directus from "@directus/sdk";
+import type * as Directus from '@directus/sdk';
 
-import * as DirectusSDK from "@directus/sdk";
+import * as DirectusSDK from '@directus/sdk';
 
 type DirectusSDK = typeof DirectusSDK;
 
@@ -28,504 +28,496 @@ declare module "@directus/sdk" {
 */
 
 export namespace Types {
-  // Internal
-  export type Nullable<T> = T | null;
-  export type Optional<T> = Nullable<T>;
-  export type UnknownType<T> = T | unknown;
-  export type PrimaryKey<T> = T;
+	// Internal
+	export type Nullable<T> = T | null;
+	export type Optional<T> = Nullable<T>;
+	export type UnknownType<T> = T | unknown;
+	export type PrimaryKey<T> = T;
 
-  // Numbers
-  export type BigInteger = number;
-  export type Decimal = number;
-  export type Float = number;
-  export type Integer = number;
-  export type Number = number;
+	// Numbers
+	export type BigInteger = number;
+	export type Decimal = number;
+	export type Float = number;
+	export type Integer = number;
+	export type Number = number;
 
-  // Buffers
-  export type Binary = string;
-  export type String = string;
-  export type Text = string;
+	// Buffers
+	export type Binary = string;
+	export type String = string;
+	export type Text = string;
 
-  // Date & Time
-  export type Date = string | globalThis.Date;
-  export type DateTime = string | globalThis.Date;
+	// Date & Time
+	export type Date = string | globalThis.Date;
+	export type DateTime = string | globalThis.Date;
 
-  // Geometry
-  export namespace Geometry {
-    export type LineString = any;
-    export type MultiLineString = any;
-    export type MultiPoint = any;
-    export type MultiPolygon = any;
-    export type Point = any;
-    export type Polygon = any;
-  }
+	// Geometry
+	export namespace Geometry {
+		export type LineString = any;
+		export type MultiLineString = any;
+		export type MultiPoint = any;
+		export type MultiPolygon = any;
+		export type Point = any;
+		export type Polygon = any;
+	}
 
-  // Complex
-  export type JSON = any;
-  export type JSONSchema = any;
+	// Complex
+	export type JSON = any;
+	export type JSONSchema = any;
 
-  // Others
-  export type UUID = string;
-  export type Boolean = boolean;
-  export type Enum = string;
+	// Others
+	export type UUID = string;
+	export type Boolean = boolean;
+	export type Enum = string;
 }
 
 /**
  * All collection types.
  */
 export namespace Collections {
-  /**
-   * The resolved directus activity collection type.
-   *
-   */
-  export type DirectusActivity = Directus.DirectusActivity<System>;
+	/**
+	 * The resolved directus activity collection type.
+	 *
+	 */
+	export type DirectusActivity = Directus.DirectusActivity<System>;
 
-  /**
-   * The resolved directus collections collection type.
-   *
-   */
-  export type DirectusCollection = Directus.DirectusCollection<System>;
+	/**
+	 * The resolved directus collections collection type.
+	 *
+	 */
+	export type DirectusCollection = Directus.DirectusCollection<System>;
 
-  /**
-   * The resolved directus comments collection type.
-   *
-   */
-  export type DirectusComment = Directus.DirectusComment<System>;
+	/**
+	 * The resolved directus comments collection type.
+	 *
+	 */
+	export type DirectusComment = Directus.DirectusComment<System>;
 
-  /**
-   * The resolved directus fields collection type.
-   *
-   */
-  export type DirectusField = Directus.DirectusField<System>;
+	/**
+	 * The resolved directus fields collection type.
+	 *
+	 */
+	export type DirectusField = Directus.DirectusField<System>;
 
-  /**
-   * The resolved directus files collection type.
-   *
-   */
-  export type DirectusFile = Directus.DirectusFile<System>;
+	/**
+	 * The resolved directus files collection type.
+	 *
+	 */
+	export type DirectusFile = Directus.DirectusFile<System>;
 
-  /**
-   * The resolved directus folders collection type.
-   *
-   */
-  export type DirectusFolder = Directus.DirectusFolder<System>;
+	/**
+	 * The resolved directus folders collection type.
+	 *
+	 */
+	export type DirectusFolder = Directus.DirectusFolder<System>;
 
-  /**
-   * The resolved directus permissions collection type.
-   *
-   */
-  export type DirectusPermission = Directus.DirectusPermission<System>;
+	/**
+	 * The resolved directus permissions collection type.
+	 *
+	 */
+	export type DirectusPermission = Directus.DirectusPermission<System>;
 
-  /**
-   * The resolved directus presets collection type.
-   *
-   */
-  export type DirectusPreset = Directus.DirectusPreset<System>;
+	/**
+	 * The resolved directus presets collection type.
+	 *
+	 */
+	export type DirectusPreset = Directus.DirectusPreset<System>;
 
-  /**
-   * The resolved directus relations collection type.
-   *
-   */
-  export type DirectusRelation = Directus.DirectusRelation<System>;
+	/**
+	 * The resolved directus relations collection type.
+	 *
+	 */
+	export type DirectusRelation = Directus.DirectusRelation<System>;
 
-  /**
-   * The resolved directus revisions collection type.
-   *
-   */
-  export type DirectusRevision = Directus.DirectusRevision<System>;
+	/**
+	 * The resolved directus revisions collection type.
+	 *
+	 */
+	export type DirectusRevision = Directus.DirectusRevision<System>;
 
-  /**
-   * The resolved directus roles collection type.
-   *
-   */
-  export type DirectusRole = Directus.DirectusRole<System>;
+	/**
+	 * The resolved directus roles collection type.
+	 *
+	 */
+	export type DirectusRole = Directus.DirectusRole<System>;
 
-  /**
-   * The resolved directus settings collection type.
-   *
-   */
-  export type DirectusSettings = Directus.DirectusSettings<System>;
+	/**
+	 * The resolved directus settings collection type.
+	 *
+	 */
+	export type DirectusSettings = Directus.DirectusSettings<System>;
 
-  /**
-   * The resolved directus users collection type.
-   *
-   */
-  export type DirectusUser = Directus.DirectusUser<System>;
+	/**
+	 * The resolved directus users collection type.
+	 *
+	 */
+	export type DirectusUser = Directus.DirectusUser<System>;
 
-  /**
-   * The resolved directus webhooks collection type.
-   *
-   */
-  export type DirectusWebhook = Directus.DirectusWebhook<System>;
+	/**
+	 * The resolved directus webhooks collection type.
+	 *
+	 */
+	export type DirectusWebhook = Directus.DirectusWebhook<System>;
 
-  /**
-   * The resolved directus dashboards collection type.
-   *
-   */
-  export type DirectusDashboard = Directus.DirectusDashboard<System>;
+	/**
+	 * The resolved directus dashboards collection type.
+	 *
+	 */
+	export type DirectusDashboard = Directus.DirectusDashboard<System>;
 
-  /**
-   * The resolved directus panels collection type.
-   *
-   */
-  export type DirectusPanel = Directus.DirectusPanel<System>;
+	/**
+	 * The resolved directus panels collection type.
+	 *
+	 */
+	export type DirectusPanel = Directus.DirectusPanel<System>;
 
-  /**
-   * The resolved directus notifications collection type.
-   *
-   */
-  export type DirectusNotification = Directus.DirectusNotification<System>;
+	/**
+	 * The resolved directus notifications collection type.
+	 *
+	 */
+	export type DirectusNotification = Directus.DirectusNotification<System>;
 
-  /**
-   * The resolved directus shares collection type.
-   *
-   */
-  export type DirectusShare = Directus.DirectusShare<System>;
+	/**
+	 * The resolved directus shares collection type.
+	 *
+	 */
+	export type DirectusShare = Directus.DirectusShare<System>;
 
-  /**
-   * The resolved directus flows collection type.
-   *
-   */
-  export type DirectusFlow = Directus.DirectusFlow<System>;
+	/**
+	 * The resolved directus flows collection type.
+	 *
+	 */
+	export type DirectusFlow = Directus.DirectusFlow<System>;
 
-  /**
-   * The resolved directus operations collection type.
-   *
-   */
-  export type DirectusOperation = Directus.DirectusOperation<System>;
+	/**
+	 * The resolved directus operations collection type.
+	 *
+	 */
+	export type DirectusOperation = Directus.DirectusOperation<System>;
 
-  /**
-   * The resolved directus translations collection type.
-   *
-   */
-  export type DirectusTranslation = Directus.DirectusTranslation<System>;
+	/**
+	 * The resolved directus translations collection type.
+	 *
+	 */
+	export type DirectusTranslation = Directus.DirectusTranslation<System>;
 
-  /**
-   * The resolved directus versions collection type.
-   *
-   */
-  export type DirectusVersion = Directus.DirectusVersion<System>;
+	/**
+	 * The resolved directus versions collection type.
+	 *
+	 */
+	export type DirectusVersion = Directus.DirectusVersion<System>;
 
-  /**
-   * The resolved directus extensions collection type.
-   *
-   */
-  export type DirectusExtension = Directus.DirectusExtension<System>;
+	/**
+	 * The resolved directus extensions collection type.
+	 *
+	 */
+	export type DirectusExtension = Directus.DirectusExtension<System>;
 
-  /**
-   * The button collection.
-   */
-  export interface Button {
-    id: Types.PrimaryKey<Types.UUID>;
-    label: Types.String;
-    variant:
-      | "link"
-      | "ghost"
-      | "secondary"
-      | "outline"
-      | "default"
-      | Types.String;
-    size: Types.Optional<"badge" | "lg" | "small" | "default" | Types.String>;
-    link: Types.Optional<Types.String>;
-    url: Types.Optional<Types.String>;
-    new_tab: Types.Optional<Types.Boolean>;
-    page: Types.Optional<Types.UUID | Collections.Pages>;
-    type: Types.String;
-  }
+	/**
+	 * The button collection.
+	 */
+	export interface Button {
+		id: Types.PrimaryKey<Types.UUID>;
+		label: Types.String;
+		variant: 'link' | 'ghost' | 'secondary' | 'outline' | 'default' | Types.String;
+		size: Types.Optional<'badge' | 'lg' | 'small' | 'default' | Types.String>;
+		link: Types.Optional<Types.String>;
+		url: Types.Optional<Types.String>;
+		new_tab: Types.Optional<Types.Boolean>;
+		page: Types.Optional<Types.UUID | Collections.Pages>;
+		type: Types.String;
+	}
 
-  /**
-   * The categories collection.
-   */
-  export interface Categories {
-    id: Types.PrimaryKey<Types.UUID>;
-    sort: Types.Optional<Types.Integer>;
-    name: Types.Optional<Types.String>;
-    tags: Collections.Tags[];
-    speed: Types.Optional<Types.Integer>;
-  }
+	/**
+	 * The categories collection.
+	 */
+	export interface Categories {
+		id: Types.PrimaryKey<Types.UUID>;
+		sort: Types.Optional<Types.Integer>;
+		name: Types.Optional<Types.String>;
+		tags: Collections.Tags[];
+		speed: Types.Optional<Types.Integer>;
+	}
 
-  /**
-   * The contact forms collection.
-   */
-  export interface ContactForms {
-    id: Types.PrimaryKey<Types.BigInteger>;
-    date_created: Types.Optional<Types.DateTime>;
-    sort: Types.Optional<Types.Integer>;
-    name: Types.Optional<Types.String>;
-    email: Types.Optional<Types.String>;
-    message: Types.Optional<Types.String>;
-  }
+	/**
+	 * The contact forms collection.
+	 */
+	export interface ContactForms {
+		id: Types.PrimaryKey<Types.BigInteger>;
+		date_created: Types.Optional<Types.DateTime>;
+		sort: Types.Optional<Types.Integer>;
+		name: Types.Optional<Types.String>;
+		email: Types.Optional<Types.String>;
+		message: Types.Optional<Types.String>;
+	}
 
-  /**
-   * The directus sync id map collection.
-   */
-  export interface DirectusSyncIdMap {
-    id: Types.PrimaryKey<Types.Integer>;
-    table: Types.String;
-    sync_id: Types.String;
-    local_id: Types.String;
-    created_at: Types.Optional<Types.DateTime>;
-  }
+	/**
+	 * The directus sync id map collection.
+	 */
+	export interface DirectusSyncIdMap {
+		id: Types.PrimaryKey<Types.Integer>;
+		table: Types.String;
+		sync_id: Types.String;
+		local_id: Types.String;
+		created_at: Types.Optional<Types.DateTime>;
+	}
 
-  /**
-   * The gallery collection.
-   */
-  export interface Gallery {
-    id: Types.PrimaryKey<Types.UUID>;
-    type: Types.Optional<Types.String>;
-    images: Collections.GalleryFiles[];
-  }
+	/**
+	 * The gallery collection.
+	 */
+	export interface Gallery {
+		id: Types.PrimaryKey<Types.UUID>;
+		type: Types.Optional<Types.String>;
+		images: Collections.GalleryFiles[];
+	}
 
-  /**
-   * The gallery files collection.
-   */
-  export interface GalleryFiles {
-    id: Types.PrimaryKey<Types.Integer>;
-    gallery_id: Types.Optional<Types.UUID | Collections.Gallery>;
-    directus_files_id: Types.Optional<Types.UUID | Collections.DirectusFile>;
-  }
+	/**
+	 * The gallery files collection.
+	 */
+	export interface GalleryFiles {
+		id: Types.PrimaryKey<Types.Integer>;
+		gallery_id: Types.Optional<Types.UUID | Collections.Gallery>;
+		directus_files_id: Types.Optional<Types.UUID | Collections.DirectusFile>;
+	}
 
-  /**
-   * The homepage collection.
-   */
-  export interface Homepage {
-    id: Types.PrimaryKey<Types.UUID>;
-    user_created: Types.Optional<Types.UUID | Collections.DirectusUser>;
-    date_created: Types.Optional<Types.DateTime>;
-    user_updated: Types.Optional<Types.UUID | Collections.DirectusUser>;
-    date_updated: Types.Optional<Types.DateTime>;
-    presentation: Types.Optional<Types.String>;
-    img: Types.Optional<Types.UUID | Collections.DirectusFile>;
-    nudge_project: Types.Optional<Types.String>;
-    pinned_projects: Collections.Projets[];
-    projects_wall: Collections.HomepageFiles[];
-    contact_text: Types.Optional<Types.String>;
-    contact_nudge: Types.Optional<Types.String>;
-    seo: Types.Optional<Types.JSON | Types.JSON>;
-  }
+	/**
+	 * The homepage collection.
+	 */
+	export interface Homepage {
+		id: Types.PrimaryKey<Types.UUID>;
+		user_created: Types.Optional<Types.UUID | Collections.DirectusUser>;
+		date_created: Types.Optional<Types.DateTime>;
+		user_updated: Types.Optional<Types.UUID | Collections.DirectusUser>;
+		date_updated: Types.Optional<Types.DateTime>;
+		presentation: Types.Optional<Types.String>;
+		img: Types.Optional<Types.UUID | Collections.DirectusFile>;
+		nudge_project: Types.Optional<Types.String>;
+		pinned_projects: Collections.Projets[];
+		projects_wall: Collections.HomepageFiles[];
+		contact_text: Types.Optional<Types.String>;
+		contact_nudge: Types.Optional<Types.String>;
+		seo: Types.Optional<Types.JSON | Types.JSON>;
+	}
 
-  /**
-   * The homepage files collection.
-   */
-  export interface HomepageFiles {
-    id: Types.PrimaryKey<Types.Integer>;
-    homepage_id: Types.Optional<Types.UUID | Collections.Homepage>;
-    directus_files_id: Types.Optional<Types.UUID | Collections.DirectusFile>;
-  }
+	/**
+	 * The homepage files collection.
+	 */
+	export interface HomepageFiles {
+		id: Types.PrimaryKey<Types.Integer>;
+		homepage_id: Types.Optional<Types.UUID | Collections.Homepage>;
+		directus_files_id: Types.Optional<Types.UUID | Collections.DirectusFile>;
+	}
 
-  /**
-   * The image collection.
-   */
-  export interface Image {
-    id: Types.PrimaryKey<Types.UUID>;
-    sort: Types.Optional<Types.Integer>;
-    image: Types.Optional<Types.UUID | Collections.DirectusFile>;
-    show_caption: Types.Optional<Types.Boolean>;
-    type: Types.Optional<Types.String>;
-  }
+	/**
+	 * The image collection.
+	 */
+	export interface Image {
+		id: Types.PrimaryKey<Types.UUID>;
+		sort: Types.Optional<Types.Integer>;
+		image: Types.Optional<Types.UUID | Collections.DirectusFile>;
+		show_caption: Types.Optional<Types.Boolean>;
+		type: Types.Optional<Types.String>;
+	}
 
-  /**
-   * The menu items collection.
-   */
-  export interface MenuItems {
-    id: Types.PrimaryKey<Types.UUID>;
-    menu: Types.Optional<Types.String | Collections.Menus>;
-    sort: Types.Optional<Types.Integer>;
-    label: Types.Optional<Types.String>;
-    type: Types.Optional<Types.String>;
-    page: Types.Optional<Types.UUID | Collections.Pages>;
-    children: Collections.MenuItems[];
-    url: Types.Optional<Types.String>;
-    open_in_new_tab: Types.Optional<Types.Boolean>;
-    parent: Types.Optional<Types.UUID | Collections.MenuItems>;
-  }
+	/**
+	 * The menu items collection.
+	 */
+	export interface MenuItems {
+		id: Types.PrimaryKey<Types.UUID>;
+		menu: Types.Optional<Types.String | Collections.Menus>;
+		sort: Types.Optional<Types.Integer>;
+		label: Types.Optional<Types.String>;
+		type: Types.Optional<Types.String>;
+		page: Types.Optional<Types.UUID | Collections.Pages>;
+		children: Collections.MenuItems[];
+		url: Types.Optional<Types.String>;
+		open_in_new_tab: Types.Optional<Types.Boolean>;
+		parent: Types.Optional<Types.UUID | Collections.MenuItems>;
+	}
 
-  /**
-   * The menus collection.
-   */
-  export interface Menus {
-    title: Types.PrimaryKey<Types.String>;
-    items: Collections.MenuItems[];
-    sort: Types.Optional<Types.Integer>;
-  }
+	/**
+	 * The menus collection.
+	 */
+	export interface Menus {
+		title: Types.PrimaryKey<Types.String>;
+		items: Collections.MenuItems[];
+		sort: Types.Optional<Types.Integer>;
+	}
 
-  /**
-   * The pages collection.
-   */
-  export interface Pages {
-    id: Types.PrimaryKey<Types.UUID>;
-    sort: Types.Optional<Types.Integer>;
-    user_created: Types.Optional<Types.UUID | Collections.DirectusUser>;
-    date_created: Types.Optional<Types.DateTime>;
-    user_updated: Types.Optional<Types.UUID | Collections.DirectusUser>;
-    date_updated: Types.Optional<Types.DateTime>;
-    status: "archived" | "draft" | "published" | Types.String;
-    parent: Types.Optional<Types.UUID | Collections.Pages>;
-    title: Types.String;
-    editor: Types.Optional<Types.JSON | Types.JSON>;
-    editor_nodes: Collections.PagesEditorNodes[];
-    seo: Types.Optional<Types.JSON | Types.JSON>;
-    permalink: Types.Optional<Types.String>;
-  }
+	/**
+	 * The pages collection.
+	 */
+	export interface Pages {
+		id: Types.PrimaryKey<Types.UUID>;
+		sort: Types.Optional<Types.Integer>;
+		user_created: Types.Optional<Types.UUID | Collections.DirectusUser>;
+		date_created: Types.Optional<Types.DateTime>;
+		user_updated: Types.Optional<Types.UUID | Collections.DirectusUser>;
+		date_updated: Types.Optional<Types.DateTime>;
+		status: 'archived' | 'draft' | 'published' | Types.String;
+		parent: Types.Optional<Types.UUID | Collections.Pages>;
+		title: Types.String;
+		editor: Types.Optional<Types.JSON | Types.JSON>;
+		editor_nodes: Collections.PagesEditorNodes[];
+		seo: Types.Optional<Types.JSON | Types.JSON>;
+		permalink: Types.Optional<Types.String>;
+	}
 
-  /**
-   * The pages editor nodes collection.
-   */
-  export interface PagesEditorNodes {
-    id: Types.PrimaryKey<Types.UUID>;
-    pages_id: Types.Optional<Types.UUID | Collections.Pages>;
-    item: Types.Optional<Types.String | Collections.Section>;
-    collection: Types.Optional<Types.String>;
-  }
+	/**
+	 * The pages editor nodes collection.
+	 */
+	export interface PagesEditorNodes {
+		id: Types.PrimaryKey<Types.UUID>;
+		pages_id: Types.Optional<Types.UUID | Collections.Pages>;
+		item: Types.Optional<Types.String | Collections.Section>;
+		collection: Types.Optional<Types.String>;
+	}
 
-  /**
-   * The projets collection.
-   */
-  export interface Projets {
-    id: Types.PrimaryKey<Types.UUID>;
-    status: "archived" | "draft" | "published" | Types.String;
-    sort: Types.Optional<Types.Integer>;
-    thumbnail: Types.Optional<Types.UUID | Collections.DirectusFile>;
-    date_created: Types.Optional<Types.DateTime>;
-    date_updated: Types.Optional<Types.DateTime>;
-    title: Types.Optional<Types.String>;
-    slug: Types.Optional<Types.String>;
-    subtitle: Types.Optional<Types.String>;
-    tags: Collections.ProjetsTags1[];
-    description: Types.Optional<Types.String>;
-    site_url: Types.Optional<Types.String>;
-    gallery: Collections.ProjetsFiles[];
-    seo: Types.Optional<Types.JSON | Types.JSON>;
-    pinned: Types.Optional<Types.UUID | Collections.Homepage>;
-  }
+	/**
+	 * The projets collection.
+	 */
+	export interface Projets {
+		id: Types.PrimaryKey<Types.UUID>;
+		status: 'archived' | 'draft' | 'published' | Types.String;
+		sort: Types.Optional<Types.Integer>;
+		thumbnail: Types.Optional<Types.UUID | Collections.DirectusFile>;
+		date_created: Types.Optional<Types.DateTime>;
+		date_updated: Types.Optional<Types.DateTime>;
+		title: Types.Optional<Types.String>;
+		slug: Types.Optional<Types.String>;
+		subtitle: Types.Optional<Types.String>;
+		tags: Collections.ProjetsTags1[];
+		description: Types.Optional<Types.String>;
+		site_url: Types.Optional<Types.String>;
+		gallery: Collections.ProjetsFiles[];
+		seo: Types.Optional<Types.JSON | Types.JSON>;
+		pinned: Types.Optional<Types.UUID | Collections.Homepage>;
+	}
 
-  /**
-   * The projets files collection.
-   */
-  export interface ProjetsFiles {
-    id: Types.PrimaryKey<Types.Integer>;
-    projets_id: Types.Optional<Types.UUID | Collections.Projets>;
-    directus_files_id: Types.Optional<Types.UUID | Collections.DirectusFile>;
-    sort: Types.Optional<Types.Integer>;
-  }
+	/**
+	 * The projets files collection.
+	 */
+	export interface ProjetsFiles {
+		id: Types.PrimaryKey<Types.Integer>;
+		projets_id: Types.Optional<Types.UUID | Collections.Projets>;
+		directus_files_id: Types.Optional<Types.UUID | Collections.DirectusFile>;
+		sort: Types.Optional<Types.Integer>;
+	}
 
-  /**
-   * The projets tags collection.
-   */
-  export interface ProjetsTags {
-    id: Types.PrimaryKey<Types.Integer>;
-    projets_id: Types.Optional<Types.UUID | Collections.Projets>;
-    tags_id: Types.Optional<Types.UUID | Collections.Tags>;
-  }
+	/**
+	 * The projets tags collection.
+	 */
+	export interface ProjetsTags {
+		id: Types.PrimaryKey<Types.Integer>;
+		projets_id: Types.Optional<Types.UUID | Collections.Projets>;
+		tags_id: Types.Optional<Types.UUID | Collections.Tags>;
+	}
 
-  /**
-   * The projets tags 1 collection.
-   */
-  export interface ProjetsTags1 {
-    id: Types.PrimaryKey<Types.Integer>;
-    projets_id: Types.Optional<Types.UUID | Collections.Projets>;
-    tags_id: Types.Optional<Types.UUID | Collections.Tags>;
-    sort: Types.Optional<Types.Integer>;
-  }
+	/**
+	 * The projets tags 1 collection.
+	 */
+	export interface ProjetsTags1 {
+		id: Types.PrimaryKey<Types.Integer>;
+		projets_id: Types.Optional<Types.UUID | Collections.Projets>;
+		tags_id: Types.Optional<Types.UUID | Collections.Tags>;
+		sort: Types.Optional<Types.Integer>;
+	}
 
-  /**
-   * The quote collection.
-   */
-  export interface Quote {
-    id: Types.PrimaryKey<Types.UUID>;
-    text: Types.Optional<Types.String>;
-    author: Types.Optional<Types.String>;
-    type: Types.String;
-  }
+	/**
+	 * The quote collection.
+	 */
+	export interface Quote {
+		id: Types.PrimaryKey<Types.UUID>;
+		text: Types.Optional<Types.String>;
+		author: Types.Optional<Types.String>;
+		type: Types.String;
+	}
 
-  /**
-   * The section collection.
-   */
-  export interface Section {
-    id: Types.PrimaryKey<Types.Integer>;
-    width: Types.Optional<Types.String>;
-    color: Types.Optional<"muted" | "secondary" | "primary" | Types.String>;
-    border: Types.Optional<"muted" | "secondary" | "primary" | Types.String>;
-    template: Types.Optional<
-      "cols-3" | "cols-2" | "inherit-main" | Types.String
-    >;
-    align: Types.Optional<"end" | "center" | "start" | Types.String>;
-    editor: Types.Optional<Types.JSON | Types.JSON>;
-    editor_nodes: Collections.SectionEditorNodes[];
-    type: Types.String;
-  }
+	/**
+	 * The section collection.
+	 */
+	export interface Section {
+		id: Types.PrimaryKey<Types.Integer>;
+		width: Types.Optional<Types.String>;
+		color: Types.Optional<'muted' | 'secondary' | 'primary' | Types.String>;
+		border: Types.Optional<'muted' | 'secondary' | 'primary' | Types.String>;
+		template: Types.Optional<'cols-3' | 'cols-2' | 'inherit-main' | Types.String>;
+		align: Types.Optional<'end' | 'center' | 'start' | Types.String>;
+		editor: Types.Optional<Types.JSON | Types.JSON>;
+		editor_nodes: Collections.SectionEditorNodes[];
+		type: Types.String;
+	}
 
-  /**
-   * The section editor nodes collection.
-   */
-  export interface SectionEditorNodes {
-    id: Types.PrimaryKey<Types.UUID>;
-    section_id: Types.Optional<Types.Integer | Collections.Section>;
-    item: Types.Optional<
-      | Types.String
-      | Collections.Image
-      | Collections.Gallery
-      | Collections.Quote
-      | Collections.Button
-      | Collections.Stack
-      | Collections.Video
-    >;
-    collection: Types.Optional<Types.String>;
-  }
+	/**
+	 * The section editor nodes collection.
+	 */
+	export interface SectionEditorNodes {
+		id: Types.PrimaryKey<Types.UUID>;
+		section_id: Types.Optional<Types.Integer | Collections.Section>;
+		item: Types.Optional<
+			| Types.String
+			| Collections.Image
+			| Collections.Gallery
+			| Collections.Quote
+			| Collections.Button
+			| Collections.Stack
+			| Collections.Video
+		>;
+		collection: Types.Optional<Types.String>;
+	}
 
-  /**
-   * The stack collection.
-   */
-  export interface Stack {
-    id: Types.PrimaryKey<Types.UUID>;
-    type: Types.String;
-    direction: Types.Optional<Types.String>;
-    gap: Types.Optional<"8" | "4" | "2" | "0" | Types.String>;
-    color: Types.Optional<"muted" | "secondary" | "primary" | Types.String>;
-    fit_height: Types.Optional<Types.Boolean>;
-    editor: Types.Optional<Types.JSON | Types.JSON>;
-    editor_nodes: Collections.StackEditorNodes[];
-  }
+	/**
+	 * The stack collection.
+	 */
+	export interface Stack {
+		id: Types.PrimaryKey<Types.UUID>;
+		type: Types.String;
+		direction: Types.Optional<Types.String>;
+		gap: Types.Optional<'8' | '4' | '2' | '0' | Types.String>;
+		color: Types.Optional<'muted' | 'secondary' | 'primary' | Types.String>;
+		fit_height: Types.Optional<Types.Boolean>;
+		editor: Types.Optional<Types.JSON | Types.JSON>;
+		editor_nodes: Collections.StackEditorNodes[];
+	}
 
-  /**
-   * The stack editor nodes collection.
-   */
-  export interface StackEditorNodes {
-    id: Types.PrimaryKey<Types.UUID>;
-    stack_id: Types.Optional<Types.UUID | Collections.Stack>;
-    item: Types.Optional<
-      | Types.String
-      | Collections.Button
-      | Collections.Gallery
-      | Collections.Image
-      | Collections.Quote
-      | Collections.Stack
-      | Collections.Video
-    >;
-    collection: Types.Optional<Types.String>;
-  }
+	/**
+	 * The stack editor nodes collection.
+	 */
+	export interface StackEditorNodes {
+		id: Types.PrimaryKey<Types.UUID>;
+		stack_id: Types.Optional<Types.UUID | Collections.Stack>;
+		item: Types.Optional<
+			| Types.String
+			| Collections.Button
+			| Collections.Gallery
+			| Collections.Image
+			| Collections.Quote
+			| Collections.Stack
+			| Collections.Video
+		>;
+		collection: Types.Optional<Types.String>;
+	}
 
-  /**
-   * The tags collection.
-   */
-  export interface Tags {
-    id: Types.PrimaryKey<Types.UUID>;
-    status: "archived" | "draft" | "published" | Types.String;
-    sort: Types.Optional<Types.Integer>;
-    projects: Types.Optional<Types.UUID | Collections.Projets>;
-    title: Types.Optional<Types.String>;
-    category: Types.Optional<Types.UUID | Collections.Categories>;
-  }
+	/**
+	 * The tags collection.
+	 */
+	export interface Tags {
+		id: Types.PrimaryKey<Types.UUID>;
+		status: 'archived' | 'draft' | 'published' | Types.String;
+		sort: Types.Optional<Types.Integer>;
+		projects: Types.Optional<Types.UUID | Collections.Projets>;
+		title: Types.Optional<Types.String>;
+		category: Types.Optional<Types.UUID | Collections.Categories>;
+	}
 
-  /**
-   * The video collection.
-   */
-  export interface Video {
-    id: Types.PrimaryKey<Types.UUID>;
-    video_link: Types.Optional<Types.JSON | Types.JSON>;
-    type: Types.String;
-    autoplay: Types.Boolean;
-  }
+	/**
+	 * The video collection.
+	 */
+	export interface Video {
+		id: Types.PrimaryKey<Types.UUID>;
+		video_link: Types.Optional<Types.JSON | Types.JSON>;
+		type: Types.String;
+		autoplay: Types.Boolean;
+	}
 }
 
 /**
@@ -533,369 +525,354 @@ export namespace Collections {
  */
 
 export interface System {
-  /**
-   * The definition for the directus activity system collection.
-   *
-   */
-  directus_activity: {}[];
+	/**
+	 * The definition for the directus activity system collection.
+	 *
+	 */
+	directus_activity: {}[];
 
-  /**
-   * The definition for the directus collections system collection.
-   *
-   */
-  directus_collections: {}[];
+	/**
+	 * The definition for the directus collections system collection.
+	 *
+	 */
+	directus_collections: {}[];
 
-  /**
-   * The definition for the directus comments system collection.
-   *
-   */
-  directus_comments: {}[];
+	/**
+	 * The definition for the directus comments system collection.
+	 *
+	 */
+	directus_comments: {}[];
 
-  /**
-   * The definition for the directus fields system collection.
-   *
-   */
-  directus_fields: {}[];
+	/**
+	 * The definition for the directus fields system collection.
+	 *
+	 */
+	directus_fields: {}[];
 
-  /**
-   * The definition for the directus files system collection.
-   *
-   */
-  directus_files: {
-    thumbhash: Types.Optional<Types.String>;
-  }[];
+	/**
+	 * The definition for the directus files system collection.
+	 *
+	 */
+	directus_files: {
+		thumbhash: Types.Optional<Types.String>;
+	}[];
 
-  /**
-   * The definition for the directus folders system collection.
-   *
-   */
-  directus_folders: {}[];
+	/**
+	 * The definition for the directus folders system collection.
+	 *
+	 */
+	directus_folders: {}[];
 
-  /**
-   * The definition for the directus permissions system collection.
-   *
-   */
-  directus_permissions: {}[];
+	/**
+	 * The definition for the directus permissions system collection.
+	 *
+	 */
+	directus_permissions: {}[];
 
-  /**
-   * The definition for the directus presets system collection.
-   *
-   */
-  directus_presets: {}[];
+	/**
+	 * The definition for the directus presets system collection.
+	 *
+	 */
+	directus_presets: {}[];
 
-  /**
-   * The definition for the directus relations system collection.
-   *
-   */
-  directus_relations: {}[];
+	/**
+	 * The definition for the directus relations system collection.
+	 *
+	 */
+	directus_relations: {}[];
 
-  /**
-   * The definition for the directus revisions system collection.
-   *
-   */
-  directus_revisions: {}[];
+	/**
+	 * The definition for the directus revisions system collection.
+	 *
+	 */
+	directus_revisions: {}[];
 
-  /**
-   * The definition for the directus roles system collection.
-   *
-   */
-  directus_roles: {}[];
+	/**
+	 * The definition for the directus roles system collection.
+	 *
+	 */
+	directus_roles: {}[];
 
-  /**
-   * The definition for the directus settings system collection.
-   *
-   */
-  directus_settings: {
-    flow_manager_categories: Types.Optional<Types.JSON | Types.JSON>;
-    maintenance_state: Types.Optional<Types.Boolean>;
-    maintenance_title: Types.Optional<Types.String>;
-    maintenance_description: Types.Optional<Types.String>;
-  };
+	/**
+	 * The definition for the directus settings system collection.
+	 *
+	 */
+	directus_settings: {
+		flow_manager_categories: Types.Optional<Types.JSON | Types.JSON>;
+		maintenance_state: Types.Optional<Types.Boolean>;
+		maintenance_title: Types.Optional<Types.String>;
+		maintenance_description: Types.Optional<Types.String>;
+	};
 
-  /**
-   * The definition for the directus users system collection.
-   *
-   */
-  directus_users: {}[];
+	/**
+	 * The definition for the directus users system collection.
+	 *
+	 */
+	directus_users: {}[];
 
-  /**
-   * The definition for the directus webhooks system collection.
-   *
-   */
-  directus_webhooks: {}[];
+	/**
+	 * The definition for the directus webhooks system collection.
+	 *
+	 */
+	directus_webhooks: {}[];
 
-  /**
-   * The definition for the directus dashboards system collection.
-   *
-   */
-  directus_dashboards: {}[];
+	/**
+	 * The definition for the directus dashboards system collection.
+	 *
+	 */
+	directus_dashboards: {}[];
 
-  /**
-   * The definition for the directus panels system collection.
-   *
-   */
-  directus_panels: {}[];
+	/**
+	 * The definition for the directus panels system collection.
+	 *
+	 */
+	directus_panels: {}[];
 
-  /**
-   * The definition for the directus notifications system collection.
-   *
-   */
-  directus_notifications: {}[];
+	/**
+	 * The definition for the directus notifications system collection.
+	 *
+	 */
+	directus_notifications: {}[];
 
-  /**
-   * The definition for the directus shares system collection.
-   *
-   */
-  directus_shares: {}[];
+	/**
+	 * The definition for the directus shares system collection.
+	 *
+	 */
+	directus_shares: {}[];
 
-  /**
-   * The definition for the directus flows system collection.
-   *
-   */
-  directus_flows: {
-    flow_manager_category: Types.Optional<Types.String>;
-    flow_manager_order: Types.Optional<Types.Integer>;
-    flow_manager_last_run_at: Types.Optional<Types.DateTime>;
-    flow_manager_run_counter: Types.Optional<Types.Integer>;
-  }[];
+	/**
+	 * The definition for the directus flows system collection.
+	 *
+	 */
+	directus_flows: {
+		flow_manager_category: Types.Optional<Types.String>;
+		flow_manager_order: Types.Optional<Types.Integer>;
+		flow_manager_last_run_at: Types.Optional<Types.DateTime>;
+		flow_manager_run_counter: Types.Optional<Types.Integer>;
+	}[];
 
-  /**
-   * The definition for the directus operations system collection.
-   *
-   */
-  directus_operations: {}[];
+	/**
+	 * The definition for the directus operations system collection.
+	 *
+	 */
+	directus_operations: {}[];
 
-  /**
-   * The definition for the directus translations system collection.
-   *
-   */
-  directus_translations: {}[];
+	/**
+	 * The definition for the directus translations system collection.
+	 *
+	 */
+	directus_translations: {}[];
 
-  /**
-   * The definition for the directus versions system collection.
-   *
-   */
-  directus_versions: {}[];
+	/**
+	 * The definition for the directus versions system collection.
+	 *
+	 */
+	directus_versions: {}[];
 
-  /**
-   * The definition for the directus extensions system collection.
-   *
-   */
-  directus_extensions: {}[];
+	/**
+	 * The definition for the directus extensions system collection.
+	 *
+	 */
+	directus_extensions: {}[];
 }
 
 /**
  * Schema definition.
  */
 export interface Schema extends System {
-  /**
-   * The button collection.
-   */
-  button: Collections.Button[];
+	/**
+	 * The button collection.
+	 */
+	button: Collections.Button[];
 
-  /**
-   * The categories collection.
-   */
-  categories: Collections.Categories[];
+	/**
+	 * The categories collection.
+	 */
+	categories: Collections.Categories[];
 
-  /**
-   * The contact forms collection.
-   */
-  contact_forms: Collections.ContactForms[];
+	/**
+	 * The contact forms collection.
+	 */
+	contact_forms: Collections.ContactForms[];
 
-  /**
-   * The directus sync id map collection.
-   */
-  directus_sync_id_map: Collections.DirectusSyncIdMap[];
+	/**
+	 * The directus sync id map collection.
+	 */
+	directus_sync_id_map: Collections.DirectusSyncIdMap[];
 
-  /**
-   * The gallery collection.
-   */
-  gallery: Collections.Gallery[];
+	/**
+	 * The gallery collection.
+	 */
+	gallery: Collections.Gallery[];
 
-  /**
-   * The gallery files collection.
-   */
-  gallery_files: Collections.GalleryFiles[];
+	/**
+	 * The gallery files collection.
+	 */
+	gallery_files: Collections.GalleryFiles[];
 
-  /**
-   * The homepage collection.
-   */
-  homepage: Collections.Homepage;
+	/**
+	 * The homepage collection.
+	 */
+	homepage: Collections.Homepage;
 
-  /**
-   * The homepage files collection.
-   */
-  homepage_files: Collections.HomepageFiles[];
+	/**
+	 * The homepage files collection.
+	 */
+	homepage_files: Collections.HomepageFiles[];
 
-  /**
-   * The image collection.
-   */
-  image: Collections.Image[];
+	/**
+	 * The image collection.
+	 */
+	image: Collections.Image[];
 
-  /**
-   * The menu items collection.
-   */
-  menu_items: Collections.MenuItems[];
+	/**
+	 * The menu items collection.
+	 */
+	menu_items: Collections.MenuItems[];
 
-  /**
-   * The menus collection.
-   */
-  menus: Collections.Menus[];
+	/**
+	 * The menus collection.
+	 */
+	menus: Collections.Menus[];
 
-  /**
-   * The pages collection.
-   */
-  pages: Collections.Pages[];
+	/**
+	 * The pages collection.
+	 */
+	pages: Collections.Pages[];
 
-  /**
-   * The pages editor nodes collection.
-   */
-  pages_editor_nodes: Collections.PagesEditorNodes[];
+	/**
+	 * The pages editor nodes collection.
+	 */
+	pages_editor_nodes: Collections.PagesEditorNodes[];
 
-  /**
-   * The projets collection.
-   */
-  projets: Collections.Projets[];
+	/**
+	 * The projets collection.
+	 */
+	projets: Collections.Projets[];
 
-  /**
-   * The projets files collection.
-   */
-  projets_files: Collections.ProjetsFiles[];
+	/**
+	 * The projets files collection.
+	 */
+	projets_files: Collections.ProjetsFiles[];
 
-  /**
-   * The projets tags collection.
-   */
-  projets_tags: Collections.ProjetsTags[];
+	/**
+	 * The projets tags collection.
+	 */
+	projets_tags: Collections.ProjetsTags[];
 
-  /**
-   * The projets tags 1 collection.
-   */
-  projets_tags_1: Collections.ProjetsTags1[];
+	/**
+	 * The projets tags 1 collection.
+	 */
+	projets_tags_1: Collections.ProjetsTags1[];
 
-  /**
-   * The quote collection.
-   */
-  quote: Collections.Quote[];
+	/**
+	 * The quote collection.
+	 */
+	quote: Collections.Quote[];
 
-  /**
-   * The section collection.
-   */
-  section: Collections.Section[];
+	/**
+	 * The section collection.
+	 */
+	section: Collections.Section[];
 
-  /**
-   * The section editor nodes collection.
-   */
-  section_editor_nodes: Collections.SectionEditorNodes[];
+	/**
+	 * The section editor nodes collection.
+	 */
+	section_editor_nodes: Collections.SectionEditorNodes[];
 
-  /**
-   * The stack collection.
-   */
-  stack: Collections.Stack[];
+	/**
+	 * The stack collection.
+	 */
+	stack: Collections.Stack[];
 
-  /**
-   * The stack editor nodes collection.
-   */
-  stack_editor_nodes: Collections.StackEditorNodes[];
+	/**
+	 * The stack editor nodes collection.
+	 */
+	stack_editor_nodes: Collections.StackEditorNodes[];
 
-  /**
-   * The tags collection.
-   */
-  tags: Collections.Tags[];
+	/**
+	 * The tags collection.
+	 */
+	tags: Collections.Tags[];
 
-  /**
-   * The video collection.
-   */
-  video: Collections.Video[];
+	/**
+	 * The video collection.
+	 */
+	video: Collections.Video[];
 }
 
 export interface TypedCollectionItemsWrapper<Collection extends object> {
-  /**
-   * Creates many items in the collection.
-   */
-  create<const Query extends DirectusSDK.Query<Schema, Collection>>(
-    items: Partial<Collection>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collection, Query["fields"]>[]
-  >;
+	/**
+	 * Creates many items in the collection.
+	 */
+	create<const Query extends DirectusSDK.Query<Schema, Collection>>(
+		items: Partial<Collection>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collection, Query['fields']>[]>;
 
-  /**
-   * Read many items from the collection.
-   */
-  query<const Query extends DirectusSDK.Query<Schema, Collection>>(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collection, Query["fields"]>[]
-  >;
+	/**
+	 * Read many items from the collection.
+	 */
+	query<const Query extends DirectusSDK.Query<Schema, Collection>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collection, Query['fields']>[]>;
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  find<const Query extends DirectusSDK.Query<Schema, Collection>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collection, Query["fields"]>
-    | undefined
-  >;
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	find<const Query extends DirectusSDK.Query<Schema, Collection>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collection, Query['fields']> | undefined>;
 
-  /**
-   * Update many items in the collection.
-   */
-  update<const Query extends DirectusSDK.Query<Schema, Collection[]>>(
-    keys: string[] | number[],
-    patch: Partial<Collection>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collection, Query["fields"]>[]
-  >;
+	/**
+	 * Update many items in the collection.
+	 */
+	update<const Query extends DirectusSDK.Query<Schema, Collection[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collection>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collection, Query['fields']>[]>;
 
-  /**
-   * Remove many items in the collection.
-   */
-  remove<const Query extends DirectusSDK.Query<Schema, Collection>>(
-    keys: string[] | number[],
-  ): Promise<void>;
+	/**
+	 * Remove many items in the collection.
+	 */
+	remove<const Query extends DirectusSDK.Query<Schema, Collection>>(
+		keys: string[] | number[]
+	): Promise<void>;
 }
 
 export interface TypedCollectionItemWrapper<Collection extends object> {
-  /**
-   * Create a single item in the collection.
-   */
-  create<const Query extends DirectusSDK.Query<Schema, Collection>>(
-    item: Partial<Collection>,
-    query?: Query,
-  ): Promise<DirectusSDK.ApplyQueryFields<Schema, Collection, Query["fields"]>>;
+	/**
+	 * Create a single item in the collection.
+	 */
+	create<const Query extends DirectusSDK.Query<Schema, Collection>>(
+		item: Partial<Collection>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collection, Query['fields']>>;
 
-  /**
-   * Read a single item from the collection.
-   */
-  get<const Query extends DirectusSDK.Query<Schema, Collection>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collection, Query["fields"]>
-    | undefined
-  >;
+	/**
+	 * Read a single item from the collection.
+	 */
+	get<const Query extends DirectusSDK.Query<Schema, Collection>>(
+		key: string | number,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collection, Query['fields']> | undefined>;
 
-  /**
-   * Update a single item from the collection.
-   */
-  update<const Query extends DirectusSDK.Query<Schema, Collection>>(
-    key: string | number,
-    patch: Partial<Collection>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collection, Query["fields"]>
-    | undefined
-  >;
+	/**
+	 * Update a single item from the collection.
+	 */
+	update<const Query extends DirectusSDK.Query<Schema, Collection>>(
+		key: string | number,
+		patch: Partial<Collection>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collection, Query['fields']> | undefined>;
 
-  /**
-   * Remove many items in the collection.
-   */
-  remove<const Query extends DirectusSDK.Query<Schema, Collection>>(
-    key: string | number,
-  ): Promise<void>;
+	/**
+	 * Remove many items in the collection.
+	 */
+	remove<const Query extends DirectusSDK.Query<Schema, Collection>>(
+		key: string | number
+	): Promise<void>;
 }
 
 /**
@@ -905,32 +882,29 @@ export interface TypedCollectionItemWrapper<Collection extends object> {
 /**
  * Create many button items.
  */
-export function createButtonItems<
-  const Query extends Directus.Query<Schema, Collections.Button[]>,
->(items: Partial<Collections.Button>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "button", Query>(
-    "button",
-    items,
-    query,
-  );
+export function createButtonItems<const Query extends Directus.Query<Schema, Collections.Button[]>>(
+	items: Partial<Collections.Button>[],
+	query?: Query
+) {
+	return DirectusSDK.createItems<Schema, 'button', Query>('button', items, query);
 }
 
 /**
  * Create a single button item.
  */
 export function createButtonItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.Button[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.Button[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.Button>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "button", Query>("button", item, query);
+	return DirectusSDK.createItem<Schema, 'button', Query>('button', item, query);
 }
 
 /**
  * Read many button items.
  */
-export function readButtonItems<
-  const Query extends Directus.Query<Schema, Collections.Button>,
->(query?: Query) {
-  return DirectusSDK.readItems<Schema, "button", Query>("button", query);
+export function readButtonItems<const Query extends Directus.Query<Schema, Collections.Button>>(
+	query?: Query
+) {
+	return DirectusSDK.readItems<Schema, 'button', Query>('button', query);
 }
 
 /**
@@ -941,10 +915,11 @@ export const listButton = readButtonItems;
 /**
  * Gets a single known button item by id.
  */
-export function readButtonItem<
-  const Query extends Directus.Query<Schema, Collections.Button>,
->(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "button", Query>("button", key, query);
+export function readButtonItem<const Query extends Directus.Query<Schema, Collections.Button>>(
+	key: string | number,
+	query?: Query
+) {
+	return DirectusSDK.readItem<Schema, 'button', Query>('button', key, query);
 }
 
 /**
@@ -955,230 +930,178 @@ export const readButton = readButtonItem;
 /**
  * Read many button items.
  */
-export function updateButtonItems<
-  const Query extends Directus.Query<Schema, Collections.Button[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.Button>,
-  query?: Query,
+export function updateButtonItems<const Query extends Directus.Query<Schema, Collections.Button[]>>(
+	keys: string[] | number[],
+	patch: Partial<Collections.Button>,
+	query?: Query
 ) {
-  return DirectusSDK.updateItems<Schema, "button", Query>(
-    "button",
-    keys,
-    patch,
-    query,
-  );
+	return DirectusSDK.updateItems<Schema, 'button', Query>('button', keys, patch, query);
 }
 
 /**
  * Gets a single known button item by id.
  */
-export function updateButtonItem<
-  const Query extends Directus.Query<Schema, Collections.Button[]>,
->(key: string | number, patch: Partial<Collections.Button>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "button", Query>(
-    "button",
-    key,
-    patch,
-    query,
-  );
+export function updateButtonItem<const Query extends Directus.Query<Schema, Collections.Button[]>>(
+	key: string | number,
+	patch: Partial<Collections.Button>,
+	query?: Query
+) {
+	return DirectusSDK.updateItem<Schema, 'button', Query>('button', key, patch, query);
 }
 
 /**
  * Deletes many button items.
  */
-export function deleteButtonItems<
-  const Query extends Directus.Query<Schema, Collections.Button[]>,
->(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "button", Query>("button", keys);
+export function deleteButtonItems<const Query extends Directus.Query<Schema, Collections.Button[]>>(
+	keys: string[] | number[]
+) {
+	return DirectusSDK.deleteItems<Schema, 'button', Query>('button', keys);
 }
 
 /**
  * Deletes a single known button item by id.
  */
 export function deleteButtonItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "button">("button", key);
+	return DirectusSDK.deleteItem<Schema, 'button'>('button', key);
 }
 
-export class ButtonItems
-  implements TypedCollectionItemsWrapper<Collections.Button>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ButtonItems implements TypedCollectionItemsWrapper<Collections.Button> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.Button>,
-  >(
-    items: Partial<Collections.Button>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query["fields"]>[]
-  > {
-    return (await this.client.request(
-      createButtonItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.Button>>(
+		items: Partial<Collections.Button>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query['fields']>[]> {
+		return (await this.client.request(createButtonItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<const Query extends Directus.Query<Schema, Collections.Button>>(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query["fields"]>[]
-  > {
-    return await this.client.request(readButtonItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.Button>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query['fields']>[]> {
+		return await this.client.request(readButtonItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<const Query extends Directus.Query<Schema, Collections.Button>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query["fields"]>
-    | undefined
-  > {
-    const items = await this.client.request(
-      readButtonItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.Button>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readButtonItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.Button[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.Button>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query["fields"]>[]
-  > {
-    return await this.client.request(updateButtonItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Button[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.Button>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query['fields']>[]> {
+		return await this.client.request(updateButtonItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Button>>(
-    keys: string[] | number[],
-  ): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Button>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class ButtonItem
-  implements TypedCollectionItemWrapper<Collections.Button>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ButtonItem implements TypedCollectionItemWrapper<Collections.Button> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<const Query extends Directus.Query<Schema, Collections.Button>>(
-    item: Partial<Collections.Button>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query["fields"]>
-  > {
-    return (await this.client.request(
-      createButtonItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.Button>>(
+		item: Partial<Collections.Button>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query['fields']>> {
+		return (await this.client.request(createButtonItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.Button>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query["fields"]>
-    | undefined
-  > {
-    return await this.client.request(readButtonItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.Button>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query['fields']> | undefined
+	> {
+		return await this.client.request(readButtonItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Button>>(
-    key: string | number,
-    patch: Partial<Collections.Button>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query["fields"]>
-    | undefined
-  > {
-    return (await this.client.request(
-      updateButtonItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Button>>(
+		key: string | number,
+		patch: Partial<Collections.Button>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Button, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateButtonItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Button>>(
-    key: string | number,
-  ): Promise<void> {
-    return await this.client.request(deleteButtonItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Button>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteButtonItem(key));
+	}
 }
 
 /**
  * Create many categories items.
  */
 export function createCategoriesItems<
-  const Query extends Directus.Query<Schema, Collections.Categories[]>,
+	const Query extends Directus.Query<Schema, Collections.Categories[]>
 >(items: Partial<Collections.Categories>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "categories", Query>(
-    "categories",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'categories', Query>('categories', items, query);
 }
 
 /**
  * Create a single categories item.
  */
 export function createCategoriesItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.Categories[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.Categories[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.Categories>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "categories", Query>(
-    "categories",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'categories', Query>('categories', item, query);
 }
 
 /**
  * Read many categories items.
  */
 export function readCategoriesItems<
-  const Query extends Directus.Query<Schema, Collections.Categories>,
+	const Query extends Directus.Query<Schema, Collections.Categories>
 >(query?: Query) {
-  return DirectusSDK.readItems<Schema, "categories", Query>(
-    "categories",
-    query,
-  );
+	return DirectusSDK.readItems<Schema, 'categories', Query>('categories', query);
 }
 
 /**
@@ -1190,13 +1113,9 @@ export const listCategories = readCategoriesItems;
  * Gets a single known categories item by id.
  */
 export function readCategoriesItem<
-  const Query extends Directus.Query<Schema, Collections.Categories>,
+	const Query extends Directus.Query<Schema, Collections.Categories>
 >(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "categories", Query>(
-    "categories",
-    key,
-    query,
-  );
+	return DirectusSDK.readItem<Schema, 'categories', Query>('categories', key, query);
 }
 
 /**
@@ -1208,268 +1127,173 @@ export const readCategories = readCategoriesItem;
  * Read many categories items.
  */
 export function updateCategoriesItems<
-  const Query extends Directus.Query<Schema, Collections.Categories[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.Categories>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "categories", Query>(
-    "categories",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.Categories[]>
+>(keys: string[] | number[], patch: Partial<Collections.Categories>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'categories', Query>('categories', keys, patch, query);
 }
 
 /**
  * Gets a single known categories item by id.
  */
 export function updateCategoriesItem<
-  const Query extends Directus.Query<Schema, Collections.Categories[]>,
+	const Query extends Directus.Query<Schema, Collections.Categories[]>
 >(key: string | number, patch: Partial<Collections.Categories>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "categories", Query>(
-    "categories",
-    key,
-    patch,
-    query,
-  );
+	return DirectusSDK.updateItem<Schema, 'categories', Query>('categories', key, patch, query);
 }
 
 /**
  * Deletes many categories items.
  */
 export function deleteCategoriesItems<
-  const Query extends Directus.Query<Schema, Collections.Categories[]>,
+	const Query extends Directus.Query<Schema, Collections.Categories[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "categories", Query>(
-    "categories",
-    keys,
-  );
+	return DirectusSDK.deleteItems<Schema, 'categories', Query>('categories', keys);
 }
 
 /**
  * Deletes a single known categories item by id.
  */
 export function deleteCategoriesItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "categories">("categories", key);
+	return DirectusSDK.deleteItem<Schema, 'categories'>('categories', key);
 }
 
-export class CategoriesItems
-  implements TypedCollectionItemsWrapper<Collections.Categories>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class CategoriesItems implements TypedCollectionItemsWrapper<Collections.Categories> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.Categories>,
-  >(
-    items: Partial<Collections.Categories>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.Categories,
-      Query["fields"]
-    >[]
-  > {
-    return (await this.client.request(
-      createCategoriesItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.Categories>>(
+		items: Partial<Collections.Categories>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Categories, Query['fields']>[]> {
+		return (await this.client.request(createCategoriesItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<
-    const Query extends Directus.Query<Schema, Collections.Categories>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.Categories,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(readCategoriesItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.Categories>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Categories, Query['fields']>[]> {
+		return await this.client.request(readCategoriesItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<
-    const Query extends Directus.Query<Schema, Collections.Categories>,
-  >(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.Categories,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    const items = await this.client.request(
-      readCategoriesItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.Categories>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Categories, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readCategoriesItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.Categories[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.Categories>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.Categories,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(updateCategoriesItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Categories[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.Categories>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Categories, Query['fields']>[]> {
+		return await this.client.request(updateCategoriesItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.Categories>,
-  >(keys: string[] | number[]): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Categories>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class CategoriesItem
-  implements TypedCollectionItemWrapper<Collections.Categories>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class CategoriesItem implements TypedCollectionItemWrapper<Collections.Categories> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<
-    const Query extends Directus.Query<Schema, Collections.Categories>,
-  >(
-    item: Partial<Collections.Categories>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.Categories,
-      Query["fields"]
-    >
-  > {
-    return (await this.client.request(
-      createCategoriesItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.Categories>>(
+		item: Partial<Collections.Categories>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Categories, Query['fields']>> {
+		return (await this.client.request(createCategoriesItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.Categories>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.Categories,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return await this.client.request(readCategoriesItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.Categories>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Categories, Query['fields']> | undefined
+	> {
+		return await this.client.request(readCategoriesItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.Categories>,
-  >(
-    key: string | number,
-    patch: Partial<Collections.Categories>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.Categories,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return (await this.client.request(
-      updateCategoriesItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Categories>>(
+		key: string | number,
+		patch: Partial<Collections.Categories>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Categories, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateCategoriesItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.Categories>,
-  >(key: string | number): Promise<void> {
-    return await this.client.request(deleteCategoriesItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Categories>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteCategoriesItem(key));
+	}
 }
 
 /**
  * Create many contact forms items.
  */
 export function createContactFormsItems<
-  const Query extends Directus.Query<Schema, Collections.ContactForms[]>,
+	const Query extends Directus.Query<Schema, Collections.ContactForms[]>
 >(items: Partial<Collections.ContactForms>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "contact_forms", Query>(
-    "contact_forms",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'contact_forms', Query>('contact_forms', items, query);
 }
 
 /**
  * Create a single contact forms item.
  */
 export function createContactFormsItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.ContactForms[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.ContactForms[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.ContactForms>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "contact_forms", Query>(
-    "contact_forms",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'contact_forms', Query>('contact_forms', item, query);
 }
 
 /**
  * Read many contact forms items.
  */
 export function readContactFormsItems<
-  const Query extends Directus.Query<Schema, Collections.ContactForms>,
+	const Query extends Directus.Query<Schema, Collections.ContactForms>
 >(query?: Query) {
-  return DirectusSDK.readItems<Schema, "contact_forms", Query>(
-    "contact_forms",
-    query,
-  );
+	return DirectusSDK.readItems<Schema, 'contact_forms', Query>('contact_forms', query);
 }
 
 /**
@@ -1481,13 +1305,9 @@ export const listContactForms = readContactFormsItems;
  * Gets a single known contact forms item by id.
  */
 export function readContactFormsItem<
-  const Query extends Directus.Query<Schema, Collections.ContactForms>,
+	const Query extends Directus.Query<Schema, Collections.ContactForms>
 >(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "contact_forms", Query>(
-    "contact_forms",
-    key,
-    query,
-  );
+	return DirectusSDK.readItem<Schema, 'contact_forms', Query>('contact_forms', key, query);
 }
 
 /**
@@ -1499,279 +1319,189 @@ export const readContactForms = readContactFormsItem;
  * Read many contact forms items.
  */
 export function updateContactFormsItems<
-  const Query extends Directus.Query<Schema, Collections.ContactForms[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.ContactForms>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "contact_forms", Query>(
-    "contact_forms",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.ContactForms[]>
+>(keys: string[] | number[], patch: Partial<Collections.ContactForms>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'contact_forms', Query>(
+		'contact_forms',
+		keys,
+		patch,
+		query
+	);
 }
 
 /**
  * Gets a single known contact forms item by id.
  */
 export function updateContactFormsItem<
-  const Query extends Directus.Query<Schema, Collections.ContactForms[]>,
->(
-  key: string | number,
-  patch: Partial<Collections.ContactForms>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItem<Schema, "contact_forms", Query>(
-    "contact_forms",
-    key,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.ContactForms[]>
+>(key: string | number, patch: Partial<Collections.ContactForms>, query?: Query) {
+	return DirectusSDK.updateItem<Schema, 'contact_forms', Query>('contact_forms', key, patch, query);
 }
 
 /**
  * Deletes many contact forms items.
  */
 export function deleteContactFormsItems<
-  const Query extends Directus.Query<Schema, Collections.ContactForms[]>,
+	const Query extends Directus.Query<Schema, Collections.ContactForms[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "contact_forms", Query>(
-    "contact_forms",
-    keys,
-  );
+	return DirectusSDK.deleteItems<Schema, 'contact_forms', Query>('contact_forms', keys);
 }
 
 /**
  * Deletes a single known contact forms item by id.
  */
 export function deleteContactFormsItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "contact_forms">("contact_forms", key);
+	return DirectusSDK.deleteItem<Schema, 'contact_forms'>('contact_forms', key);
 }
 
-export class ContactFormsItems
-  implements TypedCollectionItemsWrapper<Collections.ContactForms>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ContactFormsItems implements TypedCollectionItemsWrapper<Collections.ContactForms> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.ContactForms>,
-  >(
-    items: Partial<Collections.ContactForms>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ContactForms,
-      Query["fields"]
-    >[]
-  > {
-    return (await this.client.request(
-      createContactFormsItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.ContactForms>>(
+		items: Partial<Collections.ContactForms>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ContactForms, Query['fields']>[]> {
+		return (await this.client.request(createContactFormsItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<
-    const Query extends Directus.Query<Schema, Collections.ContactForms>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ContactForms,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(readContactFormsItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.ContactForms>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ContactForms, Query['fields']>[]> {
+		return await this.client.request(readContactFormsItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<
-    const Query extends Directus.Query<Schema, Collections.ContactForms>,
-  >(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.ContactForms,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    const items = await this.client.request(
-      readContactFormsItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.ContactForms>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.ContactForms, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readContactFormsItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.ContactForms[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.ContactForms>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ContactForms,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(
-      updateContactFormsItems(keys, patch, query),
-    );
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.ContactForms[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.ContactForms>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ContactForms, Query['fields']>[]> {
+		return await this.client.request(updateContactFormsItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.ContactForms>,
-  >(keys: string[] | number[]): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.ContactForms>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class ContactFormsItem
-  implements TypedCollectionItemWrapper<Collections.ContactForms>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ContactFormsItem implements TypedCollectionItemWrapper<Collections.ContactForms> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<
-    const Query extends Directus.Query<Schema, Collections.ContactForms>,
-  >(
-    item: Partial<Collections.ContactForms>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ContactForms,
-      Query["fields"]
-    >
-  > {
-    return (await this.client.request(
-      createContactFormsItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.ContactForms>>(
+		item: Partial<Collections.ContactForms>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ContactForms, Query['fields']>> {
+		return (await this.client.request(createContactFormsItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<
-    const Query extends Directus.Query<Schema, Collections.ContactForms>,
-  >(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.ContactForms,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return await this.client.request(readContactFormsItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.ContactForms>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.ContactForms, Query['fields']> | undefined
+	> {
+		return await this.client.request(readContactFormsItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.ContactForms>,
-  >(
-    key: string | number,
-    patch: Partial<Collections.ContactForms>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.ContactForms,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return (await this.client.request(
-      updateContactFormsItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.ContactForms>>(
+		key: string | number,
+		patch: Partial<Collections.ContactForms>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.ContactForms, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateContactFormsItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.ContactForms>,
-  >(key: string | number): Promise<void> {
-    return await this.client.request(deleteContactFormsItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.ContactForms>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteContactFormsItem(key));
+	}
 }
 
 /**
  * Create many directus sync id map items.
  */
 export function createDirectusSyncIdMapItems<
-  const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap[]>,
+	const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap[]>
 >(items: Partial<Collections.DirectusSyncIdMap>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "directus_sync_id_map", Query>(
-    "directus_sync_id_map",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'directus_sync_id_map', Query>(
+		'directus_sync_id_map',
+		items,
+		query
+	);
 }
 
 /**
  * Create a single directus sync id map item.
  */
 export function createDirectusSyncIdMapItem<
-  const Query extends DirectusSDK.Query<
-    Schema,
-    Collections.DirectusSyncIdMap[]
-  >, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.DirectusSyncIdMap[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.DirectusSyncIdMap>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "directus_sync_id_map", Query>(
-    "directus_sync_id_map",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'directus_sync_id_map', Query>(
+		'directus_sync_id_map',
+		item,
+		query
+	);
 }
 
 /**
  * Read many directus sync id map items.
  */
 export function readDirectusSyncIdMapItems<
-  const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>,
+	const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>
 >(query?: Query) {
-  return DirectusSDK.readItems<Schema, "directus_sync_id_map", Query>(
-    "directus_sync_id_map",
-    query,
-  );
+	return DirectusSDK.readItems<Schema, 'directus_sync_id_map', Query>(
+		'directus_sync_id_map',
+		query
+	);
 }
 
 /**
@@ -1783,13 +1513,13 @@ export const listDirectusSyncIdMap = readDirectusSyncIdMapItems;
  * Gets a single known directus sync id map item by id.
  */
 export function readDirectusSyncIdMapItem<
-  const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>,
+	const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>
 >(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "directus_sync_id_map", Query>(
-    "directus_sync_id_map",
-    key,
-    query,
-  );
+	return DirectusSDK.readItem<Schema, 'directus_sync_id_map', Query>(
+		'directus_sync_id_map',
+		key,
+		query
+	);
 }
 
 /**
@@ -1801,279 +1531,198 @@ export const readDirectusSyncIdMap = readDirectusSyncIdMapItem;
  * Read many directus sync id map items.
  */
 export function updateDirectusSyncIdMapItems<
-  const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.DirectusSyncIdMap>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "directus_sync_id_map", Query>(
-    "directus_sync_id_map",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap[]>
+>(keys: string[] | number[], patch: Partial<Collections.DirectusSyncIdMap>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'directus_sync_id_map', Query>(
+		'directus_sync_id_map',
+		keys,
+		patch,
+		query
+	);
 }
 
 /**
  * Gets a single known directus sync id map item by id.
  */
 export function updateDirectusSyncIdMapItem<
-  const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap[]>,
->(
-  key: string | number,
-  patch: Partial<Collections.DirectusSyncIdMap>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItem<Schema, "directus_sync_id_map", Query>(
-    "directus_sync_id_map",
-    key,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap[]>
+>(key: string | number, patch: Partial<Collections.DirectusSyncIdMap>, query?: Query) {
+	return DirectusSDK.updateItem<Schema, 'directus_sync_id_map', Query>(
+		'directus_sync_id_map',
+		key,
+		patch,
+		query
+	);
 }
 
 /**
  * Deletes many directus sync id map items.
  */
 export function deleteDirectusSyncIdMapItems<
-  const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap[]>,
+	const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "directus_sync_id_map", Query>(
-    "directus_sync_id_map",
-    keys,
-  );
+	return DirectusSDK.deleteItems<Schema, 'directus_sync_id_map', Query>(
+		'directus_sync_id_map',
+		keys
+	);
 }
 
 /**
  * Deletes a single known directus sync id map item by id.
  */
 export function deleteDirectusSyncIdMapItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "directus_sync_id_map">(
-    "directus_sync_id_map",
-    key,
-  );
+	return DirectusSDK.deleteItem<Schema, 'directus_sync_id_map'>('directus_sync_id_map', key);
 }
 
 export class DirectusSyncIdMapItems
-  implements TypedCollectionItemsWrapper<Collections.DirectusSyncIdMap>
+	implements TypedCollectionItemsWrapper<Collections.DirectusSyncIdMap>
 {
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<
-      Schema,
-      Collections.DirectusSyncIdMap
-    >,
-  >(
-    items: Partial<Collections.DirectusSyncIdMap>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.DirectusSyncIdMap,
-      Query["fields"]
-    >[]
-  > {
-    return (await this.client.request(
-      createDirectusSyncIdMapItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.DirectusSyncIdMap>>(
+		items: Partial<Collections.DirectusSyncIdMap>[],
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.DirectusSyncIdMap, Query['fields']>[]
+	> {
+		return (await this.client.request(createDirectusSyncIdMapItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<
-    const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.DirectusSyncIdMap,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(readDirectusSyncIdMapItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.DirectusSyncIdMap, Query['fields']>[]
+	> {
+		return await this.client.request(readDirectusSyncIdMapItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<
-    const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>,
-  >(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.DirectusSyncIdMap,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    const items = await this.client.request(
-      readDirectusSyncIdMapItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.DirectusSyncIdMap, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readDirectusSyncIdMapItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.DirectusSyncIdMap>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.DirectusSyncIdMap,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(
-      updateDirectusSyncIdMapItems(keys, patch, query),
-    );
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.DirectusSyncIdMap>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.DirectusSyncIdMap, Query['fields']>[]
+	> {
+		return await this.client.request(updateDirectusSyncIdMapItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>,
-  >(keys: string[] | number[]): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
 export class DirectusSyncIdMapItem
-  implements TypedCollectionItemWrapper<Collections.DirectusSyncIdMap>
+	implements TypedCollectionItemWrapper<Collections.DirectusSyncIdMap>
 {
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<
-    const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>,
-  >(
-    item: Partial<Collections.DirectusSyncIdMap>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.DirectusSyncIdMap,
-      Query["fields"]
-    >
-  > {
-    return (await this.client.request(
-      createDirectusSyncIdMapItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>>(
+		item: Partial<Collections.DirectusSyncIdMap>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.DirectusSyncIdMap, Query['fields']>> {
+		return (await this.client.request(createDirectusSyncIdMapItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<
-    const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>,
-  >(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.DirectusSyncIdMap,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return await this.client.request(readDirectusSyncIdMapItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.DirectusSyncIdMap, Query['fields']> | undefined
+	> {
+		return await this.client.request(readDirectusSyncIdMapItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>,
-  >(
-    key: string | number,
-    patch: Partial<Collections.DirectusSyncIdMap>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.DirectusSyncIdMap,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return (await this.client.request(
-      updateDirectusSyncIdMapItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>>(
+		key: string | number,
+		patch: Partial<Collections.DirectusSyncIdMap>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.DirectusSyncIdMap, Query['fields']> | undefined
+	> {
+		return (await this.client.request(
+			updateDirectusSyncIdMapItem(key, patch, query as any)
+		)) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>,
-  >(key: string | number): Promise<void> {
-    return await this.client.request(deleteDirectusSyncIdMapItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.DirectusSyncIdMap>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteDirectusSyncIdMapItem(key));
+	}
 }
 
 /**
  * Create many gallery items.
  */
 export function createGalleryItems<
-  const Query extends Directus.Query<Schema, Collections.Gallery[]>,
+	const Query extends Directus.Query<Schema, Collections.Gallery[]>
 >(items: Partial<Collections.Gallery>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "gallery", Query>(
-    "gallery",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'gallery', Query>('gallery', items, query);
 }
 
 /**
  * Create a single gallery item.
  */
 export function createGalleryItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.Gallery[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.Gallery[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.Gallery>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "gallery", Query>(
-    "gallery",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'gallery', Query>('gallery', item, query);
 }
 
 /**
  * Read many gallery items.
  */
-export function readGalleryItems<
-  const Query extends Directus.Query<Schema, Collections.Gallery>,
->(query?: Query) {
-  return DirectusSDK.readItems<Schema, "gallery", Query>("gallery", query);
+export function readGalleryItems<const Query extends Directus.Query<Schema, Collections.Gallery>>(
+	query?: Query
+) {
+	return DirectusSDK.readItems<Schema, 'gallery', Query>('gallery', query);
 }
 
 /**
@@ -2084,10 +1733,11 @@ export const listGallery = readGalleryItems;
 /**
  * Gets a single known gallery item by id.
  */
-export function readGalleryItem<
-  const Query extends Directus.Query<Schema, Collections.Gallery>,
->(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "gallery", Query>("gallery", key, query);
+export function readGalleryItem<const Query extends Directus.Query<Schema, Collections.Gallery>>(
+	key: string | number,
+	query?: Query
+) {
+	return DirectusSDK.readItem<Schema, 'gallery', Query>('gallery', key, query);
 }
 
 /**
@@ -2099,229 +1749,173 @@ export const readGallery = readGalleryItem;
  * Read many gallery items.
  */
 export function updateGalleryItems<
-  const Query extends Directus.Query<Schema, Collections.Gallery[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.Gallery>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "gallery", Query>(
-    "gallery",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.Gallery[]>
+>(keys: string[] | number[], patch: Partial<Collections.Gallery>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'gallery', Query>('gallery', keys, patch, query);
 }
 
 /**
  * Gets a single known gallery item by id.
  */
 export function updateGalleryItem<
-  const Query extends Directus.Query<Schema, Collections.Gallery[]>,
+	const Query extends Directus.Query<Schema, Collections.Gallery[]>
 >(key: string | number, patch: Partial<Collections.Gallery>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "gallery", Query>(
-    "gallery",
-    key,
-    patch,
-    query,
-  );
+	return DirectusSDK.updateItem<Schema, 'gallery', Query>('gallery', key, patch, query);
 }
 
 /**
  * Deletes many gallery items.
  */
 export function deleteGalleryItems<
-  const Query extends Directus.Query<Schema, Collections.Gallery[]>,
+	const Query extends Directus.Query<Schema, Collections.Gallery[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "gallery", Query>("gallery", keys);
+	return DirectusSDK.deleteItems<Schema, 'gallery', Query>('gallery', keys);
 }
 
 /**
  * Deletes a single known gallery item by id.
  */
 export function deleteGalleryItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "gallery">("gallery", key);
+	return DirectusSDK.deleteItem<Schema, 'gallery'>('gallery', key);
 }
 
-export class GalleryItems
-  implements TypedCollectionItemsWrapper<Collections.Gallery>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class GalleryItems implements TypedCollectionItemsWrapper<Collections.Gallery> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.Gallery>,
-  >(
-    items: Partial<Collections.Gallery>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query["fields"]>[]
-  > {
-    return (await this.client.request(
-      createGalleryItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.Gallery>>(
+		items: Partial<Collections.Gallery>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query['fields']>[]> {
+		return (await this.client.request(createGalleryItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<const Query extends Directus.Query<Schema, Collections.Gallery>>(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query["fields"]>[]
-  > {
-    return await this.client.request(readGalleryItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.Gallery>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query['fields']>[]> {
+		return await this.client.request(readGalleryItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<const Query extends Directus.Query<Schema, Collections.Gallery>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query["fields"]>
-    | undefined
-  > {
-    const items = await this.client.request(
-      readGalleryItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.Gallery>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readGalleryItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.Gallery[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.Gallery>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query["fields"]>[]
-  > {
-    return await this.client.request(updateGalleryItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Gallery[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.Gallery>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query['fields']>[]> {
+		return await this.client.request(updateGalleryItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Gallery>>(
-    keys: string[] | number[],
-  ): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Gallery>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class GalleryItem
-  implements TypedCollectionItemWrapper<Collections.Gallery>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class GalleryItem implements TypedCollectionItemWrapper<Collections.Gallery> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<const Query extends Directus.Query<Schema, Collections.Gallery>>(
-    item: Partial<Collections.Gallery>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query["fields"]>
-  > {
-    return (await this.client.request(
-      createGalleryItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.Gallery>>(
+		item: Partial<Collections.Gallery>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query['fields']>> {
+		return (await this.client.request(createGalleryItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.Gallery>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query["fields"]>
-    | undefined
-  > {
-    return await this.client.request(readGalleryItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.Gallery>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query['fields']> | undefined
+	> {
+		return await this.client.request(readGalleryItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Gallery>>(
-    key: string | number,
-    patch: Partial<Collections.Gallery>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query["fields"]>
-    | undefined
-  > {
-    return (await this.client.request(
-      updateGalleryItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Gallery>>(
+		key: string | number,
+		patch: Partial<Collections.Gallery>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Gallery, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateGalleryItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Gallery>>(
-    key: string | number,
-  ): Promise<void> {
-    return await this.client.request(deleteGalleryItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Gallery>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteGalleryItem(key));
+	}
 }
 
 /**
  * Create many gallery files items.
  */
 export function createGalleryFilesItems<
-  const Query extends Directus.Query<Schema, Collections.GalleryFiles[]>,
+	const Query extends Directus.Query<Schema, Collections.GalleryFiles[]>
 >(items: Partial<Collections.GalleryFiles>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "gallery_files", Query>(
-    "gallery_files",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'gallery_files', Query>('gallery_files', items, query);
 }
 
 /**
  * Create a single gallery files item.
  */
 export function createGalleryFilesItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.GalleryFiles[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.GalleryFiles[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.GalleryFiles>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "gallery_files", Query>(
-    "gallery_files",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'gallery_files', Query>('gallery_files', item, query);
 }
 
 /**
  * Read many gallery files items.
  */
 export function readGalleryFilesItems<
-  const Query extends Directus.Query<Schema, Collections.GalleryFiles>,
+	const Query extends Directus.Query<Schema, Collections.GalleryFiles>
 >(query?: Query) {
-  return DirectusSDK.readItems<Schema, "gallery_files", Query>(
-    "gallery_files",
-    query,
-  );
+	return DirectusSDK.readItems<Schema, 'gallery_files', Query>('gallery_files', query);
 }
 
 /**
@@ -2333,13 +1927,9 @@ export const listGalleryFiles = readGalleryFilesItems;
  * Gets a single known gallery files item by id.
  */
 export function readGalleryFilesItem<
-  const Query extends Directus.Query<Schema, Collections.GalleryFiles>,
+	const Query extends Directus.Query<Schema, Collections.GalleryFiles>
 >(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "gallery_files", Query>(
-    "gallery_files",
-    key,
-    query,
-  );
+	return DirectusSDK.readItem<Schema, 'gallery_files', Query>('gallery_files', key, query);
 }
 
 /**
@@ -2351,250 +1941,160 @@ export const readGalleryFiles = readGalleryFilesItem;
  * Read many gallery files items.
  */
 export function updateGalleryFilesItems<
-  const Query extends Directus.Query<Schema, Collections.GalleryFiles[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.GalleryFiles>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "gallery_files", Query>(
-    "gallery_files",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.GalleryFiles[]>
+>(keys: string[] | number[], patch: Partial<Collections.GalleryFiles>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'gallery_files', Query>(
+		'gallery_files',
+		keys,
+		patch,
+		query
+	);
 }
 
 /**
  * Gets a single known gallery files item by id.
  */
 export function updateGalleryFilesItem<
-  const Query extends Directus.Query<Schema, Collections.GalleryFiles[]>,
->(
-  key: string | number,
-  patch: Partial<Collections.GalleryFiles>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItem<Schema, "gallery_files", Query>(
-    "gallery_files",
-    key,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.GalleryFiles[]>
+>(key: string | number, patch: Partial<Collections.GalleryFiles>, query?: Query) {
+	return DirectusSDK.updateItem<Schema, 'gallery_files', Query>('gallery_files', key, patch, query);
 }
 
 /**
  * Deletes many gallery files items.
  */
 export function deleteGalleryFilesItems<
-  const Query extends Directus.Query<Schema, Collections.GalleryFiles[]>,
+	const Query extends Directus.Query<Schema, Collections.GalleryFiles[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "gallery_files", Query>(
-    "gallery_files",
-    keys,
-  );
+	return DirectusSDK.deleteItems<Schema, 'gallery_files', Query>('gallery_files', keys);
 }
 
 /**
  * Deletes a single known gallery files item by id.
  */
 export function deleteGalleryFilesItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "gallery_files">("gallery_files", key);
+	return DirectusSDK.deleteItem<Schema, 'gallery_files'>('gallery_files', key);
 }
 
-export class GalleryFilesItems
-  implements TypedCollectionItemsWrapper<Collections.GalleryFiles>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class GalleryFilesItems implements TypedCollectionItemsWrapper<Collections.GalleryFiles> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.GalleryFiles>,
-  >(
-    items: Partial<Collections.GalleryFiles>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.GalleryFiles,
-      Query["fields"]
-    >[]
-  > {
-    return (await this.client.request(
-      createGalleryFilesItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.GalleryFiles>>(
+		items: Partial<Collections.GalleryFiles>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.GalleryFiles, Query['fields']>[]> {
+		return (await this.client.request(createGalleryFilesItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<
-    const Query extends Directus.Query<Schema, Collections.GalleryFiles>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.GalleryFiles,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(readGalleryFilesItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.GalleryFiles>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.GalleryFiles, Query['fields']>[]> {
+		return await this.client.request(readGalleryFilesItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<
-    const Query extends Directus.Query<Schema, Collections.GalleryFiles>,
-  >(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.GalleryFiles,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    const items = await this.client.request(
-      readGalleryFilesItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.GalleryFiles>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.GalleryFiles, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readGalleryFilesItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.GalleryFiles[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.GalleryFiles>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.GalleryFiles,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(
-      updateGalleryFilesItems(keys, patch, query),
-    );
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.GalleryFiles[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.GalleryFiles>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.GalleryFiles, Query['fields']>[]> {
+		return await this.client.request(updateGalleryFilesItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.GalleryFiles>,
-  >(keys: string[] | number[]): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.GalleryFiles>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class GalleryFilesItem
-  implements TypedCollectionItemWrapper<Collections.GalleryFiles>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class GalleryFilesItem implements TypedCollectionItemWrapper<Collections.GalleryFiles> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<
-    const Query extends Directus.Query<Schema, Collections.GalleryFiles>,
-  >(
-    item: Partial<Collections.GalleryFiles>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.GalleryFiles,
-      Query["fields"]
-    >
-  > {
-    return (await this.client.request(
-      createGalleryFilesItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.GalleryFiles>>(
+		item: Partial<Collections.GalleryFiles>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.GalleryFiles, Query['fields']>> {
+		return (await this.client.request(createGalleryFilesItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<
-    const Query extends Directus.Query<Schema, Collections.GalleryFiles>,
-  >(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.GalleryFiles,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return await this.client.request(readGalleryFilesItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.GalleryFiles>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.GalleryFiles, Query['fields']> | undefined
+	> {
+		return await this.client.request(readGalleryFilesItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.GalleryFiles>,
-  >(
-    key: string | number,
-    patch: Partial<Collections.GalleryFiles>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.GalleryFiles,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return (await this.client.request(
-      updateGalleryFilesItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.GalleryFiles>>(
+		key: string | number,
+		patch: Partial<Collections.GalleryFiles>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.GalleryFiles, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateGalleryFilesItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.GalleryFiles>,
-  >(key: string | number): Promise<void> {
-    return await this.client.request(deleteGalleryFilesItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.GalleryFiles>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteGalleryFilesItem(key));
+	}
 }
 
 /**
  * Reads the homepage singleton.
  */
-export function readHomepage<
-  const Query extends Directus.Query<Schema, Collections.Homepage>,
->(query?: Query) {
-  return DirectusSDK.readSingleton<Schema, "homepage", Query>(
-    "homepage",
-    query,
-  );
+export function readHomepage<const Query extends Directus.Query<Schema, Collections.Homepage>>(
+	query?: Query
+) {
+	return DirectusSDK.readSingleton<Schema, 'homepage', Query>('homepage', query);
 }
 
 /**
@@ -2606,38 +2106,27 @@ export const getHomepage = readHomepage;
  * Create many homepage files items.
  */
 export function createHomepageFilesItems<
-  const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>,
+	const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>
 >(items: Partial<Collections.HomepageFiles>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "homepage_files", Query>(
-    "homepage_files",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'homepage_files', Query>('homepage_files', items, query);
 }
 
 /**
  * Create a single homepage files item.
  */
 export function createHomepageFilesItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.HomepageFiles[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.HomepageFiles[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.HomepageFiles>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "homepage_files", Query>(
-    "homepage_files",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'homepage_files', Query>('homepage_files', item, query);
 }
 
 /**
  * Read many homepage files items.
  */
 export function readHomepageFilesItems<
-  const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
+	const Query extends Directus.Query<Schema, Collections.HomepageFiles>
 >(query?: Query) {
-  return DirectusSDK.readItems<Schema, "homepage_files", Query>(
-    "homepage_files",
-    query,
-  );
+	return DirectusSDK.readItems<Schema, 'homepage_files', Query>('homepage_files', query);
 }
 
 /**
@@ -2649,13 +2138,9 @@ export const listHomepageFiles = readHomepageFilesItems;
  * Gets a single known homepage files item by id.
  */
 export function readHomepageFilesItem<
-  const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
+	const Query extends Directus.Query<Schema, Collections.HomepageFiles>
 >(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "homepage_files", Query>(
-    "homepage_files",
-    key,
-    query,
-  );
+	return DirectusSDK.readItem<Schema, 'homepage_files', Query>('homepage_files', key, query);
 }
 
 /**
@@ -2667,268 +2152,184 @@ export const readHomepageFiles = readHomepageFilesItem;
  * Read many homepage files items.
  */
 export function updateHomepageFilesItems<
-  const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.HomepageFiles>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "homepage_files", Query>(
-    "homepage_files",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>
+>(keys: string[] | number[], patch: Partial<Collections.HomepageFiles>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'homepage_files', Query>(
+		'homepage_files',
+		keys,
+		patch,
+		query
+	);
 }
 
 /**
  * Gets a single known homepage files item by id.
  */
 export function updateHomepageFilesItem<
-  const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>,
->(
-  key: string | number,
-  patch: Partial<Collections.HomepageFiles>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItem<Schema, "homepage_files", Query>(
-    "homepage_files",
-    key,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>
+>(key: string | number, patch: Partial<Collections.HomepageFiles>, query?: Query) {
+	return DirectusSDK.updateItem<Schema, 'homepage_files', Query>(
+		'homepage_files',
+		key,
+		patch,
+		query
+	);
 }
 
 /**
  * Deletes many homepage files items.
  */
 export function deleteHomepageFilesItems<
-  const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>,
+	const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "homepage_files", Query>(
-    "homepage_files",
-    keys,
-  );
+	return DirectusSDK.deleteItems<Schema, 'homepage_files', Query>('homepage_files', keys);
 }
 
 /**
  * Deletes a single known homepage files item by id.
  */
 export function deleteHomepageFilesItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "homepage_files">(
-    "homepage_files",
-    key,
-  );
+	return DirectusSDK.deleteItem<Schema, 'homepage_files'>('homepage_files', key);
 }
 
-export class HomepageFilesItems
-  implements TypedCollectionItemsWrapper<Collections.HomepageFiles>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class HomepageFilesItems implements TypedCollectionItemsWrapper<Collections.HomepageFiles> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.HomepageFiles>,
-  >(
-    items: Partial<Collections.HomepageFiles>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.HomepageFiles,
-      Query["fields"]
-    >[]
-  > {
-    return (await this.client.request(
-      createHomepageFilesItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.HomepageFiles>>(
+		items: Partial<Collections.HomepageFiles>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.HomepageFiles, Query['fields']>[]> {
+		return (await this.client.request(createHomepageFilesItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<
-    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.HomepageFiles,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(readHomepageFilesItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.HomepageFiles>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.HomepageFiles, Query['fields']>[]> {
+		return await this.client.request(readHomepageFilesItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<
-    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
-  >(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.HomepageFiles,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    const items = await this.client.request(
-      readHomepageFilesItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.HomepageFiles>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.HomepageFiles, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readHomepageFilesItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.HomepageFiles>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.HomepageFiles,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(
-      updateHomepageFilesItems(keys, patch, query),
-    );
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.HomepageFiles[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.HomepageFiles>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.HomepageFiles, Query['fields']>[]> {
+		return await this.client.request(updateHomepageFilesItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
-  >(keys: string[] | number[]): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.HomepageFiles>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class HomepageFilesItem
-  implements TypedCollectionItemWrapper<Collections.HomepageFiles>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class HomepageFilesItem implements TypedCollectionItemWrapper<Collections.HomepageFiles> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<
-    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
-  >(
-    item: Partial<Collections.HomepageFiles>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.HomepageFiles,
-      Query["fields"]
-    >
-  > {
-    return (await this.client.request(
-      createHomepageFilesItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.HomepageFiles>>(
+		item: Partial<Collections.HomepageFiles>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.HomepageFiles, Query['fields']>> {
+		return (await this.client.request(createHomepageFilesItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<
-    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
-  >(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.HomepageFiles,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return await this.client.request(readHomepageFilesItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.HomepageFiles>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.HomepageFiles, Query['fields']> | undefined
+	> {
+		return await this.client.request(readHomepageFilesItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
-  >(
-    key: string | number,
-    patch: Partial<Collections.HomepageFiles>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.HomepageFiles,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return (await this.client.request(
-      updateHomepageFilesItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.HomepageFiles>>(
+		key: string | number,
+		patch: Partial<Collections.HomepageFiles>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.HomepageFiles, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateHomepageFilesItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.HomepageFiles>,
-  >(key: string | number): Promise<void> {
-    return await this.client.request(deleteHomepageFilesItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.HomepageFiles>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteHomepageFilesItem(key));
+	}
 }
 
 /**
  * Create many image items.
  */
-export function createImageItems<
-  const Query extends Directus.Query<Schema, Collections.Image[]>,
->(items: Partial<Collections.Image>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "image", Query>("image", items, query);
+export function createImageItems<const Query extends Directus.Query<Schema, Collections.Image[]>>(
+	items: Partial<Collections.Image>[],
+	query?: Query
+) {
+	return DirectusSDK.createItems<Schema, 'image', Query>('image', items, query);
 }
 
 /**
  * Create a single image item.
  */
 export function createImageItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.Image[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.Image[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.Image>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "image", Query>("image", item, query);
+	return DirectusSDK.createItem<Schema, 'image', Query>('image', item, query);
 }
 
 /**
  * Read many image items.
  */
-export function readImageItems<
-  const Query extends Directus.Query<Schema, Collections.Image>,
->(query?: Query) {
-  return DirectusSDK.readItems<Schema, "image", Query>("image", query);
+export function readImageItems<const Query extends Directus.Query<Schema, Collections.Image>>(
+	query?: Query
+) {
+	return DirectusSDK.readItems<Schema, 'image', Query>('image', query);
 }
 
 /**
@@ -2939,10 +2340,11 @@ export const listImage = readImageItems;
 /**
  * Gets a single known image item by id.
  */
-export function readImageItem<
-  const Query extends Directus.Query<Schema, Collections.Image>,
->(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "image", Query>("image", key, query);
+export function readImageItem<const Query extends Directus.Query<Schema, Collections.Image>>(
+	key: string | number,
+	query?: Query
+) {
+	return DirectusSDK.readItem<Schema, 'image', Query>('image', key, query);
 }
 
 /**
@@ -2953,224 +2355,172 @@ export const readImage = readImageItem;
 /**
  * Read many image items.
  */
-export function updateImageItems<
-  const Query extends Directus.Query<Schema, Collections.Image[]>,
->(keys: string[] | number[], patch: Partial<Collections.Image>, query?: Query) {
-  return DirectusSDK.updateItems<Schema, "image", Query>(
-    "image",
-    keys,
-    patch,
-    query,
-  );
+export function updateImageItems<const Query extends Directus.Query<Schema, Collections.Image[]>>(
+	keys: string[] | number[],
+	patch: Partial<Collections.Image>,
+	query?: Query
+) {
+	return DirectusSDK.updateItems<Schema, 'image', Query>('image', keys, patch, query);
 }
 
 /**
  * Gets a single known image item by id.
  */
-export function updateImageItem<
-  const Query extends Directus.Query<Schema, Collections.Image[]>,
->(key: string | number, patch: Partial<Collections.Image>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "image", Query>(
-    "image",
-    key,
-    patch,
-    query,
-  );
+export function updateImageItem<const Query extends Directus.Query<Schema, Collections.Image[]>>(
+	key: string | number,
+	patch: Partial<Collections.Image>,
+	query?: Query
+) {
+	return DirectusSDK.updateItem<Schema, 'image', Query>('image', key, patch, query);
 }
 
 /**
  * Deletes many image items.
  */
-export function deleteImageItems<
-  const Query extends Directus.Query<Schema, Collections.Image[]>,
->(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "image", Query>("image", keys);
+export function deleteImageItems<const Query extends Directus.Query<Schema, Collections.Image[]>>(
+	keys: string[] | number[]
+) {
+	return DirectusSDK.deleteItems<Schema, 'image', Query>('image', keys);
 }
 
 /**
  * Deletes a single known image item by id.
  */
 export function deleteImageItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "image">("image", key);
+	return DirectusSDK.deleteItem<Schema, 'image'>('image', key);
 }
 
-export class ImageItems
-  implements TypedCollectionItemsWrapper<Collections.Image>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ImageItems implements TypedCollectionItemsWrapper<Collections.Image> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.Image>,
-  >(
-    items: Partial<Collections.Image>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query["fields"]>[]
-  > {
-    return (await this.client.request(
-      createImageItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.Image>>(
+		items: Partial<Collections.Image>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query['fields']>[]> {
+		return (await this.client.request(createImageItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<const Query extends Directus.Query<Schema, Collections.Image>>(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query["fields"]>[]
-  > {
-    return await this.client.request(readImageItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.Image>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query['fields']>[]> {
+		return await this.client.request(readImageItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<const Query extends Directus.Query<Schema, Collections.Image>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query["fields"]>
-    | undefined
-  > {
-    const items = await this.client.request(
-      readImageItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.Image>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query['fields']> | undefined> {
+		const items = await this.client.request(
+			readImageItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Image[]>>(
-    keys: string[] | number[],
-    patch: Partial<Collections.Image>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query["fields"]>[]
-  > {
-    return await this.client.request(updateImageItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Image[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.Image>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query['fields']>[]> {
+		return await this.client.request(updateImageItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Image>>(
-    keys: string[] | number[],
-  ): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Image>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class ImageItem
-  implements TypedCollectionItemWrapper<Collections.Image>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ImageItem implements TypedCollectionItemWrapper<Collections.Image> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<const Query extends Directus.Query<Schema, Collections.Image>>(
-    item: Partial<Collections.Image>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query["fields"]>
-  > {
-    return (await this.client.request(
-      createImageItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.Image>>(
+		item: Partial<Collections.Image>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query['fields']>> {
+		return (await this.client.request(createImageItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.Image>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query["fields"]>
-    | undefined
-  > {
-    return await this.client.request(readImageItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.Image>>(
+		key: string | number,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query['fields']> | undefined> {
+		return await this.client.request(readImageItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Image>>(
-    key: string | number,
-    patch: Partial<Collections.Image>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query["fields"]>
-    | undefined
-  > {
-    return (await this.client.request(
-      updateImageItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Image>>(
+		key: string | number,
+		patch: Partial<Collections.Image>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Image, Query['fields']> | undefined> {
+		return (await this.client.request(updateImageItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Image>>(
-    key: string | number,
-  ): Promise<void> {
-    return await this.client.request(deleteImageItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Image>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteImageItem(key));
+	}
 }
 
 /**
  * Create many menu items items.
  */
 export function createMenuItemsItems<
-  const Query extends Directus.Query<Schema, Collections.MenuItems[]>,
+	const Query extends Directus.Query<Schema, Collections.MenuItems[]>
 >(items: Partial<Collections.MenuItems>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "menu_items", Query>(
-    "menu_items",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'menu_items', Query>('menu_items', items, query);
 }
 
 /**
  * Create a single menu items item.
  */
 export function createMenuItemsItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.MenuItems[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.MenuItems[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.MenuItems>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "menu_items", Query>(
-    "menu_items",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'menu_items', Query>('menu_items', item, query);
 }
 
 /**
  * Read many menu items items.
  */
 export function readMenuItemsItems<
-  const Query extends Directus.Query<Schema, Collections.MenuItems>,
+	const Query extends Directus.Query<Schema, Collections.MenuItems>
 >(query?: Query) {
-  return DirectusSDK.readItems<Schema, "menu_items", Query>(
-    "menu_items",
-    query,
-  );
+	return DirectusSDK.readItems<Schema, 'menu_items', Query>('menu_items', query);
 }
 
 /**
@@ -3182,13 +2532,9 @@ export const listMenuItems = readMenuItemsItems;
  * Gets a single known menu items item by id.
  */
 export function readMenuItemsItem<
-  const Query extends Directus.Query<Schema, Collections.MenuItems>,
+	const Query extends Directus.Query<Schema, Collections.MenuItems>
 >(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "menu_items", Query>(
-    "menu_items",
-    key,
-    query,
-  );
+	return DirectusSDK.readItem<Schema, 'menu_items', Query>('menu_items', key, query);
 }
 
 /**
@@ -3200,251 +2546,174 @@ export const readMenuItems = readMenuItemsItem;
  * Read many menu items items.
  */
 export function updateMenuItemsItems<
-  const Query extends Directus.Query<Schema, Collections.MenuItems[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.MenuItems>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "menu_items", Query>(
-    "menu_items",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.MenuItems[]>
+>(keys: string[] | number[], patch: Partial<Collections.MenuItems>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'menu_items', Query>('menu_items', keys, patch, query);
 }
 
 /**
  * Gets a single known menu items item by id.
  */
 export function updateMenuItemsItem<
-  const Query extends Directus.Query<Schema, Collections.MenuItems[]>,
+	const Query extends Directus.Query<Schema, Collections.MenuItems[]>
 >(key: string | number, patch: Partial<Collections.MenuItems>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "menu_items", Query>(
-    "menu_items",
-    key,
-    patch,
-    query,
-  );
+	return DirectusSDK.updateItem<Schema, 'menu_items', Query>('menu_items', key, patch, query);
 }
 
 /**
  * Deletes many menu items items.
  */
 export function deleteMenuItemsItems<
-  const Query extends Directus.Query<Schema, Collections.MenuItems[]>,
+	const Query extends Directus.Query<Schema, Collections.MenuItems[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "menu_items", Query>(
-    "menu_items",
-    keys,
-  );
+	return DirectusSDK.deleteItems<Schema, 'menu_items', Query>('menu_items', keys);
 }
 
 /**
  * Deletes a single known menu items item by id.
  */
 export function deleteMenuItemsItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "menu_items">("menu_items", key);
+	return DirectusSDK.deleteItem<Schema, 'menu_items'>('menu_items', key);
 }
 
-export class MenuItemsItems
-  implements TypedCollectionItemsWrapper<Collections.MenuItems>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class MenuItemsItems implements TypedCollectionItemsWrapper<Collections.MenuItems> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.MenuItems>,
-  >(
-    items: Partial<Collections.MenuItems>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.MenuItems,
-      Query["fields"]
-    >[]
-  > {
-    return (await this.client.request(
-      createMenuItemsItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.MenuItems>>(
+		items: Partial<Collections.MenuItems>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.MenuItems, Query['fields']>[]> {
+		return (await this.client.request(createMenuItemsItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<
-    const Query extends Directus.Query<Schema, Collections.MenuItems>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.MenuItems,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(readMenuItemsItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.MenuItems>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.MenuItems, Query['fields']>[]> {
+		return await this.client.request(readMenuItemsItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<const Query extends Directus.Query<Schema, Collections.MenuItems>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.MenuItems,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    const items = await this.client.request(
-      readMenuItemsItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.MenuItems>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.MenuItems, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readMenuItemsItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.MenuItems[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.MenuItems>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.MenuItems,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(updateMenuItemsItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.MenuItems[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.MenuItems>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.MenuItems, Query['fields']>[]> {
+		return await this.client.request(updateMenuItemsItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.MenuItems>,
-  >(keys: string[] | number[]): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.MenuItems>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class MenuItemsItem
-  implements TypedCollectionItemWrapper<Collections.MenuItems>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class MenuItemsItem implements TypedCollectionItemWrapper<Collections.MenuItems> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<
-    const Query extends Directus.Query<Schema, Collections.MenuItems>,
-  >(
-    item: Partial<Collections.MenuItems>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.MenuItems, Query["fields"]>
-  > {
-    return (await this.client.request(
-      createMenuItemsItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.MenuItems>>(
+		item: Partial<Collections.MenuItems>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.MenuItems, Query['fields']>> {
+		return (await this.client.request(createMenuItemsItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.MenuItems>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.MenuItems,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return await this.client.request(readMenuItemsItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.MenuItems>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.MenuItems, Query['fields']> | undefined
+	> {
+		return await this.client.request(readMenuItemsItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.MenuItems>,
-  >(
-    key: string | number,
-    patch: Partial<Collections.MenuItems>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.MenuItems,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return (await this.client.request(
-      updateMenuItemsItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.MenuItems>>(
+		key: string | number,
+		patch: Partial<Collections.MenuItems>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.MenuItems, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateMenuItemsItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.MenuItems>,
-  >(key: string | number): Promise<void> {
-    return await this.client.request(deleteMenuItemsItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.MenuItems>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteMenuItemsItem(key));
+	}
 }
 
 /**
  * Create many menus items.
  */
-export function createMenusItems<
-  const Query extends Directus.Query<Schema, Collections.Menus[]>,
->(items: Partial<Collections.Menus>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "menus", Query>("menus", items, query);
+export function createMenusItems<const Query extends Directus.Query<Schema, Collections.Menus[]>>(
+	items: Partial<Collections.Menus>[],
+	query?: Query
+) {
+	return DirectusSDK.createItems<Schema, 'menus', Query>('menus', items, query);
 }
 
 /**
  * Create a single menus item.
  */
 export function createMenusItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.Menus[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.Menus[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.Menus>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "menus", Query>("menus", item, query);
+	return DirectusSDK.createItem<Schema, 'menus', Query>('menus', item, query);
 }
 
 /**
  * Read many menus items.
  */
-export function readMenusItems<
-  const Query extends Directus.Query<Schema, Collections.Menus>,
->(query?: Query) {
-  return DirectusSDK.readItems<Schema, "menus", Query>("menus", query);
+export function readMenusItems<const Query extends Directus.Query<Schema, Collections.Menus>>(
+	query?: Query
+) {
+	return DirectusSDK.readItems<Schema, 'menus', Query>('menus', query);
 }
 
 /**
@@ -3455,10 +2724,11 @@ export const listMenus = readMenusItems;
 /**
  * Gets a single known menus item by id.
  */
-export function readMenusItem<
-  const Query extends Directus.Query<Schema, Collections.Menus>,
->(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "menus", Query>("menus", key, query);
+export function readMenusItem<const Query extends Directus.Query<Schema, Collections.Menus>>(
+	key: string | number,
+	query?: Query
+) {
+	return DirectusSDK.readItem<Schema, 'menus', Query>('menus', key, query);
 }
 
 /**
@@ -3469,213 +2739,173 @@ export const readMenus = readMenusItem;
 /**
  * Read many menus items.
  */
-export function updateMenusItems<
-  const Query extends Directus.Query<Schema, Collections.Menus[]>,
->(keys: string[] | number[], patch: Partial<Collections.Menus>, query?: Query) {
-  return DirectusSDK.updateItems<Schema, "menus", Query>(
-    "menus",
-    keys,
-    patch,
-    query,
-  );
+export function updateMenusItems<const Query extends Directus.Query<Schema, Collections.Menus[]>>(
+	keys: string[] | number[],
+	patch: Partial<Collections.Menus>,
+	query?: Query
+) {
+	return DirectusSDK.updateItems<Schema, 'menus', Query>('menus', keys, patch, query);
 }
 
 /**
  * Gets a single known menus item by id.
  */
-export function updateMenusItem<
-  const Query extends Directus.Query<Schema, Collections.Menus[]>,
->(key: string | number, patch: Partial<Collections.Menus>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "menus", Query>(
-    "menus",
-    key,
-    patch,
-    query,
-  );
+export function updateMenusItem<const Query extends Directus.Query<Schema, Collections.Menus[]>>(
+	key: string | number,
+	patch: Partial<Collections.Menus>,
+	query?: Query
+) {
+	return DirectusSDK.updateItem<Schema, 'menus', Query>('menus', key, patch, query);
 }
 
 /**
  * Deletes many menus items.
  */
-export function deleteMenusItems<
-  const Query extends Directus.Query<Schema, Collections.Menus[]>,
->(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "menus", Query>("menus", keys);
+export function deleteMenusItems<const Query extends Directus.Query<Schema, Collections.Menus[]>>(
+	keys: string[] | number[]
+) {
+	return DirectusSDK.deleteItems<Schema, 'menus', Query>('menus', keys);
 }
 
 /**
  * Deletes a single known menus item by id.
  */
 export function deleteMenusItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "menus">("menus", key);
+	return DirectusSDK.deleteItem<Schema, 'menus'>('menus', key);
 }
 
-export class MenusItems
-  implements TypedCollectionItemsWrapper<Collections.Menus>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class MenusItems implements TypedCollectionItemsWrapper<Collections.Menus> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.Menus>,
-  >(
-    items: Partial<Collections.Menus>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query["fields"]>[]
-  > {
-    return (await this.client.request(
-      createMenusItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.Menus>>(
+		items: Partial<Collections.Menus>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query['fields']>[]> {
+		return (await this.client.request(createMenusItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<const Query extends Directus.Query<Schema, Collections.Menus>>(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query["fields"]>[]
-  > {
-    return await this.client.request(readMenusItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.Menus>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query['fields']>[]> {
+		return await this.client.request(readMenusItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<const Query extends Directus.Query<Schema, Collections.Menus>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query["fields"]>
-    | undefined
-  > {
-    const items = await this.client.request(
-      readMenusItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.Menus>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query['fields']> | undefined> {
+		const items = await this.client.request(
+			readMenusItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Menus[]>>(
-    keys: string[] | number[],
-    patch: Partial<Collections.Menus>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query["fields"]>[]
-  > {
-    return await this.client.request(updateMenusItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Menus[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.Menus>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query['fields']>[]> {
+		return await this.client.request(updateMenusItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Menus>>(
-    keys: string[] | number[],
-  ): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Menus>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class MenusItem
-  implements TypedCollectionItemWrapper<Collections.Menus>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class MenusItem implements TypedCollectionItemWrapper<Collections.Menus> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<const Query extends Directus.Query<Schema, Collections.Menus>>(
-    item: Partial<Collections.Menus>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query["fields"]>
-  > {
-    return (await this.client.request(
-      createMenusItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.Menus>>(
+		item: Partial<Collections.Menus>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query['fields']>> {
+		return (await this.client.request(createMenusItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.Menus>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query["fields"]>
-    | undefined
-  > {
-    return await this.client.request(readMenusItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.Menus>>(
+		key: string | number,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query['fields']> | undefined> {
+		return await this.client.request(readMenusItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Menus>>(
-    key: string | number,
-    patch: Partial<Collections.Menus>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query["fields"]>
-    | undefined
-  > {
-    return (await this.client.request(
-      updateMenusItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Menus>>(
+		key: string | number,
+		patch: Partial<Collections.Menus>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Menus, Query['fields']> | undefined> {
+		return (await this.client.request(updateMenusItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Menus>>(
-    key: string | number,
-  ): Promise<void> {
-    return await this.client.request(deleteMenusItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Menus>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteMenusItem(key));
+	}
 }
 
 /**
  * Create many pages items.
  */
-export function createPagesItems<
-  const Query extends Directus.Query<Schema, Collections.Pages[]>,
->(items: Partial<Collections.Pages>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "pages", Query>("pages", items, query);
+export function createPagesItems<const Query extends Directus.Query<Schema, Collections.Pages[]>>(
+	items: Partial<Collections.Pages>[],
+	query?: Query
+) {
+	return DirectusSDK.createItems<Schema, 'pages', Query>('pages', items, query);
 }
 
 /**
  * Create a single pages item.
  */
 export function createPagesItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.Pages[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.Pages[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.Pages>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "pages", Query>("pages", item, query);
+	return DirectusSDK.createItem<Schema, 'pages', Query>('pages', item, query);
 }
 
 /**
  * Read many pages items.
  */
-export function readPagesItems<
-  const Query extends Directus.Query<Schema, Collections.Pages>,
->(query?: Query) {
-  return DirectusSDK.readItems<Schema, "pages", Query>("pages", query);
+export function readPagesItems<const Query extends Directus.Query<Schema, Collections.Pages>>(
+	query?: Query
+) {
+	return DirectusSDK.readItems<Schema, 'pages', Query>('pages', query);
 }
 
 /**
@@ -3686,10 +2916,11 @@ export const listPages = readPagesItems;
 /**
  * Gets a single known pages item by id.
  */
-export function readPagesItem<
-  const Query extends Directus.Query<Schema, Collections.Pages>,
->(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "pages", Query>("pages", key, query);
+export function readPagesItem<const Query extends Directus.Query<Schema, Collections.Pages>>(
+	key: string | number,
+	query?: Query
+) {
+	return DirectusSDK.readItem<Schema, 'pages', Query>('pages', key, query);
 }
 
 /**
@@ -3700,224 +2931,180 @@ export const readPages = readPagesItem;
 /**
  * Read many pages items.
  */
-export function updatePagesItems<
-  const Query extends Directus.Query<Schema, Collections.Pages[]>,
->(keys: string[] | number[], patch: Partial<Collections.Pages>, query?: Query) {
-  return DirectusSDK.updateItems<Schema, "pages", Query>(
-    "pages",
-    keys,
-    patch,
-    query,
-  );
+export function updatePagesItems<const Query extends Directus.Query<Schema, Collections.Pages[]>>(
+	keys: string[] | number[],
+	patch: Partial<Collections.Pages>,
+	query?: Query
+) {
+	return DirectusSDK.updateItems<Schema, 'pages', Query>('pages', keys, patch, query);
 }
 
 /**
  * Gets a single known pages item by id.
  */
-export function updatePagesItem<
-  const Query extends Directus.Query<Schema, Collections.Pages[]>,
->(key: string | number, patch: Partial<Collections.Pages>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "pages", Query>(
-    "pages",
-    key,
-    patch,
-    query,
-  );
+export function updatePagesItem<const Query extends Directus.Query<Schema, Collections.Pages[]>>(
+	key: string | number,
+	patch: Partial<Collections.Pages>,
+	query?: Query
+) {
+	return DirectusSDK.updateItem<Schema, 'pages', Query>('pages', key, patch, query);
 }
 
 /**
  * Deletes many pages items.
  */
-export function deletePagesItems<
-  const Query extends Directus.Query<Schema, Collections.Pages[]>,
->(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "pages", Query>("pages", keys);
+export function deletePagesItems<const Query extends Directus.Query<Schema, Collections.Pages[]>>(
+	keys: string[] | number[]
+) {
+	return DirectusSDK.deleteItems<Schema, 'pages', Query>('pages', keys);
 }
 
 /**
  * Deletes a single known pages item by id.
  */
 export function deletePagesItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "pages">("pages", key);
+	return DirectusSDK.deleteItem<Schema, 'pages'>('pages', key);
 }
 
-export class PagesItems
-  implements TypedCollectionItemsWrapper<Collections.Pages>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class PagesItems implements TypedCollectionItemsWrapper<Collections.Pages> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.Pages>,
-  >(
-    items: Partial<Collections.Pages>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query["fields"]>[]
-  > {
-    return (await this.client.request(
-      createPagesItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.Pages>>(
+		items: Partial<Collections.Pages>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query['fields']>[]> {
+		return (await this.client.request(createPagesItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<const Query extends Directus.Query<Schema, Collections.Pages>>(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query["fields"]>[]
-  > {
-    return await this.client.request(readPagesItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.Pages>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query['fields']>[]> {
+		return await this.client.request(readPagesItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<const Query extends Directus.Query<Schema, Collections.Pages>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query["fields"]>
-    | undefined
-  > {
-    const items = await this.client.request(
-      readPagesItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.Pages>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query['fields']> | undefined> {
+		const items = await this.client.request(
+			readPagesItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Pages[]>>(
-    keys: string[] | number[],
-    patch: Partial<Collections.Pages>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query["fields"]>[]
-  > {
-    return await this.client.request(updatePagesItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Pages[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.Pages>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query['fields']>[]> {
+		return await this.client.request(updatePagesItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Pages>>(
-    keys: string[] | number[],
-  ): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Pages>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class PagesItem
-  implements TypedCollectionItemWrapper<Collections.Pages>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class PagesItem implements TypedCollectionItemWrapper<Collections.Pages> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<const Query extends Directus.Query<Schema, Collections.Pages>>(
-    item: Partial<Collections.Pages>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query["fields"]>
-  > {
-    return (await this.client.request(
-      createPagesItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.Pages>>(
+		item: Partial<Collections.Pages>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query['fields']>> {
+		return (await this.client.request(createPagesItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.Pages>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query["fields"]>
-    | undefined
-  > {
-    return await this.client.request(readPagesItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.Pages>>(
+		key: string | number,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query['fields']> | undefined> {
+		return await this.client.request(readPagesItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Pages>>(
-    key: string | number,
-    patch: Partial<Collections.Pages>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query["fields"]>
-    | undefined
-  > {
-    return (await this.client.request(
-      updatePagesItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Pages>>(
+		key: string | number,
+		patch: Partial<Collections.Pages>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Pages, Query['fields']> | undefined> {
+		return (await this.client.request(updatePagesItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Pages>>(
-    key: string | number,
-  ): Promise<void> {
-    return await this.client.request(deletePagesItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Pages>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deletePagesItem(key));
+	}
 }
 
 /**
  * Create many pages editor nodes items.
  */
 export function createPagesEditorNodesItems<
-  const Query extends Directus.Query<Schema, Collections.PagesEditorNodes[]>,
+	const Query extends Directus.Query<Schema, Collections.PagesEditorNodes[]>
 >(items: Partial<Collections.PagesEditorNodes>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "pages_editor_nodes", Query>(
-    "pages_editor_nodes",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'pages_editor_nodes', Query>(
+		'pages_editor_nodes',
+		items,
+		query
+	);
 }
 
 /**
  * Create a single pages editor nodes item.
  */
 export function createPagesEditorNodesItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.PagesEditorNodes[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.PagesEditorNodes[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.PagesEditorNodes>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "pages_editor_nodes", Query>(
-    "pages_editor_nodes",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'pages_editor_nodes', Query>(
+		'pages_editor_nodes',
+		item,
+		query
+	);
 }
 
 /**
  * Read many pages editor nodes items.
  */
 export function readPagesEditorNodesItems<
-  const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>,
+	const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>
 >(query?: Query) {
-  return DirectusSDK.readItems<Schema, "pages_editor_nodes", Query>(
-    "pages_editor_nodes",
-    query,
-  );
+	return DirectusSDK.readItems<Schema, 'pages_editor_nodes', Query>('pages_editor_nodes', query);
 }
 
 /**
@@ -3929,13 +3116,13 @@ export const listPagesEditorNodes = readPagesEditorNodesItems;
  * Gets a single known pages editor nodes item by id.
  */
 export function readPagesEditorNodesItem<
-  const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>,
+	const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>
 >(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "pages_editor_nodes", Query>(
-    "pages_editor_nodes",
-    key,
-    query,
-  );
+	return DirectusSDK.readItem<Schema, 'pages_editor_nodes', Query>(
+		'pages_editor_nodes',
+		key,
+		query
+	);
 }
 
 /**
@@ -3947,276 +3134,193 @@ export const readPagesEditorNodes = readPagesEditorNodesItem;
  * Read many pages editor nodes items.
  */
 export function updatePagesEditorNodesItems<
-  const Query extends Directus.Query<Schema, Collections.PagesEditorNodes[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.PagesEditorNodes>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "pages_editor_nodes", Query>(
-    "pages_editor_nodes",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.PagesEditorNodes[]>
+>(keys: string[] | number[], patch: Partial<Collections.PagesEditorNodes>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'pages_editor_nodes', Query>(
+		'pages_editor_nodes',
+		keys,
+		patch,
+		query
+	);
 }
 
 /**
  * Gets a single known pages editor nodes item by id.
  */
 export function updatePagesEditorNodesItem<
-  const Query extends Directus.Query<Schema, Collections.PagesEditorNodes[]>,
->(
-  key: string | number,
-  patch: Partial<Collections.PagesEditorNodes>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItem<Schema, "pages_editor_nodes", Query>(
-    "pages_editor_nodes",
-    key,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.PagesEditorNodes[]>
+>(key: string | number, patch: Partial<Collections.PagesEditorNodes>, query?: Query) {
+	return DirectusSDK.updateItem<Schema, 'pages_editor_nodes', Query>(
+		'pages_editor_nodes',
+		key,
+		patch,
+		query
+	);
 }
 
 /**
  * Deletes many pages editor nodes items.
  */
 export function deletePagesEditorNodesItems<
-  const Query extends Directus.Query<Schema, Collections.PagesEditorNodes[]>,
+	const Query extends Directus.Query<Schema, Collections.PagesEditorNodes[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "pages_editor_nodes", Query>(
-    "pages_editor_nodes",
-    keys,
-  );
+	return DirectusSDK.deleteItems<Schema, 'pages_editor_nodes', Query>('pages_editor_nodes', keys);
 }
 
 /**
  * Deletes a single known pages editor nodes item by id.
  */
 export function deletePagesEditorNodesItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "pages_editor_nodes">(
-    "pages_editor_nodes",
-    key,
-  );
+	return DirectusSDK.deleteItem<Schema, 'pages_editor_nodes'>('pages_editor_nodes', key);
 }
 
 export class PagesEditorNodesItems
-  implements TypedCollectionItemsWrapper<Collections.PagesEditorNodes>
+	implements TypedCollectionItemsWrapper<Collections.PagesEditorNodes>
 {
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.PagesEditorNodes>,
-  >(
-    items: Partial<Collections.PagesEditorNodes>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.PagesEditorNodes,
-      Query["fields"]
-    >[]
-  > {
-    return (await this.client.request(
-      createPagesEditorNodesItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.PagesEditorNodes>>(
+		items: Partial<Collections.PagesEditorNodes>[],
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.PagesEditorNodes, Query['fields']>[]
+	> {
+		return (await this.client.request(createPagesEditorNodesItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<
-    const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.PagesEditorNodes,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(readPagesEditorNodesItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.PagesEditorNodes, Query['fields']>[]
+	> {
+		return await this.client.request(readPagesEditorNodesItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<
-    const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>,
-  >(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.PagesEditorNodes,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    const items = await this.client.request(
-      readPagesEditorNodesItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.PagesEditorNodes, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readPagesEditorNodesItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.PagesEditorNodes[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.PagesEditorNodes>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.PagesEditorNodes,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(
-      updatePagesEditorNodesItems(keys, patch, query),
-    );
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.PagesEditorNodes[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.PagesEditorNodes>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.PagesEditorNodes, Query['fields']>[]
+	> {
+		return await this.client.request(updatePagesEditorNodesItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>,
-  >(keys: string[] | number[]): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
 export class PagesEditorNodesItem
-  implements TypedCollectionItemWrapper<Collections.PagesEditorNodes>
+	implements TypedCollectionItemWrapper<Collections.PagesEditorNodes>
 {
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<
-    const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>,
-  >(
-    item: Partial<Collections.PagesEditorNodes>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.PagesEditorNodes,
-      Query["fields"]
-    >
-  > {
-    return (await this.client.request(
-      createPagesEditorNodesItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>>(
+		item: Partial<Collections.PagesEditorNodes>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.PagesEditorNodes, Query['fields']>> {
+		return (await this.client.request(createPagesEditorNodesItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<
-    const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>,
-  >(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.PagesEditorNodes,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return await this.client.request(readPagesEditorNodesItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.PagesEditorNodes, Query['fields']> | undefined
+	> {
+		return await this.client.request(readPagesEditorNodesItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>,
-  >(
-    key: string | number,
-    patch: Partial<Collections.PagesEditorNodes>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.PagesEditorNodes,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return (await this.client.request(
-      updatePagesEditorNodesItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>>(
+		key: string | number,
+		patch: Partial<Collections.PagesEditorNodes>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.PagesEditorNodes, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updatePagesEditorNodesItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>,
-  >(key: string | number): Promise<void> {
-    return await this.client.request(deletePagesEditorNodesItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.PagesEditorNodes>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deletePagesEditorNodesItem(key));
+	}
 }
 
 /**
  * Create many projets items.
  */
 export function createProjetsItems<
-  const Query extends Directus.Query<Schema, Collections.Projets[]>,
+	const Query extends Directus.Query<Schema, Collections.Projets[]>
 >(items: Partial<Collections.Projets>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "projets", Query>(
-    "projets",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'projets', Query>('projets', items, query);
 }
 
 /**
  * Create a single projets item.
  */
 export function createProjetsItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.Projets[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.Projets[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.Projets>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "projets", Query>(
-    "projets",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'projets', Query>('projets', item, query);
 }
 
 /**
  * Read many projets items.
  */
-export function readProjetsItems<
-  const Query extends Directus.Query<Schema, Collections.Projets>,
->(query?: Query) {
-  return DirectusSDK.readItems<Schema, "projets", Query>("projets", query);
+export function readProjetsItems<const Query extends Directus.Query<Schema, Collections.Projets>>(
+	query?: Query
+) {
+	return DirectusSDK.readItems<Schema, 'projets', Query>('projets', query);
 }
 
 /**
@@ -4227,10 +3331,11 @@ export const listProjets = readProjetsItems;
 /**
  * Gets a single known projets item by id.
  */
-export function readProjetsItem<
-  const Query extends Directus.Query<Schema, Collections.Projets>,
->(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "projets", Query>("projets", key, query);
+export function readProjetsItem<const Query extends Directus.Query<Schema, Collections.Projets>>(
+	key: string | number,
+	query?: Query
+) {
+	return DirectusSDK.readItem<Schema, 'projets', Query>('projets', key, query);
 }
 
 /**
@@ -4242,229 +3347,173 @@ export const readProjets = readProjetsItem;
  * Read many projets items.
  */
 export function updateProjetsItems<
-  const Query extends Directus.Query<Schema, Collections.Projets[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.Projets>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "projets", Query>(
-    "projets",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.Projets[]>
+>(keys: string[] | number[], patch: Partial<Collections.Projets>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'projets', Query>('projets', keys, patch, query);
 }
 
 /**
  * Gets a single known projets item by id.
  */
 export function updateProjetsItem<
-  const Query extends Directus.Query<Schema, Collections.Projets[]>,
+	const Query extends Directus.Query<Schema, Collections.Projets[]>
 >(key: string | number, patch: Partial<Collections.Projets>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "projets", Query>(
-    "projets",
-    key,
-    patch,
-    query,
-  );
+	return DirectusSDK.updateItem<Schema, 'projets', Query>('projets', key, patch, query);
 }
 
 /**
  * Deletes many projets items.
  */
 export function deleteProjetsItems<
-  const Query extends Directus.Query<Schema, Collections.Projets[]>,
+	const Query extends Directus.Query<Schema, Collections.Projets[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "projets", Query>("projets", keys);
+	return DirectusSDK.deleteItems<Schema, 'projets', Query>('projets', keys);
 }
 
 /**
  * Deletes a single known projets item by id.
  */
 export function deleteProjetsItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "projets">("projets", key);
+	return DirectusSDK.deleteItem<Schema, 'projets'>('projets', key);
 }
 
-export class ProjetsItems
-  implements TypedCollectionItemsWrapper<Collections.Projets>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ProjetsItems implements TypedCollectionItemsWrapper<Collections.Projets> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.Projets>,
-  >(
-    items: Partial<Collections.Projets>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query["fields"]>[]
-  > {
-    return (await this.client.request(
-      createProjetsItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.Projets>>(
+		items: Partial<Collections.Projets>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query['fields']>[]> {
+		return (await this.client.request(createProjetsItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<const Query extends Directus.Query<Schema, Collections.Projets>>(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query["fields"]>[]
-  > {
-    return await this.client.request(readProjetsItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.Projets>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query['fields']>[]> {
+		return await this.client.request(readProjetsItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<const Query extends Directus.Query<Schema, Collections.Projets>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query["fields"]>
-    | undefined
-  > {
-    const items = await this.client.request(
-      readProjetsItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.Projets>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readProjetsItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.Projets[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.Projets>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query["fields"]>[]
-  > {
-    return await this.client.request(updateProjetsItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Projets[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.Projets>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query['fields']>[]> {
+		return await this.client.request(updateProjetsItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Projets>>(
-    keys: string[] | number[],
-  ): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Projets>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class ProjetsItem
-  implements TypedCollectionItemWrapper<Collections.Projets>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ProjetsItem implements TypedCollectionItemWrapper<Collections.Projets> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<const Query extends Directus.Query<Schema, Collections.Projets>>(
-    item: Partial<Collections.Projets>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query["fields"]>
-  > {
-    return (await this.client.request(
-      createProjetsItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.Projets>>(
+		item: Partial<Collections.Projets>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query['fields']>> {
+		return (await this.client.request(createProjetsItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.Projets>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query["fields"]>
-    | undefined
-  > {
-    return await this.client.request(readProjetsItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.Projets>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query['fields']> | undefined
+	> {
+		return await this.client.request(readProjetsItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Projets>>(
-    key: string | number,
-    patch: Partial<Collections.Projets>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query["fields"]>
-    | undefined
-  > {
-    return (await this.client.request(
-      updateProjetsItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Projets>>(
+		key: string | number,
+		patch: Partial<Collections.Projets>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Projets, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateProjetsItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Projets>>(
-    key: string | number,
-  ): Promise<void> {
-    return await this.client.request(deleteProjetsItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Projets>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteProjetsItem(key));
+	}
 }
 
 /**
  * Create many projets files items.
  */
 export function createProjetsFilesItems<
-  const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>,
+	const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>
 >(items: Partial<Collections.ProjetsFiles>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "projets_files", Query>(
-    "projets_files",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'projets_files', Query>('projets_files', items, query);
 }
 
 /**
  * Create a single projets files item.
  */
 export function createProjetsFilesItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.ProjetsFiles[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.ProjetsFiles[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.ProjetsFiles>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "projets_files", Query>(
-    "projets_files",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'projets_files', Query>('projets_files', item, query);
 }
 
 /**
  * Read many projets files items.
  */
 export function readProjetsFilesItems<
-  const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
+	const Query extends Directus.Query<Schema, Collections.ProjetsFiles>
 >(query?: Query) {
-  return DirectusSDK.readItems<Schema, "projets_files", Query>(
-    "projets_files",
-    query,
-  );
+	return DirectusSDK.readItems<Schema, 'projets_files', Query>('projets_files', query);
 }
 
 /**
@@ -4476,13 +3525,9 @@ export const listProjetsFiles = readProjetsFilesItems;
  * Gets a single known projets files item by id.
  */
 export function readProjetsFilesItem<
-  const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
+	const Query extends Directus.Query<Schema, Collections.ProjetsFiles>
 >(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "projets_files", Query>(
-    "projets_files",
-    key,
-    query,
-  );
+	return DirectusSDK.readItem<Schema, 'projets_files', Query>('projets_files', key, query);
 }
 
 /**
@@ -4494,276 +3539,178 @@ export const readProjetsFiles = readProjetsFilesItem;
  * Read many projets files items.
  */
 export function updateProjetsFilesItems<
-  const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.ProjetsFiles>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "projets_files", Query>(
-    "projets_files",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>
+>(keys: string[] | number[], patch: Partial<Collections.ProjetsFiles>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'projets_files', Query>(
+		'projets_files',
+		keys,
+		patch,
+		query
+	);
 }
 
 /**
  * Gets a single known projets files item by id.
  */
 export function updateProjetsFilesItem<
-  const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>,
->(
-  key: string | number,
-  patch: Partial<Collections.ProjetsFiles>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItem<Schema, "projets_files", Query>(
-    "projets_files",
-    key,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>
+>(key: string | number, patch: Partial<Collections.ProjetsFiles>, query?: Query) {
+	return DirectusSDK.updateItem<Schema, 'projets_files', Query>('projets_files', key, patch, query);
 }
 
 /**
  * Deletes many projets files items.
  */
 export function deleteProjetsFilesItems<
-  const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>,
+	const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "projets_files", Query>(
-    "projets_files",
-    keys,
-  );
+	return DirectusSDK.deleteItems<Schema, 'projets_files', Query>('projets_files', keys);
 }
 
 /**
  * Deletes a single known projets files item by id.
  */
 export function deleteProjetsFilesItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "projets_files">("projets_files", key);
+	return DirectusSDK.deleteItem<Schema, 'projets_files'>('projets_files', key);
 }
 
-export class ProjetsFilesItems
-  implements TypedCollectionItemsWrapper<Collections.ProjetsFiles>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ProjetsFilesItems implements TypedCollectionItemsWrapper<Collections.ProjetsFiles> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.ProjetsFiles>,
-  >(
-    items: Partial<Collections.ProjetsFiles>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ProjetsFiles,
-      Query["fields"]
-    >[]
-  > {
-    return (await this.client.request(
-      createProjetsFilesItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.ProjetsFiles>>(
+		items: Partial<Collections.ProjetsFiles>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsFiles, Query['fields']>[]> {
+		return (await this.client.request(createProjetsFilesItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<
-    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ProjetsFiles,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(readProjetsFilesItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.ProjetsFiles>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsFiles, Query['fields']>[]> {
+		return await this.client.request(readProjetsFilesItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<
-    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
-  >(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.ProjetsFiles,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    const items = await this.client.request(
-      readProjetsFilesItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.ProjetsFiles>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsFiles, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readProjetsFilesItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.ProjetsFiles>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ProjetsFiles,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(
-      updateProjetsFilesItems(keys, patch, query),
-    );
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.ProjetsFiles[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.ProjetsFiles>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsFiles, Query['fields']>[]> {
+		return await this.client.request(updateProjetsFilesItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
-  >(keys: string[] | number[]): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.ProjetsFiles>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class ProjetsFilesItem
-  implements TypedCollectionItemWrapper<Collections.ProjetsFiles>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ProjetsFilesItem implements TypedCollectionItemWrapper<Collections.ProjetsFiles> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<
-    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
-  >(
-    item: Partial<Collections.ProjetsFiles>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ProjetsFiles,
-      Query["fields"]
-    >
-  > {
-    return (await this.client.request(
-      createProjetsFilesItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.ProjetsFiles>>(
+		item: Partial<Collections.ProjetsFiles>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsFiles, Query['fields']>> {
+		return (await this.client.request(createProjetsFilesItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<
-    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
-  >(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.ProjetsFiles,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return await this.client.request(readProjetsFilesItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.ProjetsFiles>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsFiles, Query['fields']> | undefined
+	> {
+		return await this.client.request(readProjetsFilesItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
-  >(
-    key: string | number,
-    patch: Partial<Collections.ProjetsFiles>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.ProjetsFiles,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return (await this.client.request(
-      updateProjetsFilesItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.ProjetsFiles>>(
+		key: string | number,
+		patch: Partial<Collections.ProjetsFiles>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsFiles, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateProjetsFilesItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.ProjetsFiles>,
-  >(key: string | number): Promise<void> {
-    return await this.client.request(deleteProjetsFilesItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.ProjetsFiles>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteProjetsFilesItem(key));
+	}
 }
 
 /**
  * Create many projets tags items.
  */
 export function createProjetsTagsItems<
-  const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>,
+	const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>
 >(items: Partial<Collections.ProjetsTags>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "projets_tags", Query>(
-    "projets_tags",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'projets_tags', Query>('projets_tags', items, query);
 }
 
 /**
  * Create a single projets tags item.
  */
 export function createProjetsTagsItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.ProjetsTags[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.ProjetsTags[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.ProjetsTags>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "projets_tags", Query>(
-    "projets_tags",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'projets_tags', Query>('projets_tags', item, query);
 }
 
 /**
  * Read many projets tags items.
  */
 export function readProjetsTagsItems<
-  const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
+	const Query extends Directus.Query<Schema, Collections.ProjetsTags>
 >(query?: Query) {
-  return DirectusSDK.readItems<Schema, "projets_tags", Query>(
-    "projets_tags",
-    query,
-  );
+	return DirectusSDK.readItems<Schema, 'projets_tags', Query>('projets_tags', query);
 }
 
 /**
@@ -4775,13 +3722,9 @@ export const listProjetsTags = readProjetsTagsItems;
  * Gets a single known projets tags item by id.
  */
 export function readProjetsTagsItem<
-  const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
+	const Query extends Directus.Query<Schema, Collections.ProjetsTags>
 >(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "projets_tags", Query>(
-    "projets_tags",
-    key,
-    query,
-  );
+	return DirectusSDK.readItem<Schema, 'projets_tags', Query>('projets_tags', key, query);
 }
 
 /**
@@ -4793,276 +3736,173 @@ export const readProjetsTags = readProjetsTagsItem;
  * Read many projets tags items.
  */
 export function updateProjetsTagsItems<
-  const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.ProjetsTags>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "projets_tags", Query>(
-    "projets_tags",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>
+>(keys: string[] | number[], patch: Partial<Collections.ProjetsTags>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'projets_tags', Query>('projets_tags', keys, patch, query);
 }
 
 /**
  * Gets a single known projets tags item by id.
  */
 export function updateProjetsTagsItem<
-  const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>,
->(
-  key: string | number,
-  patch: Partial<Collections.ProjetsTags>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItem<Schema, "projets_tags", Query>(
-    "projets_tags",
-    key,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>
+>(key: string | number, patch: Partial<Collections.ProjetsTags>, query?: Query) {
+	return DirectusSDK.updateItem<Schema, 'projets_tags', Query>('projets_tags', key, patch, query);
 }
 
 /**
  * Deletes many projets tags items.
  */
 export function deleteProjetsTagsItems<
-  const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>,
+	const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "projets_tags", Query>(
-    "projets_tags",
-    keys,
-  );
+	return DirectusSDK.deleteItems<Schema, 'projets_tags', Query>('projets_tags', keys);
 }
 
 /**
  * Deletes a single known projets tags item by id.
  */
 export function deleteProjetsTagsItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "projets_tags">("projets_tags", key);
+	return DirectusSDK.deleteItem<Schema, 'projets_tags'>('projets_tags', key);
 }
 
-export class ProjetsTagsItems
-  implements TypedCollectionItemsWrapper<Collections.ProjetsTags>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ProjetsTagsItems implements TypedCollectionItemsWrapper<Collections.ProjetsTags> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.ProjetsTags>,
-  >(
-    items: Partial<Collections.ProjetsTags>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ProjetsTags,
-      Query["fields"]
-    >[]
-  > {
-    return (await this.client.request(
-      createProjetsTagsItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.ProjetsTags>>(
+		items: Partial<Collections.ProjetsTags>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags, Query['fields']>[]> {
+		return (await this.client.request(createProjetsTagsItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ProjetsTags,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(readProjetsTagsItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.ProjetsTags>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags, Query['fields']>[]> {
+		return await this.client.request(readProjetsTagsItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
-  >(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.ProjetsTags,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    const items = await this.client.request(
-      readProjetsTagsItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.ProjetsTags>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readProjetsTagsItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.ProjetsTags>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ProjetsTags,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(
-      updateProjetsTagsItems(keys, patch, query),
-    );
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.ProjetsTags[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.ProjetsTags>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags, Query['fields']>[]> {
+		return await this.client.request(updateProjetsTagsItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
-  >(keys: string[] | number[]): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.ProjetsTags>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class ProjetsTagsItem
-  implements TypedCollectionItemWrapper<Collections.ProjetsTags>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ProjetsTagsItem implements TypedCollectionItemWrapper<Collections.ProjetsTags> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
-  >(
-    item: Partial<Collections.ProjetsTags>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ProjetsTags,
-      Query["fields"]
-    >
-  > {
-    return (await this.client.request(
-      createProjetsTagsItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.ProjetsTags>>(
+		item: Partial<Collections.ProjetsTags>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags, Query['fields']>> {
+		return (await this.client.request(createProjetsTagsItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
-  >(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.ProjetsTags,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return await this.client.request(readProjetsTagsItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.ProjetsTags>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags, Query['fields']> | undefined
+	> {
+		return await this.client.request(readProjetsTagsItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
-  >(
-    key: string | number,
-    patch: Partial<Collections.ProjetsTags>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.ProjetsTags,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return (await this.client.request(
-      updateProjetsTagsItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.ProjetsTags>>(
+		key: string | number,
+		patch: Partial<Collections.ProjetsTags>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateProjetsTagsItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags>,
-  >(key: string | number): Promise<void> {
-    return await this.client.request(deleteProjetsTagsItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.ProjetsTags>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteProjetsTagsItem(key));
+	}
 }
 
 /**
  * Create many projets tags 1 items.
  */
 export function createProjetsTags1Items<
-  const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>,
+	const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>
 >(items: Partial<Collections.ProjetsTags1>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "projets_tags_1", Query>(
-    "projets_tags_1",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'projets_tags_1', Query>('projets_tags_1', items, query);
 }
 
 /**
  * Create a single projets tags 1 item.
  */
 export function createProjetsTags1Item<
-  const Query extends DirectusSDK.Query<Schema, Collections.ProjetsTags1[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.ProjetsTags1[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.ProjetsTags1>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "projets_tags_1", Query>(
-    "projets_tags_1",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'projets_tags_1', Query>('projets_tags_1', item, query);
 }
 
 /**
  * Read many projets tags 1 items.
  */
 export function readProjetsTags1Items<
-  const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
+	const Query extends Directus.Query<Schema, Collections.ProjetsTags1>
 >(query?: Query) {
-  return DirectusSDK.readItems<Schema, "projets_tags_1", Query>(
-    "projets_tags_1",
-    query,
-  );
+	return DirectusSDK.readItems<Schema, 'projets_tags_1', Query>('projets_tags_1', query);
 }
 
 /**
@@ -5074,13 +3914,9 @@ export const listProjetsTags1 = readProjetsTags1Items;
  * Gets a single known projets tags 1 item by id.
  */
 export function readProjetsTags1Item<
-  const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
+	const Query extends Directus.Query<Schema, Collections.ProjetsTags1>
 >(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "projets_tags_1", Query>(
-    "projets_tags_1",
-    key,
-    query,
-  );
+	return DirectusSDK.readItem<Schema, 'projets_tags_1', Query>('projets_tags_1', key, query);
 }
 
 /**
@@ -5092,268 +3928,184 @@ export const readProjetsTags1 = readProjetsTags1Item;
  * Read many projets tags 1 items.
  */
 export function updateProjetsTags1Items<
-  const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.ProjetsTags1>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "projets_tags_1", Query>(
-    "projets_tags_1",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>
+>(keys: string[] | number[], patch: Partial<Collections.ProjetsTags1>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'projets_tags_1', Query>(
+		'projets_tags_1',
+		keys,
+		patch,
+		query
+	);
 }
 
 /**
  * Gets a single known projets tags 1 item by id.
  */
 export function updateProjetsTags1Item<
-  const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>,
->(
-  key: string | number,
-  patch: Partial<Collections.ProjetsTags1>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItem<Schema, "projets_tags_1", Query>(
-    "projets_tags_1",
-    key,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>
+>(key: string | number, patch: Partial<Collections.ProjetsTags1>, query?: Query) {
+	return DirectusSDK.updateItem<Schema, 'projets_tags_1', Query>(
+		'projets_tags_1',
+		key,
+		patch,
+		query
+	);
 }
 
 /**
  * Deletes many projets tags 1 items.
  */
 export function deleteProjetsTags1Items<
-  const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>,
+	const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "projets_tags_1", Query>(
-    "projets_tags_1",
-    keys,
-  );
+	return DirectusSDK.deleteItems<Schema, 'projets_tags_1', Query>('projets_tags_1', keys);
 }
 
 /**
  * Deletes a single known projets tags 1 item by id.
  */
 export function deleteProjetsTags1Item(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "projets_tags_1">(
-    "projets_tags_1",
-    key,
-  );
+	return DirectusSDK.deleteItem<Schema, 'projets_tags_1'>('projets_tags_1', key);
 }
 
-export class ProjetsTags1Items
-  implements TypedCollectionItemsWrapper<Collections.ProjetsTags1>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ProjetsTags1Items implements TypedCollectionItemsWrapper<Collections.ProjetsTags1> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.ProjetsTags1>,
-  >(
-    items: Partial<Collections.ProjetsTags1>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ProjetsTags1,
-      Query["fields"]
-    >[]
-  > {
-    return (await this.client.request(
-      createProjetsTags1Items(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.ProjetsTags1>>(
+		items: Partial<Collections.ProjetsTags1>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags1, Query['fields']>[]> {
+		return (await this.client.request(createProjetsTags1Items(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ProjetsTags1,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(readProjetsTags1Items(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.ProjetsTags1>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags1, Query['fields']>[]> {
+		return await this.client.request(readProjetsTags1Items(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
-  >(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.ProjetsTags1,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    const items = await this.client.request(
-      readProjetsTags1Items({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.ProjetsTags1>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags1, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readProjetsTags1Items({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.ProjetsTags1>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ProjetsTags1,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(
-      updateProjetsTags1Items(keys, patch, query),
-    );
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.ProjetsTags1[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.ProjetsTags1>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags1, Query['fields']>[]> {
+		return await this.client.request(updateProjetsTags1Items(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
-  >(keys: string[] | number[]): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.ProjetsTags1>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class ProjetsTags1Item
-  implements TypedCollectionItemWrapper<Collections.ProjetsTags1>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class ProjetsTags1Item implements TypedCollectionItemWrapper<Collections.ProjetsTags1> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
-  >(
-    item: Partial<Collections.ProjetsTags1>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.ProjetsTags1,
-      Query["fields"]
-    >
-  > {
-    return (await this.client.request(
-      createProjetsTags1Item(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.ProjetsTags1>>(
+		item: Partial<Collections.ProjetsTags1>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags1, Query['fields']>> {
+		return (await this.client.request(createProjetsTags1Item(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
-  >(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.ProjetsTags1,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return await this.client.request(readProjetsTags1Item(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.ProjetsTags1>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags1, Query['fields']> | undefined
+	> {
+		return await this.client.request(readProjetsTags1Item(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
-  >(
-    key: string | number,
-    patch: Partial<Collections.ProjetsTags1>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.ProjetsTags1,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return (await this.client.request(
-      updateProjetsTags1Item(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.ProjetsTags1>>(
+		key: string | number,
+		patch: Partial<Collections.ProjetsTags1>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.ProjetsTags1, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateProjetsTags1Item(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.ProjetsTags1>,
-  >(key: string | number): Promise<void> {
-    return await this.client.request(deleteProjetsTags1Item(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.ProjetsTags1>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteProjetsTags1Item(key));
+	}
 }
 
 /**
  * Create many quote items.
  */
-export function createQuoteItems<
-  const Query extends Directus.Query<Schema, Collections.Quote[]>,
->(items: Partial<Collections.Quote>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "quote", Query>("quote", items, query);
+export function createQuoteItems<const Query extends Directus.Query<Schema, Collections.Quote[]>>(
+	items: Partial<Collections.Quote>[],
+	query?: Query
+) {
+	return DirectusSDK.createItems<Schema, 'quote', Query>('quote', items, query);
 }
 
 /**
  * Create a single quote item.
  */
 export function createQuoteItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.Quote[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.Quote[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.Quote>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "quote", Query>("quote", item, query);
+	return DirectusSDK.createItem<Schema, 'quote', Query>('quote', item, query);
 }
 
 /**
  * Read many quote items.
  */
-export function readQuoteItems<
-  const Query extends Directus.Query<Schema, Collections.Quote>,
->(query?: Query) {
-  return DirectusSDK.readItems<Schema, "quote", Query>("quote", query);
+export function readQuoteItems<const Query extends Directus.Query<Schema, Collections.Quote>>(
+	query?: Query
+) {
+	return DirectusSDK.readItems<Schema, 'quote', Query>('quote', query);
 }
 
 /**
@@ -5364,10 +4116,11 @@ export const listQuote = readQuoteItems;
 /**
  * Gets a single known quote item by id.
  */
-export function readQuoteItem<
-  const Query extends Directus.Query<Schema, Collections.Quote>,
->(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "quote", Query>("quote", key, query);
+export function readQuoteItem<const Query extends Directus.Query<Schema, Collections.Quote>>(
+	key: string | number,
+	query?: Query
+) {
+	return DirectusSDK.readItem<Schema, 'quote', Query>('quote', key, query);
 }
 
 /**
@@ -5378,221 +4131,172 @@ export const readQuote = readQuoteItem;
 /**
  * Read many quote items.
  */
-export function updateQuoteItems<
-  const Query extends Directus.Query<Schema, Collections.Quote[]>,
->(keys: string[] | number[], patch: Partial<Collections.Quote>, query?: Query) {
-  return DirectusSDK.updateItems<Schema, "quote", Query>(
-    "quote",
-    keys,
-    patch,
-    query,
-  );
+export function updateQuoteItems<const Query extends Directus.Query<Schema, Collections.Quote[]>>(
+	keys: string[] | number[],
+	patch: Partial<Collections.Quote>,
+	query?: Query
+) {
+	return DirectusSDK.updateItems<Schema, 'quote', Query>('quote', keys, patch, query);
 }
 
 /**
  * Gets a single known quote item by id.
  */
-export function updateQuoteItem<
-  const Query extends Directus.Query<Schema, Collections.Quote[]>,
->(key: string | number, patch: Partial<Collections.Quote>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "quote", Query>(
-    "quote",
-    key,
-    patch,
-    query,
-  );
+export function updateQuoteItem<const Query extends Directus.Query<Schema, Collections.Quote[]>>(
+	key: string | number,
+	patch: Partial<Collections.Quote>,
+	query?: Query
+) {
+	return DirectusSDK.updateItem<Schema, 'quote', Query>('quote', key, patch, query);
 }
 
 /**
  * Deletes many quote items.
  */
-export function deleteQuoteItems<
-  const Query extends Directus.Query<Schema, Collections.Quote[]>,
->(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "quote", Query>("quote", keys);
+export function deleteQuoteItems<const Query extends Directus.Query<Schema, Collections.Quote[]>>(
+	keys: string[] | number[]
+) {
+	return DirectusSDK.deleteItems<Schema, 'quote', Query>('quote', keys);
 }
 
 /**
  * Deletes a single known quote item by id.
  */
 export function deleteQuoteItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "quote">("quote", key);
+	return DirectusSDK.deleteItem<Schema, 'quote'>('quote', key);
 }
 
-export class QuoteItems
-  implements TypedCollectionItemsWrapper<Collections.Quote>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class QuoteItems implements TypedCollectionItemsWrapper<Collections.Quote> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.Quote>,
-  >(
-    items: Partial<Collections.Quote>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query["fields"]>[]
-  > {
-    return (await this.client.request(
-      createQuoteItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.Quote>>(
+		items: Partial<Collections.Quote>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query['fields']>[]> {
+		return (await this.client.request(createQuoteItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<const Query extends Directus.Query<Schema, Collections.Quote>>(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query["fields"]>[]
-  > {
-    return await this.client.request(readQuoteItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.Quote>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query['fields']>[]> {
+		return await this.client.request(readQuoteItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<const Query extends Directus.Query<Schema, Collections.Quote>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query["fields"]>
-    | undefined
-  > {
-    const items = await this.client.request(
-      readQuoteItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.Quote>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query['fields']> | undefined> {
+		const items = await this.client.request(
+			readQuoteItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Quote[]>>(
-    keys: string[] | number[],
-    patch: Partial<Collections.Quote>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query["fields"]>[]
-  > {
-    return await this.client.request(updateQuoteItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Quote[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.Quote>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query['fields']>[]> {
+		return await this.client.request(updateQuoteItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Quote>>(
-    keys: string[] | number[],
-  ): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Quote>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class QuoteItem
-  implements TypedCollectionItemWrapper<Collections.Quote>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class QuoteItem implements TypedCollectionItemWrapper<Collections.Quote> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<const Query extends Directus.Query<Schema, Collections.Quote>>(
-    item: Partial<Collections.Quote>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query["fields"]>
-  > {
-    return (await this.client.request(
-      createQuoteItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.Quote>>(
+		item: Partial<Collections.Quote>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query['fields']>> {
+		return (await this.client.request(createQuoteItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.Quote>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query["fields"]>
-    | undefined
-  > {
-    return await this.client.request(readQuoteItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.Quote>>(
+		key: string | number,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query['fields']> | undefined> {
+		return await this.client.request(readQuoteItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Quote>>(
-    key: string | number,
-    patch: Partial<Collections.Quote>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query["fields"]>
-    | undefined
-  > {
-    return (await this.client.request(
-      updateQuoteItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Quote>>(
+		key: string | number,
+		patch: Partial<Collections.Quote>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Quote, Query['fields']> | undefined> {
+		return (await this.client.request(updateQuoteItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Quote>>(
-    key: string | number,
-  ): Promise<void> {
-    return await this.client.request(deleteQuoteItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Quote>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteQuoteItem(key));
+	}
 }
 
 /**
  * Create many section items.
  */
 export function createSectionItems<
-  const Query extends Directus.Query<Schema, Collections.Section[]>,
+	const Query extends Directus.Query<Schema, Collections.Section[]>
 >(items: Partial<Collections.Section>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "section", Query>(
-    "section",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'section', Query>('section', items, query);
 }
 
 /**
  * Create a single section item.
  */
 export function createSectionItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.Section[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.Section[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.Section>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "section", Query>(
-    "section",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'section', Query>('section', item, query);
 }
 
 /**
  * Read many section items.
  */
-export function readSectionItems<
-  const Query extends Directus.Query<Schema, Collections.Section>,
->(query?: Query) {
-  return DirectusSDK.readItems<Schema, "section", Query>("section", query);
+export function readSectionItems<const Query extends Directus.Query<Schema, Collections.Section>>(
+	query?: Query
+) {
+	return DirectusSDK.readItems<Schema, 'section', Query>('section', query);
 }
 
 /**
@@ -5603,10 +4307,11 @@ export const listSection = readSectionItems;
 /**
  * Gets a single known section item by id.
  */
-export function readSectionItem<
-  const Query extends Directus.Query<Schema, Collections.Section>,
->(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "section", Query>("section", key, query);
+export function readSectionItem<const Query extends Directus.Query<Schema, Collections.Section>>(
+	key: string | number,
+	query?: Query
+) {
+	return DirectusSDK.readItem<Schema, 'section', Query>('section', key, query);
 }
 
 /**
@@ -5618,232 +4323,184 @@ export const readSection = readSectionItem;
  * Read many section items.
  */
 export function updateSectionItems<
-  const Query extends Directus.Query<Schema, Collections.Section[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.Section>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "section", Query>(
-    "section",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.Section[]>
+>(keys: string[] | number[], patch: Partial<Collections.Section>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'section', Query>('section', keys, patch, query);
 }
 
 /**
  * Gets a single known section item by id.
  */
 export function updateSectionItem<
-  const Query extends Directus.Query<Schema, Collections.Section[]>,
+	const Query extends Directus.Query<Schema, Collections.Section[]>
 >(key: string | number, patch: Partial<Collections.Section>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "section", Query>(
-    "section",
-    key,
-    patch,
-    query,
-  );
+	return DirectusSDK.updateItem<Schema, 'section', Query>('section', key, patch, query);
 }
 
 /**
  * Deletes many section items.
  */
 export function deleteSectionItems<
-  const Query extends Directus.Query<Schema, Collections.Section[]>,
+	const Query extends Directus.Query<Schema, Collections.Section[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "section", Query>("section", keys);
+	return DirectusSDK.deleteItems<Schema, 'section', Query>('section', keys);
 }
 
 /**
  * Deletes a single known section item by id.
  */
 export function deleteSectionItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "section">("section", key);
+	return DirectusSDK.deleteItem<Schema, 'section'>('section', key);
 }
 
-export class SectionItems
-  implements TypedCollectionItemsWrapper<Collections.Section>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class SectionItems implements TypedCollectionItemsWrapper<Collections.Section> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.Section>,
-  >(
-    items: Partial<Collections.Section>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query["fields"]>[]
-  > {
-    return (await this.client.request(
-      createSectionItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.Section>>(
+		items: Partial<Collections.Section>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query['fields']>[]> {
+		return (await this.client.request(createSectionItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<const Query extends Directus.Query<Schema, Collections.Section>>(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query["fields"]>[]
-  > {
-    return await this.client.request(readSectionItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.Section>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query['fields']>[]> {
+		return await this.client.request(readSectionItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<const Query extends Directus.Query<Schema, Collections.Section>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query["fields"]>
-    | undefined
-  > {
-    const items = await this.client.request(
-      readSectionItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.Section>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readSectionItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.Section[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.Section>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query["fields"]>[]
-  > {
-    return await this.client.request(updateSectionItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Section[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.Section>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query['fields']>[]> {
+		return await this.client.request(updateSectionItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Section>>(
-    keys: string[] | number[],
-  ): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Section>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class SectionItem
-  implements TypedCollectionItemWrapper<Collections.Section>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class SectionItem implements TypedCollectionItemWrapper<Collections.Section> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<const Query extends Directus.Query<Schema, Collections.Section>>(
-    item: Partial<Collections.Section>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query["fields"]>
-  > {
-    return (await this.client.request(
-      createSectionItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.Section>>(
+		item: Partial<Collections.Section>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query['fields']>> {
+		return (await this.client.request(createSectionItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.Section>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query["fields"]>
-    | undefined
-  > {
-    return await this.client.request(readSectionItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.Section>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query['fields']> | undefined
+	> {
+		return await this.client.request(readSectionItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Section>>(
-    key: string | number,
-    patch: Partial<Collections.Section>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query["fields"]>
-    | undefined
-  > {
-    return (await this.client.request(
-      updateSectionItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Section>>(
+		key: string | number,
+		patch: Partial<Collections.Section>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.Section, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateSectionItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Section>>(
-    key: string | number,
-  ): Promise<void> {
-    return await this.client.request(deleteSectionItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Section>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteSectionItem(key));
+	}
 }
 
 /**
  * Create many section editor nodes items.
  */
 export function createSectionEditorNodesItems<
-  const Query extends Directus.Query<Schema, Collections.SectionEditorNodes[]>,
+	const Query extends Directus.Query<Schema, Collections.SectionEditorNodes[]>
 >(items: Partial<Collections.SectionEditorNodes>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "section_editor_nodes", Query>(
-    "section_editor_nodes",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'section_editor_nodes', Query>(
+		'section_editor_nodes',
+		items,
+		query
+	);
 }
 
 /**
  * Create a single section editor nodes item.
  */
 export function createSectionEditorNodesItem<
-  const Query extends DirectusSDK.Query<
-    Schema,
-    Collections.SectionEditorNodes[]
-  >, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.SectionEditorNodes[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.SectionEditorNodes>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "section_editor_nodes", Query>(
-    "section_editor_nodes",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'section_editor_nodes', Query>(
+		'section_editor_nodes',
+		item,
+		query
+	);
 }
 
 /**
  * Read many section editor nodes items.
  */
 export function readSectionEditorNodesItems<
-  const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>,
+	const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>
 >(query?: Query) {
-  return DirectusSDK.readItems<Schema, "section_editor_nodes", Query>(
-    "section_editor_nodes",
-    query,
-  );
+	return DirectusSDK.readItems<Schema, 'section_editor_nodes', Query>(
+		'section_editor_nodes',
+		query
+	);
 }
 
 /**
@@ -5855,13 +4512,13 @@ export const listSectionEditorNodes = readSectionEditorNodesItems;
  * Gets a single known section editor nodes item by id.
  */
 export function readSectionEditorNodesItem<
-  const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>,
+	const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>
 >(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "section_editor_nodes", Query>(
-    "section_editor_nodes",
-    key,
-    query,
-  );
+	return DirectusSDK.readItem<Schema, 'section_editor_nodes', Query>(
+		'section_editor_nodes',
+		key,
+		query
+	);
 }
 
 /**
@@ -5873,274 +4530,204 @@ export const readSectionEditorNodes = readSectionEditorNodesItem;
  * Read many section editor nodes items.
  */
 export function updateSectionEditorNodesItems<
-  const Query extends Directus.Query<Schema, Collections.SectionEditorNodes[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.SectionEditorNodes>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "section_editor_nodes", Query>(
-    "section_editor_nodes",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.SectionEditorNodes[]>
+>(keys: string[] | number[], patch: Partial<Collections.SectionEditorNodes>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'section_editor_nodes', Query>(
+		'section_editor_nodes',
+		keys,
+		patch,
+		query
+	);
 }
 
 /**
  * Gets a single known section editor nodes item by id.
  */
 export function updateSectionEditorNodesItem<
-  const Query extends Directus.Query<Schema, Collections.SectionEditorNodes[]>,
->(
-  key: string | number,
-  patch: Partial<Collections.SectionEditorNodes>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItem<Schema, "section_editor_nodes", Query>(
-    "section_editor_nodes",
-    key,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.SectionEditorNodes[]>
+>(key: string | number, patch: Partial<Collections.SectionEditorNodes>, query?: Query) {
+	return DirectusSDK.updateItem<Schema, 'section_editor_nodes', Query>(
+		'section_editor_nodes',
+		key,
+		patch,
+		query
+	);
 }
 
 /**
  * Deletes many section editor nodes items.
  */
 export function deleteSectionEditorNodesItems<
-  const Query extends Directus.Query<Schema, Collections.SectionEditorNodes[]>,
+	const Query extends Directus.Query<Schema, Collections.SectionEditorNodes[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "section_editor_nodes", Query>(
-    "section_editor_nodes",
-    keys,
-  );
+	return DirectusSDK.deleteItems<Schema, 'section_editor_nodes', Query>(
+		'section_editor_nodes',
+		keys
+	);
 }
 
 /**
  * Deletes a single known section editor nodes item by id.
  */
 export function deleteSectionEditorNodesItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "section_editor_nodes">(
-    "section_editor_nodes",
-    key,
-  );
+	return DirectusSDK.deleteItem<Schema, 'section_editor_nodes'>('section_editor_nodes', key);
 }
 
 export class SectionEditorNodesItems
-  implements TypedCollectionItemsWrapper<Collections.SectionEditorNodes>
+	implements TypedCollectionItemsWrapper<Collections.SectionEditorNodes>
 {
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<
-      Schema,
-      Collections.SectionEditorNodes
-    >,
-  >(
-    items: Partial<Collections.SectionEditorNodes>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.SectionEditorNodes,
-      Query["fields"]
-    >[]
-  > {
-    return (await this.client.request(
-      createSectionEditorNodesItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.SectionEditorNodes>>(
+		items: Partial<Collections.SectionEditorNodes>[],
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.SectionEditorNodes, Query['fields']>[]
+	> {
+		return (await this.client.request(createSectionEditorNodesItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<
-    const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.SectionEditorNodes,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(readSectionEditorNodesItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.SectionEditorNodes, Query['fields']>[]
+	> {
+		return await this.client.request(readSectionEditorNodesItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<
-    const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>,
-  >(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.SectionEditorNodes,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    const items = await this.client.request(
-      readSectionEditorNodesItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>>(
+		query?: Query
+	): Promise<
+		| DirectusSDK.ApplyQueryFields<Schema, Collections.SectionEditorNodes, Query['fields']>
+		| undefined
+	> {
+		const items = await this.client.request(
+			readSectionEditorNodesItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<
-      Schema,
-      Collections.SectionEditorNodes[]
-    >,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.SectionEditorNodes>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.SectionEditorNodes,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(
-      updateSectionEditorNodesItems(keys, patch, query),
-    );
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.SectionEditorNodes[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.SectionEditorNodes>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.SectionEditorNodes, Query['fields']>[]
+	> {
+		return await this.client.request(updateSectionEditorNodesItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>,
-  >(keys: string[] | number[]): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
 export class SectionEditorNodesItem
-  implements TypedCollectionItemWrapper<Collections.SectionEditorNodes>
+	implements TypedCollectionItemWrapper<Collections.SectionEditorNodes>
 {
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<
-    const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>,
-  >(
-    item: Partial<Collections.SectionEditorNodes>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.SectionEditorNodes,
-      Query["fields"]
-    >
-  > {
-    return (await this.client.request(
-      createSectionEditorNodesItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>>(
+		item: Partial<Collections.SectionEditorNodes>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.SectionEditorNodes, Query['fields']>
+	> {
+		return (await this.client.request(createSectionEditorNodesItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<
-    const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>,
-  >(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.SectionEditorNodes,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return await this.client.request(readSectionEditorNodesItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		| DirectusSDK.ApplyQueryFields<Schema, Collections.SectionEditorNodes, Query['fields']>
+		| undefined
+	> {
+		return await this.client.request(readSectionEditorNodesItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>,
-  >(
-    key: string | number,
-    patch: Partial<Collections.SectionEditorNodes>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.SectionEditorNodes,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return (await this.client.request(
-      updateSectionEditorNodesItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>>(
+		key: string | number,
+		patch: Partial<Collections.SectionEditorNodes>,
+		query?: Query
+	): Promise<
+		| DirectusSDK.ApplyQueryFields<Schema, Collections.SectionEditorNodes, Query['fields']>
+		| undefined
+	> {
+		return (await this.client.request(
+			updateSectionEditorNodesItem(key, patch, query as any)
+		)) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>,
-  >(key: string | number): Promise<void> {
-    return await this.client.request(deleteSectionEditorNodesItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.SectionEditorNodes>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteSectionEditorNodesItem(key));
+	}
 }
 
 /**
  * Create many stack items.
  */
-export function createStackItems<
-  const Query extends Directus.Query<Schema, Collections.Stack[]>,
->(items: Partial<Collections.Stack>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "stack", Query>("stack", items, query);
+export function createStackItems<const Query extends Directus.Query<Schema, Collections.Stack[]>>(
+	items: Partial<Collections.Stack>[],
+	query?: Query
+) {
+	return DirectusSDK.createItems<Schema, 'stack', Query>('stack', items, query);
 }
 
 /**
  * Create a single stack item.
  */
 export function createStackItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.Stack[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.Stack[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.Stack>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "stack", Query>("stack", item, query);
+	return DirectusSDK.createItem<Schema, 'stack', Query>('stack', item, query);
 }
 
 /**
  * Read many stack items.
  */
-export function readStackItems<
-  const Query extends Directus.Query<Schema, Collections.Stack>,
->(query?: Query) {
-  return DirectusSDK.readItems<Schema, "stack", Query>("stack", query);
+export function readStackItems<const Query extends Directus.Query<Schema, Collections.Stack>>(
+	query?: Query
+) {
+	return DirectusSDK.readItems<Schema, 'stack', Query>('stack', query);
 }
 
 /**
@@ -6151,10 +4738,11 @@ export const listStack = readStackItems;
 /**
  * Gets a single known stack item by id.
  */
-export function readStackItem<
-  const Query extends Directus.Query<Schema, Collections.Stack>,
->(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "stack", Query>("stack", key, query);
+export function readStackItem<const Query extends Directus.Query<Schema, Collections.Stack>>(
+	key: string | number,
+	query?: Query
+) {
+	return DirectusSDK.readItem<Schema, 'stack', Query>('stack', key, query);
 }
 
 /**
@@ -6165,224 +4753,180 @@ export const readStack = readStackItem;
 /**
  * Read many stack items.
  */
-export function updateStackItems<
-  const Query extends Directus.Query<Schema, Collections.Stack[]>,
->(keys: string[] | number[], patch: Partial<Collections.Stack>, query?: Query) {
-  return DirectusSDK.updateItems<Schema, "stack", Query>(
-    "stack",
-    keys,
-    patch,
-    query,
-  );
+export function updateStackItems<const Query extends Directus.Query<Schema, Collections.Stack[]>>(
+	keys: string[] | number[],
+	patch: Partial<Collections.Stack>,
+	query?: Query
+) {
+	return DirectusSDK.updateItems<Schema, 'stack', Query>('stack', keys, patch, query);
 }
 
 /**
  * Gets a single known stack item by id.
  */
-export function updateStackItem<
-  const Query extends Directus.Query<Schema, Collections.Stack[]>,
->(key: string | number, patch: Partial<Collections.Stack>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "stack", Query>(
-    "stack",
-    key,
-    patch,
-    query,
-  );
+export function updateStackItem<const Query extends Directus.Query<Schema, Collections.Stack[]>>(
+	key: string | number,
+	patch: Partial<Collections.Stack>,
+	query?: Query
+) {
+	return DirectusSDK.updateItem<Schema, 'stack', Query>('stack', key, patch, query);
 }
 
 /**
  * Deletes many stack items.
  */
-export function deleteStackItems<
-  const Query extends Directus.Query<Schema, Collections.Stack[]>,
->(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "stack", Query>("stack", keys);
+export function deleteStackItems<const Query extends Directus.Query<Schema, Collections.Stack[]>>(
+	keys: string[] | number[]
+) {
+	return DirectusSDK.deleteItems<Schema, 'stack', Query>('stack', keys);
 }
 
 /**
  * Deletes a single known stack item by id.
  */
 export function deleteStackItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "stack">("stack", key);
+	return DirectusSDK.deleteItem<Schema, 'stack'>('stack', key);
 }
 
-export class StackItems
-  implements TypedCollectionItemsWrapper<Collections.Stack>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class StackItems implements TypedCollectionItemsWrapper<Collections.Stack> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.Stack>,
-  >(
-    items: Partial<Collections.Stack>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query["fields"]>[]
-  > {
-    return (await this.client.request(
-      createStackItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.Stack>>(
+		items: Partial<Collections.Stack>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query['fields']>[]> {
+		return (await this.client.request(createStackItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<const Query extends Directus.Query<Schema, Collections.Stack>>(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query["fields"]>[]
-  > {
-    return await this.client.request(readStackItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.Stack>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query['fields']>[]> {
+		return await this.client.request(readStackItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<const Query extends Directus.Query<Schema, Collections.Stack>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query["fields"]>
-    | undefined
-  > {
-    const items = await this.client.request(
-      readStackItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.Stack>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query['fields']> | undefined> {
+		const items = await this.client.request(
+			readStackItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Stack[]>>(
-    keys: string[] | number[],
-    patch: Partial<Collections.Stack>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query["fields"]>[]
-  > {
-    return await this.client.request(updateStackItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Stack[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.Stack>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query['fields']>[]> {
+		return await this.client.request(updateStackItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Stack>>(
-    keys: string[] | number[],
-  ): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Stack>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class StackItem
-  implements TypedCollectionItemWrapper<Collections.Stack>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class StackItem implements TypedCollectionItemWrapper<Collections.Stack> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<const Query extends Directus.Query<Schema, Collections.Stack>>(
-    item: Partial<Collections.Stack>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query["fields"]>
-  > {
-    return (await this.client.request(
-      createStackItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.Stack>>(
+		item: Partial<Collections.Stack>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query['fields']>> {
+		return (await this.client.request(createStackItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.Stack>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query["fields"]>
-    | undefined
-  > {
-    return await this.client.request(readStackItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.Stack>>(
+		key: string | number,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query['fields']> | undefined> {
+		return await this.client.request(readStackItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Stack>>(
-    key: string | number,
-    patch: Partial<Collections.Stack>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query["fields"]>
-    | undefined
-  > {
-    return (await this.client.request(
-      updateStackItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Stack>>(
+		key: string | number,
+		patch: Partial<Collections.Stack>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Stack, Query['fields']> | undefined> {
+		return (await this.client.request(updateStackItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Stack>>(
-    key: string | number,
-  ): Promise<void> {
-    return await this.client.request(deleteStackItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Stack>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteStackItem(key));
+	}
 }
 
 /**
  * Create many stack editor nodes items.
  */
 export function createStackEditorNodesItems<
-  const Query extends Directus.Query<Schema, Collections.StackEditorNodes[]>,
+	const Query extends Directus.Query<Schema, Collections.StackEditorNodes[]>
 >(items: Partial<Collections.StackEditorNodes>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "stack_editor_nodes", Query>(
-    "stack_editor_nodes",
-    items,
-    query,
-  );
+	return DirectusSDK.createItems<Schema, 'stack_editor_nodes', Query>(
+		'stack_editor_nodes',
+		items,
+		query
+	);
 }
 
 /**
  * Create a single stack editor nodes item.
  */
 export function createStackEditorNodesItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.StackEditorNodes[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.StackEditorNodes[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.StackEditorNodes>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "stack_editor_nodes", Query>(
-    "stack_editor_nodes",
-    item,
-    query,
-  );
+	return DirectusSDK.createItem<Schema, 'stack_editor_nodes', Query>(
+		'stack_editor_nodes',
+		item,
+		query
+	);
 }
 
 /**
  * Read many stack editor nodes items.
  */
 export function readStackEditorNodesItems<
-  const Query extends Directus.Query<Schema, Collections.StackEditorNodes>,
+	const Query extends Directus.Query<Schema, Collections.StackEditorNodes>
 >(query?: Query) {
-  return DirectusSDK.readItems<Schema, "stack_editor_nodes", Query>(
-    "stack_editor_nodes",
-    query,
-  );
+	return DirectusSDK.readItems<Schema, 'stack_editor_nodes', Query>('stack_editor_nodes', query);
 }
 
 /**
@@ -6394,13 +4938,13 @@ export const listStackEditorNodes = readStackEditorNodesItems;
  * Gets a single known stack editor nodes item by id.
  */
 export function readStackEditorNodesItem<
-  const Query extends Directus.Query<Schema, Collections.StackEditorNodes>,
+	const Query extends Directus.Query<Schema, Collections.StackEditorNodes>
 >(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "stack_editor_nodes", Query>(
-    "stack_editor_nodes",
-    key,
-    query,
-  );
+	return DirectusSDK.readItem<Schema, 'stack_editor_nodes', Query>(
+		'stack_editor_nodes',
+		key,
+		query
+	);
 }
 
 /**
@@ -6412,268 +4956,194 @@ export const readStackEditorNodes = readStackEditorNodesItem;
  * Read many stack editor nodes items.
  */
 export function updateStackEditorNodesItems<
-  const Query extends Directus.Query<Schema, Collections.StackEditorNodes[]>,
->(
-  keys: string[] | number[],
-  patch: Partial<Collections.StackEditorNodes>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItems<Schema, "stack_editor_nodes", Query>(
-    "stack_editor_nodes",
-    keys,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.StackEditorNodes[]>
+>(keys: string[] | number[], patch: Partial<Collections.StackEditorNodes>, query?: Query) {
+	return DirectusSDK.updateItems<Schema, 'stack_editor_nodes', Query>(
+		'stack_editor_nodes',
+		keys,
+		patch,
+		query
+	);
 }
 
 /**
  * Gets a single known stack editor nodes item by id.
  */
 export function updateStackEditorNodesItem<
-  const Query extends Directus.Query<Schema, Collections.StackEditorNodes[]>,
->(
-  key: string | number,
-  patch: Partial<Collections.StackEditorNodes>,
-  query?: Query,
-) {
-  return DirectusSDK.updateItem<Schema, "stack_editor_nodes", Query>(
-    "stack_editor_nodes",
-    key,
-    patch,
-    query,
-  );
+	const Query extends Directus.Query<Schema, Collections.StackEditorNodes[]>
+>(key: string | number, patch: Partial<Collections.StackEditorNodes>, query?: Query) {
+	return DirectusSDK.updateItem<Schema, 'stack_editor_nodes', Query>(
+		'stack_editor_nodes',
+		key,
+		patch,
+		query
+	);
 }
 
 /**
  * Deletes many stack editor nodes items.
  */
 export function deleteStackEditorNodesItems<
-  const Query extends Directus.Query<Schema, Collections.StackEditorNodes[]>,
+	const Query extends Directus.Query<Schema, Collections.StackEditorNodes[]>
 >(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "stack_editor_nodes", Query>(
-    "stack_editor_nodes",
-    keys,
-  );
+	return DirectusSDK.deleteItems<Schema, 'stack_editor_nodes', Query>('stack_editor_nodes', keys);
 }
 
 /**
  * Deletes a single known stack editor nodes item by id.
  */
 export function deleteStackEditorNodesItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "stack_editor_nodes">(
-    "stack_editor_nodes",
-    key,
-  );
+	return DirectusSDK.deleteItem<Schema, 'stack_editor_nodes'>('stack_editor_nodes', key);
 }
 
 export class StackEditorNodesItems
-  implements TypedCollectionItemsWrapper<Collections.StackEditorNodes>
+	implements TypedCollectionItemsWrapper<Collections.StackEditorNodes>
 {
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.StackEditorNodes>,
-  >(
-    items: Partial<Collections.StackEditorNodes>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.StackEditorNodes,
-      Query["fields"]
-    >[]
-  > {
-    return (await this.client.request(
-      createStackEditorNodesItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.StackEditorNodes>>(
+		items: Partial<Collections.StackEditorNodes>[],
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.StackEditorNodes, Query['fields']>[]
+	> {
+		return (await this.client.request(createStackEditorNodesItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<
-    const Query extends Directus.Query<Schema, Collections.StackEditorNodes>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.StackEditorNodes,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(readStackEditorNodesItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.StackEditorNodes>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.StackEditorNodes, Query['fields']>[]
+	> {
+		return await this.client.request(readStackEditorNodesItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<
-    const Query extends Directus.Query<Schema, Collections.StackEditorNodes>,
-  >(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.StackEditorNodes,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    const items = await this.client.request(
-      readStackEditorNodesItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.StackEditorNodes>>(
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.StackEditorNodes, Query['fields']> | undefined
+	> {
+		const items = await this.client.request(
+			readStackEditorNodesItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.StackEditorNodes[]>,
-  >(
-    keys: string[] | number[],
-    patch: Partial<Collections.StackEditorNodes>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.StackEditorNodes,
-      Query["fields"]
-    >[]
-  > {
-    return await this.client.request(
-      updateStackEditorNodesItems(keys, patch, query),
-    );
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.StackEditorNodes[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.StackEditorNodes>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.StackEditorNodes, Query['fields']>[]
+	> {
+		return await this.client.request(updateStackEditorNodesItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.StackEditorNodes>,
-  >(keys: string[] | number[]): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.StackEditorNodes>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
 export class StackEditorNodesItem
-  implements TypedCollectionItemWrapper<Collections.StackEditorNodes>
+	implements TypedCollectionItemWrapper<Collections.StackEditorNodes>
 {
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<
-    const Query extends Directus.Query<Schema, Collections.StackEditorNodes>,
-  >(
-    item: Partial<Collections.StackEditorNodes>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<
-      Schema,
-      Collections.StackEditorNodes,
-      Query["fields"]
-    >
-  > {
-    return (await this.client.request(
-      createStackEditorNodesItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.StackEditorNodes>>(
+		item: Partial<Collections.StackEditorNodes>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.StackEditorNodes, Query['fields']>> {
+		return (await this.client.request(createStackEditorNodesItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<
-    const Query extends Directus.Query<Schema, Collections.StackEditorNodes>,
-  >(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.StackEditorNodes,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return await this.client.request(readStackEditorNodesItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.StackEditorNodes>>(
+		key: string | number,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.StackEditorNodes, Query['fields']> | undefined
+	> {
+		return await this.client.request(readStackEditorNodesItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<
-    const Query extends Directus.Query<Schema, Collections.StackEditorNodes>,
-  >(
-    key: string | number,
-    patch: Partial<Collections.StackEditorNodes>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<
-        Schema,
-        Collections.StackEditorNodes,
-        Query["fields"]
-      >
-    | undefined
-  > {
-    return (await this.client.request(
-      updateStackEditorNodesItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.StackEditorNodes>>(
+		key: string | number,
+		patch: Partial<Collections.StackEditorNodes>,
+		query?: Query
+	): Promise<
+		DirectusSDK.ApplyQueryFields<Schema, Collections.StackEditorNodes, Query['fields']> | undefined
+	> {
+		return (await this.client.request(updateStackEditorNodesItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<
-    const Query extends Directus.Query<Schema, Collections.StackEditorNodes>,
-  >(key: string | number): Promise<void> {
-    return await this.client.request(deleteStackEditorNodesItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.StackEditorNodes>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteStackEditorNodesItem(key));
+	}
 }
 
 /**
  * Create many tags items.
  */
-export function createTagsItems<
-  const Query extends Directus.Query<Schema, Collections.Tags[]>,
->(items: Partial<Collections.Tags>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "tags", Query>("tags", items, query);
+export function createTagsItems<const Query extends Directus.Query<Schema, Collections.Tags[]>>(
+	items: Partial<Collections.Tags>[],
+	query?: Query
+) {
+	return DirectusSDK.createItems<Schema, 'tags', Query>('tags', items, query);
 }
 
 /**
  * Create a single tags item.
  */
 export function createTagsItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.Tags[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.Tags[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.Tags>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "tags", Query>("tags", item, query);
+	return DirectusSDK.createItem<Schema, 'tags', Query>('tags', item, query);
 }
 
 /**
  * Read many tags items.
  */
-export function readTagsItems<
-  const Query extends Directus.Query<Schema, Collections.Tags>,
->(query?: Query) {
-  return DirectusSDK.readItems<Schema, "tags", Query>("tags", query);
+export function readTagsItems<const Query extends Directus.Query<Schema, Collections.Tags>>(
+	query?: Query
+) {
+	return DirectusSDK.readItems<Schema, 'tags', Query>('tags', query);
 }
 
 /**
@@ -6684,10 +5154,11 @@ export const listTags = readTagsItems;
 /**
  * Gets a single known tags item by id.
  */
-export function readTagsItem<
-  const Query extends Directus.Query<Schema, Collections.Tags>,
->(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "tags", Query>("tags", key, query);
+export function readTagsItem<const Query extends Directus.Query<Schema, Collections.Tags>>(
+	key: string | number,
+	query?: Query
+) {
+	return DirectusSDK.readItem<Schema, 'tags', Query>('tags', key, query);
 }
 
 /**
@@ -6698,209 +5169,173 @@ export const readTags = readTagsItem;
 /**
  * Read many tags items.
  */
-export function updateTagsItems<
-  const Query extends Directus.Query<Schema, Collections.Tags[]>,
->(keys: string[] | number[], patch: Partial<Collections.Tags>, query?: Query) {
-  return DirectusSDK.updateItems<Schema, "tags", Query>(
-    "tags",
-    keys,
-    patch,
-    query,
-  );
+export function updateTagsItems<const Query extends Directus.Query<Schema, Collections.Tags[]>>(
+	keys: string[] | number[],
+	patch: Partial<Collections.Tags>,
+	query?: Query
+) {
+	return DirectusSDK.updateItems<Schema, 'tags', Query>('tags', keys, patch, query);
 }
 
 /**
  * Gets a single known tags item by id.
  */
-export function updateTagsItem<
-  const Query extends Directus.Query<Schema, Collections.Tags[]>,
->(key: string | number, patch: Partial<Collections.Tags>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "tags", Query>(
-    "tags",
-    key,
-    patch,
-    query,
-  );
+export function updateTagsItem<const Query extends Directus.Query<Schema, Collections.Tags[]>>(
+	key: string | number,
+	patch: Partial<Collections.Tags>,
+	query?: Query
+) {
+	return DirectusSDK.updateItem<Schema, 'tags', Query>('tags', key, patch, query);
 }
 
 /**
  * Deletes many tags items.
  */
-export function deleteTagsItems<
-  const Query extends Directus.Query<Schema, Collections.Tags[]>,
->(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "tags", Query>("tags", keys);
+export function deleteTagsItems<const Query extends Directus.Query<Schema, Collections.Tags[]>>(
+	keys: string[] | number[]
+) {
+	return DirectusSDK.deleteItems<Schema, 'tags', Query>('tags', keys);
 }
 
 /**
  * Deletes a single known tags item by id.
  */
 export function deleteTagsItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "tags">("tags", key);
+	return DirectusSDK.deleteItem<Schema, 'tags'>('tags', key);
 }
 
-export class TagsItems
-  implements TypedCollectionItemsWrapper<Collections.Tags>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class TagsItems implements TypedCollectionItemsWrapper<Collections.Tags> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<const Query extends DirectusSDK.Query<Schema, Collections.Tags>>(
-    items: Partial<Collections.Tags>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>[]
-  > {
-    return (await this.client.request(
-      createTagsItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.Tags>>(
+		items: Partial<Collections.Tags>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query['fields']>[]> {
+		return (await this.client.request(createTagsItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<const Query extends Directus.Query<Schema, Collections.Tags>>(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>[]
-  > {
-    return await this.client.request(readTagsItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.Tags>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query['fields']>[]> {
+		return await this.client.request(readTagsItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<const Query extends Directus.Query<Schema, Collections.Tags>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>
-    | undefined
-  > {
-    const items = await this.client.request(
-      readTagsItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.Tags>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query['fields']> | undefined> {
+		const items = await this.client.request(
+			readTagsItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Tags[]>>(
-    keys: string[] | number[],
-    patch: Partial<Collections.Tags>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>[]
-  > {
-    return await this.client.request(updateTagsItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Tags[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.Tags>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query['fields']>[]> {
+		return await this.client.request(updateTagsItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Tags>>(
-    keys: string[] | number[],
-  ): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Tags>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
 export class TagsItem implements TypedCollectionItemWrapper<Collections.Tags> {
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<const Query extends Directus.Query<Schema, Collections.Tags>>(
-    item: Partial<Collections.Tags>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>
-  > {
-    return (await this.client.request(
-      createTagsItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.Tags>>(
+		item: Partial<Collections.Tags>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query['fields']>> {
+		return (await this.client.request(createTagsItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.Tags>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>
-    | undefined
-  > {
-    return await this.client.request(readTagsItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.Tags>>(
+		key: string | number,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query['fields']> | undefined> {
+		return await this.client.request(readTagsItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Tags>>(
-    key: string | number,
-    patch: Partial<Collections.Tags>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query["fields"]>
-    | undefined
-  > {
-    return (await this.client.request(
-      updateTagsItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Tags>>(
+		key: string | number,
+		patch: Partial<Collections.Tags>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Tags, Query['fields']> | undefined> {
+		return (await this.client.request(updateTagsItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Tags>>(
-    key: string | number,
-  ): Promise<void> {
-    return await this.client.request(deleteTagsItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Tags>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteTagsItem(key));
+	}
 }
 
 /**
  * Create many video items.
  */
-export function createVideoItems<
-  const Query extends Directus.Query<Schema, Collections.Video[]>,
->(items: Partial<Collections.Video>[], query?: Query) {
-  return DirectusSDK.createItems<Schema, "video", Query>("video", items, query);
+export function createVideoItems<const Query extends Directus.Query<Schema, Collections.Video[]>>(
+	items: Partial<Collections.Video>[],
+	query?: Query
+) {
+	return DirectusSDK.createItems<Schema, 'video', Query>('video', items, query);
 }
 
 /**
  * Create a single video item.
  */
 export function createVideoItem<
-  const Query extends DirectusSDK.Query<Schema, Collections.Video[]>, // Is this a mistake? Why []?
+	const Query extends DirectusSDK.Query<Schema, Collections.Video[]> // Is this a mistake? Why []?
 >(item: Partial<Collections.Video>, query?: Query) {
-  return DirectusSDK.createItem<Schema, "video", Query>("video", item, query);
+	return DirectusSDK.createItem<Schema, 'video', Query>('video', item, query);
 }
 
 /**
  * Read many video items.
  */
-export function readVideoItems<
-  const Query extends Directus.Query<Schema, Collections.Video>,
->(query?: Query) {
-  return DirectusSDK.readItems<Schema, "video", Query>("video", query);
+export function readVideoItems<const Query extends Directus.Query<Schema, Collections.Video>>(
+	query?: Query
+) {
+	return DirectusSDK.readItems<Schema, 'video', Query>('video', query);
 }
 
 /**
@@ -6911,10 +5346,11 @@ export const listVideo = readVideoItems;
 /**
  * Gets a single known video item by id.
  */
-export function readVideoItem<
-  const Query extends Directus.Query<Schema, Collections.Video>,
->(key: string | number, query?: Query) {
-  return DirectusSDK.readItem<Schema, "video", Query>("video", key, query);
+export function readVideoItem<const Query extends Directus.Query<Schema, Collections.Video>>(
+	key: string | number,
+	query?: Query
+) {
+	return DirectusSDK.readItem<Schema, 'video', Query>('video', key, query);
 }
 
 /**
@@ -6925,186 +5361,145 @@ export const readVideo = readVideoItem;
 /**
  * Read many video items.
  */
-export function updateVideoItems<
-  const Query extends Directus.Query<Schema, Collections.Video[]>,
->(keys: string[] | number[], patch: Partial<Collections.Video>, query?: Query) {
-  return DirectusSDK.updateItems<Schema, "video", Query>(
-    "video",
-    keys,
-    patch,
-    query,
-  );
+export function updateVideoItems<const Query extends Directus.Query<Schema, Collections.Video[]>>(
+	keys: string[] | number[],
+	patch: Partial<Collections.Video>,
+	query?: Query
+) {
+	return DirectusSDK.updateItems<Schema, 'video', Query>('video', keys, patch, query);
 }
 
 /**
  * Gets a single known video item by id.
  */
-export function updateVideoItem<
-  const Query extends Directus.Query<Schema, Collections.Video[]>,
->(key: string | number, patch: Partial<Collections.Video>, query?: Query) {
-  return DirectusSDK.updateItem<Schema, "video", Query>(
-    "video",
-    key,
-    patch,
-    query,
-  );
+export function updateVideoItem<const Query extends Directus.Query<Schema, Collections.Video[]>>(
+	key: string | number,
+	patch: Partial<Collections.Video>,
+	query?: Query
+) {
+	return DirectusSDK.updateItem<Schema, 'video', Query>('video', key, patch, query);
 }
 
 /**
  * Deletes many video items.
  */
-export function deleteVideoItems<
-  const Query extends Directus.Query<Schema, Collections.Video[]>,
->(keys: string[] | number[]) {
-  return DirectusSDK.deleteItems<Schema, "video", Query>("video", keys);
+export function deleteVideoItems<const Query extends Directus.Query<Schema, Collections.Video[]>>(
+	keys: string[] | number[]
+) {
+	return DirectusSDK.deleteItems<Schema, 'video', Query>('video', keys);
 }
 
 /**
  * Deletes a single known video item by id.
  */
 export function deleteVideoItem(key: string | number) {
-  return DirectusSDK.deleteItem<Schema, "video">("video", key);
+	return DirectusSDK.deleteItem<Schema, 'video'>('video', key);
 }
 
-export class VideoItems
-  implements TypedCollectionItemsWrapper<Collections.Video>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class VideoItems implements TypedCollectionItemsWrapper<Collections.Video> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Creates many items in the collection.
-   */
-  async create<
-    const Query extends DirectusSDK.Query<Schema, Collections.Video>,
-  >(
-    items: Partial<Collections.Video>[],
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query["fields"]>[]
-  > {
-    return (await this.client.request(
-      createVideoItems(items, query as any),
-    )) as any; // Seems like a bug in the SDK.
-  }
+	/**
+	 * Creates many items in the collection.
+	 */
+	async create<const Query extends DirectusSDK.Query<Schema, Collections.Video>>(
+		items: Partial<Collections.Video>[],
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query['fields']>[]> {
+		return (await this.client.request(createVideoItems(items, query as any))) as any; // Seems like a bug in the SDK.
+	}
 
-  /**
-   * Read many items from the collection.
-   */
-  async query<const Query extends Directus.Query<Schema, Collections.Video>>(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query["fields"]>[]
-  > {
-    return await this.client.request(readVideoItems(query));
-  }
+	/**
+	 * Read many items from the collection.
+	 */
+	async query<const Query extends Directus.Query<Schema, Collections.Video>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query['fields']>[]> {
+		return await this.client.request(readVideoItems(query));
+	}
 
-  /**
-   * Read the first item from the collection matching the query.
-   */
-  async find<const Query extends Directus.Query<Schema, Collections.Video>>(
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query["fields"]>
-    | undefined
-  > {
-    const items = await this.client.request(
-      readVideoItems({
-        ...query,
-        limit: 1,
-      }),
-    );
-    return items?.[0] as any; // TODO: fix
-  }
+	/**
+	 * Read the first item from the collection matching the query.
+	 */
+	async find<const Query extends Directus.Query<Schema, Collections.Video>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query['fields']> | undefined> {
+		const items = await this.client.request(
+			readVideoItems({
+				...query,
+				limit: 1
+			})
+		);
+		return items?.[0] as any; // TODO: fix
+	}
 
-  /**
-   * Update many items in the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Video[]>>(
-    keys: string[] | number[],
-    patch: Partial<Collections.Video>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query["fields"]>[]
-  > {
-    return await this.client.request(updateVideoItems(keys, patch, query));
-  }
+	/**
+	 * Update many items in the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Video[]>>(
+		keys: string[] | number[],
+		patch: Partial<Collections.Video>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query['fields']>[]> {
+		return await this.client.request(updateVideoItems(keys, patch, query));
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Video>>(
-    keys: string[] | number[],
-  ): Promise<void> {}
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Video>>(
+		keys: string[] | number[]
+	): Promise<void> {}
 }
 
-export class VideoItem
-  implements TypedCollectionItemWrapper<Collections.Video>
-{
-  /**
-   *
-   */
-  constructor(
-    private client: Directus.DirectusClient<Schema> &
-      Directus.RestClient<Schema>,
-  ) {}
+export class VideoItem implements TypedCollectionItemWrapper<Collections.Video> {
+	/**
+	 *
+	 */
+	constructor(private client: Directus.DirectusClient<Schema> & Directus.RestClient<Schema>) {}
 
-  /**
-   * Create a single item in the collection.
-   */
-  async create<const Query extends Directus.Query<Schema, Collections.Video>>(
-    item: Partial<Collections.Video>,
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query["fields"]>
-  > {
-    return (await this.client.request(
-      createVideoItem(item, query as any),
-    )) as any;
-  }
+	/**
+	 * Create a single item in the collection.
+	 */
+	async create<const Query extends Directus.Query<Schema, Collections.Video>>(
+		item: Partial<Collections.Video>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query['fields']>> {
+		return (await this.client.request(createVideoItem(item, query as any))) as any;
+	}
 
-  /**
-   * Read a single item from the collection.
-   */
-  async get<const Query extends Directus.Query<Schema, Collections.Video>>(
-    key: string | number,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query["fields"]>
-    | undefined
-  > {
-    return await this.client.request(readVideoItem(key, query));
-  }
+	/**
+	 * Read a single item from the collection.
+	 */
+	async get<const Query extends Directus.Query<Schema, Collections.Video>>(
+		key: string | number,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query['fields']> | undefined> {
+		return await this.client.request(readVideoItem(key, query));
+	}
 
-  /**
-   * Update a single item from the collection.
-   */
-  async update<const Query extends Directus.Query<Schema, Collections.Video>>(
-    key: string | number,
-    patch: Partial<Collections.Video>,
-    query?: Query,
-  ): Promise<
-    | DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query["fields"]>
-    | undefined
-  > {
-    return (await this.client.request(
-      updateVideoItem(key, patch, query as any),
-    )) as any;
-  }
+	/**
+	 * Update a single item from the collection.
+	 */
+	async update<const Query extends Directus.Query<Schema, Collections.Video>>(
+		key: string | number,
+		patch: Partial<Collections.Video>,
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Video, Query['fields']> | undefined> {
+		return (await this.client.request(updateVideoItem(key, patch, query as any))) as any;
+	}
 
-  /**
-   * Remove many items in the collection.
-   */
-  async remove<const Query extends Directus.Query<Schema, Collections.Video>>(
-    key: string | number,
-  ): Promise<void> {
-    return await this.client.request(deleteVideoItem(key));
-  }
+	/**
+	 * Remove many items in the collection.
+	 */
+	async remove<const Query extends Directus.Query<Schema, Collections.Video>>(
+		key: string | number
+	): Promise<void> {
+		return await this.client.request(deleteVideoItem(key));
+	}
 }
 
 /**
@@ -7112,257 +5507,249 @@ export class VideoItem
  */
 
 export type DirectusRestCommands<T extends Record<any, any>> = keyof {
-  [K in keyof T as T[K] extends (
-    ...any: any[]
-  ) => Directus.RestCommand<any, any>
-    ? K
-    : never]: K;
+	[K in keyof T as T[K] extends (...any: any[]) => Directus.RestCommand<any, any> ? K : never]: K;
 };
 
 export type TypedClient = {
-  /**
-   * Manages multiple items from the Button collection.
-   */
-  buttons: TypedCollectionItemsWrapper<Collections.Button>;
+	/**
+	 * Manages multiple items from the Button collection.
+	 */
+	buttons: TypedCollectionItemsWrapper<Collections.Button>;
 
-  /**
-   * Manages individual items from the Button collection.
-   */
-  button: TypedCollectionItemWrapper<Collections.Button>;
+	/**
+	 * Manages individual items from the Button collection.
+	 */
+	button: TypedCollectionItemWrapper<Collections.Button>;
 
-  /**
-   * Manages multiple items from the Categories collection.
-   */
-  categories: TypedCollectionItemsWrapper<Collections.Categories>;
+	/**
+	 * Manages multiple items from the Categories collection.
+	 */
+	categories: TypedCollectionItemsWrapper<Collections.Categories>;
 
-  /**
-   * Manages individual items from the Categories collection.
-   */
-  category: TypedCollectionItemWrapper<Collections.Categories>;
+	/**
+	 * Manages individual items from the Categories collection.
+	 */
+	category: TypedCollectionItemWrapper<Collections.Categories>;
 
-  /**
-   * Manages multiple items from the ContactForms collection.
-   */
-  contact_forms: TypedCollectionItemsWrapper<Collections.ContactForms>;
+	/**
+	 * Manages multiple items from the ContactForms collection.
+	 */
+	contact_forms: TypedCollectionItemsWrapper<Collections.ContactForms>;
 
-  /**
-   * Manages individual items from the ContactForms collection.
-   */
-  contact_form: TypedCollectionItemWrapper<Collections.ContactForms>;
+	/**
+	 * Manages individual items from the ContactForms collection.
+	 */
+	contact_form: TypedCollectionItemWrapper<Collections.ContactForms>;
 
-  /**
-   * Manages multiple items from the DirectusSyncIdMap collection.
-   */
-  directus_sync_id_maps: TypedCollectionItemsWrapper<Collections.DirectusSyncIdMap>;
+	/**
+	 * Manages multiple items from the DirectusSyncIdMap collection.
+	 */
+	directus_sync_id_maps: TypedCollectionItemsWrapper<Collections.DirectusSyncIdMap>;
 
-  /**
-   * Manages individual items from the DirectusSyncIdMap collection.
-   */
-  directus_sync_id_map: TypedCollectionItemWrapper<Collections.DirectusSyncIdMap>;
+	/**
+	 * Manages individual items from the DirectusSyncIdMap collection.
+	 */
+	directus_sync_id_map: TypedCollectionItemWrapper<Collections.DirectusSyncIdMap>;
 
-  /**
-   * Manages multiple items from the Gallery collection.
-   */
-  galleries: TypedCollectionItemsWrapper<Collections.Gallery>;
+	/**
+	 * Manages multiple items from the Gallery collection.
+	 */
+	galleries: TypedCollectionItemsWrapper<Collections.Gallery>;
 
-  /**
-   * Manages individual items from the Gallery collection.
-   */
-  gallery: TypedCollectionItemWrapper<Collections.Gallery>;
+	/**
+	 * Manages individual items from the Gallery collection.
+	 */
+	gallery: TypedCollectionItemWrapper<Collections.Gallery>;
 
-  /**
-   * Manages multiple items from the GalleryFiles collection.
-   */
-  gallery_files: TypedCollectionItemsWrapper<Collections.GalleryFiles>;
+	/**
+	 * Manages multiple items from the GalleryFiles collection.
+	 */
+	gallery_files: TypedCollectionItemsWrapper<Collections.GalleryFiles>;
 
-  /**
-   * Manages individual items from the GalleryFiles collection.
-   */
-  gallery_file: TypedCollectionItemWrapper<Collections.GalleryFiles>;
+	/**
+	 * Manages individual items from the GalleryFiles collection.
+	 */
+	gallery_file: TypedCollectionItemWrapper<Collections.GalleryFiles>;
 
-  /**
-   * Fetches the only Homepage instance available.
-   */
-  ["homepage"]<
-    const Query extends Directus.Query<Schema, Collections.Homepage>,
-  >(
-    query?: Query,
-  ): Promise<
-    DirectusSDK.ApplyQueryFields<Schema, Collections.Homepage, Query["fields"]>
-  >;
+	/**
+	 * Fetches the only Homepage instance available.
+	 */
+	['homepage']<const Query extends Directus.Query<Schema, Collections.Homepage>>(
+		query?: Query
+	): Promise<DirectusSDK.ApplyQueryFields<Schema, Collections.Homepage, Query['fields']>>;
 
-  /**
-   * Manages multiple items from the HomepageFiles collection.
-   */
-  homepage_files: TypedCollectionItemsWrapper<Collections.HomepageFiles>;
+	/**
+	 * Manages multiple items from the HomepageFiles collection.
+	 */
+	homepage_files: TypedCollectionItemsWrapper<Collections.HomepageFiles>;
 
-  /**
-   * Manages individual items from the HomepageFiles collection.
-   */
-  homepage_file: TypedCollectionItemWrapper<Collections.HomepageFiles>;
+	/**
+	 * Manages individual items from the HomepageFiles collection.
+	 */
+	homepage_file: TypedCollectionItemWrapper<Collections.HomepageFiles>;
 
-  /**
-   * Manages multiple items from the Image collection.
-   */
-  images: TypedCollectionItemsWrapper<Collections.Image>;
+	/**
+	 * Manages multiple items from the Image collection.
+	 */
+	images: TypedCollectionItemsWrapper<Collections.Image>;
 
-  /**
-   * Manages individual items from the Image collection.
-   */
-  image: TypedCollectionItemWrapper<Collections.Image>;
+	/**
+	 * Manages individual items from the Image collection.
+	 */
+	image: TypedCollectionItemWrapper<Collections.Image>;
 
-  /**
-   * Manages multiple items from the MenuItems collection.
-   */
-  menu_items: TypedCollectionItemsWrapper<Collections.MenuItems>;
+	/**
+	 * Manages multiple items from the MenuItems collection.
+	 */
+	menu_items: TypedCollectionItemsWrapper<Collections.MenuItems>;
 
-  /**
-   * Manages individual items from the MenuItems collection.
-   */
-  menu_item: TypedCollectionItemWrapper<Collections.MenuItems>;
+	/**
+	 * Manages individual items from the MenuItems collection.
+	 */
+	menu_item: TypedCollectionItemWrapper<Collections.MenuItems>;
 
-  /**
-   * Manages multiple items from the Menus collection.
-   */
-  menus: TypedCollectionItemsWrapper<Collections.Menus>;
+	/**
+	 * Manages multiple items from the Menus collection.
+	 */
+	menus: TypedCollectionItemsWrapper<Collections.Menus>;
 
-  /**
-   * Manages individual items from the Menus collection.
-   */
-  menu: TypedCollectionItemWrapper<Collections.Menus>;
+	/**
+	 * Manages individual items from the Menus collection.
+	 */
+	menu: TypedCollectionItemWrapper<Collections.Menus>;
 
-  /**
-   * Manages multiple items from the Pages collection.
-   */
-  pages: TypedCollectionItemsWrapper<Collections.Pages>;
+	/**
+	 * Manages multiple items from the Pages collection.
+	 */
+	pages: TypedCollectionItemsWrapper<Collections.Pages>;
 
-  /**
-   * Manages individual items from the Pages collection.
-   */
-  page: TypedCollectionItemWrapper<Collections.Pages>;
+	/**
+	 * Manages individual items from the Pages collection.
+	 */
+	page: TypedCollectionItemWrapper<Collections.Pages>;
 
-  /**
-   * Manages multiple items from the PagesEditorNodes collection.
-   */
-  pages_editor_nodes: TypedCollectionItemsWrapper<Collections.PagesEditorNodes>;
+	/**
+	 * Manages multiple items from the PagesEditorNodes collection.
+	 */
+	pages_editor_nodes: TypedCollectionItemsWrapper<Collections.PagesEditorNodes>;
 
-  /**
-   * Manages individual items from the PagesEditorNodes collection.
-   */
-  pages_editor_node: TypedCollectionItemWrapper<Collections.PagesEditorNodes>;
+	/**
+	 * Manages individual items from the PagesEditorNodes collection.
+	 */
+	pages_editor_node: TypedCollectionItemWrapper<Collections.PagesEditorNodes>;
 
-  /**
-   * Manages multiple items from the Projets collection.
-   */
-  projets: TypedCollectionItemsWrapper<Collections.Projets>;
+	/**
+	 * Manages multiple items from the Projets collection.
+	 */
+	projets: TypedCollectionItemsWrapper<Collections.Projets>;
 
-  /**
-   * Manages individual items from the Projets collection.
-   */
-  projet: TypedCollectionItemWrapper<Collections.Projets>;
+	/**
+	 * Manages individual items from the Projets collection.
+	 */
+	projet: TypedCollectionItemWrapper<Collections.Projets>;
 
-  /**
-   * Manages multiple items from the ProjetsFiles collection.
-   */
-  projets_files: TypedCollectionItemsWrapper<Collections.ProjetsFiles>;
+	/**
+	 * Manages multiple items from the ProjetsFiles collection.
+	 */
+	projets_files: TypedCollectionItemsWrapper<Collections.ProjetsFiles>;
 
-  /**
-   * Manages individual items from the ProjetsFiles collection.
-   */
-  projets_file: TypedCollectionItemWrapper<Collections.ProjetsFiles>;
+	/**
+	 * Manages individual items from the ProjetsFiles collection.
+	 */
+	projets_file: TypedCollectionItemWrapper<Collections.ProjetsFiles>;
 
-  /**
-   * Manages multiple items from the ProjetsTags collection.
-   */
-  projets_tags: TypedCollectionItemsWrapper<Collections.ProjetsTags>;
+	/**
+	 * Manages multiple items from the ProjetsTags collection.
+	 */
+	projets_tags: TypedCollectionItemsWrapper<Collections.ProjetsTags>;
 
-  /**
-   * Manages individual items from the ProjetsTags collection.
-   */
-  projets_tag: TypedCollectionItemWrapper<Collections.ProjetsTags>;
+	/**
+	 * Manages individual items from the ProjetsTags collection.
+	 */
+	projets_tag: TypedCollectionItemWrapper<Collections.ProjetsTags>;
 
-  /**
-   * Manages multiple items from the ProjetsTags1 collection.
-   */
-  projets_tags_1s: TypedCollectionItemsWrapper<Collections.ProjetsTags1>;
+	/**
+	 * Manages multiple items from the ProjetsTags1 collection.
+	 */
+	projets_tags_1s: TypedCollectionItemsWrapper<Collections.ProjetsTags1>;
 
-  /**
-   * Manages individual items from the ProjetsTags1 collection.
-   */
-  projets_tags_1: TypedCollectionItemWrapper<Collections.ProjetsTags1>;
+	/**
+	 * Manages individual items from the ProjetsTags1 collection.
+	 */
+	projets_tags_1: TypedCollectionItemWrapper<Collections.ProjetsTags1>;
 
-  /**
-   * Manages multiple items from the Quote collection.
-   */
-  quotes: TypedCollectionItemsWrapper<Collections.Quote>;
+	/**
+	 * Manages multiple items from the Quote collection.
+	 */
+	quotes: TypedCollectionItemsWrapper<Collections.Quote>;
 
-  /**
-   * Manages individual items from the Quote collection.
-   */
-  quote: TypedCollectionItemWrapper<Collections.Quote>;
+	/**
+	 * Manages individual items from the Quote collection.
+	 */
+	quote: TypedCollectionItemWrapper<Collections.Quote>;
 
-  /**
-   * Manages multiple items from the Section collection.
-   */
-  sections: TypedCollectionItemsWrapper<Collections.Section>;
+	/**
+	 * Manages multiple items from the Section collection.
+	 */
+	sections: TypedCollectionItemsWrapper<Collections.Section>;
 
-  /**
-   * Manages individual items from the Section collection.
-   */
-  section: TypedCollectionItemWrapper<Collections.Section>;
+	/**
+	 * Manages individual items from the Section collection.
+	 */
+	section: TypedCollectionItemWrapper<Collections.Section>;
 
-  /**
-   * Manages multiple items from the SectionEditorNodes collection.
-   */
-  section_editor_nodes: TypedCollectionItemsWrapper<Collections.SectionEditorNodes>;
+	/**
+	 * Manages multiple items from the SectionEditorNodes collection.
+	 */
+	section_editor_nodes: TypedCollectionItemsWrapper<Collections.SectionEditorNodes>;
 
-  /**
-   * Manages individual items from the SectionEditorNodes collection.
-   */
-  section_editor_node: TypedCollectionItemWrapper<Collections.SectionEditorNodes>;
+	/**
+	 * Manages individual items from the SectionEditorNodes collection.
+	 */
+	section_editor_node: TypedCollectionItemWrapper<Collections.SectionEditorNodes>;
 
-  /**
-   * Manages multiple items from the Stack collection.
-   */
-  stacks: TypedCollectionItemsWrapper<Collections.Stack>;
+	/**
+	 * Manages multiple items from the Stack collection.
+	 */
+	stacks: TypedCollectionItemsWrapper<Collections.Stack>;
 
-  /**
-   * Manages individual items from the Stack collection.
-   */
-  stack: TypedCollectionItemWrapper<Collections.Stack>;
+	/**
+	 * Manages individual items from the Stack collection.
+	 */
+	stack: TypedCollectionItemWrapper<Collections.Stack>;
 
-  /**
-   * Manages multiple items from the StackEditorNodes collection.
-   */
-  stack_editor_nodes: TypedCollectionItemsWrapper<Collections.StackEditorNodes>;
+	/**
+	 * Manages multiple items from the StackEditorNodes collection.
+	 */
+	stack_editor_nodes: TypedCollectionItemsWrapper<Collections.StackEditorNodes>;
 
-  /**
-   * Manages individual items from the StackEditorNodes collection.
-   */
-  stack_editor_node: TypedCollectionItemWrapper<Collections.StackEditorNodes>;
+	/**
+	 * Manages individual items from the StackEditorNodes collection.
+	 */
+	stack_editor_node: TypedCollectionItemWrapper<Collections.StackEditorNodes>;
 
-  /**
-   * Manages multiple items from the Tags collection.
-   */
-  tags: TypedCollectionItemsWrapper<Collections.Tags>;
+	/**
+	 * Manages multiple items from the Tags collection.
+	 */
+	tags: TypedCollectionItemsWrapper<Collections.Tags>;
 
-  /**
-   * Manages individual items from the Tags collection.
-   */
-  tag: TypedCollectionItemWrapper<Collections.Tags>;
+	/**
+	 * Manages individual items from the Tags collection.
+	 */
+	tag: TypedCollectionItemWrapper<Collections.Tags>;
 
-  /**
-   * Manages multiple items from the Video collection.
-   */
-  videos: TypedCollectionItemsWrapper<Collections.Video>;
+	/**
+	 * Manages multiple items from the Video collection.
+	 */
+	videos: TypedCollectionItemsWrapper<Collections.Video>;
 
-  /**
-   * Manages individual items from the Video collection.
-   */
-  video: TypedCollectionItemWrapper<Collections.Video>;
+	/**
+	 * Manages individual items from the Video collection.
+	 */
+	video: TypedCollectionItemWrapper<Collections.Video>;
 } & DirectusCommands;
 
-type ExcludedDirectusCommands = "withOptions" | "withToken" | "withSearch";
+type ExcludedDirectusCommands = 'withOptions' | 'withToken' | 'withSearch';
 
 /**
  * This is almost a sanity check for protecting against breaking changes in the SDK.
@@ -7370,268 +5757,257 @@ type ExcludedDirectusCommands = "withOptions" | "withToken" | "withSearch";
  */
 
 const excludedDirectusCommands: {
-  [K in keyof Omit<
-    DirectusSDK,
-    Exclude<keyof DirectusCommands, ExcludedDirectusCommands>
-  >]: true;
+	[K in keyof Omit<DirectusSDK, Exclude<keyof DirectusCommands, ExcludedDirectusCommands>>]: true;
 } = {
-  ["auth"]: true,
-  ["authentication"]: true,
-  ["createDirectus"]: true,
-  ["rest"]: true,
-  ["formatFields"]: true,
-  ["generateUid"]: true,
-  ["getAuthEndpoint"]: true,
-  ["graphql"]: true,
-  ["isDirectusError"]: true,
-  ["memoryStorage"]: true,
-  ["messageCallback"]: true,
-  ["pong"]: true,
-  ["queryToParams"]: true,
-  ["realtime"]: true,
-  ["sleep"]: true,
-  ["staticToken"]: true,
-  ["throwIfCoreCollection"]: true,
-  ["throwIfEmpty"]: true,
-  ["withOptions"]: true,
-  ["withToken"]: true,
-  ["withSearch"]: true,
+	['auth']: true,
+	['authentication']: true,
+	['createDirectus']: true,
+	['rest']: true,
+	['formatFields']: true,
+	['generateUid']: true,
+	['getAuthEndpoint']: true,
+	['graphql']: true,
+	['isDirectusError']: true,
+	['memoryStorage']: true,
+	['messageCallback']: true,
+	['pong']: true,
+	['queryToParams']: true,
+	['realtime']: true,
+	['sleep']: true,
+	['staticToken']: true,
+	['throwIfCoreCollection']: true,
+	['throwIfEmpty']: true,
+	['withOptions']: true,
+	['withToken']: true,
+	['withSearch']: true
 } as const;
 
 type _InjectSchemaSystemTypes<T, Schema> =
-  T extends Directus.Query<any, infer C>
-    ? Directus.Query<Schema, C>
-    : T extends Directus.DirectusActivity<any>
-      ? Directus.DirectusActivity<Schema>
-      : T extends Directus.DirectusCollection<any>
-        ? Directus.DirectusCollection<Schema>
-        : T extends Directus.DirectusComment<any>
-          ? Directus.DirectusComment<Schema>
-          : T extends Directus.DirectusField<any>
-            ? Directus.DirectusField<Schema>
-            : T extends Directus.DirectusFile<any>
-              ? Directus.DirectusFile<Schema>
-              : T extends Directus.DirectusFolder<any>
-                ? Directus.DirectusFolder<Schema>
-                : T extends Directus.DirectusPermission<any>
-                  ? Directus.DirectusPermission<Schema>
-                  : T extends Directus.DirectusPreset<any>
-                    ? Directus.DirectusPreset<Schema>
-                    : T extends Directus.DirectusRelation<any>
-                      ? Directus.DirectusRelation<Schema>
-                      : T extends Directus.DirectusRevision<any>
-                        ? Directus.DirectusRevision<Schema>
-                        : T extends Directus.DirectusRole<any>
-                          ? Directus.DirectusRole<Schema>
-                          : T extends Directus.DirectusSettings<any>
-                            ? Directus.DirectusSettings<Schema>
-                            : T extends Directus.DirectusUser<any>
-                              ? Directus.DirectusUser<Schema>
-                              : T extends Directus.DirectusWebhook<any>
-                                ? Directus.DirectusWebhook<Schema>
-                                : T extends Directus.DirectusDashboard<any>
-                                  ? Directus.DirectusDashboard<Schema>
-                                  : T extends Directus.DirectusPanel<any>
-                                    ? Directus.DirectusPanel<Schema>
-                                    : T extends Directus.DirectusNotification<any>
-                                      ? Directus.DirectusNotification<Schema>
-                                      : T extends Directus.DirectusShare<any>
-                                        ? Directus.DirectusShare<Schema>
-                                        : T extends Directus.DirectusFlow<any>
-                                          ? Directus.DirectusFlow<Schema>
-                                          : T extends Directus.DirectusOperation<any>
-                                            ? Directus.DirectusOperation<Schema>
-                                            : T extends Directus.DirectusTranslation<any>
-                                              ? Directus.DirectusTranslation<Schema>
-                                              : T extends Directus.DirectusVersion<any>
-                                                ? Directus.DirectusVersion<Schema>
-                                                : T extends Directus.DirectusExtension<any>
-                                                  ? Directus.DirectusExtension<Schema>
-                                                  : T extends Directus.DirectusUser<any>
-                                                    ? Directus.DirectusUser<Schema>
-                                                    : T;
+	T extends Directus.Query<any, infer C>
+		? Directus.Query<Schema, C>
+		: T extends Directus.DirectusActivity<any>
+			? Directus.DirectusActivity<Schema>
+			: T extends Directus.DirectusCollection<any>
+				? Directus.DirectusCollection<Schema>
+				: T extends Directus.DirectusComment<any>
+					? Directus.DirectusComment<Schema>
+					: T extends Directus.DirectusField<any>
+						? Directus.DirectusField<Schema>
+						: T extends Directus.DirectusFile<any>
+							? Directus.DirectusFile<Schema>
+							: T extends Directus.DirectusFolder<any>
+								? Directus.DirectusFolder<Schema>
+								: T extends Directus.DirectusPermission<any>
+									? Directus.DirectusPermission<Schema>
+									: T extends Directus.DirectusPreset<any>
+										? Directus.DirectusPreset<Schema>
+										: T extends Directus.DirectusRelation<any>
+											? Directus.DirectusRelation<Schema>
+											: T extends Directus.DirectusRevision<any>
+												? Directus.DirectusRevision<Schema>
+												: T extends Directus.DirectusRole<any>
+													? Directus.DirectusRole<Schema>
+													: T extends Directus.DirectusSettings<any>
+														? Directus.DirectusSettings<Schema>
+														: T extends Directus.DirectusUser<any>
+															? Directus.DirectusUser<Schema>
+															: T extends Directus.DirectusWebhook<any>
+																? Directus.DirectusWebhook<Schema>
+																: T extends Directus.DirectusDashboard<any>
+																	? Directus.DirectusDashboard<Schema>
+																	: T extends Directus.DirectusPanel<any>
+																		? Directus.DirectusPanel<Schema>
+																		: T extends Directus.DirectusNotification<any>
+																			? Directus.DirectusNotification<Schema>
+																			: T extends Directus.DirectusShare<any>
+																				? Directus.DirectusShare<Schema>
+																				: T extends Directus.DirectusFlow<any>
+																					? Directus.DirectusFlow<Schema>
+																					: T extends Directus.DirectusOperation<any>
+																						? Directus.DirectusOperation<Schema>
+																						: T extends Directus.DirectusTranslation<any>
+																							? Directus.DirectusTranslation<Schema>
+																							: T extends Directus.DirectusVersion<any>
+																								? Directus.DirectusVersion<Schema>
+																								: T extends Directus.DirectusExtension<any>
+																									? Directus.DirectusExtension<Schema>
+																									: T extends Directus.DirectusUser<any>
+																										? Directus.DirectusUser<Schema>
+																										: T;
 
 type InjectSchemaSystemTypes<T, Schema> =
-  T extends Partial<infer Nested>
-    ? Partial<_InjectSchemaSystemTypes<Nested, Schema>>
-    : _InjectSchemaSystemTypes<T, Schema>;
+	T extends Partial<infer Nested>
+		? Partial<_InjectSchemaSystemTypes<Nested, Schema>>
+		: _InjectSchemaSystemTypes<T, Schema>;
 
 type InjectSchema<T, Schema> = T extends []
-  ? []
-  : T extends [infer Param]
-    ? [InjectSchema<Param, Schema>]
-    : T extends [infer Param, ...infer Rest]
-      ? [InjectSchema<Param, Schema>, ...InjectSchema<Rest, Schema>]
-      : InjectSchemaSystemTypes<T, Schema>;
+	? []
+	: T extends [infer Param]
+		? [InjectSchema<Param, Schema>]
+		: T extends [infer Param, ...infer Rest]
+			? [InjectSchema<Param, Schema>, ...InjectSchema<Rest, Schema>]
+			: InjectSchemaSystemTypes<T, Schema>;
 
 export type DirectusCommands = {
-  [K in DirectusRestCommands<DirectusSDK>]: (
-    ...args: InjectSchema<Parameters<DirectusSDK[K]>, Schema>
-  ) => Promise<
-    ReturnType<DirectusSDK[K]> extends Directus.RestCommand<infer Output, any>
-      ? Output
-      : unknown
-  >;
+	[K in DirectusRestCommands<DirectusSDK>]: (
+		...args: InjectSchema<Parameters<DirectusSDK[K]>, Schema>
+	) => Promise<
+		ReturnType<DirectusSDK[K]> extends Directus.RestCommand<infer Output, any> ? Output : unknown
+	>;
 };
 
 function isDirectusRestCommand(
-  pair: [any, any],
+	pair: [any, any]
 ): pair is [string, (...args: any[]) => Directus.RestCommand<any, any>] {
-  return (
-    !((pair?.[0] as any) in excludedDirectusCommands) &&
-    typeof pair?.[1] === "function"
-  );
+	return !((pair?.[0] as any) in excludedDirectusCommands) && typeof pair?.[1] === 'function';
 }
 
 function isDirectusRestClient<Schema>(
-  client: DirectusSDK.DirectusClient<Schema>,
-): client is DirectusSDK.DirectusClient<Schema> &
-  DirectusSDK.RestClient<Schema> {
-  return client && "request" in client;
+	client: DirectusSDK.DirectusClient<Schema>
+): client is DirectusSDK.DirectusClient<Schema> & DirectusSDK.RestClient<Schema> {
+	return client && 'request' in client;
 }
 
 export const schema = () => {
-  return <Schema,>(client: Directus.DirectusClient<Schema>): TypedClient => {
-    if (!isDirectusRestClient(client)) {
-      throw new Error("Directus client must have the REST plugin enabled.");
-    }
+	return <Schema>(client: Directus.DirectusClient<Schema>): TypedClient => {
+		if (!isDirectusRestClient(client)) {
+			throw new Error('Directus client must have the REST plugin enabled.');
+		}
 
-    return Object.fromEntries([
-      ...Object.entries(DirectusSDK)
-        .filter(isDirectusRestCommand)
-        .map(([key, value]) => {
-          return [
-            key,
-            (...args: any[]): any => {
-              return client.request(value(...args));
-            },
-          ];
-        }),
+		return Object.fromEntries([
+			...Object.entries(DirectusSDK)
+				.filter(isDirectusRestCommand)
+				.map(([key, value]) => {
+					return [
+						key,
+						(...args: any[]): any => {
+							return client.request(value(...args));
+						}
+					];
+				}),
 
-      ["buttons", new ButtonItems(client as any)],
-      ["button", new ButtonItem(client as any)],
+			['buttons', new ButtonItems(client as any)],
+			['button', new ButtonItem(client as any)],
 
-      ["categories", new CategoriesItems(client as any)],
-      ["category", new CategoriesItem(client as any)],
+			['categories', new CategoriesItems(client as any)],
+			['category', new CategoriesItem(client as any)],
 
-      ["contact_forms", new ContactFormsItems(client as any)],
-      ["contact_form", new ContactFormsItem(client as any)],
+			['contact_forms', new ContactFormsItems(client as any)],
+			['contact_form', new ContactFormsItem(client as any)],
 
-      ["directus_sync_id_maps", new DirectusSyncIdMapItems(client as any)],
-      ["directus_sync_id_map", new DirectusSyncIdMapItem(client as any)],
+			['directus_sync_id_maps', new DirectusSyncIdMapItems(client as any)],
+			['directus_sync_id_map', new DirectusSyncIdMapItem(client as any)],
 
-      ["galleries", new GalleryItems(client as any)],
-      ["gallery", new GalleryItem(client as any)],
+			['galleries', new GalleryItems(client as any)],
+			['gallery', new GalleryItem(client as any)],
 
-      ["gallery_files", new GalleryFilesItems(client as any)],
-      ["gallery_file", new GalleryFilesItem(client as any)],
+			['gallery_files', new GalleryFilesItems(client as any)],
+			['gallery_file', new GalleryFilesItem(client as any)],
 
-      [
-        "homepage",
-        (query: any) => {
-          return client.request(readHomepage(query));
-        },
-      ],
+			[
+				'homepage',
+				(query: any) => {
+					return client.request(readHomepage(query));
+				}
+			],
 
-      ["homepage_files", new HomepageFilesItems(client as any)],
-      ["homepage_file", new HomepageFilesItem(client as any)],
+			['homepage_files', new HomepageFilesItems(client as any)],
+			['homepage_file', new HomepageFilesItem(client as any)],
 
-      ["images", new ImageItems(client as any)],
-      ["image", new ImageItem(client as any)],
+			['images', new ImageItems(client as any)],
+			['image', new ImageItem(client as any)],
 
-      ["menu_items", new MenuItemsItems(client as any)],
-      ["menu_item", new MenuItemsItem(client as any)],
+			['menu_items', new MenuItemsItems(client as any)],
+			['menu_item', new MenuItemsItem(client as any)],
 
-      ["menus", new MenusItems(client as any)],
-      ["menu", new MenusItem(client as any)],
+			['menus', new MenusItems(client as any)],
+			['menu', new MenusItem(client as any)],
 
-      ["pages", new PagesItems(client as any)],
-      ["page", new PagesItem(client as any)],
+			['pages', new PagesItems(client as any)],
+			['page', new PagesItem(client as any)],
 
-      ["pages_editor_nodes", new PagesEditorNodesItems(client as any)],
-      ["pages_editor_node", new PagesEditorNodesItem(client as any)],
+			['pages_editor_nodes', new PagesEditorNodesItems(client as any)],
+			['pages_editor_node', new PagesEditorNodesItem(client as any)],
 
-      ["projets", new ProjetsItems(client as any)],
-      ["projet", new ProjetsItem(client as any)],
+			['projets', new ProjetsItems(client as any)],
+			['projet', new ProjetsItem(client as any)],
 
-      ["projets_files", new ProjetsFilesItems(client as any)],
-      ["projets_file", new ProjetsFilesItem(client as any)],
+			['projets_files', new ProjetsFilesItems(client as any)],
+			['projets_file', new ProjetsFilesItem(client as any)],
 
-      ["projets_tags", new ProjetsTagsItems(client as any)],
-      ["projets_tag", new ProjetsTagsItem(client as any)],
+			['projets_tags', new ProjetsTagsItems(client as any)],
+			['projets_tag', new ProjetsTagsItem(client as any)],
 
-      ["projets_tags_1s", new ProjetsTags1Items(client as any)],
-      ["projets_tags_1", new ProjetsTags1Item(client as any)],
+			['projets_tags_1s', new ProjetsTags1Items(client as any)],
+			['projets_tags_1', new ProjetsTags1Item(client as any)],
 
-      ["quotes", new QuoteItems(client as any)],
-      ["quote", new QuoteItem(client as any)],
+			['quotes', new QuoteItems(client as any)],
+			['quote', new QuoteItem(client as any)],
 
-      ["sections", new SectionItems(client as any)],
-      ["section", new SectionItem(client as any)],
+			['sections', new SectionItems(client as any)],
+			['section', new SectionItem(client as any)],
 
-      ["section_editor_nodes", new SectionEditorNodesItems(client as any)],
-      ["section_editor_node", new SectionEditorNodesItem(client as any)],
+			['section_editor_nodes', new SectionEditorNodesItems(client as any)],
+			['section_editor_node', new SectionEditorNodesItem(client as any)],
 
-      ["stacks", new StackItems(client as any)],
-      ["stack", new StackItem(client as any)],
+			['stacks', new StackItems(client as any)],
+			['stack', new StackItem(client as any)],
 
-      ["stack_editor_nodes", new StackEditorNodesItems(client as any)],
-      ["stack_editor_node", new StackEditorNodesItem(client as any)],
+			['stack_editor_nodes', new StackEditorNodesItems(client as any)],
+			['stack_editor_node', new StackEditorNodesItem(client as any)],
 
-      ["tags", new TagsItems(client as any)],
-      ["tag", new TagsItem(client as any)],
+			['tags', new TagsItems(client as any)],
+			['tag', new TagsItem(client as any)],
 
-      ["videos", new VideoItems(client as any)],
-      ["video", new VideoItem(client as any)],
-    ]);
-  };
+			['videos', new VideoItems(client as any)],
+			['video', new VideoItem(client as any)]
+		]);
+	};
 };
 
 export interface BindableClient {
-  with: <
-    Client extends DirectusSDK.DirectusClient<any>,
-    Extension extends object,
-  >(
-    createExtension: (client: Client) => Extension,
-  ) => this & Extension;
+	with: <Client extends DirectusSDK.DirectusClient<any>, Extension extends object>(
+		createExtension: (client: Client) => Extension
+	) => this & Extension;
 }
 
 export const bindings = () => {
-  return <Schema, Client extends DirectusSDK.DirectusClient<Schema>>(
-    client: Client,
-  ): BindableClient => {
-    return {
-      with(createExtension: any) {
-        const extension = createExtension(this);
-        const extensions = Object.entries(
-          extension,
-        ).reduce<PropertyDescriptorMap>((properties, [name, value]) => {
-          return {
-            ...properties,
-            [name]: {
-              value,
-              configurable: true,
-              writable: true,
-              enumerable: true,
-            },
-          };
-        }, {});
+	return <Schema, Client extends DirectusSDK.DirectusClient<Schema>>(
+		client: Client
+	): BindableClient => {
+		return {
+			with(createExtension: any) {
+				const extension = createExtension(this);
+				const extensions = Object.entries(extension).reduce<PropertyDescriptorMap>(
+					(properties, [name, value]) => {
+						return {
+							...properties,
+							[name]: {
+								value,
+								configurable: true,
+								writable: true,
+								enumerable: true
+							}
+						};
+					},
+					{}
+				);
 
-        Object.defineProperties(this, extensions);
+				Object.defineProperties(this, extensions);
 
-        return this;
-      },
-    } as any;
-  };
+				return this;
+			}
+		} as any;
+	};
 };
 
 export function createDirectusWithTypes(
-  url: string,
+	url: string
 ): Directus.DirectusClient<Schema> & Directus.RestClient<Schema> & TypedClient {
-  return DirectusSDK.createDirectus<Schema>(url)
-    .with(bindings())
-    .with(DirectusSDK.rest())
-    .with(schema());
+	return DirectusSDK.createDirectus<Schema>(url)
+		.with(bindings())
+		.with(DirectusSDK.rest())
+		.with(schema());
 }
 
 export const createTypedClient = createDirectusWithTypes;

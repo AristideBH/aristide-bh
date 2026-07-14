@@ -10,10 +10,10 @@ const config = {
 	kit: {
 		adapter: adapter({ out: 'build' }),
 		alias: {
-			$lib: "./src/lib",
+			$lib: './src/lib',
 			$components: './src/lib/components',
 			$types: './src/lib/types',
-			$logic: './src/lib/logic',
+			$logic: './src/lib/logic'
 		}
 	},
 	vitePlugin: {

@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
 export let isDrawerOpen = writable(false);
 export const closeDrawer = () => isDrawerOpen.set(false);

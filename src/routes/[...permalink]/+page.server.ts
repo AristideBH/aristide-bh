@@ -6,31 +6,30 @@ import { error } from '@sveltejs/kit';
 import { adaptToTipTapNodes, processContent } from '$lib/components/editor/index.svelte';
 
 export const load = (async ({ params, fetch }) => {
-    const directus = client(fetch);
+	const directus = client(fetch);
 
-    const pages = await directus.request(listPages(
-        {
-            filter: {
-                "_and": [
-                    {
-                        "status": { "_nin": ['archived', 'draft'] }
-                    },
-                    {
-                        "permalink": { "_eq": params.permalink }
-                    }
+	const pages = await directus.request(
+		listPages({
+			filter: {
+				_and: [
+					{
+						status: { _nin: ['archived', 'draft'] }
+					},
+					{
+						permalink: { _eq: params.permalink }
+					}
+				]
+			},
+			fields: ['title', 'editor', 'seo']
+		})
+	);
 
-                ]
-            },
-            fields: ["title", "editor", "seo"]
-        }
-    ))
+	if (pages.length === 0) error(404, 'Page not found');
 
-    if (pages.length === 0) error(404, "Page not found");
+	const editor = await processContent(pages[0].editor.content, directus);
 
-    const editor = await processContent(pages[0].editor.content, directus);
-
-    return {
-        page: pages[0],
-        editor: adaptToTipTapNodes(editor)
-    };
+	return {
+		page: pages[0],
+		editor: adaptToTipTapNodes(editor)
+	};
 }) satisfies PageServerLoad;

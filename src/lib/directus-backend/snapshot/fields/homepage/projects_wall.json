@@ -1,27 +1,25 @@
 {
-  "collection": "homepage",
-  "field": "projects_wall",
-  "type": "alias",
-  "meta": {
-    "collection": "homepage",
-    "conditions": null,
-    "display": null,
-    "display_options": null,
-    "field": "projects_wall",
-    "group": null,
-    "hidden": false,
-    "interface": "files",
-    "note": null,
-    "options": null,
-    "readonly": false,
-    "required": false,
-    "sort": 10,
-    "special": [
-      "files"
-    ],
-    "translations": null,
-    "validation": null,
-    "validation_message": null,
-    "width": "full"
-  }
+	"collection": "homepage",
+	"field": "projects_wall",
+	"type": "alias",
+	"meta": {
+		"collection": "homepage",
+		"conditions": null,
+		"display": null,
+		"display_options": null,
+		"field": "projects_wall",
+		"group": null,
+		"hidden": false,
+		"interface": "files",
+		"note": null,
+		"options": null,
+		"readonly": false,
+		"required": false,
+		"sort": 10,
+		"special": ["files"],
+		"translations": null,
+		"validation": null,
+		"validation_message": null,
+		"width": "full"
+	}
 }
