@@ -1,2 +1,11 @@
 .env
+.env.*
+!.env.example
 node_modules
+.git
+.github
+.svelte-kit
+build
+*.md
+.vscode
+.DS_Store
